@@ -79,6 +79,43 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
 .stat span{display:block;margin-top:4px;font-size:12.5px;letter-spacing:.2em;color:var(--ink-3)}
 .cover-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 
+/* 首页四个入口 */
+.entries{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:34px 0 0}
+.entry{position:relative;display:flex;flex-direction:column;gap:7px;text-align:left;cursor:pointer;
+  padding:20px 20px 24px;border:1px solid var(--line);border-radius:2px;
+  background:linear-gradient(180deg,rgba(253,247,234,.94),rgba(246,238,222,.62));
+  box-shadow:var(--shadow);transition:.18s ease;color:inherit;font-family:inherit}
+.entry:hover{border-color:var(--gold);transform:translateY(-2px)}
+.entry:active{transform:none}
+.entry .zi{font-family:var(--kai);font-size:31px;line-height:1;color:var(--zhu)}
+.entry .nm{font-family:var(--kai);font-size:20px;letter-spacing:.18em;color:var(--ink)}
+.entry .ds{font-size:13px;line-height:1.75;color:var(--ink-3);letter-spacing:.02em}
+.entry .arrow{position:absolute;right:16px;bottom:14px;font-family:var(--kai);font-size:17px;color:var(--line);transition:.18s}
+.entry:hover .arrow{color:var(--zhu);transform:translateX(3px)}
+.home-note{margin:24px 0 0;font-family:var(--kai);font-size:12.5px;letter-spacing:.14em;color:var(--ink-3);text-align:center}
+
+/* 各页页头 */
+.pagebar{display:flex;align-items:center;gap:12px;margin:4px 0 22px;padding-bottom:14px;border-bottom:1px solid var(--line-soft)}
+.pagebar .back{width:32px;height:32px;flex:0 0 32px;border:1px solid var(--line);background:transparent;color:var(--ink-2);
+  border-radius:50%;cursor:pointer;font-size:15px;line-height:1;display:flex;align-items:center;justify-content:center;transition:.16s}
+.pagebar .back:hover{border-color:var(--zhu);color:var(--zhu)}
+.pagebar .pname{font-family:var(--kai);font-size:21px;letter-spacing:.2em;color:var(--ink)}
+.pagebar .pmeta{margin-left:auto;font-size:12.5px;letter-spacing:.1em;color:var(--ink-3);white-space:nowrap}
+
+/* 全卷 */
+.scrollbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}
+.juan{display:flex;align-items:baseline;gap:12px;font-family:var(--kai);font-weight:400;
+  font-size:22px;letter-spacing:.22em;color:var(--ink);margin:32px 0 8px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.juan span{font-size:12.5px;letter-spacing:.1em;color:var(--ink-3);font-family:var(--serif)}
+
+/* 作者背景 */
+.bgbox{margin-top:14px;padding:12px 14px;border-left:2px solid rgba(155,58,43,.35);background:rgba(155,58,43,.035)}
+.bgbox p{margin:0 0 9px;font-size:13.5px;line-height:1.88;color:var(--ink-2)}
+.bgbox p:last-child{margin-bottom:0}
+.bgbox em{font-style:normal;font-family:var(--kai);color:var(--zhu-deep);letter-spacing:.06em;margin-right:8px}
+.key .bgbox{margin-top:10px;border-left-color:rgba(155,58,43,.22);background:transparent;padding:2px 0 0 10px}
+.key .bgbox p{font-size:13px;color:var(--ink-3);margin-bottom:6px}
+
 .btn{
   font-family:var(--kai);font-size:15.5px;letter-spacing:.14em;cursor:pointer;
   padding:11px 22px;border:1px solid var(--ink);background:transparent;color:var(--ink);
@@ -281,6 +318,13 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
   .stat span{font-size:11.5px;letter-spacing:.12em}
   .opt{padding:10px 12px;font-size:15.5px}
   .qitem .opts-sm{grid-template-columns:1fr}
+  .opts-sm{grid-template-columns:1fr}
+  .entries{grid-template-columns:1fr;gap:10px;margin-top:26px}
+  .entry{padding:16px 16px 22px}
+  .entry .zi{font-size:26px}
+  .entry .nm{font-size:18px;letter-spacing:.14em}
+  .pagebar .pname{font-size:18px}
+  .juan{font-size:19px;margin-top:26px}
   .foot{flex-direction:column;align-items:flex-start}
 }
 @media (max-width:560px){
@@ -297,10 +341,11 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
   *{transition:none!important}
 }
 @media print{
-  .rail,.mobile-bar,.tabs,.cover-actions,.qa-actions,.selfrate,.toolbar,.qitem .toggle,.filters{display:none!important}
+  .rail,.mobile-bar,.tabs,.cover-actions,.qa-actions,.selfrate,.toolbar,.qitem .toggle,.filters,.entries,.pagebar,.scrollbar,.home-note{display:none!important}
   .panel{display:block!important}
   .card,.qitem{box-shadow:none;border-color:#bbb;break-inside:avoid}
   .res,.qitem .key{display:block!important}
+  .bgbox{border-left-color:#999}
   body{background:#fff}
 }
 </style>
@@ -320,37 +365,87 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
   </div>
 
   <main class="main">
-    <header class="cover" id="top">
-      <p class="kicker">夕晒文学社 · 二〇二六年纳新</p>
-      <h1 class="title">文学社纳新<span class="l2">趣味题库</span></h1>
-      <p class="lead"><b>三百题</b>　六题一轮　十七分　八分钟一场</p>
-      <p class="lead"><span class="dim">会读书的人，都玩得起来；读得杂的人，更容易赢。</span></p>
-      <div class="stats">
-        <div class="stat"><em>一百五十</em><span>选 择 题</span></div>
-        <div class="stat"><em>一百</em><span>填 空 题</span></div>
-        <div class="stat"><em>五十</em><span>大 题</span></div>
-      </div>
-      <div class="cover-actions">
-        <button class="btn primary" data-go="draw">入座抽题</button>
-        <button class="btn ghost" data-go="bank">翻阅全卷</button>
-        <button class="btn ghost" data-go="guide">看使用说明</button>
-      </div>
-    </header>
-
     <nav class="tabs" role="tablist" aria-label="栏目">
-      <button class="tab" role="tab" id="tab-draw" aria-controls="draw" aria-selected="true" data-go="draw">抽题<span class="n">3+2+1</span></button>
-      <button class="tab" role="tab" id="tab-bank" aria-controls="bank" aria-selected="false" data-go="bank">题库<span class="n">三百</span></button>
-      <button class="tab" role="tab" id="tab-guide" aria-controls="guide" aria-selected="false" data-go="guide">说明<span class="n">规则</span></button>
+      <button class="tab" role="tab" data-go="home" aria-selected="true">首页</button>
+      <button class="tab" role="tab" data-go="draw" aria-selected="false">抽题<span class="n">3+2+1</span></button>
+      <button class="tab" role="tab" data-go="scroll" aria-selected="false">全卷<span class="n">三百</span></button>
+      <button class="tab" role="tab" data-go="bank" aria-selected="false">题库<span class="n">检目</span></button>
+      <button class="tab" role="tab" data-go="guide" aria-selected="false">说明<span class="n">规则</span></button>
     </nav>
 
+    <!-- 首页 -->
+    <section class="panel on" id="home" role="tabpanel">
+      <header class="cover" id="top">
+        <p class="kicker">夕晒文学社 · 二〇二六年纳新</p>
+        <h1 class="title">文学社纳新<span class="l2">趣味题库</span></h1>
+        <p class="lead"><b>三百题</b>　六题一轮　十七分　八分钟一场</p>
+        <p class="lead"><span class="dim">会读书的人，都玩得起来；读得杂的人，更容易赢。</span></p>
+        <div class="stats">
+          <div class="stat"><em>一百五十</em><span>选 择 题</span></div>
+          <div class="stat"><em>一百</em><span>填 空 题</span></div>
+          <div class="stat"><em>五十</em><span>大 题</span></div>
+        </div>
+      </header>
+
+      <div class="entries">
+        <button class="entry" data-go="draw">
+          <span class="zi">抽</span>
+          <span class="nm">入座抽题</span>
+          <span class="ds">六题一轮：三道选择、两道填空、一道大题。答完即出答案与作者背景。</span>
+          <span class="arrow">→</span>
+        </button>
+        <button class="entry" data-go="scroll">
+          <span class="zi">卷</span>
+          <span class="nm">翻阅全卷</span>
+          <span class="ds">三卷通读，按序往下翻；每题可单独展开答案与解析。</span>
+          <span class="arrow">→</span>
+        </button>
+        <button class="entry" data-go="bank">
+          <span class="zi">目</span>
+          <span class="nm">题库</span>
+          <span class="ds">按五大分类、三种题型筛，或搜作家作品关键词找题。</span>
+          <span class="arrow">→</span>
+        </button>
+        <button class="entry" data-go="guide">
+          <span class="zi">注</span>
+          <span class="nm">使用说明</span>
+          <span class="ds">题库结构、分值、轮次安排与出题原则，主持前先看一眼。</span>
+          <span class="arrow">→</span>
+        </button>
+      </div>
+
+      <p class="home-note">扫码即用，无需注册；手机竖屏最好使。</p>
+    </section>
+
     <!-- 抽题 -->
-    <section class="panel on" id="draw" role="tabpanel" aria-labelledby="tab-draw">
+    <section class="panel" id="draw" role="tabpanel">
+      <div class="pagebar">
+        <button class="back" data-go="home" aria-label="返回首页">←</button>
+        <span class="pname">入座抽题</span>
+        <span class="pmeta">六题一轮 · 十七分</span>
+      </div>
       <div class="rundbar" id="rundbar"></div>
       <div id="qa"></div>
     </section>
 
+    <!-- 全卷 -->
+    <section class="panel" id="scroll" role="tabpanel">
+      <div class="pagebar">
+        <button class="back" data-go="home" aria-label="返回首页">←</button>
+        <span class="pname">翻阅全卷</span>
+        <span class="pmeta">三卷 · 三百题</span>
+      </div>
+      <div class="scrollbar" id="scrollbar"></div>
+      <div id="scroll-wrap"></div>
+    </section>
+
     <!-- 题库 -->
-    <section class="panel" id="bank" role="tabpanel" aria-labelledby="tab-bank">
+    <section class="panel" id="bank" role="tabpanel">
+      <div class="pagebar">
+        <button class="back" data-go="home" aria-label="返回首页">←</button>
+        <span class="pname">题库</span>
+        <span class="pmeta">筛选 · 检索</span>
+      </div>
       <div class="filters" id="filters"></div>
       <div class="toolbar">
         <label class="search"><span>寻</span><input id="q" type="search" placeholder="搜题干、作家、作品，如「苏轼」「诗经」" autocomplete="off"></label>
@@ -361,7 +456,12 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     </section>
 
     <!-- 说明 -->
-    <section class="panel" id="guide" role="tabpanel" aria-labelledby="tab-guide">
+    <section class="panel" id="guide" role="tabpanel">
+      <div class="pagebar">
+        <button class="back" data-go="home" aria-label="返回首页">←</button>
+        <span class="pname">使用说明</span>
+        <span class="pmeta">结构 · 规则 · 原则</span>
+      </div>
       <div class="intro">
         <h2>一 · 题库结构</h2>
         <table class="tbl">
@@ -406,12 +506,11 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
 
         <h2>五 · 这个页面怎么用</h2>
         <ul class="rules">
-          <li><b>抽题</b>点「入座抽题」，自动抽出三选择、两填空、一大题；选择题点选项即判对错、当场出解析，答错标红、正解标青。</li>
-          <li><b>连跳</b>想一个人一直刷下去，就打开右上「答对连跳」，答对自动进入下一题。</li>
-          <li><b>记分</b>得分在右上，选择题答对得 2 分；填空、大题开卷后自评。六题走完出成绩。</li>
-          <li><b>题库</b>「题库」里可按分类、题型查找，也可以搜关键词；「全显答案」供主持人一次性核对。</li>
+          <li><b>入口</b>首页四个入口：入座抽题、翻阅全卷、题库、使用说明，点哪个进哪个页，左上「←」回首页。</li>
+          <li><b>抽题</b>六题一轮。选择题点选项即判对错，当场出解析与作者背景；填空题开卷校对后可自评。</li>
+          <li><b>大题</b>不给参考答案，听完直接给 0—5 分；冷场时可给一个提示词。</li>
+          <li><b>全卷</b>三卷通读，逐题可展开答案；「题库」里可按分类、题型筛，或搜作家作品。</li>
           <li><b>记号</b>选项以「甲乙丙丁」标示，对应答案册里的 A、B、C、D。</li>
-          <li><b>打印</b>浏览器打印时，答案与解析会自动展开，可直接印成主持稿。</li>
         </ul>
       </div>
     </section>
@@ -427,3612 +526,7 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
   </main>
 </div>
 
-<script type="application/json" id="bank-data">{
- "meta": {
-  "title": "文学社纳新趣味题库",
-  "count": 300,
-  "built": "2026-11-22T02:56:48.784Z"
- },
- "choices": [
-  {
-   "id": "选001",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《诗经》共收录诗歌多少篇？",
-   "opts": [
-    "305篇",
-    "500篇",
-    "360篇",
-    "250篇"
-   ],
-   "ans": "A",
-   "ansText": "305篇",
-   "note": "《诗经》共305篇，又称“诗三百”，收录西周初年至春秋中叶的诗歌。"
-  },
-  {
-   "id": "选002",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“关关雎鸠，在河之洲”出自《诗经》的哪一篇？",
-   "opts": [
-    "《氓》",
-    "《蒹葭》",
-    "《硕鼠》",
-    "《关雎》"
-   ],
-   "ans": "D",
-   "ansText": "《关雎》",
-   "note": "《关雎》是《诗经·周南》的首篇，常被视为爱情诗。"
-  },
-  {
-   "id": "选003",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "我国古代最长的抒情诗是屈原的哪部作品？",
-   "opts": [
-    "《天问》",
-    "《九歌》",
-    "《九章》",
-    "《离骚》"
-   ],
-   "ans": "D",
-   "ansText": "《离骚》",
-   "note": "《离骚》是屈原的代表作，也是中国古代最长的抒情诗。"
-  },
-  {
-   "id": "选004",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“路漫漫其修远兮，吾将上下而求索”出自？",
-   "opts": [
-    "《离骚》",
-    "《诗经》",
-    "《庄子》",
-    "《九歌》"
-   ],
-   "ans": "A",
-   "ansText": "《离骚》",
-   "note": "出自屈原《离骚》，表达对理想的执着追求。"
-  },
-  {
-   "id": "选005",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "被鲁迅誉为“史家之绝唱，无韵之离骚”的作品是？",
-   "opts": [
-    "《史记》",
-    "《左传》",
-    "《资治通鉴》",
-    "《汉书》"
-   ],
-   "ans": "A",
-   "ansText": "《史记》",
-   "note": "鲁迅在《汉文学史纲要》中这样评价《史记》。"
-  },
-  {
-   "id": "选006",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《史记》的作者是？",
-   "opts": [
-    "司马迁",
-    "左丘明",
-    "班固",
-    "司马光"
-   ],
-   "ans": "A",
-   "ansText": "司马迁",
-   "note": "司马迁，西汉史学家，著纪传体通史《史记》。"
-  },
-  {
-   "id": "选007",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“老骥伏枥，志在千里”的作者是？",
-   "opts": [
-    "曹操",
-    "曹丕",
-    "曹植",
-    "诸葛亮"
-   ],
-   "ans": "A",
-   "ansText": "曹操",
-   "note": "出自曹操《龟虽寿》，写老当益壮的豪情。"
-  },
-  {
-   "id": "选008",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“采菊东篱下，悠然见南山”的作者是？",
-   "opts": [
-    "陶渊明",
-    "孟浩然",
-    "谢灵运",
-    "王维"
-   ],
-   "ans": "A",
-   "ansText": "陶渊明",
-   "note": "出自陶渊明《饮酒·其五》，东晋田园诗的代表作。"
-  },
-  {
-   "id": "选009",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“枯藤老树昏鸦，小桥流水人家”出自马致远的？",
-   "opts": [
-    "《山坡羊·潼关怀古》",
-    "《天净沙·秋思》",
-    "《窦娥冤》",
-    "《西厢记》"
-   ],
-   "ans": "B",
-   "ansText": "《天净沙·秋思》",
-   "note": "《天净沙·秋思》是元曲小令名篇，被誉为“秋思之祖”。"
-  },
-  {
-   "id": "选010",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“海内存知己，天涯若比邻”的作者是？",
-   "opts": [
-    "李白",
-    "王勃",
-    "王维",
-    "杜甫"
-   ],
-   "ans": "B",
-   "ansText": "王勃",
-   "note": "出自王勃《送杜少府之任蜀州》，王勃是“初唐四杰”之一。"
-  },
-  {
-   "id": "选011",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“会当凌绝顶，一览众山小”出自杜甫的哪首诗？",
-   "opts": [
-    "《登高》",
-    "《春望》",
-    "《望岳》",
-    "《石壕吏》"
-   ],
-   "ans": "C",
-   "ansText": "《望岳》",
-   "note": "《望岳》写泰山，是杜甫青年时期的作品。"
-  },
-  {
-   "id": "选012",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "李白被后人称为？",
-   "opts": [
-    "诗圣",
-    "诗仙",
-    "诗佛",
-    "诗鬼"
-   ],
-   "ans": "B",
-   "ansText": "诗仙",
-   "note": "李白是唐代浪漫主义诗人，人称“诗仙”。"
-  },
-  {
-   "id": "选013",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "杜甫被后人称为？",
-   "opts": [
-    "诗豪",
-    "诗魔",
-    "诗仙",
-    "诗圣"
-   ],
-   "ans": "D",
-   "ansText": "诗圣",
-   "note": "杜甫是唐代现实主义诗人，人称“诗圣”，其诗被称为“诗史”。"
-  },
-  {
-   "id": "选014",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“飞流直下三千尺，疑是银河落九天”描写的是哪座山？",
-   "opts": [
-    "泰山",
-    "黄山",
-    "庐山",
-    "华山"
-   ],
-   "ans": "C",
-   "ansText": "庐山",
-   "note": "出自李白《望庐山瀑布》。"
-  },
-  {
-   "id": "选015",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“大漠孤烟直，长河落日圆”的作者是？",
-   "opts": [
-    "王维",
-    "岑参",
-    "王之涣",
-    "高适"
-   ],
-   "ans": "A",
-   "ansText": "王维",
-   "note": "出自王维《使至塞上》，体现“诗中有画”的特点。"
-  },
-  {
-   "id": "选016",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“欲穷千里目，更上一层楼”出自？",
-   "opts": [
-    "《凉州词》",
-    "《望庐山瀑布》",
-    "《登鹳雀楼》",
-    "《出塞》"
-   ],
-   "ans": "C",
-   "ansText": "《登鹳雀楼》",
-   "note": "《登鹳雀楼》为王之涣所作。"
-  },
-  {
-   "id": "选017",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“举头望明月”的下一句是？",
-   "opts": [
-    "天涯共此时",
-    "低头思故乡",
-    "月是故乡明",
-    "疑是地上霜"
-   ],
-   "ans": "B",
-   "ansText": "低头思故乡",
-   "note": "出自李白《静夜思》。"
-  },
-  {
-   "id": "选018",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“春眠不觉晓，处处闻啼鸟”的作者是？",
-   "opts": [
-    "李白",
-    "王维",
-    "孟浩然",
-    "杜牧"
-   ],
-   "ans": "C",
-   "ansText": "孟浩然",
-   "note": "出自孟浩然《春晓》，孟浩然是唐代山水田园诗人。"
-  },
-  {
-   "id": "选019",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "唐代被称为“诗鬼”的诗人是？",
-   "opts": [
-    "刘禹锡",
-    "李贺",
-    "李商隐",
-    "杜牧"
-   ],
-   "ans": "B",
-   "ansText": "李贺",
-   "note": "李贺想象奇崛、语言瑰丽，人称“诗鬼”。"
-  },
-  {
-   "id": "选020",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“先天下之忧而忧，后天下之乐而乐”出自？",
-   "opts": [
-    "《岳阳楼记》",
-    "《醉翁亭记》",
-    "《滕王阁序》",
-    "《陋室铭》"
-   ],
-   "ans": "A",
-   "ansText": "《岳阳楼记》",
-   "note": "出自范仲淹《岳阳楼记》。"
-  },
-  {
-   "id": "选021",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《岳阳楼记》的作者是？",
-   "opts": [
-    "王安石",
-    "范仲淹",
-    "欧阳修",
-    "苏轼"
-   ],
-   "ans": "B",
-   "ansText": "范仲淹",
-   "note": "范仲淹，北宋政治家、文学家。"
-  },
-  {
-   "id": "选022",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“但愿人长久，千里共婵娟”的作者是？",
-   "opts": [
-    "辛弃疾",
-    "李清照",
-    "苏轼",
-    "柳永"
-   ],
-   "ans": "C",
-   "ansText": "苏轼",
-   "note": "出自苏轼《水调歌头·明月几时有》。"
-  },
-  {
-   "id": "选023",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《三国演义》的作者是？",
-   "opts": [
-    "吴承恩",
-    "曹雪芹",
-    "罗贯中",
-    "施耐庵"
-   ],
-   "ans": "C",
-   "ansText": "罗贯中",
-   "note": "《三国演义》是罗贯中创作的长篇章回体历史演义小说。"
-  },
-  {
-   "id": "选024",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“生当作人杰，死亦为鬼雄”的作者是？",
-   "opts": [
-    "蔡文姬",
-    "秋瑾",
-    "李清照",
-    "班昭"
-   ],
-   "ans": "C",
-   "ansText": "李清照",
-   "note": "出自李清照《夏日绝句》，她是婉约派代表词人。"
-  },
-  {
-   "id": "选025",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“醉里挑灯看剑，梦回吹角连营”的作者是？",
-   "opts": [
-    "岳飞",
-    "苏轼",
-    "陆游",
-    "辛弃疾"
-   ],
-   "ans": "D",
-   "ansText": "辛弃疾",
-   "note": "出自辛弃疾《破阵子·为陈同甫赋壮词以寄之》。"
-  },
-  {
-   "id": "选026",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "李白号什么？",
-   "opts": [
-    "易安居士",
-    "青莲居士",
-    "东坡居士",
-    "六一居士"
-   ],
-   "ans": "B",
-   "ansText": "青莲居士",
-   "note": "李白号青莲居士；东坡居士是苏轼，易安居士是李清照，六一居士是欧阳修。"
-  },
-  {
-   "id": "选027",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "下列不属于“唐宋八大家”的是？",
-   "opts": [
-    "韩愈",
-    "李白",
-    "柳宗元",
-    "王安石"
-   ],
-   "ans": "B",
-   "ansText": "李白",
-   "note": "唐宋八大家为韩愈、柳宗元、欧阳修、苏洵、苏轼、苏辙、王安石、曾巩。"
-  },
-  {
-   "id": "选028",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《西游记》的作者是？",
-   "opts": [
-    "吴承恩",
-    "曹雪芹",
-    "施耐庵",
-    "罗贯中"
-   ],
-   "ans": "A",
-   "ansText": "吴承恩",
-   "note": "《西游记》为明代吴承恩所著。"
-  },
-  {
-   "id": "选029",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《水浒传》中绰号“及时雨”的是？",
-   "opts": [
-    "李逵",
-    "武松",
-    "宋江",
-    "林冲"
-   ],
-   "ans": "C",
-   "ansText": "宋江",
-   "note": "宋江绰号及时雨；林冲是豹子头，武松是行者，李逵是黑旋风。"
-  },
-  {
-   "id": "选030",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“三顾茅庐”请出的是谁？",
-   "opts": [
-    "诸葛亮",
-    "庞统",
-    "徐庶",
-    "司马懿"
-   ],
-   "ans": "A",
-   "ansText": "诸葛亮",
-   "note": "刘备三顾茅庐，请诸葛亮出山。"
-  },
-  {
-   "id": "选031",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《红楼梦》的作者是？",
-   "opts": [
-    "吴敬梓",
-    "高鹗",
-    "蒲松龄",
-    "曹雪芹"
-   ],
-   "ans": "D",
-   "ansText": "曹雪芹",
-   "note": "《红楼梦》前八十回为曹雪芹所著，后四十回一般认为由高鹗续成。"
-  },
-  {
-   "id": "选032",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《红楼梦》中“潇湘妃子”指的是？",
-   "opts": [
-    "薛宝钗",
-    "王熙凤",
-    "林黛玉",
-    "史湘云"
-   ],
-   "ans": "C",
-   "ansText": "林黛玉",
-   "note": "林黛玉住潇湘馆，诗社别号“潇湘妃子”。"
-  },
-  {
-   "id": "选033",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《聊斋志异》的作者是？",
-   "opts": [
-    "纪晓岚",
-    "冯梦龙",
-    "蒲松龄",
-    "曹雪芹"
-   ],
-   "ans": "C",
-   "ansText": "蒲松龄",
-   "note": "《聊斋志异》是清代蒲松龄所作的文言短篇小说集。"
-  },
-  {
-   "id": "选034",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“三打白骨精”出自哪部小说？",
-   "opts": [
-    "《封神演义》",
-    "《聊斋志异》",
-    "《西游记》",
-    "《水浒传》"
-   ],
-   "ans": "C",
-   "ansText": "《西游记》",
-   "note": "“三打白骨精”是《西游记》中的经典情节。"
-  },
-  {
-   "id": "选035",
-   "cat": "中国古代文学",
-   "level": "中",
-   "q": "我国第一部文人独立创作的长篇世情小说是？",
-   "opts": [
-    "《儒林外史》",
-    "《红楼梦》",
-    "《金瓶梅》",
-    "《西游记》"
-   ],
-   "ans": "C",
-   "ansText": "《金瓶梅》",
-   "note": "《金瓶梅》为明代兰陵笑笑生所作，被认为是第一部文人独立创作的长篇世情小说。"
-  },
-  {
-   "id": "选036",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《木兰诗》属于？",
-   "opts": [
-    "北朝民歌",
-    "宋词",
-    "唐诗",
-    "汉乐府"
-   ],
-   "ans": "A",
-   "ansText": "北朝民歌",
-   "note": "《木兰诗》是北朝民歌，与《孔雀东南飞》并称“乐府双璧”。"
-  },
-  {
-   "id": "选037",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“唧唧复唧唧，木兰当户织”出自？",
-   "opts": [
-    "《陌上桑》",
-    "《孔雀东南飞》",
-    "《长恨歌》",
-    "《木兰诗》"
-   ],
-   "ans": "D",
-   "ansText": "《木兰诗》",
-   "note": "出自北朝民歌《木兰诗》。"
-  },
-  {
-   "id": "选038",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "我国古代最长的叙事诗是？",
-   "opts": [
-    "《木兰诗》",
-    "《孔雀东南飞》",
-    "《琵琶行》",
-    "《长恨歌》"
-   ],
-   "ans": "B",
-   "ansText": "《孔雀东南飞》",
-   "note": "《孔雀东南飞》是汉乐府长篇叙事诗，与《木兰诗》并称“乐府双璧”。"
-  },
-  {
-   "id": "选039",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“落霞与孤鹜齐飞”的下一句是？",
-   "opts": [
-    "秋水共长天一色",
-    "长天共秋水一色",
-    "孤鹜与落霞齐飞",
-    "烟光凝而暮山紫"
-   ],
-   "ans": "A",
-   "ansText": "秋水共长天一色",
-   "note": "出自王勃《滕王阁序》。"
-  },
-  {
-   "id": "选040",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“同是天涯沦落人，相逢何必曾相识”出自白居易的？",
-   "opts": [
-    "《忆江南》",
-    "《长恨歌》",
-    "《琵琶行》",
-    "《卖炭翁》"
-   ],
-   "ans": "C",
-   "ansText": "《琵琶行》",
-   "note": "出自白居易长篇叙事诗《琵琶行》。"
-  },
-  {
-   "id": "选041",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“在天愿作比翼鸟，在地愿为连理枝”出自？",
-   "opts": [
-    "《西厢记》",
-    "《长恨歌》",
-    "《牡丹亭》",
-    "《琵琶行》"
-   ],
-   "ans": "B",
-   "ansText": "《长恨歌》",
-   "note": "出自白居易《长恨歌》，写唐玄宗与杨贵妃的故事。"
-  },
-  {
-   "id": "选042",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《西厢记》的作者是？",
-   "opts": [
-    "关汉卿",
-    "汤显祖",
-    "王实甫",
-    "马致远"
-   ],
-   "ans": "C",
-   "ansText": "王实甫",
-   "note": "《西厢记》是元代王实甫的杂剧代表作。"
-  },
-  {
-   "id": "选043",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "元曲《窦娥冤》的作者是？",
-   "opts": [
-    "白朴",
-    "马致远",
-    "关汉卿",
-    "郑光祖"
-   ],
-   "ans": "C",
-   "ansText": "关汉卿",
-   "note": "关汉卿是“元曲四大家”之首，《窦娥冤》是其代表作。"
-  },
-  {
-   "id": "选044",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《牡丹亭》的作者是？",
-   "opts": [
-    "孔尚任",
-    "洪昇",
-    "王实甫",
-    "汤显祖"
-   ],
-   "ans": "D",
-   "ansText": "汤显祖",
-   "note": "《牡丹亭》是明代汤显祖“临川四梦”之一。"
-  },
-  {
-   "id": "选045",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“人生自古谁无死，留取丹心照汗青”的作者是？",
-   "opts": [
-    "陆游",
-    "岳飞",
-    "辛弃疾",
-    "文天祥"
-   ],
-   "ans": "D",
-   "ansText": "文天祥",
-   "note": "出自文天祥《过零丁洋》。"
-  },
-  {
-   "id": "选046",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“粉骨碎身浑不怕，要留清白在人间”咏的是？",
-   "opts": [
-    "梅花",
-    "竹子",
-    "菊花",
-    "石灰"
-   ],
-   "ans": "D",
-   "ansText": "石灰",
-   "note": "出自于谦《石灰吟》，借石灰言志。"
-  },
-  {
-   "id": "选047",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《儒林外史》的作者是？",
-   "opts": [
-    "蒲松龄",
-    "曹雪芹",
-    "李汝珍",
-    "吴敬梓"
-   ],
-   "ans": "D",
-   "ansText": "吴敬梓",
-   "note": "《儒林外史》是清代吴敬梓所作的讽刺小说。"
-  },
-  {
-   "id": "选048",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《水浒传》的作者是？",
-   "opts": [
-    "曹雪芹",
-    "罗贯中",
-    "施耐庵",
-    "吴承恩"
-   ],
-   "ans": "C",
-   "ansText": "施耐庵",
-   "note": "《水浒传》一般认为是施耐庵所著的长篇章回体小说。"
-  },
-  {
-   "id": "选049",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《诗经》的三种表现手法是？",
-   "opts": [
-    "赋、比、兴",
-    "礼、乐、射",
-    "风、雅、颂",
-    "诗、书、礼"
-   ],
-   "ans": "A",
-   "ansText": "赋、比、兴",
-   "note": "赋、比、兴是《诗经》的表现手法；风、雅、颂是内容分类。"
-  },
-  {
-   "id": "选050",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "“风、雅、颂”是《诗经》的？",
-   "opts": [
-    "创作年代",
-    "作者",
-    "内容分类",
-    "表现手法"
-   ],
-   "ans": "C",
-   "ansText": "内容分类",
-   "note": "《诗经》按内容分为风、雅、颂三部分。"
-  },
-  {
-   "id": "选051",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《狂人日记》的作者是？",
-   "opts": [
-    "鲁迅",
-    "巴金",
-    "老舍",
-    "茅盾"
-   ],
-   "ans": "A",
-   "ansText": "鲁迅",
-   "note": "《狂人日记》发表于1918年，是中国第一篇现代白话短篇小说。"
-  },
-  {
-   "id": "选052",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "我国第一篇现代白话短篇小说是？",
-   "opts": [
-    "《孔乙己》",
-    "《故乡》",
-    "《阿Q正传》",
-    "《狂人日记》"
-   ],
-   "ans": "D",
-   "ansText": "《狂人日记》",
-   "note": "鲁迅的《狂人日记》被视为中国现代白话小说的开端。"
-  },
-  {
-   "id": "选053",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《骆驼祥子》的作者是？",
-   "opts": [
-    "巴金",
-    "老舍",
-    "沈从文",
-    "曹禺"
-   ],
-   "ans": "B",
-   "ansText": "老舍",
-   "note": "《骆驼祥子》是老舍的长篇小说代表作。"
-  },
-  {
-   "id": "选054",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《茶馆》的作者是？",
-   "opts": [
-    "老舍",
-    "郭沫若",
-    "曹禺",
-    "田汉"
-   ],
-   "ans": "A",
-   "ansText": "老舍",
-   "note": "《茶馆》是老舍的话剧代表作。"
-  },
-  {
-   "id": "选055",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《雷雨》的作者是？",
-   "opts": [
-    "老舍",
-    "巴金",
-    "曹禺",
-    "夏衍"
-   ],
-   "ans": "C",
-   "ansText": "曹禺",
-   "note": "《雷雨》是曹禺的话剧成名作。"
-  },
-  {
-   "id": "选056",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "“激流三部曲”《家》《春》《秋》的作者是？",
-   "opts": [
-    "茅盾",
-    "老舍",
-    "巴金",
-    "沈从文"
-   ],
-   "ans": "C",
-   "ansText": "巴金",
-   "note": "“激流三部曲”是巴金的代表作。"
-  },
-  {
-   "id": "选057",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《边城》的作者是？",
-   "opts": [
-    "张爱玲",
-    "沈从文",
-    "萧红",
-    "汪曾祺"
-   ],
-   "ans": "B",
-   "ansText": "沈从文",
-   "note": "《边城》写湘西茶峒的翠翠，是沈从文的代表作。"
-  },
-  {
-   "id": "选058",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《呼兰河传》的作者是？",
-   "opts": [
-    "冰心",
-    "萧红",
-    "丁玲",
-    "张爱玲"
-   ],
-   "ans": "B",
-   "ansText": "萧红",
-   "note": "《呼兰河传》是萧红的回忆体长篇小说。"
-  },
-  {
-   "id": "选059",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《倾城之恋》的作者是？",
-   "opts": [
-    "萧红",
-    "丁玲",
-    "林徽因",
-    "张爱玲"
-   ],
-   "ans": "D",
-   "ansText": "张爱玲",
-   "note": "《倾城之恋》是张爱玲的短篇小说代表作。"
-  },
-  {
-   "id": "选060",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《围城》的作者是？",
-   "opts": [
-    "朱自清",
-    "沈从文",
-    "杨绛",
-    "钱锺书"
-   ],
-   "ans": "D",
-   "ansText": "钱锺书",
-   "note": "《围城》是钱锺书唯一的长篇小说。"
-  },
-  {
-   "id": "选061",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《背影》的作者是？",
-   "opts": [
-    "朱自清",
-    "郁达夫",
-    "冰心",
-    "鲁迅"
-   ],
-   "ans": "A",
-   "ansText": "朱自清",
-   "note": "《背影》是朱自清的散文名篇，写父亲的背影。"
-  },
-  {
-   "id": "选062",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《荷塘月色》的作者是？",
-   "opts": [
-    "朱自清",
-    "冰心",
-    "闻一多",
-    "徐志摩"
-   ],
-   "ans": "A",
-   "ansText": "朱自清",
-   "note": "《荷塘月色》是朱自清的写景散文名篇。"
-  },
-  {
-   "id": "选063",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "“轻轻的我走了，正如我轻轻的来”出自？",
-   "opts": [
-    "《再别康桥》",
-    "《乡愁》",
-    "《雨巷》",
-    "《致橡树》"
-   ],
-   "ans": "A",
-   "ansText": "《再别康桥》",
-   "note": "出自徐志摩《再别康桥》。"
-  },
-  {
-   "id": "选064",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《再别康桥》的作者是？",
-   "opts": [
-    "戴望舒",
-    "闻一多",
-    "徐志摩",
-    "艾青"
-   ],
-   "ans": "C",
-   "ansText": "徐志摩",
-   "note": "徐志摩是新月派代表诗人。"
-  },
-  {
-   "id": "选065",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《雨巷》的作者是？",
-   "opts": [
-    "艾青",
-    "徐志摩",
-    "卞之琳",
-    "戴望舒"
-   ],
-   "ans": "D",
-   "ansText": "戴望舒",
-   "note": "戴望舒因《雨巷》被称为“雨巷诗人”。"
-  },
-  {
-   "id": "选066",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "“为什么我的眼里常含泪水？因为我对这土地爱得深沉”的作者是？",
-   "opts": [
-    "闻一多",
-    "艾青",
-    "臧克家",
-    "舒婷"
-   ],
-   "ans": "B",
-   "ansText": "艾青",
-   "note": "出自艾青《我爱这土地》。"
-  },
-  {
-   "id": "选067",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "“乡愁是一枚小小的邮票”出自？",
-   "opts": [
-    "郑愁予",
-    "余光中",
-    "洛夫",
-    "席慕蓉"
-   ],
-   "ans": "B",
-   "ansText": "余光中",
-   "note": "出自余光中《乡愁》。"
-  },
-  {
-   "id": "选068",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《致橡树》的作者是？",
-   "opts": [
-    "顾城",
-    "海子",
-    "北岛",
-    "舒婷"
-   ],
-   "ans": "D",
-   "ansText": "舒婷",
-   "note": "《致橡树》是舒婷的朦胧诗代表作。"
-  },
-  {
-   "id": "选069",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "“面朝大海，春暖花开”的作者是？",
-   "opts": [
-    "顾城",
-    "北岛",
-    "海子",
-    "舒婷"
-   ],
-   "ans": "C",
-   "ansText": "海子",
-   "note": "出自海子《面朝大海，春暖花开》。"
-  },
-  {
-   "id": "选070",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《平凡的世界》的作者是？",
-   "opts": [
-    "路遥",
-    "陈忠实",
-    "贾平凹",
-    "莫言"
-   ],
-   "ans": "A",
-   "ansText": "路遥",
-   "note": "《平凡的世界》是路遥的长篇小说，写孙少安、孙少平兄弟。"
-  },
-  {
-   "id": "选071",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《白鹿原》的作者是？",
-   "opts": [
-    "路遥",
-    "余华",
-    "贾平凹",
-    "陈忠实"
-   ],
-   "ans": "D",
-   "ansText": "陈忠实",
-   "note": "《白鹿原》是陈忠实的长篇小说代表作。"
-  },
-  {
-   "id": "选072",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《活着》的作者是？",
-   "opts": [
-    "莫言",
-    "余华",
-    "苏童",
-    "王小波"
-   ],
-   "ans": "B",
-   "ansText": "余华",
-   "note": "《活着》写福贵的一生，是余华的代表作。"
-  },
-  {
-   "id": "选073",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "2012年获得诺贝尔文学奖的中国作家是？",
-   "opts": [
-    "余华",
-    "贾平凹",
-    "刘慈欣",
-    "莫言"
-   ],
-   "ans": "D",
-   "ansText": "莫言",
-   "note": "莫言于2012年获得诺贝尔文学奖。"
-  },
-  {
-   "id": "选074",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《红高粱家族》的作者是？",
-   "opts": [
-    "陈忠实",
-    "余华",
-    "刘震云",
-    "莫言"
-   ],
-   "ans": "D",
-   "ansText": "莫言",
-   "note": "《红高粱家族》是莫言的代表作之一。"
-  },
-  {
-   "id": "选075",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《三体》的作者是？",
-   "opts": [
-    "韩松",
-    "王晋康",
-    "郝景芳",
-    "刘慈欣"
-   ],
-   "ans": "D",
-   "ansText": "刘慈欣",
-   "note": "《三体》是刘慈欣的长篇科幻小说，获雨果奖最佳长篇小说奖。"
-  },
-  {
-   "id": "选076",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《哈姆雷特》的作者是？",
-   "opts": [
-    "莎士比亚",
-    "雨果",
-    "塞万提斯",
-    "歌德"
-   ],
-   "ans": "A",
-   "ansText": "莎士比亚",
-   "note": "莎士比亚四大悲剧为《哈姆雷特》《奥赛罗》《李尔王》《麦克白》。"
-  },
-  {
-   "id": "选077",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "“生存还是毁灭，这是一个问题”出自？",
-   "opts": [
-    "《奥赛罗》",
-    "《哈姆雷特》",
-    "《麦克白》",
-    "《李尔王》"
-   ],
-   "ans": "B",
-   "ansText": "《哈姆雷特》",
-   "note": "这是《哈姆雷特》中著名的独白。"
-  },
-  {
-   "id": "选078",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《巴黎圣母院》的作者是？",
-   "opts": [
-    "大仲马",
-    "巴尔扎克",
-    "雨果",
-    "司汤达"
-   ],
-   "ans": "C",
-   "ansText": "雨果",
-   "note": "《巴黎圣母院》是法国作家雨果的长篇小说。"
-  },
-  {
-   "id": "选079",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "冉·阿让是哪部小说的人物？",
-   "opts": [
-    "《九三年》",
-    "《基督山伯爵》",
-    "《巴黎圣母院》",
-    "《悲惨世界》"
-   ],
-   "ans": "D",
-   "ansText": "《悲惨世界》",
-   "note": "冉·阿让是雨果《悲惨世界》的主人公。"
-  },
-  {
-   "id": "选080",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《战争与和平》的作者是？",
-   "opts": [
-    "屠格涅夫",
-    "列夫·托尔斯泰",
-    "陀思妥耶夫斯基",
-    "高尔基"
-   ],
-   "ans": "B",
-   "ansText": "列夫·托尔斯泰",
-   "note": "《战争与和平》是托尔斯泰的长篇史诗小说。"
-  },
-  {
-   "id": "选081",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《安娜·卡列尼娜》的作者是？",
-   "opts": [
-    "契诃夫",
-    "果戈理",
-    "列夫·托尔斯泰",
-    "普希金"
-   ],
-   "ans": "C",
-   "ansText": "列夫·托尔斯泰",
-   "note": "小说开篇“幸福的家庭都是相似的，不幸的家庭各有各的不幸”广为流传。"
-  },
-  {
-   "id": "选082",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《罪与罚》的作者是？",
-   "opts": [
-    "屠格涅夫",
-    "契诃夫",
-    "陀思妥耶夫斯基",
-    "托尔斯泰"
-   ],
-   "ans": "C",
-   "ansText": "陀思妥耶夫斯基",
-   "note": "《罪与罚》是陀思妥耶夫斯基的长篇小说。"
-  },
-  {
-   "id": "选083",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《变色龙》的作者是？",
-   "opts": [
-    "契诃夫",
-    "高尔基",
-    "莫泊桑",
-    "欧·亨利"
-   ],
-   "ans": "A",
-   "ansText": "契诃夫",
-   "note": "《变色龙》是契诃夫的短篇小说名篇。"
-  },
-  {
-   "id": "选084",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《钢铁是怎样炼成的》的主人公是？",
-   "opts": [
-    "冬妮娅",
-    "阿尔焦姆",
-    "朱赫来",
-    "保尔·柯察金"
-   ],
-   "ans": "D",
-   "ansText": "保尔·柯察金",
-   "note": "保尔·柯察金是奥斯特洛夫斯基小说《钢铁是怎样炼成的》的主人公。"
-  },
-  {
-   "id": "选085",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《童年》的作者是？",
-   "opts": [
-    "肖洛霍夫",
-    "契诃夫",
-    "高尔基",
-    "托尔斯泰"
-   ],
-   "ans": "C",
-   "ansText": "高尔基",
-   "note": "《童年》是高尔基自传体三部曲的第一部。"
-  },
-  {
-   "id": "选086",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《百年孤独》的作者是？",
-   "opts": [
-    "加西亚·马尔克斯",
-    "略萨",
-    "博尔赫斯",
-    "聂鲁达"
-   ],
-   "ans": "A",
-   "ansText": "加西亚·马尔克斯",
-   "note": "马尔克斯是哥伦比亚作家，魔幻现实主义代表，1982年获诺贝尔文学奖。"
-  },
-  {
-   "id": "选087",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《堂吉诃德》的作者是？",
-   "opts": [
-    "但丁",
-    "塞万提斯",
-    "莎士比亚",
-    "薄伽丘"
-   ],
-   "ans": "B",
-   "ansText": "塞万提斯",
-   "note": "《堂吉诃德》是西班牙作家塞万提斯的长篇小说。"
-  },
-  {
-   "id": "选088",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《神曲》的作者是？",
-   "opts": [
-    "但丁",
-    "薄伽丘",
-    "塞万提斯",
-    "彼特拉克"
-   ],
-   "ans": "A",
-   "ansText": "但丁",
-   "note": "《神曲》是意大利诗人但丁的长诗，分《地狱》《炼狱》《天堂》三部分。"
-  },
-  {
-   "id": "选089",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《十日谈》的作者是？",
-   "opts": [
-    "彼特拉克",
-    "拉伯雷",
-    "薄伽丘",
-    "但丁"
-   ],
-   "ans": "C",
-   "ansText": "薄伽丘",
-   "note": "《十日谈》是意大利作家薄伽丘的短篇小说集。"
-  },
-  {
-   "id": "选090",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《浮士德》的作者是？",
-   "opts": [
-    "托马斯·曼",
-    "海涅",
-    "席勒",
-    "歌德"
-   ],
-   "ans": "D",
-   "ansText": "歌德",
-   "note": "《浮士德》是德国作家歌德的诗剧代表作。"
-  },
-  {
-   "id": "选091",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《假如生活欺骗了你》的作者是？",
-   "opts": [
-    "屠格涅夫",
-    "普希金",
-    "莱蒙托夫",
-    "果戈理"
-   ],
-   "ans": "B",
-   "ansText": "普希金",
-   "note": "普希金是俄国浪漫主义文学的代表。"
-  },
-  {
-   "id": "选092",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《老人与海》的作者是？",
-   "opts": [
-    "马克·吐温",
-    "菲茨杰拉德",
-    "海明威",
-    "福克纳"
-   ],
-   "ans": "C",
-   "ansText": "海明威",
-   "note": "海明威1954年获诺贝尔文学奖，《老人与海》是其代表作。"
-  },
-  {
-   "id": "选093",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《老人与海》的主人公是？",
-   "opts": [
-    "盖茨比",
-    "圣地亚哥",
-    "汤姆·索亚",
-    "曼诺林"
-   ],
-   "ans": "B",
-   "ansText": "圣地亚哥",
-   "note": "圣地亚哥是老渔夫，曼诺林是陪他出海的孩子。"
-  },
-  {
-   "id": "选094",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《小王子》的作者是？",
-   "opts": [
-    "圣埃克苏佩里",
-    "大仲马",
-    "凡尔纳",
-    "雨果"
-   ],
-   "ans": "A",
-   "ansText": "圣埃克苏佩里",
-   "note": "《小王子》是法国作家圣埃克苏佩里的童话小说。"
-  },
-  {
-   "id": "选095",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "安徒生是哪个国家的童话作家？",
-   "opts": [
-    "丹麦",
-    "德国",
-    "瑞典",
-    "挪威"
-   ],
-   "ans": "A",
-   "ansText": "丹麦",
-   "note": "安徒生是丹麦童话作家，代表作有《海的女儿》《丑小鸭》等。"
-  },
-  {
-   "id": "选096",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《一千零一夜》又名？",
-   "opts": [
-    "《格林童话》",
-    "《伊索寓言》",
-    "《十日谈》",
-    "《天方夜谭》"
-   ],
-   "ans": "D",
-   "ansText": "《天方夜谭》",
-   "note": "《一千零一夜》是阿拉伯民间故事集，又名《天方夜谭》。"
-  },
-  {
-   "id": "选097",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "《源氏物语》的作者是？",
-   "opts": [
-    "清少纳言",
-    "紫式部",
-    "樋口一叶",
-    "夏目漱石"
-   ],
-   "ans": "B",
-   "ansText": "紫式部",
-   "note": "《源氏物语》是日本平安时代紫式部的长篇小说。"
-  },
-  {
-   "id": "选098",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《挪威的森林》的作者是？",
-   "opts": [
-    "夏目漱石",
-    "太宰治",
-    "川端康成",
-    "村上春树"
-   ],
-   "ans": "D",
-   "ansText": "村上春树",
-   "note": "《挪威的森林》是村上春树的长篇小说。"
-  },
-  {
-   "id": "选099",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《我是猫》的作者是？",
-   "opts": [
-    "芥川龙之介",
-    "川端康成",
-    "村上春树",
-    "夏目漱石"
-   ],
-   "ans": "D",
-   "ansText": "夏目漱石",
-   "note": "《我是猫》是夏目漱石的长篇小说，以猫的视角看人间。"
-  },
-  {
-   "id": "选100",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《飞鸟集》的作者是？",
-   "opts": [
-    "泰戈尔",
-    "普希金",
-    "纪伯伦",
-    "聂鲁达"
-   ],
-   "ans": "A",
-   "ansText": "泰戈尔",
-   "note": "《飞鸟集》是印度诗人泰戈尔的诗集。"
-  },
-  {
-   "id": "选101",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《鲁滨逊漂流记》的作者是？",
-   "opts": [
-    "司各特",
-    "菲尔丁",
-    "笛福",
-    "斯威夫特"
-   ],
-   "ans": "C",
-   "ansText": "笛福",
-   "note": "《鲁滨逊漂流记》是英国作家笛福的长篇小说。"
-  },
-  {
-   "id": "选102",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《简·爱》的作者是？",
-   "opts": [
-    "夏洛蒂·勃朗特",
-    "乔治·艾略特",
-    "简·奥斯汀",
-    "艾米莉·勃朗特"
-   ],
-   "ans": "A",
-   "ansText": "夏洛蒂·勃朗特",
-   "note": "《简·爱》是夏洛蒂·勃朗特的代表作；艾米莉·勃朗特写《呼啸山庄》。"
-  },
-  {
-   "id": "选103",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《傲慢与偏见》的作者是？",
-   "opts": [
-    "简·奥斯汀",
-    "艾米莉·勃朗特",
-    "伍尔夫",
-    "夏洛蒂·勃朗特"
-   ],
-   "ans": "A",
-   "ansText": "简·奥斯汀",
-   "note": "《傲慢与偏见》是简·奥斯汀的代表作。"
-  },
-  {
-   "id": "选104",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《雾都孤儿》的作者是？",
-   "opts": [
-    "萨克雷",
-    "哈代",
-    "狄更斯",
-    "毛姆"
-   ],
-   "ans": "C",
-   "ansText": "狄更斯",
-   "note": "《雾都孤儿》是狄更斯的长篇小说。"
-  },
-  {
-   "id": "选105",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "《月亮与六便士》的作者是？",
-   "opts": [
-    "奥威尔",
-    "狄更斯",
-    "毛姆",
-    "哈代"
-   ],
-   "ans": "C",
-   "ansText": "毛姆",
-   "note": "《月亮与六便士》以画家高更为原型，是毛姆的代表作。"
-  },
-  {
-   "id": "选106",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "《1984》的作者是？",
-   "opts": [
-    "乔治·奥威尔",
-    "扎米亚京",
-    "卡夫卡",
-    "赫胥黎"
-   ],
-   "ans": "A",
-   "ansText": "乔治·奥威尔",
-   "note": "《1984》是奥威尔的反乌托邦小说。"
-  },
-  {
-   "id": "选107",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《变形记》的作者是？",
-   "opts": [
-    "伍尔夫",
-    "乔伊斯",
-    "卡夫卡",
-    "普鲁斯特"
-   ],
-   "ans": "C",
-   "ansText": "卡夫卡",
-   "note": "《变形记》写格里高尔变成甲虫，是卡夫卡的代表作。"
-  },
-  {
-   "id": "选108",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "《追风筝的人》的作者是？",
-   "opts": [
-    "卡勒德·胡赛尼",
-    "奥威尔",
-    "村上春树",
-    "塞林格"
-   ],
-   "ans": "A",
-   "ansText": "卡勒德·胡赛尼",
-   "note": "《追风筝的人》是阿富汗裔美国作家胡赛尼的小说。"
-  },
-  {
-   "id": "选109",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "《苏菲的世界》的作者是？",
-   "opts": [
-    "乔斯坦·贾德",
-    "拉格洛夫",
-    "易卜生",
-    "安徒生"
-   ],
-   "ans": "A",
-   "ansText": "乔斯坦·贾德",
-   "note": "《苏菲的世界》是挪威作家乔斯坦·贾德的哲学启蒙小说。"
-  },
-  {
-   "id": "选110",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《格林童话》由谁搜集整理？",
-   "opts": [
-    "豪夫",
-    "佩罗",
-    "格林兄弟",
-    "安徒生"
-   ],
-   "ans": "C",
-   "ansText": "格林兄弟",
-   "note": "《格林童话》由德国格林兄弟搜集整理。"
-  },
-  {
-   "id": "选111",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“四书”不包括下列哪一部？",
-   "opts": [
-    "《中庸》",
-    "《论语》",
-    "《大学》",
-    "《诗经》"
-   ],
-   "ans": "D",
-   "ansText": "《诗经》",
-   "note": "“四书”指《大学》《中庸》《论语》《孟子》。"
-  },
-  {
-   "id": "选112",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“五经”不包括下列哪一部？",
-   "opts": [
-    "《尚书》",
-    "《礼记》",
-    "《诗经》",
-    "《论语》"
-   ],
-   "ans": "D",
-   "ansText": "《论语》",
-   "note": "“五经”指《诗》《书》《礼》《易》《春秋》。"
-  },
-  {
-   "id": "选113",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "我国第一部纪传体通史是？",
-   "opts": [
-    "《汉书》",
-    "《春秋》",
-    "《史记》",
-    "《资治通鉴》"
-   ],
-   "ans": "C",
-   "ansText": "《史记》",
-   "note": "《史记》为司马迁所著，是我国第一部纪传体通史。"
-  },
-  {
-   "id": "选114",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "词又称？",
-   "opts": [
-    "长短句",
-    "近体诗",
-    "古风",
-    "骈文"
-   ],
-   "ans": "A",
-   "ansText": "长短句",
-   "note": "词又称长短句、诗余，句子长短不齐。"
-  },
-  {
-   "id": "选115",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "元曲包括散曲和？",
-   "opts": [
-    "杂剧",
-    "南戏",
-    "话本",
-    "传奇"
-   ],
-   "ans": "A",
-   "ansText": "杂剧",
-   "note": "元曲包括散曲和杂剧，关汉卿、马致远等是代表作家。"
-  },
-  {
-   "id": "选116",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "明清科举考试中，殿试第一名称为？",
-   "opts": [
-    "榜眼",
-    "探花",
-    "状元",
-    "会元"
-   ],
-   "ans": "C",
-   "ansText": "状元",
-   "note": "殿试前三名为状元、榜眼、探花。"
-  },
-  {
-   "id": "选117",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "成语“程门立雪”讲的是谁尊师求学的故事？",
-   "opts": [
-    "杨时",
-    "孔子",
-    "孟子",
-    "朱熹"
-   ],
-   "ans": "A",
-   "ansText": "杨时",
-   "note": "杨时冒雪立于程颐门外等候，留下“程门立雪”的典故。"
-  },
-  {
-   "id": "选118",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“四面楚歌”与哪位历史人物有关？",
-   "opts": [
-    "张良",
-    "刘邦",
-    "韩信",
-    "项羽"
-   ],
-   "ans": "D",
-   "ansText": "项羽",
-   "note": "楚汉相争时，项羽被围垓下，四面响起楚歌。"
-  },
-  {
-   "id": "选119",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“指鹿为马”说的是谁？",
-   "opts": [
-    "和珅",
-    "秦桧",
-    "王莽",
-    "赵高"
-   ],
-   "ans": "D",
-   "ansText": "赵高",
-   "note": "秦二世时，赵高指着鹿说是马，试探群臣。"
-  },
-  {
-   "id": "选120",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“卧薪尝胆”说的是谁？",
-   "opts": [
-    "刘邦",
-    "勾践",
-    "夫差",
-    "项羽"
-   ],
-   "ans": "B",
-   "ansText": "勾践",
-   "note": "越王勾践战败后卧薪尝胆，最终复国。"
-  },
-  {
-   "id": "选121",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "成语“洛阳纸贵”形容的是？",
-   "opts": [
-    "洛阳城繁华",
-    "书法精美",
-    "纸张价格上涨",
-    "作品广为流传"
-   ],
-   "ans": "D",
-   "ansText": "作品广为流传",
-   "note": "左思《三都赋》写成后，人们争相传抄，洛阳纸价上涨。"
-  },
-  {
-   "id": "选122",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "成语“江郎才尽”中的“江郎”指？",
-   "opts": [
-    "江永",
-    "江万里",
-    "江统",
-    "江淹"
-   ],
-   "ans": "D",
-   "ansText": "江淹",
-   "note": "南朝文学家江淹晚年才思衰退，留下“江郎才尽”之说。"
-  },
-  {
-   "id": "选123",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "成语“胸有成竹”与哪位画家有关？",
-   "opts": [
-    "文同",
-    "苏轼",
-    "唐寅",
-    "郑板桥"
-   ],
-   "ans": "A",
-   "ansText": "文同",
-   "note": "北宋文同画竹前心中已有竹子的完整形象。"
-  },
-  {
-   "id": "选124",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "成语“入木三分”最初形容什么？",
-   "opts": [
-    "画技高超",
-    "文章深刻",
-    "雕刻精美",
-    "书法笔力强劲"
-   ],
-   "ans": "D",
-   "ansText": "书法笔力强劲",
-   "note": "相传王羲之写字笔力透入木板三分，后形容书法有力。"
-  },
-  {
-   "id": "选125",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "“黄粱一梦”的典故出自？",
-   "opts": [
-    "《聊斋志异》",
-    "《西游记》",
-    "《枕中记》",
-    "《红楼梦》"
-   ],
-   "ans": "C",
-   "ansText": "《枕中记》",
-   "note": "唐代沈既济《枕中记》写卢生在梦中历尽荣华，醒来黄粱未熟。"
-  },
-  {
-   "id": "选126",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "诺贝尔文学奖的颁奖典礼在哪个国家举行？",
-   "opts": [
-    "挪威",
-    "丹麦",
-    "瑞士",
-    "瑞典"
-   ],
-   "ans": "D",
-   "ansText": "瑞典",
-   "note": "诺贝尔文学奖由瑞典学院颁发，典礼在斯德哥尔摩举行。"
-  },
-  {
-   "id": "选127",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "茅盾文学奖主要奖励哪种体裁？",
-   "opts": [
-    "戏剧",
-    "长篇小说",
-    "诗歌",
-    "散文"
-   ],
-   "ans": "B",
-   "ansText": "长篇小说",
-   "note": "茅盾文学奖是中国长篇小说最高荣誉之一。"
-  },
-  {
-   "id": "选128",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "鲁迅文学奖不设下列哪个奖项？",
-   "opts": [
-    "中篇小说",
-    "诗歌",
-    "短篇小说",
-    "长篇小说"
-   ],
-   "ans": "D",
-   "ansText": "长篇小说",
-   "note": "长篇小说由茅盾文学奖评选，鲁迅文学奖设中短篇小说等奖项。"
-  },
-  {
-   "id": "选129",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“小李杜”指的是？",
-   "opts": [
-    "李商隐和杜甫",
-    "李贺和杜牧",
-    "李商隐和杜牧",
-    "李白和杜甫"
-   ],
-   "ans": "C",
-   "ansText": "李商隐和杜牧",
-   "note": "“小李杜”指晚唐诗人李商隐、杜牧；“大李杜”指李白、杜甫。"
-  },
-  {
-   "id": "选130",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“大李杜”指的是？",
-   "opts": [
-    "李商隐和杜牧",
-    "李贺和杜牧",
-    "李白和杜牧",
-    "李白和杜甫"
-   ],
-   "ans": "D",
-   "ansText": "李白和杜甫",
-   "note": "“大李杜”指盛唐诗人李白、杜甫。"
-  },
-  {
-   "id": "选131",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“苏辛”指的是？",
-   "opts": [
-    "苏轼和辛弃疾",
-    "苏轼和秦观",
-    "苏辙和辛弃疾",
-    "苏洵和苏轼"
-   ],
-   "ans": "A",
-   "ansText": "苏轼和辛弃疾",
-   "note": "“苏辛”是宋词豪放派的代表作家苏轼、辛弃疾。"
-  },
-  {
-   "id": "选132",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "婉约派的代表词人是？",
-   "opts": [
-    "柳永和李清照",
-    "陆游和辛弃疾",
-    "王安石和苏轼",
-    "苏轼和辛弃疾"
-   ],
-   "ans": "A",
-   "ansText": "柳永和李清照",
-   "note": "婉约派代表有柳永、李清照；豪放派代表有苏轼、辛弃疾。"
-  },
-  {
-   "id": "选133",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“三苏”指的是？",
-   "opts": [
-    "苏武、苏洵、苏轼",
-    "苏轼、苏辙、苏小妹",
-    "苏洵、苏轼、苏辙",
-    "苏洵、苏辙、苏武"
-   ],
-   "ans": "C",
-   "ansText": "苏洵、苏轼、苏辙",
-   "note": "“三苏”指北宋苏洵、苏轼、苏辙父子三人，均属唐宋八大家。"
-  },
-  {
-   "id": "选134",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "我国四大名著不包括？",
-   "opts": [
-    "《西游记》",
-    "《水浒传》",
-    "《红楼梦》",
-    "《聊斋志异》"
-   ],
-   "ans": "D",
-   "ansText": "《聊斋志异》",
-   "note": "四大名著为《红楼梦》《西游记》《水浒传》《三国演义》。"
-  },
-  {
-   "id": "选135",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“世界三大短篇小说巨匠”不包括？",
-   "opts": [
-    "契诃夫",
-    "欧·亨利",
-    "莫泊桑",
-    "列夫·托尔斯泰"
-   ],
-   "ans": "D",
-   "ansText": "列夫·托尔斯泰",
-   "note": "三大短篇小说巨匠为莫泊桑、契诃夫、欧·亨利。"
-  },
-  {
-   "id": "选136",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“豆蔻年华”指女子多少岁左右？",
-   "opts": [
-    "十三四岁",
-    "二十岁",
-    "十六岁",
-    "十五岁"
-   ],
-   "ans": "A",
-   "ansText": "十三四岁",
-   "note": "豆蔻年华指女子十三四岁。"
-  },
-  {
-   "id": "选137",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“弱冠之年”指男子多少岁？",
-   "opts": [
-    "二十岁",
-    "三十岁",
-    "十八岁",
-    "十五岁"
-   ],
-   "ans": "A",
-   "ansText": "二十岁",
-   "note": "古代男子二十岁行冠礼，称“弱冠”。"
-  },
-  {
-   "id": "选138",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“而立之年”指多少岁？",
-   "opts": [
-    "二十岁",
-    "四十岁",
-    "三十岁",
-    "五十岁"
-   ],
-   "ans": "C",
-   "ansText": "三十岁",
-   "note": "出自《论语》“三十而立”。"
-  },
-  {
-   "id": "选139",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“知天命之年”指多少岁？",
-   "opts": [
-    "七十岁",
-    "六十岁",
-    "四十岁",
-    "五十岁"
-   ],
-   "ans": "D",
-   "ansText": "五十岁",
-   "note": "出自《论语》“五十而知天命”。"
-  },
-  {
-   "id": "选140",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“古稀之年”指多少岁？",
-   "opts": [
-    "六十岁",
-    "七十岁",
-    "九十岁",
-    "八十岁"
-   ],
-   "ans": "B",
-   "ansText": "七十岁",
-   "note": "杜甫诗云“人生七十古来稀”。"
-  },
-  {
-   "id": "选141",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "中国神话中“开天辟地”的是谁？",
-   "opts": [
-    "女娲",
-    "夸父",
-    "盘古",
-    "后羿"
-   ],
-   "ans": "C",
-   "ansText": "盘古",
-   "note": "盘古开天辟地，身体化为山川日月。"
-  },
-  {
-   "id": "选142",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "“女娲补天”中女娲用什么补天？",
-   "opts": [
-    "玉石",
-    "五色土",
-    "陨石",
-    "五彩石"
-   ],
-   "ans": "D",
-   "ansText": "五彩石",
-   "note": "女娲炼五彩石补天，斩鳌足立四极。"
-  },
-  {
-   "id": "选143",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "“精卫填海”中精卫是谁的女儿？",
-   "opts": [
-    "舜",
-    "炎帝",
-    "黄帝",
-    "尧"
-   ],
-   "ans": "B",
-   "ansText": "炎帝",
-   "note": "精卫是炎帝之女，溺于东海后化为鸟，衔石填海。"
-  },
-  {
-   "id": "选144",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "“嫦娥奔月”中嫦娥偷吃了什么？",
-   "opts": [
-    "仙露",
-    "蟠桃",
-    "灵芝",
-    "不死药"
-   ],
-   "ans": "D",
-   "ansText": "不死药",
-   "note": "后羿求得不死药，嫦娥偷吃后飞升月宫。"
-  },
-  {
-   "id": "选145",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "《西游记》中孙悟空的兵器是？",
-   "opts": [
-    "降妖宝杖",
-    "金箍棒",
-    "九齿钉耙",
-    "芭蕉扇"
-   ],
-   "ans": "B",
-   "ansText": "金箍棒",
-   "note": "孙悟空的金箍棒原为东海龙宫的定海神针。"
-  },
-  {
-   "id": "选146",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "希腊神话中的众神之王是？",
-   "opts": [
-    "哈迪斯",
-    "宙斯",
-    "波塞冬",
-    "阿波罗"
-   ],
-   "ans": "B",
-   "ansText": "宙斯",
-   "note": "宙斯是奥林匹斯众神之王，波塞冬管海，哈迪斯管冥界。"
-  },
-  {
-   "id": "选147",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "希腊神话中的智慧女神是？",
-   "opts": [
-    "阿佛洛狄忒",
-    "赫拉",
-    "阿尔忒弥斯",
-    "雅典娜"
-   ],
-   "ans": "D",
-   "ansText": "雅典娜",
-   "note": "雅典娜是智慧与战争女神，雅典城的守护神。"
-  },
-  {
-   "id": "选148",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "《哈利·波特》系列小说的作者是？",
-   "opts": [
-    "J.K.罗琳",
-    "乔治·马丁",
-    "C.S.刘易斯",
-    "托尔金"
-   ],
-   "ans": "A",
-   "ansText": "J.K.罗琳",
-   "note": "J.K.罗琳是英国作家，《哈利·波特》系列风靡全球。"
-  },
-  {
-   "id": "选149",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "《指环王》的作者是？",
-   "opts": [
-    "托尔金",
-    "菲利普·普尔曼",
-    "J.K.罗琳",
-    "C.S.刘易斯"
-   ],
-   "ans": "A",
-   "ansText": "托尔金",
-   "note": "托尔金是英国作家，被誉为“现代奇幻文学之父”。"
-  },
-  {
-   "id": "选150",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "“特洛伊木马”的故事属于哪个古代文明的传说？",
-   "opts": [
-    "古巴比伦",
-    "古希腊",
-    "古埃及",
-    "古罗马"
-   ],
-   "ans": "B",
-   "ansText": "古希腊",
-   "note": "特洛伊战争是古希腊传说，见于荷马史诗。"
-  }
- ],
- "blanks": [
-  {
-   "id": "填001",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：关关雎鸠，在河之洲。窈窕淑女，________。",
-   "ans": "君子好逑",
-   "note": "《诗经·周南·关雎》"
-  },
-  {
-   "id": "填002",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：蒹葭苍苍，白露为霜。所谓伊人，________。",
-   "ans": "在水一方",
-   "note": "《诗经·秦风·蒹葭》"
-  },
-  {
-   "id": "填003",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：路漫漫其修远兮，________。",
-   "ans": "吾将上下而求索",
-   "note": "屈原《离骚》"
-  },
-  {
-   "id": "填004",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：老骥伏枥，________。",
-   "ans": "志在千里",
-   "note": "曹操《龟虽寿》"
-  },
-  {
-   "id": "填005",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：采菊东篱下，________。",
-   "ans": "悠然见南山",
-   "note": "陶渊明《饮酒·其五》"
-  },
-  {
-   "id": "填006",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：海内存知己，________。",
-   "ans": "天涯若比邻",
-   "note": "王勃《送杜少府之任蜀州》"
-  },
-  {
-   "id": "填007",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：会当凌绝顶，________。",
-   "ans": "一览众山小",
-   "note": "杜甫《望岳》"
-  },
-  {
-   "id": "填008",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：飞流直下三千尺，________。",
-   "ans": "疑是银河落九天",
-   "note": "李白《望庐山瀑布》"
-  },
-  {
-   "id": "填009",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：大漠孤烟直，________。",
-   "ans": "长河落日圆",
-   "note": "王维《使至塞上》"
-  },
-  {
-   "id": "填010",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：欲穷千里目，________。",
-   "ans": "更上一层楼",
-   "note": "王之涣《登鹳雀楼》"
-  },
-  {
-   "id": "填011",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：举头望明月，________。",
-   "ans": "低头思故乡",
-   "note": "李白《静夜思》"
-  },
-  {
-   "id": "填012",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：春眠不觉晓，________。",
-   "ans": "处处闻啼鸟",
-   "note": "孟浩然《春晓》"
-  },
-  {
-   "id": "填013",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：但愿人长久，________。",
-   "ans": "千里共婵娟",
-   "note": "苏轼《水调歌头·明月几时有》"
-  },
-  {
-   "id": "填014",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：先天下之忧而忧，________。",
-   "ans": "后天下之乐而乐",
-   "note": "范仲淹《岳阳楼记》"
-  },
-  {
-   "id": "填015",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：落霞与孤鹜齐飞，________。",
-   "ans": "秋水共长天一色",
-   "note": "王勃《滕王阁序》"
-  },
-  {
-   "id": "填016",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：同是天涯沦落人，________。",
-   "ans": "相逢何必曾相识",
-   "note": "白居易《琵琶行》"
-  },
-  {
-   "id": "填017",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：在天愿作比翼鸟，________。",
-   "ans": "在地愿为连理枝",
-   "note": "白居易《长恨歌》"
-  },
-  {
-   "id": "填018",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：人生自古谁无死，________。",
-   "ans": "留取丹心照汗青",
-   "note": "文天祥《过零丁洋》"
-  },
-  {
-   "id": "填019",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：粉骨碎身浑不怕，________。",
-   "ans": "要留清白在人间",
-   "note": "于谦《石灰吟》"
-  },
-  {
-   "id": "填020",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：醉里挑灯看剑，________。",
-   "ans": "梦回吹角连营",
-   "note": "辛弃疾《破阵子·为陈同甫赋壮词以寄之》"
-  },
-  {
-   "id": "填021",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：生当作人杰，________。",
-   "ans": "死亦为鬼雄",
-   "note": "李清照《夏日绝句》"
-  },
-  {
-   "id": "填022",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：枯藤老树昏鸦，________。",
-   "ans": "小桥流水人家",
-   "note": "马致远《天净沙·秋思》"
-  },
-  {
-   "id": "填023",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：夕阳西下，________。",
-   "ans": "断肠人在天涯",
-   "note": "马致远《天净沙·秋思》"
-  },
-  {
-   "id": "填024",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：知否，知否，________。",
-   "ans": "应是绿肥红瘦",
-   "note": "李清照《如梦令》"
-  },
-  {
-   "id": "填025",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：寻寻觅觅，________。",
-   "ans": "冷冷清清",
-   "note": "李清照《声声慢》"
-  },
-  {
-   "id": "填026",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：无边落木萧萧下，________。",
-   "ans": "不尽长江滚滚来",
-   "note": "杜甫《登高》"
-  },
-  {
-   "id": "填027",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：两情若是久长时，________。",
-   "ans": "又岂在朝朝暮暮",
-   "note": "秦观《鹊桥仙》"
-  },
-  {
-   "id": "填028",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：春蚕到死丝方尽，________。",
-   "ans": "蜡炬成灰泪始干",
-   "note": "李商隐《无题》"
-  },
-  {
-   "id": "填029",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：山重水复疑无路，________。",
-   "ans": "柳暗花明又一村",
-   "note": "陆游《游山西村》"
-  },
-  {
-   "id": "填030",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：沉舟侧畔千帆过，________。",
-   "ans": "病树前头万木春",
-   "note": "刘禹锡《酬乐天扬州初逢席上见赠》"
-  },
-  {
-   "id": "填031",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：千磨万击还坚劲，________。",
-   "ans": "任尔东西南北风",
-   "note": "郑燮《竹石》"
-  },
-  {
-   "id": "填032",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：不要人夸好颜色，________。",
-   "ans": "只留清气满乾坤",
-   "note": "王冕《墨梅》"
-  },
-  {
-   "id": "填033",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：学而不思则罔，________。",
-   "ans": "思而不学则殆",
-   "note": "《论语·为政》"
-  },
-  {
-   "id": "填034",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：三人行，________。",
-   "ans": "必有我师焉",
-   "note": "《论语·述而》"
-  },
-  {
-   "id": "填035",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "补写名句：长风破浪会有时，________。",
-   "ans": "直挂云帆济沧海",
-   "note": "李白《行路难》"
-  },
-  {
-   "id": "填036",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "鲁迅原名________。",
-   "ans": "周树人",
-   "note": "鲁迅，浙江绍兴人，中国现代文学奠基人。"
-  },
-  {
-   "id": "填037",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "鲁迅的第一部小说集是《________》。",
-   "ans": "呐喊",
-   "note": "《呐喊》收录《狂人日记》《阿Q正传》等。"
-  },
-  {
-   "id": "填038",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《阿Q正传》的主人公是________。",
-   "ans": "阿Q",
-   "note": "《阿Q正传》是鲁迅的中篇小说。"
-  },
-  {
-   "id": "填039",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "老舍原名________。",
-   "ans": "舒庆春",
-   "note": "老舍，北京人，代表作《骆驼祥子》《茶馆》。"
-  },
-  {
-   "id": "填040",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "巴金原名________。",
-   "ans": "李尧棠",
-   "note": "巴金，四川成都人，代表作“激流三部曲”。"
-  },
-  {
-   "id": "填041",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "茅盾原名________，字雁冰。",
-   "ans": "沈德鸿",
-   "note": "答“沈雁冰”也可；茅盾是笔名。"
-  },
-  {
-   "id": "填042",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "曹禺原名________。",
-   "ans": "万家宝",
-   "note": "曹禺，剧作家，代表作《雷雨》《日出》。"
-  },
-  {
-   "id": "填043",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "冰心原名________。",
-   "ans": "谢婉莹",
-   "note": "冰心，福建长乐人，代表作《繁星》《春水》。"
-  },
-  {
-   "id": "填044",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《边城》的女主人公是________。",
-   "ans": "翠翠",
-   "note": "《边城》写湘西茶峒渡船少女翠翠。"
-  },
-  {
-   "id": "填045",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《骆驼祥子》的男主人公是________。",
-   "ans": "祥子",
-   "note": "《骆驼祥子》写人力车夫祥子的命运。"
-  },
-  {
-   "id": "填046",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "补写名句：横眉冷对千夫指，________。",
-   "ans": "俯首甘为孺子牛",
-   "note": "鲁迅《自嘲》"
-  },
-  {
-   "id": "填047",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "补写名句：其实地上本没有路，________。",
-   "ans": "走的人多了，也便成了路",
-   "note": "鲁迅《故乡》"
-  },
-  {
-   "id": "填048",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《乡愁》的作者是________。",
-   "ans": "余光中",
-   "note": "余光中，台湾诗人，《乡愁》广为流传。"
-  },
-  {
-   "id": "填049",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "补写名句：黑夜给了我黑色的眼睛，我却用它________。",
-   "ans": "寻找光明",
-   "note": "顾城《一代人》"
-  },
-  {
-   "id": "填050",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《活着》的主人公是________。",
-   "ans": "福贵",
-   "note": "余华《活着》写福贵一生的苦难与坚韧。"
-  },
-  {
-   "id": "填051",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《哈姆雷特》的作者是________。",
-   "ans": "莎士比亚",
-   "note": "莎士比亚，英国文艺复兴时期剧作家。"
-  },
-  {
-   "id": "填052",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《巴黎圣母院》的作者是________。",
-   "ans": "雨果",
-   "note": "雨果，法国浪漫主义文学代表。"
-  },
-  {
-   "id": "填053",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《战争与和平》的作者是________。",
-   "ans": "列夫·托尔斯泰",
-   "note": "托尔斯泰，俄国作家，代表作还有《安娜·卡列尼娜》《复活》。"
-  },
-  {
-   "id": "填054",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《罪与罚》的作者是________。",
-   "ans": "陀思妥耶夫斯基",
-   "note": "陀思妥耶夫斯基，俄国作家。"
-  },
-  {
-   "id": "填055",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《变色龙》的作者是________。",
-   "ans": "契诃夫",
-   "note": "契诃夫，俄国短篇小说大师、剧作家。"
-  },
-  {
-   "id": "填056",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《童年》的作者是________。",
-   "ans": "高尔基",
-   "note": "高尔基自传体三部曲：《童年》《在人间》《我的大学》。"
-  },
-  {
-   "id": "填057",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《钢铁是怎样炼成的》的主人公是________。",
-   "ans": "保尔·柯察金",
-   "note": "奥斯特洛夫斯基《钢铁是怎样炼成的》。"
-  },
-  {
-   "id": "填058",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《百年孤独》的作者是________。",
-   "ans": "加西亚·马尔克斯",
-   "note": "马尔克斯，哥伦比亚作家，魔幻现实主义代表。"
-  },
-  {
-   "id": "填059",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《堂吉诃德》的作者是________。",
-   "ans": "塞万提斯",
-   "note": "塞万提斯，西班牙作家。"
-  },
-  {
-   "id": "填060",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《神曲》的作者是________。",
-   "ans": "但丁",
-   "note": "但丁，意大利诗人，文艺复兴先驱。"
-  },
-  {
-   "id": "填061",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《浮士德》的作者是________。",
-   "ans": "歌德",
-   "note": "歌德，德国作家，代表作《浮士德》《少年维特之烦恼》。"
-  },
-  {
-   "id": "填062",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《假如生活欺骗了你》的作者是________。",
-   "ans": "普希金",
-   "note": "普希金，俄国诗人，被誉为“俄国文学之父”。"
-  },
-  {
-   "id": "填063",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《老人与海》的作者是________。",
-   "ans": "海明威",
-   "note": "海明威，美国作家，1954年获诺贝尔文学奖。"
-  },
-  {
-   "id": "填064",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《小王子》的作者是________。",
-   "ans": "圣埃克苏佩里",
-   "note": "圣埃克苏佩里，法国作家、飞行员。"
-  },
-  {
-   "id": "填065",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "安徒生是________（国家）的童话作家。",
-   "ans": "丹麦",
-   "note": "安徒生，丹麦童话作家。"
-  },
-  {
-   "id": "填066",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《一千零一夜》又名《________》。",
-   "ans": "天方夜谭",
-   "note": "阿拉伯民间故事集。"
-  },
-  {
-   "id": "填067",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "《源氏物语》的作者是________。",
-   "ans": "紫式部",
-   "note": "紫式部，日本平安时代女作家。"
-  },
-  {
-   "id": "填068",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《挪威的森林》的作者是________。",
-   "ans": "村上春树",
-   "note": "村上春树，日本当代作家。"
-  },
-  {
-   "id": "填069",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《飞鸟集》的作者是________。",
-   "ans": "泰戈尔",
-   "note": "泰戈尔，印度诗人，1913年获诺贝尔文学奖。"
-  },
-  {
-   "id": "填070",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《鲁滨逊漂流记》的作者是________。",
-   "ans": "笛福",
-   "note": "笛福，英国作家。"
-  },
-  {
-   "id": "填071",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《简·爱》的作者是________。",
-   "ans": "夏洛蒂·勃朗特",
-   "note": "夏洛蒂·勃朗特，英国作家。"
-  },
-  {
-   "id": "填072",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《傲慢与偏见》的作者是________。",
-   "ans": "简·奥斯汀",
-   "note": "简·奥斯汀，英国作家。"
-  },
-  {
-   "id": "填073",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《雾都孤儿》的作者是________。",
-   "ans": "狄更斯",
-   "note": "狄更斯，英国作家，代表作还有《双城记》。"
-  },
-  {
-   "id": "填074",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《变形记》的作者是________。",
-   "ans": "卡夫卡",
-   "note": "卡夫卡，奥地利作家，现代主义文学代表。"
-  },
-  {
-   "id": "填075",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "《老人与海》的主人公是________。",
-   "ans": "圣地亚哥",
-   "note": "老渔夫圣地亚哥，陪他出海的孩子叫曼诺林。"
-  },
-  {
-   "id": "填076",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "我国第一部纪传体通史是《________》。",
-   "ans": "史记",
-   "note": "司马迁《史记》，鲁迅誉为“史家之绝唱”。"
-  },
-  {
-   "id": "填077",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "我国第一部诗歌总集是《________》。",
-   "ans": "诗经",
-   "note": "《诗经》收录西周至春秋诗歌305篇。"
-  },
-  {
-   "id": "填078",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "我国第一部系统分析字形、考究字源的字典是《________》。",
-   "ans": "说文解字",
-   "note": "东汉许慎所著。"
-  },
-  {
-   "id": "填079",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“四书”指《大学》《中庸》《论语》和《________》。",
-   "ans": "孟子",
-   "note": "“四书”为《大学》《中庸》《论语》《孟子》。"
-  },
-  {
-   "id": "填080",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“五经”指《诗》《书》《礼》《易》和《________》。",
-   "ans": "春秋",
-   "note": "“五经”为《诗》《书》《礼》《易》《春秋》。"
-  },
-  {
-   "id": "填081",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "成语“程门立雪”的主人公是________。",
-   "ans": "杨时",
-   "note": "杨时尊师求学的典故。"
-  },
-  {
-   "id": "填082",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "成语“卧薪尝胆”与________有关。",
-   "ans": "勾践",
-   "note": "越王勾践。"
-  },
-  {
-   "id": "填083",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "成语“指鹿为马”与________有关。",
-   "ans": "赵高",
-   "note": "秦朝赵高。"
-  },
-  {
-   "id": "填084",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "“初唐四杰”指王勃、杨炯、卢照邻和________。",
-   "ans": "骆宾王",
-   "note": "骆宾王，初唐诗人，代表作《咏鹅》。"
-  },
-  {
-   "id": "填085",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“唐宋八大家”中唐代的两位是韩愈和________。",
-   "ans": "柳宗元",
-   "note": "韩愈、柳宗元是唐代古文运动代表。"
-  },
-  {
-   "id": "填086",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“三苏”指苏洵、苏轼和________。",
-   "ans": "苏辙",
-   "note": "苏洵、苏轼、苏辙父子三人。"
-  },
-  {
-   "id": "填087",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“小李杜”指李商隐和________。",
-   "ans": "杜牧",
-   "note": "晚唐诗人李商隐、杜牧。"
-  },
-  {
-   "id": "填088",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "词按风格大致分为婉约派和________派。",
-   "ans": "豪放",
-   "note": "婉约派柳永、李清照；豪放派苏轼、辛弃疾。"
-  },
-  {
-   "id": "填089",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "我国四大名著中，以农民起义为题材的是《________》。",
-   "ans": "水浒传",
-   "note": "《水浒传》写梁山好汉起义。"
-  },
-  {
-   "id": "填090",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "诺贝尔文学奖的颁奖典礼在________（国家）举行。",
-   "ans": "瑞典",
-   "note": "瑞典学院颁发，典礼在斯德哥尔摩。"
-  },
-  {
-   "id": "填091",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "茅盾文学奖主要奖励________（体裁）。",
-   "ans": "长篇小说",
-   "note": "茅盾文学奖是中国长篇小说重要奖项。"
-  },
-  {
-   "id": "填092",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“豆蔻年华”指女子________岁左右。",
-   "ans": "十三四",
-   "note": "豆蔻年华指女子十三四岁。"
-  },
-  {
-   "id": "填093",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“弱冠之年”指男子________岁。",
-   "ans": "二十",
-   "note": "古代男子二十岁行冠礼。"
-  },
-  {
-   "id": "填094",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "“古稀之年”指________岁。",
-   "ans": "七十",
-   "note": "杜甫“人生七十古来稀”。"
-  },
-  {
-   "id": "填095",
-   "cat": "文学常识",
-   "level": "中",
-   "q": "成语“入木三分”最初形容________的书法。",
-   "ans": "王羲之",
-   "note": "王羲之，东晋书法家，人称“书圣”。"
-  },
-  {
-   "id": "填096",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "《西游记》中孙悟空的兵器叫________。",
-   "ans": "金箍棒",
-   "note": "如意金箍棒，原为东海定海神针。"
-  },
-  {
-   "id": "填097",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "《西游记》中猪八戒的法名是________。",
-   "ans": "猪悟能",
-   "note": "猪八戒法名悟能，别名八戒。"
-  },
-  {
-   "id": "填098",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "希腊神话中的众神之王是________。",
-   "ans": "宙斯",
-   "note": "宙斯是奥林匹斯众神之王。"
-  },
-  {
-   "id": "填099",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "《哈利·波特》系列小说的作者是________。",
-   "ans": "J.K.罗琳",
-   "note": "英国作家J.K.罗琳。"
-  },
-  {
-   "id": "填100",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "中国神话中开天辟地的是________。",
-   "ans": "盘古",
-   "note": "盘古开天辟地的神话。"
-  }
- ],
- "essays": [
-  {
-   "id": "大001",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "如果李白、杜甫、苏轼三人一起参加文学社面试，你会选谁当社长？请结合他们的作品和性格说明理由。",
-   "points": "能说出三人各自的特点：李白浪漫豪放、杜甫沉郁忧民、苏轼旷达多才；职位与特质匹配；理由具体、有条理。",
-   "score": "选择明确1分；结合作品或性格2分；理由充分2分。"
-  },
-  {
-   "id": "大002",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《西游记》师徒四人如果组队参加大学生创新创业大赛，你认为谁适合当队长？谁适合当财务？请说明理由。",
-   "points": "队长需统筹目标（唐僧目标坚定，悟空能力强）；财务需细致稳重（沙僧踏实，八戒也可自圆其说）；能结合具体情节。",
-   "score": "角色安排1分；两条理由各2分。"
-  },
-  {
-   "id": "大003",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "请用一句话向外国朋友介绍《红楼梦》，并说说你为什么选这句话。",
-   "points": "点出家族兴衰、爱情悲剧、人物群像或社会百科等特点；语言通俗；有个人视角。",
-   "score": "信息准确2分；表达生动2分；个人理解1分。"
-  },
-  {
-   "id": "大004",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "你最喜欢的一句古诗是哪一句？它会在你生活中的什么场景浮现？",
-   "points": "诗句引用准确；场景具体；情感真实；能说清诗句与场景的联系。",
-   "score": "引用准确1分；场景具体2分；诗意与情感契合2分。"
-  },
-  {
-   "id": "大005",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "如果陶渊明开了一个“田园生活”直播间，他会直播什么？请结合《归园田居》或《饮酒》说明。",
-   "points": "结合种豆、采菊、饮酒、读书等田园生活；体现淡泊自然、返璞归真；有直播的现场感。",
-   "score": "结合作品2分；内容合理2分；创意1分。"
-  },
-  {
-   "id": "大006",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "《水浒传》中你最喜欢或最不喜欢哪位好汉？请用一件具体的事说明理由。",
-   "points": "人物与情节匹配；评价有依据；能辩证看待人物的优点与局限。",
-   "score": "人物明确1分；事件准确2分；评价合理2分。"
-  },
-  {
-   "id": "大007",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "假如诸葛亮有朋友圈，他打下汉中那天会发什么？请用30字以内拟一条，并解释。",
-   "points": "符合诸葛亮身份与情境；可文白相间；体现“鞠躬尽瘁”或《出师表》的气质；解释到位。",
-   "score": "贴合人物2分；情境合理1分；语言凝练2分。"
-  },
-  {
-   "id": "大008",
-   "cat": "中国古代文学",
-   "level": "中",
-   "q": "请为《红楼梦》中的一个人物“找工作”，你会推荐什么现代职业？为什么？",
-   "points": "人物性格、能力与职业匹配；结合具体情节；说明现代职业场景。",
-   "score": "职业明确1分；匹配理由2分；结合情节2分。"
-  },
-  {
-   "id": "大009",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "如果只能带一首诗词去荒岛，你会带哪一首？说说它能给你什么。",
-   "points": "作品准确；说明精神支撑、画面感或情感力量；理由个人化。",
-   "score": "作品1分；理由3分；表达1分。"
-  },
-  {
-   "id": "大010",
-   "cat": "中国古代文学",
-   "level": "中",
-   "q": "《三国演义》中“既生瑜，何生亮”表达了周瑜怎样的心态？你怎么看这种竞争？",
-   "points": "分析不甘、嫉妒与对对手的认可；谈竞争与合作；联系现实，观点健康。",
-   "score": "心态分析2分；观点2分；联系现实1分。"
-  },
-  {
-   "id": "大011",
-   "cat": "中国古代文学",
-   "level": "易",
-   "q": "请把《木兰诗》改编成一条60字以内的短视频文案。",
-   "points": "保留替父从军、征战、还乡等要素；有画面感和节奏；不超过60字。",
-   "score": "要素完整2分；文案感2分；字数1分。"
-  },
-  {
-   "id": "大012",
-   "cat": "中国古代文学",
-   "level": "中",
-   "q": "你认为《聊斋志异》里的鬼狐故事今天还有吸引力吗？为什么？",
-   "points": "可答有（写人性、想象力、反转）或没有（套路、节奏慢）；需举例；自圆其说。",
-   "score": "观点1分；举例2分；论证2分。"
-  },
-  {
-   "id": "大013",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "如果祥子活在今天，他可能从事什么职业？他会幸福吗？请结合小说谈谈。",
-   "points": "可设想司机、快递、外卖等体力劳动；联系社会环境与个人奋斗；讨论悲剧是否会重演；结合小说情节。",
-   "score": "职业合理1分；结合小说2分；观点2分。"
-  },
-  {
-   "id": "大014",
-   "cat": "中国现当代文学",
-   "level": "中",
-   "q": "《平凡的世界》里孙少平的选择，你理解吗？如果是你，你会怎么选？",
-   "points": "理解或质疑均可；结合离开农村、下煤矿、精神追求等情节；联系自身选择。",
-   "score": "立场1分；文本依据2分；现实思考2分。"
-  },
-  {
-   "id": "大015",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "请用三个词概括《活着》，并各用一句话解释。",
-   "points": "如苦难、坚韧、亲情、命运等；词与解释对应；结合福贵经历。",
-   "score": "三个词各1分；解释合理2分。"
-  },
-  {
-   "id": "大016",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "《围城》说“城外的人想进去，城里的人想出来”，你在生活中有没有类似的体验？",
-   "points": "举出考研、社团、恋爱、专业等实例；说明“进出”心理；联系小说喻义。",
-   "score": "生活实例2分；与围城喻义契合2分；表达1分。"
-  },
-  {
-   "id": "大017",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "如果鲁迅开通微博，他最可能因为什么事情上热搜？为什么？",
-   "points": "联系鲁迅批判国民性、关注社会现实的特点；结合具体作品；有网络表达感。",
-   "score": "事件合理2分；结合作品2分；表达1分。"
-  },
-  {
-   "id": "大018",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "请为《边城》的翠翠写一条不超过50字的“旅行明信片”。",
-   "points": "融入边城、茶峒、渡船、白塔等意象；符合翠翠口吻；不超过50字。",
-   "score": "情境2分；口吻1分；语言2分。"
-  },
-  {
-   "id": "大019",
-   "cat": "中国现当代文学",
-   "level": "中",
-   "q": "如果《雷雨》拍成现代职场剧，周朴园最适合什么职位？请说明理由。",
-   "points": "如董事长、家族企业掌舵人等；体现控制欲、伪善、家长式管理；结合剧情。",
-   "score": "职位1分；性格匹配2分；结合剧情2分。"
-  },
-  {
-   "id": "大020",
-   "cat": "中国现当代文学",
-   "level": "中",
-   "q": "你更喜欢《再别康桥》还是《雨巷》？请从画面感角度比较。",
-   "points": "康桥的柔波、金柳、星辉；雨巷的油纸伞、丁香姑娘；比较色彩、意象、节奏。",
-   "score": "作品特征各1分；比较2分；表达1分。"
-  },
-  {
-   "id": "大021",
-   "cat": "中国现当代文学",
-   "level": "中",
-   "q": "有人说“网络文学不是文学”，你同意吗？请给出两点理由。",
-   "points": "可答是（类型文学、读者需求、叙事传统）或不是（流水线、文学性不足）；需举例；辩证更好。",
-   "score": "立场1分；理由3分；举例1分。"
-  },
-  {
-   "id": "大022",
-   "cat": "中国现当代文学",
-   "level": "易",
-   "q": "如果让你给《三体》里的罗辑提一个建议，你会说什么？",
-   "points": "建议具体；结合面壁者、执剑人、黑暗森林等情节；逻辑自洽。",
-   "score": "建议具体2分；结合情节2分；逻辑1分。"
-  },
-  {
-   "id": "大023",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "如果《小王子》里的狐狸来参加社团招新，它会怎么介绍“驯养”？请写一段不超过80字的招新文案。",
-   "points": "驯养即建立联系、彼此需要、付出时间与仪式；文案有温度；不超过80字。",
-   "score": "概念准确2分；文案感2分；字数1分。"
-  },
-  {
-   "id": "大024",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "《老人与海》中的老人最后只拖回一副鱼骨，你认为他失败了吗？为什么？",
-   "points": "可谈物质失败与精神胜利；“人可以被毁灭，但不能被打败”；结合情节。",
-   "score": "观点1分；文本依据2分；论证2分。"
-  },
-  {
-   "id": "大025",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "请用一道菜形容《哈姆雷特》中哈姆雷特的“延宕”，并解释。",
-   "points": "菜名与犹豫、反复、冷却等特质对应；结合剧情；解释有趣且合理。",
-   "score": "菜品贴切1分；解释3分；创意1分。"
-  },
-  {
-   "id": "大026",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "如果堂吉诃德来到今天的大学校园，他最可能加入哪个社团？为什么？",
-   "points": "体现骑士精神、理想主义；可答戏剧社、辩论社、志愿服务队等；结合情节。",
-   "score": "社团1分；理由2分；结合人物2分。"
-  },
-  {
-   "id": "大027",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "《百年孤独》里那么多人重复使用相同的名字，你觉得作者想表达什么？",
-   "points": "家族循环、命运轮回、孤独的遗传、时间循环等；需举例说明。",
-   "score": "理解2分；举例2分；表达1分。"
-  },
-  {
-   "id": "大028",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "请选一个你读过的外国文学人物，为他写一句“颁奖词”。",
-   "points": "人物准确；概括其精神特质；颁奖词凝练、有感染力。",
-   "score": "人物1分；精神概括2分；文采2分。"
-  },
-  {
-   "id": "大029",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "《变形记》中格里高尔变成甲虫后，家人的态度说明了什么？",
-   "points": "亲情功利化、家庭责任、人的异化等；结合家人前后的变化。",
-   "score": "态度概括2分；主题分析2分；文本1分。"
-  },
-  {
-   "id": "大030",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "如果《傲慢与偏见》的达西先生开社交账号，他会发什么？请拟一条。",
-   "points": "符合贵族、内敛、傲慢却真诚的人设；内容合理；语言有分寸。",
-   "score": "人设2分；内容2分；语言1分。"
-  },
-  {
-   "id": "大031",
-   "cat": "外国文学",
-   "level": "易",
-   "q": "你更愿意和《老人与海》的圣地亚哥，还是《小王子》的飞行员做朋友？为什么？",
-   "points": "选择明确；概括人物特质；理由个人化且有文本依据。",
-   "score": "选择1分；理由3分；表达1分。"
-  },
-  {
-   "id": "大032",
-   "cat": "外国文学",
-   "level": "中",
-   "q": "请用一句话向没读过俄国文学的同学推荐《罪与罚》，并说明推荐理由。",
-   "points": "抓住犯罪、良心、救赎等核心；语言通俗；有推荐的说服力。",
-   "score": "核心准确2分；推荐感2分；语言1分。"
-  },
-  {
-   "id": "大033",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "如果文学社要办一场“诗词版飞花令”纳新活动，请你设计一条规则，让新手也能玩得开心。",
-   "points": "主题字简单、允许提示、团队协作、限时等；规则完整可执行；对新手友好。",
-   "score": "规则完整2分；新手友好2分；趣味1分。"
-  },
-  {
-   "id": "大034",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "请用三个成语形容你自己，并各用一句话说明。",
-   "points": "成语准确；解释与自身经历对应；三个成语不重复。",
-   "score": "三个成语各1分；解释2分。"
-  },
-  {
-   "id": "大035",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "请为文学社纳新写一句化用古诗的宣传语，并注明化用了哪句诗。",
-   "points": "化用自然；有社团或文学元素；注明原句。",
-   "score": "化用2分；宣传效果2分；出处1分。"
-  },
-  {
-   "id": "大036",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "如果“四大名著”要选一个当代代言人（明星、运动员、虚拟人物均可），你会选谁？为什么？",
-   "points": "代言人与作品气质匹配；理由具体；可跨领域联想。",
-   "score": "人选1分；匹配理由3分；表达1分。"
-  },
-  {
-   "id": "大037",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "有人说“读诗无用”，请用一个生活场景反驳他。",
-   "points": "场景具体（表白、送别、看景、安慰等）；诗句恰当；反驳有力。",
-   "score": "场景2分；诗句2分；论证1分。"
-  },
-  {
-   "id": "大038",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "请把“读书破万卷，下笔如有神”改写成一句适合发朋友圈的文案。",
-   "points": "保留原意；口语化、有网感；不超过30字。",
-   "score": "原意2分；文案感2分；字数1分。"
-  },
-  {
-   "id": "大039",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "如果让你给文学社设计一道“入社测试”题，只出一道，你会出什么题？为什么？",
-   "points": "题目能考察文学兴趣、想象力或表达力；可执行；理由清楚。",
-   "score": "题目2分；考察点2分；理由1分。"
-  },
-  {
-   "id": "大040",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "请用一本书的名字形容你现在的大学生活，并解释。",
-   "points": "书名准确；解释贴合生活；有共鸣或幽默感。",
-   "score": "书名1分；解释3分；表达1分。"
-  },
-  {
-   "id": "大041",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "如果把《诗经》里的“蒹葭苍苍”做成一张海报，你会选什么主视觉？为什么？",
-   "points": "水边芦苇、秋霜、朦胧、留白等；色彩与意境协调；说明构图。",
-   "score": "视觉元素2分；意境2分；表达1分。"
-  },
-  {
-   "id": "大042",
-   "cat": "文学常识",
-   "level": "易",
-   "q": "请用“文学”和“食堂”两个词，造一个不超过30字的句子。",
-   "points": "两个词都出现；有画面或趣味；不超过30字。",
-   "score": "用词2分；句子2分；字数1分。"
-  },
-  {
-   "id": "大043",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "请以“纳新”为题，写一首四句的藏头诗或打油诗。",
-   "points": "四句完整；藏头或押韵；有文学社元素。",
-   "score": "形式2分；内容2分；创意1分。"
-  },
-  {
-   "id": "大044",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "请用“月亮、外卖、李白”三个词编一个50字以内的小故事。",
-   "points": "三个词都出现；有情节或反转；不超过50字。",
-   "score": "要素2分；故事性2分；字数1分。"
-  },
-  {
-   "id": "大045",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "请为《西游记》设计一款联名奶茶，写出名字和一句宣传语。",
-   "points": "融入人物或情节元素；名字好记；宣传语有梗。",
-   "score": "名字2分；宣传语2分；贴合原著1分。"
-  },
-  {
-   "id": "大046",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "如果杜甫有一台时光机，他会先去哪个朝代？请写一段他的“旅行计划”。",
-   "points": "朝代或地点合理；结合杜甫经历与诗风；有幽默或深情。",
-   "score": "目的地1分；结合经历3分；创意1分。"
-  },
-  {
-   "id": "大047",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "请把“关关雎鸠”翻译成现代校园版，不超过40字。",
-   "points": "保留追求、思念之意；有校园场景；不超过40字。",
-   "score": "原意2分；校园感2分；字数1分。"
-  },
-  {
-   "id": "大048",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "请用三个画面描写“秋天”，不许出现“秋”字。",
-   "points": "三个画面具体；有感官细节；全文不出现“秋”字。",
-   "score": "画面各1分；无“秋”1分；文采1分。"
-  },
-  {
-   "id": "大049",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "请给社团公众号写一条30字以内的“文学冷知识”。",
-   "points": "知识准确；冷门有趣；不超过30字。",
-   "score": "准确2分；趣味2分；字数1分。"
-  },
-  {
-   "id": "大050",
-   "cat": "神话·民间·趣味",
-   "level": "易",
-   "q": "请用一句诗给今天的天气“配文”。",
-   "points": "诗句与天气契合；可化用；有画面感。",
-   "score": "契合2分；引用1分；表达2分。"
-  }
- ],
- "intro": [
-  {
-   "B": "文学社纳新趣味题库"
-  },
-  {
-   "B": "300 题 · 每轮 3 道选择 + 2 道填空 + 1 道大题 · 适合社团纳新趣味游戏"
-  },
-  {
-   "B": "一、题库结构"
-  },
-  {
-   "B": "题型",
-   "C": "题量",
-   "D": "每轮抽取",
-   "E": "单题分值",
-   "F": "说明"
-  },
-  {
-   "B": "选择题",
-   "C": "150",
-   "D": "3",
-   "E": "2 分",
-   "F": "四选一；答案字母已随机打乱，覆盖五大类。"
-  },
-  {
-   "B": "填空题",
-   "C": "100",
-   "D": "2",
-   "E": "3 分",
-   "F": "补写名句，或填写作家、作品、文学常识。"
-  },
-  {
-   "B": "大题",
-   "C": "50",
-   "D": "1",
-   "E": "5 分",
-   "F": "开放式题目，不设标准答案，言之成理即可。"
-  },
-  {
-   "B": "合计",
-   "C": "300",
-   "D": "6",
-   "E": "17 分",
-   "F": "每轮 6 题，约 8—10 分钟；可准备 50 轮。"
-  },
-  {
-   "B": "二、分类分布"
-  },
-  {
-   "B": "分类",
-   "C": "选择题",
-   "D": "填空题",
-   "E": "大题",
-   "F": "合计",
-   "G": "覆盖内容"
-  },
-  {
-   "B": "中国古代文学",
-   "C": "50",
-   "D": "35",
-   "E": "12",
-   "F": "97",
-   "G": "诗经楚辞、唐诗宋词、四大名著"
-  },
-  {
-   "B": "中国现当代文学",
-   "C": "25",
-   "D": "15",
-   "E": "10",
-   "F": "50",
-   "G": "鲁迅、老舍、巴金、莫言、现代诗"
-  },
-  {
-   "B": "外国文学",
-   "C": "35",
-   "D": "25",
-   "E": "10",
-   "F": "70",
-   "G": "欧美俄日名著与代表作家"
-  },
-  {
-   "B": "文学常识",
-   "C": "30",
-   "D": "20",
-   "E": "10",
-   "F": "60",
-   "G": "文体、成语典故、奖项、年龄称谓"
-  },
-  {
-   "B": "神话·民间·趣味",
-   "C": "10",
-   "D": "5",
-   "E": "8",
-   "F": "23",
-   "G": "中外神话、童话、奇幻与创作题"
-  },
-  {
-   "B": "合计",
-   "C": "150",
-   "D": "100",
-   "E": "50",
-   "F": "300",
-   "G": "每类均按 3:2:1 左右的题量配比"
-  },
-  {
-   "B": "三、使用建议"
-  },
-  {
-   "B": "抽题方式",
-   "D": "在“选择题 / 填空题 / 大题”三张表中，各用随机数抽取对应数量；同一轮尽量覆盖不同分类。"
-  },
-  {
-   "B": "轮次安排",
-   "D": "每轮 6 题，约 8—10 分钟。按 50 轮准备，正好用完 150 道选择、100 道填空、50 道大题。"
-  },
-  {
-   "B": "计分建议",
-   "D": "选择题 2 分、填空题 3 分、大题 5 分，单轮满分 17 分；大题鼓励结合具体作品、说自己的话。"
-  },
-  {
-   "B": "主持提示",
-   "D": "大题没有标准答案，冷场时可给一个提示词；选手答案自圆其说即可给分，不必追求“标准”。"
-  },
-  {
-   "B": "难度控制",
-   "D": "题库以“易”为主，适合非文学专业新生；想加难度时，优先抽取难度标为“中”的题目。"
-  },
-  {
-   "B": "四、出题原则"
-  },
-  {
-   "B": "范围广 ｜ 中国古代与近代、现当代、外国文学、文学常识、神话民俗与趣味，五类均衡覆盖。"
-  },
-  {
-   "B": "门槛低 ｜ 以中学语文和常见名著为主，不考偏题怪题；会读书、爱看剧的人都能参与。"
-  },
-  {
-   "B": "有发挥 ｜ 大题不设标准答案，重点看表达、联想和临场反应，给新生展示个性的空间。"
-  },
-  {
-   "B": "答案与参考要点见各分表；题目可按社团需要自行增删、改写。"
-  }
- ]
-}</script>
+<script type="application/json" id="bank-data">{"meta":{"title":"文学社纳新趣味题库","count":300,"built":"2026-11-22T02:56:48.784Z"},"choices":[{"id":"选001","cat":"中国古代文学","level":"易","q":"《诗经》共收录诗歌多少篇？","opts":["305篇","500篇","360篇","250篇"],"ans":"A","ansText":"305篇","note":"《诗经》共305篇，又称“诗三百”，收录西周初年至春秋中叶的诗歌。","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"}]},{"id":"选002","cat":"中国古代文学","level":"易","q":"“关关雎鸠，在河之洲”出自《诗经》的哪一篇？","opts":["《氓》","《蒹葭》","《硕鼠》","《关雎》"],"ans":"D","ansText":"《关雎》","note":"《关雎》是《诗经·周南》的首篇，常被视为爱情诗。","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"}]},{"id":"选003","cat":"中国古代文学","level":"易","q":"我国古代最长的抒情诗是屈原的哪部作品？","opts":["《天问》","《九歌》","《九章》","《离骚》"],"ans":"D","ansText":"《离骚》","note":"《离骚》是屈原的代表作，也是中国古代最长的抒情诗。","bg":[{"label":"《离骚》","text":"屈原代表作，中国古代最长的抒情诗，「路漫漫其修远兮，吾将上下而求索」出于此。"},{"label":"《九歌》《天问》","text":"均为屈原作品：《九歌》祭神乐歌，《天问》连发一百七十余问，《九章》九篇抒情短章。"}]},{"id":"选004","cat":"中国古代文学","level":"易","q":"“路漫漫其修远兮，吾将上下而求索”出自？","opts":["《离骚》","《诗经》","《庄子》","《九歌》"],"ans":"A","ansText":"《离骚》","note":"出自屈原《离骚》，表达对理想的执着追求。","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"},{"label":"《离骚》","text":"屈原代表作，中国古代最长的抒情诗，「路漫漫其修远兮，吾将上下而求索」出于此。"}]},{"id":"选005","cat":"中国古代文学","level":"易","q":"被鲁迅誉为“史家之绝唱，无韵之离骚”的作品是？","opts":["《史记》","《左传》","《资治通鉴》","《汉书》"],"ans":"A","ansText":"《史记》","note":"鲁迅在《汉文学史纲要》中这样评价《史记》。","bg":[{"label":"司马光《资治通鉴》","text":"北宋司马光主编，编年体通史，取「鉴于往事，有资于治道」之意。"},{"label":"司马迁《史记》","text":"西汉司马迁著，中国第一部纪传体通史，记黄帝至汉武帝三千年事，鲁迅誉为「史家之绝唱，无韵之离骚」。"}]},{"id":"选006","cat":"中国古代文学","level":"易","q":"《史记》的作者是？","opts":["司马迁","左丘明","班固","司马光"],"ans":"A","ansText":"司马迁","note":"司马迁，西汉史学家，著纪传体通史《史记》。","bg":[{"label":"司马迁《史记》","text":"西汉司马迁著，中国第一部纪传体通史，记黄帝至汉武帝三千年事，鲁迅誉为「史家之绝唱，无韵之离骚」。"},{"label":"司马光《资治通鉴》","text":"北宋司马光主编，编年体通史，取「鉴于往事，有资于治道」之意。"}]},{"id":"选007","cat":"中国古代文学","level":"易","q":"“老骥伏枥，志在千里”的作者是？","opts":["曹操","曹丕","曹植","诸葛亮"],"ans":"A","ansText":"曹操","note":"出自曹操《龟虽寿》，写老当益壮的豪情。","bg":[{"label":"曹操","text":"东汉末政治家、诗人，建安文学领袖；《龟虽寿》《短歌行》气韵沉雄，「老骥伏枥，志在千里」。"},{"label":"《出师表》","text":"三国诸葛亮作，恳切诚挚；陆游评「出师一表真名世，千载谁堪伯仲间」。"}]},{"id":"选008","cat":"中国古代文学","level":"易","q":"“采菊东篱下，悠然见南山”的作者是？","opts":["陶渊明","孟浩然","谢灵运","王维"],"ans":"A","ansText":"陶渊明","note":"出自陶渊明《饮酒·其五》，东晋田园诗的代表作。","bg":[{"label":"陶渊明","text":"东晋诗人，田园诗开创者；不为五斗米折腰，归隐后写「采菊东篱下，悠然见南山」。"},{"label":"孟浩然","text":"盛唐山水田园诗人，与王维并称「王孟」，一生布衣，诗风清淡自然。"}]},{"id":"选009","cat":"中国古代文学","level":"易","q":"“枯藤老树昏鸦，小桥流水人家”出自马致远的？","opts":["《山坡羊·潼关怀古》","《天净沙·秋思》","《窦娥冤》","《西厢记》"],"ans":"B","ansText":"《天净沙·秋思》","note":"《天净沙·秋思》是元曲小令名篇，被誉为“秋思之祖”。","bg":[{"label":"马致远","text":"元曲四大家之一；《天净沙·秋思》「枯藤老树昏鸦……断肠人在天涯」，被誉为「秋思之祖」。"},{"label":"关汉卿","text":"元杂剧奠基人，元曲四大家之首；《窦娥冤》为中国古典悲剧代表作。"}]},{"id":"选010","cat":"中国古代文学","level":"易","q":"“海内存知己，天涯若比邻”的作者是？","opts":["李白","王勃","王维","杜甫"],"ans":"B","ansText":"王勃","note":"出自王勃《送杜少府之任蜀州》，王勃是“初唐四杰”之一。","bg":[{"label":"王勃","text":"初唐四杰之首，少年成名；《滕王阁序》「落霞与孤鹜齐飞」为骈文名篇，《送杜少府之任蜀州》开唐人送别新境。"},{"label":"初唐四杰","text":"王勃、杨炯、卢照邻、骆宾王，扭转齐梁浮艳诗风，为唐诗开辟新路。"}]},{"id":"选011","cat":"中国古代文学","level":"易","q":"“会当凌绝顶，一览众山小”出自杜甫的哪首诗？","opts":["《登高》","《春望》","《望岳》","《石壕吏》"],"ans":"C","ansText":"《望岳》","note":"《望岳》写泰山，是杜甫青年时期的作品。","bg":[{"label":"杜甫","text":"字子美，自号少陵野老，世称「诗圣」，其诗称「诗史」；沉郁顿挫，忧国忧民，「安得广厦千万间」。"}]},{"id":"选012","cat":"中国古代文学","level":"易","q":"李白被后人称为？","opts":["诗圣","诗仙","诗佛","诗鬼"],"ans":"B","ansText":"诗仙","note":"李白是唐代浪漫主义诗人，人称“诗仙”。","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"},{"label":"杜甫","text":"字子美，自号少陵野老，世称「诗圣」，其诗称「诗史」；沉郁顿挫，忧国忧民，「安得广厦千万间」。"}]},{"id":"选013","cat":"中国古代文学","level":"易","q":"杜甫被后人称为？","opts":["诗豪","诗魔","诗仙","诗圣"],"ans":"D","ansText":"诗圣","note":"杜甫是唐代现实主义诗人，人称“诗圣”，其诗被称为“诗史”。","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"},{"label":"杜甫","text":"字子美，自号少陵野老，世称「诗圣」，其诗称「诗史」；沉郁顿挫，忧国忧民，「安得广厦千万间」。"}]},{"id":"选014","cat":"中国古代文学","level":"易","q":"“飞流直下三千尺，疑是银河落九天”描写的是哪座山？","opts":["泰山","黄山","庐山","华山"],"ans":"C","ansText":"庐山","note":"出自李白《望庐山瀑布》。","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"}]},{"id":"选015","cat":"中国古代文学","level":"易","q":"“大漠孤烟直，长河落日圆”的作者是？","opts":["王维","岑参","王之涣","高适"],"ans":"A","ansText":"王维","note":"出自王维《使至塞上》，体现“诗中有画”的特点。","bg":[{"label":"王维","text":"盛唐诗人、画家，人称「诗佛」；诗中有画，「大漠孤烟直，长河落日圆」；苏轼评其「诗中有画，画中有诗」。"},{"label":"王之涣","text":"盛唐边塞诗人，存诗仅六首而名重千古：「欲穷千里目，更上一层楼」。"}]},{"id":"选016","cat":"中国古代文学","level":"易","q":"“欲穷千里目，更上一层楼”出自？","opts":["《凉州词》","《望庐山瀑布》","《登鹳雀楼》","《出塞》"],"ans":"C","ansText":"《登鹳雀楼》","note":"《登鹳雀楼》为王之涣所作。","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"},{"label":"王之涣","text":"盛唐边塞诗人，存诗仅六首而名重千古：「欲穷千里目，更上一层楼」。"}]},{"id":"选017","cat":"中国古代文学","level":"易","q":"“举头望明月”的下一句是？","opts":["天涯共此时","低头思故乡","月是故乡明","疑是地上霜"],"ans":"B","ansText":"低头思故乡","note":"出自李白《静夜思》。","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"}]},{"id":"选018","cat":"中国古代文学","level":"易","q":"“春眠不觉晓，处处闻啼鸟”的作者是？","opts":["李白","王维","孟浩然","杜牧"],"ans":"C","ansText":"孟浩然","note":"出自孟浩然《春晓》，孟浩然是唐代山水田园诗人。","bg":[{"label":"孟浩然","text":"盛唐山水田园诗人，与王维并称「王孟」，一生布衣，诗风清淡自然。"},{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"}]},{"id":"选019","cat":"中国古代文学","level":"易","q":"唐代被称为“诗鬼”的诗人是？","opts":["刘禹锡","李贺","李商隐","杜牧"],"ans":"B","ansText":"李贺","note":"李贺想象奇崛、语言瑰丽，人称“诗鬼”。","bg":[{"label":"刘禹锡","text":"中唐诗人，人称「诗豪」；《陋室铭》「斯是陋室，惟吾德馨」。"},{"label":"李商隐","text":"晚唐诗人，工七律，意象朦胧；「春蚕到死丝方尽，蜡炬成灰泪始干」。"}]},{"id":"选020","cat":"中国古代文学","level":"易","q":"“先天下之忧而忧，后天下之乐而乐”出自？","opts":["《岳阳楼记》","《醉翁亭记》","《滕王阁序》","《陋室铭》"],"ans":"A","ansText":"《岳阳楼记》","note":"出自范仲淹《岳阳楼记》。","bg":[{"label":"王勃","text":"初唐四杰之首，少年成名；《滕王阁序》「落霞与孤鹜齐飞」为骈文名篇，《送杜少府之任蜀州》开唐人送别新境。"},{"label":"范仲淹","text":"北宋政治家、文学家；《岳阳楼记》「先天下之忧而忧，后天下之乐而乐」。"}]},{"id":"选021","cat":"中国古代文学","level":"易","q":"《岳阳楼记》的作者是？","opts":["王安石","范仲淹","欧阳修","苏轼"],"ans":"B","ansText":"范仲淹","note":"范仲淹，北宋政治家、文学家。","bg":[{"label":"范仲淹","text":"北宋政治家、文学家；《岳阳楼记》「先天下之忧而忧，后天下之乐而乐」。"},{"label":"欧阳修","text":"北宋文坛盟主，唐宋八大家之一；《醉翁亭记》「醉翁之意不在酒，在乎山水之间也」。"}]},{"id":"选022","cat":"中国古代文学","level":"易","q":"“但愿人长久，千里共婵娟”的作者是？","opts":["辛弃疾","李清照","苏轼","柳永"],"ans":"C","ansText":"苏轼","note":"出自苏轼《水调歌头·明月几时有》。","bg":[{"label":"苏轼","text":"字子瞻，号东坡居士，北宋文坛领袖；诗、词、文、书、画皆入一流，开豪放词风，「大江东去」；与父苏洵、弟苏辙合称「三苏」。"},{"label":"辛弃疾","text":"南宋词人，字幼安，号稼轩；一生主战，词风雄健，「醉里挑灯看剑，梦回吹角连营」。"}]},{"id":"选023","cat":"中国古代文学","level":"易","q":"《三国演义》的作者是？","opts":["吴承恩","曹雪芹","罗贯中","施耐庵"],"ans":"C","ansText":"罗贯中","note":"《三国演义》是罗贯中创作的长篇章回体历史演义小说。","bg":[{"label":"罗贯中","text":"元末明初小说家；《三国演义》为中国第一部长篇章回体历史演义小说。"},{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"}]},{"id":"选024","cat":"中国古代文学","level":"易","q":"“生当作人杰，死亦为鬼雄”的作者是？","opts":["蔡文姬","秋瑾","李清照","班昭"],"ans":"C","ansText":"李清照","note":"出自李清照《夏日绝句》，她是婉约派代表词人。","bg":[{"label":"李清照","text":"号易安居士，宋代婉约词宗；南渡前后词风由清丽转沉痛，「寻寻觅觅，冷冷清清」。"},{"label":"词","text":"宋词两大风格：婉约以柳永、李清照为代表，豪放以苏轼、辛弃疾为代表。"}]},{"id":"选025","cat":"中国古代文学","level":"易","q":"“醉里挑灯看剑，梦回吹角连营”的作者是？","opts":["岳飞","苏轼","陆游","辛弃疾"],"ans":"D","ansText":"辛弃疾","note":"出自辛弃疾《破阵子·为陈同甫赋壮词以寄之》。","bg":[{"label":"辛弃疾","text":"南宋词人，字幼安，号稼轩；一生主战，词风雄健，「醉里挑灯看剑，梦回吹角连营」。"},{"label":"苏轼","text":"字子瞻，号东坡居士，北宋文坛领袖；诗、词、文、书、画皆入一流，开豪放词风，「大江东去」；与父苏洵、弟苏辙合称「三苏」。"}]},{"id":"选026","cat":"中国古代文学","level":"易","q":"李白号什么？","opts":["易安居士","青莲居士","东坡居士","六一居士"],"ans":"B","ansText":"青莲居士","note":"李白号青莲居士；东坡居士是苏轼，易安居士是李清照，六一居士是欧阳修。","bg":[{"label":"李清照","text":"号易安居士，宋代婉约词宗；南渡前后词风由清丽转沉痛，「寻寻觅觅，冷冷清清」。"},{"label":"欧阳修","text":"北宋文坛盟主，唐宋八大家之一；《醉翁亭记》「醉翁之意不在酒，在乎山水之间也」。"}]},{"id":"选027","cat":"中国古代文学","level":"易","q":"下列不属于“唐宋八大家”的是？","opts":["韩愈","李白","柳宗元","王安石"],"ans":"B","ansText":"李白","note":"唐宋八大家为韩愈、柳宗元、欧阳修、苏洵、苏轼、苏辙、王安石、曾巩。","bg":[{"label":"唐宋八大家","text":"唐韩愈、柳宗元，宋欧阳修、苏洵、苏轼、苏辙、王安石、曾巩，以散文著称。"},{"label":"欧阳修","text":"北宋文坛盟主，唐宋八大家之一；《醉翁亭记》「醉翁之意不在酒，在乎山水之间也」。"}]},{"id":"选028","cat":"中国古代文学","level":"易","q":"《西游记》的作者是？","opts":["吴承恩","曹雪芹","施耐庵","罗贯中"],"ans":"A","ansText":"吴承恩","note":"《西游记》为明代吴承恩所著。","bg":[{"label":"吴承恩","text":"明代小说家；《西游记》为浪漫主义神魔小说高峰，塑造孙悟空这一不朽形象。"},{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"}]},{"id":"选029","cat":"中国古代文学","level":"易","q":"《水浒传》中绰号“及时雨”的是？","opts":["李逵","武松","宋江","林冲"],"ans":"C","ansText":"宋江","note":"宋江绰号及时雨；林冲是豹子头，武松是行者，李逵是黑旋风。","bg":[{"label":"施耐庵","text":"元末明初小说家；《水浒传》写一百零八将聚义梁山，为英雄传奇小说代表。"}]},{"id":"选030","cat":"中国古代文学","level":"易","q":"“三顾茅庐”请出的是谁？","opts":["诸葛亮","庞统","徐庶","司马懿"],"ans":"A","ansText":"诸葛亮","note":"刘备三顾茅庐，请诸葛亮出山。","bg":[{"label":"三顾茅庐","text":"刘备三次到隆中拜访诸葛亮，始得《隆中对》；喻诚心诚意再三邀请贤才。"},{"label":"《出师表》","text":"三国诸葛亮作，恳切诚挚；陆游评「出师一表真名世，千载谁堪伯仲间」。"}]},{"id":"选031","cat":"中国古代文学","level":"易","q":"《红楼梦》的作者是？","opts":["吴敬梓","高鹗","蒲松龄","曹雪芹"],"ans":"D","ansText":"曹雪芹","note":"《红楼梦》前八十回为曹雪芹所著，后四十回一般认为由高鹗续成。","bg":[{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"},{"label":"蒲松龄","text":"清代文学家；《聊斋志异》以花妖狐魅写人世，鲁迅称其「用传奇法，而以志怪」。"}]},{"id":"选032","cat":"中国古代文学","level":"易","q":"《红楼梦》中“潇湘妃子”指的是？","opts":["薛宝钗","王熙凤","林黛玉","史湘云"],"ans":"C","ansText":"林黛玉","note":"林黛玉住潇湘馆，诗社别号“潇湘妃子”。","bg":[{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"}]},{"id":"选033","cat":"中国古代文学","level":"易","q":"《聊斋志异》的作者是？","opts":["纪晓岚","冯梦龙","蒲松龄","曹雪芹"],"ans":"C","ansText":"蒲松龄","note":"《聊斋志异》是清代蒲松龄所作的文言短篇小说集。","bg":[{"label":"蒲松龄","text":"清代文学家；《聊斋志异》以花妖狐魅写人世，鲁迅称其「用传奇法，而以志怪」。"},{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"}]},{"id":"选034","cat":"中国古代文学","level":"易","q":"“三打白骨精”出自哪部小说？","opts":["《封神演义》","《聊斋志异》","《西游记》","《水浒传》"],"ans":"C","ansText":"《西游记》","note":"“三打白骨精”是《西游记》中的经典情节。","bg":[{"label":"蒲松龄","text":"清代文学家；《聊斋志异》以花妖狐魅写人世，鲁迅称其「用传奇法，而以志怪」。"},{"label":"《封神演义》","text":"明代许仲琳编，以武王伐纣为背景的神魔小说。"}]},{"id":"选035","cat":"中国古代文学","level":"中","q":"我国第一部文人独立创作的长篇世情小说是？","opts":["《儒林外史》","《红楼梦》","《金瓶梅》","《西游记》"],"ans":"C","ansText":"《金瓶梅》","note":"《金瓶梅》为明代兰陵笑笑生所作，被认为是第一部文人独立创作的长篇世情小说。","bg":[{"label":"吴敬梓","text":"清代小说家；《儒林外史》为讽刺小说巅峰，《范进中举》即出于此。"},{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"}]},{"id":"选036","cat":"中国古代文学","level":"易","q":"《木兰诗》属于？","opts":["北朝民歌","宋词","唐诗","汉乐府"],"ans":"A","ansText":"北朝民歌","note":"《木兰诗》是北朝民歌，与《孔雀东南飞》并称“乐府双璧”。","bg":[{"label":"汉乐府","text":"汉乐府「感于哀乐，缘事而发」；《孔雀东南飞》与北朝《木兰诗》并称「乐府双璧」。"},{"label":"《木兰诗》","text":"北朝民歌，写木兰代父从军；与《孔雀东南飞》并称「乐府双璧」。"}]},{"id":"选037","cat":"中国古代文学","level":"易","q":"“唧唧复唧唧，木兰当户织”出自？","opts":["《陌上桑》","《孔雀东南飞》","《长恨歌》","《木兰诗》"],"ans":"D","ansText":"《木兰诗》","note":"出自北朝民歌《木兰诗》。","bg":[{"label":"汉乐府","text":"汉乐府「感于哀乐，缘事而发」；《孔雀东南飞》与北朝《木兰诗》并称「乐府双璧」。"},{"label":"白居易","text":"字乐天，号香山居士，新乐府运动倡导者；主张「文章合为时而著」，诗风平易，老妪能解。"}]},{"id":"选038","cat":"中国古代文学","level":"易","q":"我国古代最长的叙事诗是？","opts":["《木兰诗》","《孔雀东南飞》","《琵琶行》","《长恨歌》"],"ans":"B","ansText":"《孔雀东南飞》","note":"《孔雀东南飞》是汉乐府长篇叙事诗，与《木兰诗》并称“乐府双璧”。","bg":[{"label":"汉乐府","text":"汉乐府「感于哀乐，缘事而发」；《孔雀东南飞》与北朝《木兰诗》并称「乐府双璧」。"},{"label":"白居易","text":"字乐天，号香山居士，新乐府运动倡导者；主张「文章合为时而著」，诗风平易，老妪能解。"}]},{"id":"选039","cat":"中国古代文学","level":"易","q":"“落霞与孤鹜齐飞”的下一句是？","opts":["秋水共长天一色","长天共秋水一色","孤鹜与落霞齐飞","烟光凝而暮山紫"],"ans":"A","ansText":"秋水共长天一色","note":"出自王勃《滕王阁序》。","bg":[{"label":"王勃","text":"初唐四杰之首，少年成名；《滕王阁序》「落霞与孤鹜齐飞」为骈文名篇，《送杜少府之任蜀州》开唐人送别新境。"}]},{"id":"选040","cat":"中国古代文学","level":"易","q":"“同是天涯沦落人，相逢何必曾相识”出自白居易的？","opts":["《忆江南》","《长恨歌》","《琵琶行》","《卖炭翁》"],"ans":"C","ansText":"《琵琶行》","note":"出自白居易长篇叙事诗《琵琶行》。","bg":[{"label":"白居易","text":"字乐天，号香山居士，新乐府运动倡导者；主张「文章合为时而著」，诗风平易，老妪能解。"}]},{"id":"选041","cat":"中国古代文学","level":"易","q":"“在天愿作比翼鸟，在地愿为连理枝”出自？","opts":["《西厢记》","《长恨歌》","《牡丹亭》","《琵琶行》"],"ans":"B","ansText":"《长恨歌》","note":"出自白居易《长恨歌》，写唐玄宗与杨贵妃的故事。","bg":[{"label":"白居易","text":"字乐天，号香山居士，新乐府运动倡导者；主张「文章合为时而著」，诗风平易，老妪能解。"},{"label":"王实甫","text":"元杂剧作家；《西厢记》写张生与崔莺莺，「愿天下有情的都成了眷属」。"}]},{"id":"选042","cat":"中国古代文学","level":"易","q":"《西厢记》的作者是？","opts":["关汉卿","汤显祖","王实甫","马致远"],"ans":"C","ansText":"王实甫","note":"《西厢记》是元代王实甫的杂剧代表作。","bg":[{"label":"王实甫","text":"元杂剧作家；《西厢记》写张生与崔莺莺，「愿天下有情的都成了眷属」。"},{"label":"马致远","text":"元曲四大家之一；《天净沙·秋思》「枯藤老树昏鸦……断肠人在天涯」，被誉为「秋思之祖」。"}]},{"id":"选043","cat":"中国古代文学","level":"易","q":"元曲《窦娥冤》的作者是？","opts":["白朴","马致远","关汉卿","郑光祖"],"ans":"C","ansText":"关汉卿","note":"关汉卿是“元曲四大家”之首，《窦娥冤》是其代表作。","bg":[{"label":"关汉卿","text":"元杂剧奠基人，元曲四大家之首；《窦娥冤》为中国古典悲剧代表作。"},{"label":"马致远","text":"元曲四大家之一；《天净沙·秋思》「枯藤老树昏鸦……断肠人在天涯」，被誉为「秋思之祖」。"}]},{"id":"选044","cat":"中国古代文学","level":"易","q":"《牡丹亭》的作者是？","opts":["孔尚任","洪昇","王实甫","汤显祖"],"ans":"D","ansText":"汤显祖","note":"《牡丹亭》是明代汤显祖“临川四梦”之一。","bg":[{"label":"汤显祖","text":"明代戏曲家；《牡丹亭》写杜丽娘「情不知所起，一往而深」，与《紫钗记》等合称「临川四梦」。"},{"label":"王实甫","text":"元杂剧作家；《西厢记》写张生与崔莺莺，「愿天下有情的都成了眷属」。"}]},{"id":"选045","cat":"中国古代文学","level":"易","q":"“人生自古谁无死，留取丹心照汗青”的作者是？","opts":["陆游","岳飞","辛弃疾","文天祥"],"ans":"D","ansText":"文天祥","note":"出自文天祥《过零丁洋》。","bg":[{"label":"文天祥《过零丁洋》","text":"南宋文天祥被俘后作，「人生自古谁无死，留取丹心照汗青」，为绝唱。"},{"label":"辛弃疾","text":"南宋词人，字幼安，号稼轩；一生主战，词风雄健，「醉里挑灯看剑，梦回吹角连营」。"}]},{"id":"选046","cat":"中国古代文学","level":"易","q":"“粉骨碎身浑不怕，要留清白在人间”咏的是？","opts":["梅花","竹子","菊花","石灰"],"ans":"D","ansText":"石灰","note":"出自于谦《石灰吟》，借石灰言志。","bg":[{"label":"于谦《石灰吟》","text":"明代于谦作，「粉骨碎身浑不怕，要留清白在人间」，以石灰自况气节；于谦亦以北京保卫战名世。"}]},{"id":"选047","cat":"中国古代文学","level":"易","q":"《儒林外史》的作者是？","opts":["蒲松龄","曹雪芹","李汝珍","吴敬梓"],"ans":"D","ansText":"吴敬梓","note":"《儒林外史》是清代吴敬梓所作的讽刺小说。","bg":[{"label":"吴敬梓","text":"清代小说家；《儒林外史》为讽刺小说巅峰，《范进中举》即出于此。"},{"label":"蒲松龄","text":"清代文学家；《聊斋志异》以花妖狐魅写人世，鲁迅称其「用传奇法，而以志怪」。"}]},{"id":"选048","cat":"中国古代文学","level":"易","q":"《水浒传》的作者是？","opts":["曹雪芹","罗贯中","施耐庵","吴承恩"],"ans":"C","ansText":"施耐庵","note":"《水浒传》一般认为是施耐庵所著的长篇章回体小说。","bg":[{"label":"施耐庵","text":"元末明初小说家；《水浒传》写一百零八将聚义梁山，为英雄传奇小说代表。"},{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"}]},{"id":"选049","cat":"中国古代文学","level":"易","q":"《诗经》的三种表现手法是？","opts":["赋、比、兴","礼、乐、射","风、雅、颂","诗、书、礼"],"ans":"A","ansText":"赋、比、兴","note":"赋、比、兴是《诗经》的表现手法；风、雅、颂是内容分类。","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"}]},{"id":"选050","cat":"中国古代文学","level":"易","q":"“风、雅、颂”是《诗经》的？","opts":["创作年代","作者","内容分类","表现手法"],"ans":"C","ansText":"内容分类","note":"《诗经》按内容分为风、雅、颂三部分。","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"}]},{"id":"选051","cat":"中国现当代文学","level":"易","q":"《狂人日记》的作者是？","opts":["鲁迅","巴金","老舍","茅盾"],"ans":"A","ansText":"鲁迅","note":"《狂人日记》发表于1918年，是中国第一篇现代白话短篇小说。","bg":[{"label":"《狂人日记》","text":"鲁迅 1918 年作，中国现代文学史上第一篇白话小说，借「狂人」之口揭示礼教「吃人」。"},{"label":"鲁迅","text":"原名周树人，字豫才；中国现代文学奠基人。《狂人日记》是第一部现代白话小说，《阿Q正传》《孔乙己》《故乡》《呐喊》《朝花夕拾》皆为其代表作。"}]},{"id":"选052","cat":"中国现当代文学","level":"易","q":"我国第一篇现代白话短篇小说是？","opts":["《孔乙己》","《故乡》","《阿Q正传》","《狂人日记》"],"ans":"D","ansText":"《狂人日记》","note":"鲁迅的《狂人日记》被视为中国现代白话小说的开端。","bg":[{"label":"《狂人日记》","text":"鲁迅 1918 年作，中国现代文学史上第一篇白话小说，借「狂人」之口揭示礼教「吃人」。"},{"label":"《阿Q正传》","text":"鲁迅中篇小说，「精神胜利法」成为国民性批判的经典概括。"}]},{"id":"选053","cat":"中国现当代文学","level":"易","q":"《骆驼祥子》的作者是？","opts":["巴金","老舍","沈从文","曹禺"],"ans":"B","ansText":"老舍","note":"《骆驼祥子》是老舍的长篇小说代表作。","bg":[{"label":"老舍","text":"原名舒庆春，满族，京味文学代表；《骆驼祥子》《茶馆》《四世同堂》，语言俗白而精到，被称为「人民艺术家」。"},{"label":"沈从文","text":"湘西作家；《边城》写翠翠与茶峒渡口，「这个人也许永远不回来了，也许明天回来」。"}]},{"id":"选054","cat":"中国现当代文学","level":"易","q":"《茶馆》的作者是？","opts":["老舍","郭沫若","曹禺","田汉"],"ans":"A","ansText":"老舍","note":"《茶馆》是老舍的话剧代表作。","bg":[{"label":"老舍","text":"原名舒庆春，满族，京味文学代表；《骆驼祥子》《茶馆》《四世同堂》，语言俗白而精到，被称为「人民艺术家」。"},{"label":"郭沫若","text":"诗人、学者；诗集《女神》为五四新诗奠基之作，历史剧《屈原》亦负盛名。"}]},{"id":"选055","cat":"中国现当代文学","level":"易","q":"《雷雨》的作者是？","opts":["老舍","巴金","曹禺","夏衍"],"ans":"C","ansText":"曹禺","note":"《雷雨》是曹禺的话剧成名作。","bg":[{"label":"曹禺","text":"原名万家宝，中国现代话剧奠基人；《雷雨》《日出》《原野》《北京人》，标志中国话剧成熟。"},{"label":"老舍","text":"原名舒庆春，满族，京味文学代表；《骆驼祥子》《茶馆》《四世同堂》，语言俗白而精到，被称为「人民艺术家」。"}]},{"id":"选056","cat":"中国现当代文学","level":"易","q":"“激流三部曲”《家》《春》《秋》的作者是？","opts":["茅盾","老舍","巴金","沈从文"],"ans":"C","ansText":"巴金","note":"“激流三部曲”是巴金的代表作。","bg":[{"label":"巴金","text":"原名李尧棠；「激流三部曲」《家》《春》《秋》写旧家庭青年的觉醒与出走。"},{"label":"沈从文","text":"湘西作家；《边城》写翠翠与茶峒渡口，「这个人也许永远不回来了，也许明天回来」。"}]},{"id":"选057","cat":"中国现当代文学","level":"易","q":"《边城》的作者是？","opts":["张爱玲","沈从文","萧红","汪曾祺"],"ans":"B","ansText":"沈从文","note":"《边城》写湘西茶峒的翠翠，是沈从文的代表作。","bg":[{"label":"沈从文","text":"湘西作家；《边城》写翠翠与茶峒渡口，「这个人也许永远不回来了，也许明天回来」。"},{"label":"张爱玲","text":"现代女作家；代表作《倾城之恋》《金锁记》，笔调苍凉，《传奇》一纸风行上海。"}]},{"id":"选058","cat":"中国现当代文学","level":"易","q":"《呼兰河传》的作者是？","opts":["冰心","萧红","丁玲","张爱玲"],"ans":"B","ansText":"萧红","note":"《呼兰河传》是萧红的回忆体长篇小说。","bg":[{"label":"萧红","text":"东北女作家；《呼兰河传》以童心写故土人事，被茅盾称作「一篇叙事诗，一幅多彩的风土画」。"},{"label":"张爱玲","text":"现代女作家；代表作《倾城之恋》《金锁记》，笔调苍凉，《传奇》一纸风行上海。"}]},{"id":"选059","cat":"中国现当代文学","level":"易","q":"《倾城之恋》的作者是？","opts":["萧红","丁玲","林徽因","张爱玲"],"ans":"D","ansText":"张爱玲","note":"《倾城之恋》是张爱玲的短篇小说代表作。","bg":[{"label":"张爱玲","text":"现代女作家；代表作《倾城之恋》《金锁记》，笔调苍凉，《传奇》一纸风行上海。"},{"label":"萧红","text":"东北女作家；《呼兰河传》以童心写故土人事，被茅盾称作「一篇叙事诗，一幅多彩的风土画」。"}]},{"id":"选060","cat":"中国现当代文学","level":"易","q":"《围城》的作者是？","opts":["朱自清","沈从文","杨绛","钱锺书"],"ans":"D","ansText":"钱锺书","note":"《围城》是钱锺书唯一的长篇小说。","bg":[{"label":"沈从文","text":"湘西作家；《边城》写翠翠与茶峒渡口，「这个人也许永远不回来了，也许明天回来」。"},{"label":"钱钟书","text":"学者型作家；《围城》以妙喻写抗战时期知识分子的婚姻与人生，「城外的人想冲进去」。"}]},{"id":"选061","cat":"中国现当代文学","level":"易","q":"《背影》的作者是？","opts":["朱自清","郁达夫","冰心","鲁迅"],"ans":"A","ansText":"朱自清","note":"《背影》是朱自清的散文名篇，写父亲的背影。","bg":[{"label":"朱自清","text":"现代散文家、诗人；《背影》写父爱，《荷塘月色》写清华园夜荷，语言清丽，为白话散文典范。"},{"label":"鲁迅","text":"原名周树人，字豫才；中国现代文学奠基人。《狂人日记》是第一部现代白话小说，《阿Q正传》《孔乙己》《故乡》《呐喊》《朝花夕拾》皆为其代表作。"}]},{"id":"选062","cat":"中国现当代文学","level":"易","q":"《荷塘月色》的作者是？","opts":["朱自清","冰心","闻一多","徐志摩"],"ans":"A","ansText":"朱自清","note":"《荷塘月色》是朱自清的写景散文名篇。","bg":[{"label":"朱自清","text":"现代散文家、诗人；《背影》写父爱，《荷塘月色》写清华园夜荷，语言清丽，为白话散文典范。"},{"label":"徐志摩","text":"新月派诗人；《再别康桥》「轻轻的我走了，正如我轻轻的来」，讲求音乐性与意境。"}]},{"id":"选063","cat":"中国现当代文学","level":"易","q":"“轻轻的我走了，正如我轻轻的来”出自？","opts":["《再别康桥》","《乡愁》","《雨巷》","《致橡树》"],"ans":"A","ansText":"《再别康桥》","note":"出自徐志摩《再别康桥》。","bg":[{"label":"徐志摩","text":"新月派诗人；《再别康桥》「轻轻的我走了，正如我轻轻的来」，讲求音乐性与意境。"},{"label":"舒婷","text":"朦胧诗代表诗人；《致橡树》写独立平等的爱情，「我必须是你近旁的一株木棉」。"}]},{"id":"选064","cat":"中国现当代文学","level":"易","q":"《再别康桥》的作者是？","opts":["戴望舒","闻一多","徐志摩","艾青"],"ans":"C","ansText":"徐志摩","note":"徐志摩是新月派代表诗人。","bg":[{"label":"徐志摩","text":"新月派诗人；《再别康桥》「轻轻的我走了，正如我轻轻的来」，讲求音乐性与意境。"},{"label":"戴望舒","text":"现代派诗人；《雨巷》写「一个丁香一样地结着愁怨的姑娘」，被称为「雨巷诗人」。"}]},{"id":"选065","cat":"中国现当代文学","level":"易","q":"《雨巷》的作者是？","opts":["艾青","徐志摩","卞之琳","戴望舒"],"ans":"D","ansText":"戴望舒","note":"戴望舒因《雨巷》被称为“雨巷诗人”。","bg":[{"label":"徐志摩","text":"新月派诗人；《再别康桥》「轻轻的我走了，正如我轻轻的来」，讲求音乐性与意境。"},{"label":"戴望舒","text":"现代派诗人；《雨巷》写「一个丁香一样地结着愁怨的姑娘」，被称为「雨巷诗人」。"}]},{"id":"选066","cat":"中国现当代文学","level":"易","q":"“为什么我的眼里常含泪水？因为我对这土地爱得深沉”的作者是？","opts":["闻一多","艾青","臧克家","舒婷"],"ans":"B","ansText":"艾青","note":"出自艾青《我爱这土地》。","bg":[{"label":"艾青","text":"原名蒋海澄；诗风沉郁，《我爱这土地》「为什么我的眼里常含泪水」为抗战诗歌名篇。"},{"label":"闻一多","text":"新月派诗人、学者；提倡新诗「三美」——音乐美、绘画美、建筑美。"}]},{"id":"选067","cat":"中国现当代文学","level":"易","q":"“乡愁是一枚小小的邮票”出自？","opts":["郑愁予","余光中","洛夫","席慕蓉"],"ans":"B","ansText":"余光中","note":"出自余光中《乡愁》。","bg":[{"label":"余光中","text":"台湾诗人、散文家；《乡愁》以邮票、船票、坟墓、海峡四意象写离愁。"}]},{"id":"选068","cat":"中国现当代文学","level":"易","q":"《致橡树》的作者是？","opts":["顾城","海子","北岛","舒婷"],"ans":"D","ansText":"舒婷","note":"《致橡树》是舒婷的朦胧诗代表作。","bg":[{"label":"舒婷","text":"朦胧诗代表诗人；《致橡树》写独立平等的爱情，「我必须是你近旁的一株木棉」。"},{"label":"顾城","text":"朦胧诗代表诗人；《一代人》仅两句：「黑夜给了我黑色的眼睛，我却用它寻找光明」。"}]},{"id":"选069","cat":"中国现当代文学","level":"易","q":"“面朝大海，春暖花开”的作者是？","opts":["顾城","北岛","海子","舒婷"],"ans":"C","ansText":"海子","note":"出自海子《面朝大海，春暖花开》。","bg":[{"label":"海子","text":"当代诗人；《面朝大海，春暖花开》广为传诵，1989 年早逝。"},{"label":"舒婷","text":"朦胧诗代表诗人；《致橡树》写独立平等的爱情，「我必须是你近旁的一株木棉」。"}]},{"id":"选070","cat":"中国现当代文学","level":"易","q":"《平凡的世界》的作者是？","opts":["路遥","陈忠实","贾平凹","莫言"],"ans":"A","ansText":"路遥","note":"《平凡的世界》是路遥的长篇小说，写孙少安、孙少平兄弟。","bg":[{"label":"路遥","text":"当代作家；《平凡的世界》以孙氏兄弟写改革年代，获茅盾文学奖。"},{"label":"陈忠实","text":"当代作家；《白鹿原》写关中两大家族五十年，获第四届茅盾文学奖。"}]},{"id":"选071","cat":"中国现当代文学","level":"易","q":"《白鹿原》的作者是？","opts":["路遥","余华","贾平凹","陈忠实"],"ans":"D","ansText":"陈忠实","note":"《白鹿原》是陈忠实的长篇小说代表作。","bg":[{"label":"陈忠实","text":"当代作家；《白鹿原》写关中两大家族五十年，获第四届茅盾文学奖。"},{"label":"余华","text":"当代作家；《活着》写福贵一生的苦难与承受，语言冷峻，影响深远。"}]},{"id":"选072","cat":"中国现当代文学","level":"易","q":"《活着》的作者是？","opts":["莫言","余华","苏童","王小波"],"ans":"B","ansText":"余华","note":"《活着》写福贵的一生，是余华的代表作。","bg":[{"label":"余华","text":"当代作家；《活着》写福贵一生的苦难与承受，语言冷峻，影响深远。"},{"label":"莫言","text":"2012 年诺贝尔文学奖得主；《红高粱家族》《丰乳肥臀》《蛙》，以高密东北乡为文学地理，魔幻现实主义笔法。"}]},{"id":"选073","cat":"中国现当代文学","level":"易","q":"2012年获得诺贝尔文学奖的中国作家是？","opts":["余华","贾平凹","刘慈欣","莫言"],"ans":"D","ansText":"莫言","note":"莫言于2012年获得诺贝尔文学奖。","bg":[{"label":"诺贝尔文学奖","text":"1901 年设立，由瑞典学院颁发；中国获此奖者为莫言（2012）。"},{"label":"刘慈欣","text":"科幻作家；《三体》获雨果奖最佳长篇，为中国科幻走向世界之作。"}]},{"id":"选074","cat":"中国现当代文学","level":"易","q":"《红高粱家族》的作者是？","opts":["陈忠实","余华","刘震云","莫言"],"ans":"D","ansText":"莫言","note":"《红高粱家族》是莫言的代表作之一。","bg":[{"label":"莫言","text":"2012 年诺贝尔文学奖得主；《红高粱家族》《丰乳肥臀》《蛙》，以高密东北乡为文学地理，魔幻现实主义笔法。"},{"label":"陈忠实","text":"当代作家；《白鹿原》写关中两大家族五十年，获第四届茅盾文学奖。"}]},{"id":"选075","cat":"中国现当代文学","level":"易","q":"《三体》的作者是？","opts":["韩松","王晋康","郝景芳","刘慈欣"],"ans":"D","ansText":"刘慈欣","note":"《三体》是刘慈欣的长篇科幻小说，获雨果奖最佳长篇小说奖。","bg":[{"label":"刘慈欣","text":"科幻作家；《三体》获雨果奖最佳长篇，为中国科幻走向世界之作。"},{"label":"雨果","text":"法国浪漫主义领袖；《巴黎圣母院》《悲惨世界》，以人道主义关怀写底层苦难。"}]},{"id":"选076","cat":"外国文学","level":"易","q":"《哈姆雷特》的作者是？","opts":["莎士比亚","雨果","塞万提斯","歌德"],"ans":"A","ansText":"莎士比亚","note":"莎士比亚四大悲剧为《哈姆雷特》《奥赛罗》《李尔王》《麦克白》。","bg":[{"label":"莎士比亚","text":"英国文艺复兴剧作家；四大悲剧《哈姆雷特》《奥赛罗》《李尔王》《麦克白》，「生存还是毁灭」。"},{"label":"塞万提斯","text":"西班牙作家；《堂吉诃德》戏拟骑士小说，被称欧洲第一部现代小说。"}]},{"id":"选077","cat":"外国文学","level":"易","q":"“生存还是毁灭，这是一个问题”出自？","opts":["《奥赛罗》","《哈姆雷特》","《麦克白》","《李尔王》"],"ans":"B","ansText":"《哈姆雷特》","note":"这是《哈姆雷特》中著名的独白。","bg":[{"label":"莎士比亚","text":"英国文艺复兴剧作家；四大悲剧《哈姆雷特》《奥赛罗》《李尔王》《麦克白》，「生存还是毁灭」。"}]},{"id":"选078","cat":"外国文学","level":"易","q":"《巴黎圣母院》的作者是？","opts":["大仲马","巴尔扎克","雨果","司汤达"],"ans":"C","ansText":"雨果","note":"《巴黎圣母院》是法国作家雨果的长篇小说。","bg":[{"label":"雨果","text":"法国浪漫主义领袖；《巴黎圣母院》《悲惨世界》，以人道主义关怀写底层苦难。"},{"label":"巴尔扎克","text":"法国现实主义大师；《人间喜剧》九十余部，写尽十九世纪法国社会，《高老头》为代表。"}]},{"id":"选079","cat":"外国文学","level":"易","q":"冉·阿让是哪部小说的人物？","opts":["《九三年》","《基督山伯爵》","《巴黎圣母院》","《悲惨世界》"],"ans":"D","ansText":"《悲惨世界》","note":"冉·阿让是雨果《悲惨世界》的主人公。","bg":[{"label":"雨果","text":"法国浪漫主义领袖；《巴黎圣母院》《悲惨世界》，以人道主义关怀写底层苦难。"},{"label":"大仲马","text":"法国通俗小说之王；《基督山伯爵》写复仇与救赎，情节跌宕。"}]},{"id":"选080","cat":"外国文学","level":"易","q":"《战争与和平》的作者是？","opts":["屠格涅夫","列夫·托尔斯泰","陀思妥耶夫斯基","高尔基"],"ans":"B","ansText":"列夫·托尔斯泰","note":"《战争与和平》是托尔斯泰的长篇史诗小说。","bg":[{"label":"陀思妥耶夫斯基","text":"俄国作家；《罪与罚》写大学生拉斯柯尔尼科夫的犯罪与救赎，心理描写深透。"},{"label":"托尔斯泰","text":"俄国作家，被称「俄国革命的镜子」；《战争与和平》《安娜·卡列尼娜》《复活》三大长篇。"}]},{"id":"选081","cat":"外国文学","level":"易","q":"《安娜·卡列尼娜》的作者是？","opts":["契诃夫","果戈理","列夫·托尔斯泰","普希金"],"ans":"C","ansText":"列夫·托尔斯泰","note":"小说开篇“幸福的家庭都是相似的，不幸的家庭各有各的不幸”广为流传。","bg":[{"label":"托尔斯泰","text":"俄国作家，被称「俄国革命的镜子」；《战争与和平》《安娜·卡列尼娜》《复活》三大长篇。"},{"label":"契诃夫","text":"俄国短篇小说大师、剧作家；《变色龙》《套中人》，与莫泊桑、欧·亨利并称三大短篇巨匠。"}]},{"id":"选082","cat":"外国文学","level":"易","q":"《罪与罚》的作者是？","opts":["屠格涅夫","契诃夫","陀思妥耶夫斯基","托尔斯泰"],"ans":"C","ansText":"陀思妥耶夫斯基","note":"《罪与罚》是陀思妥耶夫斯基的长篇小说。","bg":[{"label":"陀思妥耶夫斯基","text":"俄国作家；《罪与罚》写大学生拉斯柯尔尼科夫的犯罪与救赎，心理描写深透。"},{"label":"托尔斯泰","text":"俄国作家，被称「俄国革命的镜子」；《战争与和平》《安娜·卡列尼娜》《复活》三大长篇。"}]},{"id":"选083","cat":"外国文学","level":"易","q":"《变色龙》的作者是？","opts":["契诃夫","高尔基","莫泊桑","欧·亨利"],"ans":"A","ansText":"契诃夫","note":"《变色龙》是契诃夫的短篇小说名篇。","bg":[{"label":"契诃夫","text":"俄国短篇小说大师、剧作家；《变色龙》《套中人》，与莫泊桑、欧·亨利并称三大短篇巨匠。"},{"label":"欧·亨利","text":"美国短篇小说家，以「欧·亨利式结尾」（意料之外、情理之中）著称，《麦琪的礼物》《最后一片叶子》。"}]},{"id":"选084","cat":"外国文学","level":"易","q":"《钢铁是怎样炼成的》的主人公是？","opts":["冬妮娅","阿尔焦姆","朱赫来","保尔·柯察金"],"ans":"D","ansText":"保尔·柯察金","note":"保尔·柯察金是奥斯特洛夫斯基小说《钢铁是怎样炼成的》的主人公。","bg":[{"label":"《钢铁是怎样炼成的》","text":"苏联奥斯特洛夫斯基作；保尔·柯察金「人最宝贵的是生命……」。"}]},{"id":"选085","cat":"外国文学","level":"易","q":"《童年》的作者是？","opts":["肖洛霍夫","契诃夫","高尔基","托尔斯泰"],"ans":"C","ansText":"高尔基","note":"《童年》是高尔基自传体三部曲的第一部。","bg":[{"label":"托尔斯泰","text":"俄国作家，被称「俄国革命的镜子」；《战争与和平》《安娜·卡列尼娜》《复活》三大长篇。"},{"label":"契诃夫","text":"俄国短篇小说大师、剧作家；《变色龙》《套中人》，与莫泊桑、欧·亨利并称三大短篇巨匠。"}]},{"id":"选086","cat":"外国文学","level":"易","q":"《百年孤独》的作者是？","opts":["加西亚·马尔克斯","略萨","博尔赫斯","聂鲁达"],"ans":"A","ansText":"加西亚·马尔克斯","note":"马尔克斯是哥伦比亚作家，魔幻现实主义代表，1982年获诺贝尔文学奖。","bg":[{"label":"诺贝尔文学奖","text":"1901 年设立，由瑞典学院颁发；中国获此奖者为莫言（2012）。"},{"label":"马尔克斯","text":"哥伦比亚作家，1982 年诺贝尔文学奖；《百年孤独》为魔幻现实主义巅峰。"}]},{"id":"选087","cat":"外国文学","level":"易","q":"《堂吉诃德》的作者是？","opts":["但丁","塞万提斯","莎士比亚","薄伽丘"],"ans":"B","ansText":"塞万提斯","note":"《堂吉诃德》是西班牙作家塞万提斯的长篇小说。","bg":[{"label":"塞万提斯","text":"西班牙作家；《堂吉诃德》戏拟骑士小说，被称欧洲第一部现代小说。"},{"label":"莎士比亚","text":"英国文艺复兴剧作家；四大悲剧《哈姆雷特》《奥赛罗》《李尔王》《麦克白》，「生存还是毁灭」。"}]},{"id":"选088","cat":"外国文学","level":"易","q":"《神曲》的作者是？","opts":["但丁","薄伽丘","塞万提斯","彼特拉克"],"ans":"A","ansText":"但丁","note":"《神曲》是意大利诗人但丁的长诗，分《地狱》《炼狱》《天堂》三部分。","bg":[{"label":"塞万提斯","text":"西班牙作家；《堂吉诃德》戏拟骑士小说，被称欧洲第一部现代小说。"},{"label":"但丁","text":"意大利诗人；《神曲》分《地狱》《炼狱》《天堂》三部，为文艺复兴先声。"}]},{"id":"选089","cat":"外国文学","level":"易","q":"《十日谈》的作者是？","opts":["彼特拉克","拉伯雷","薄伽丘","但丁"],"ans":"C","ansText":"薄伽丘","note":"《十日谈》是意大利作家薄伽丘的短篇小说集。","bg":[{"label":"薄伽丘","text":"意大利作家；《十日谈》一百个故事，与《神曲》并称「人曲」。"},{"label":"但丁","text":"意大利诗人；《神曲》分《地狱》《炼狱》《天堂》三部，为文艺复兴先声。"}]},{"id":"选090","cat":"外国文学","level":"易","q":"《浮士德》的作者是？","opts":["托马斯·曼","海涅","席勒","歌德"],"ans":"D","ansText":"歌德","note":"《浮士德》是德国作家歌德的诗剧代表作。","bg":[{"label":"歌德","text":"德国文学巨匠；《浮士德》写一生求索，《少年维特之烦恼》掀起「维特热」。"}]},{"id":"选091","cat":"外国文学","level":"易","q":"《假如生活欺骗了你》的作者是？","opts":["屠格涅夫","普希金","莱蒙托夫","果戈理"],"ans":"B","ansText":"普希金","note":"普希金是俄国浪漫主义文学的代表。","bg":[{"label":"普希金","text":"俄国文学之父；诗体小说《叶甫盖尼·奥涅金》，《假如生活欺骗了你》广为传诵。"}]},{"id":"选092","cat":"外国文学","level":"易","q":"《老人与海》的作者是？","opts":["马克·吐温","菲茨杰拉德","海明威","福克纳"],"ans":"C","ansText":"海明威","note":"海明威1954年获诺贝尔文学奖，《老人与海》是其代表作。","bg":[{"label":"诺贝尔文学奖","text":"1901 年设立，由瑞典学院颁发；中国获此奖者为莫言（2012）。"},{"label":"海明威","text":"美国作家，1954 年诺贝尔文学奖；《老人与海》「一个人可以被毁灭，但不能被打败」，开创「冰山原则」。"}]},{"id":"选093","cat":"外国文学","level":"易","q":"《老人与海》的主人公是？","opts":["盖茨比","圣地亚哥","汤姆·索亚","曼诺林"],"ans":"B","ansText":"圣地亚哥","note":"圣地亚哥是老渔夫，曼诺林是陪他出海的孩子。","bg":[{"label":"海明威","text":"美国作家，1954 年诺贝尔文学奖；《老人与海》「一个人可以被毁灭，但不能被打败」，开创「冰山原则」。"}]},{"id":"选094","cat":"外国文学","level":"易","q":"《小王子》的作者是？","opts":["圣埃克苏佩里","大仲马","凡尔纳","雨果"],"ans":"A","ansText":"圣埃克苏佩里","note":"《小王子》是法国作家圣埃克苏佩里的童话小说。","bg":[{"label":"《小王子》","text":"法国作家圣埃克苏佩里 1943 年作；「重要的东西用眼睛是看不见的」。"},{"label":"大仲马","text":"法国通俗小说之王；《基督山伯爵》写复仇与救赎，情节跌宕。"}]},{"id":"选095","cat":"外国文学","level":"易","q":"安徒生是哪个国家的童话作家？","opts":["丹麦","德国","瑞典","挪威"],"ans":"A","ansText":"丹麦","note":"安徒生是丹麦童话作家，代表作有《海的女儿》《丑小鸭》等。","bg":[{"label":"安徒生","text":"丹麦童话作家；《海的女儿》《丑小鸭》《卖火柴的小女孩》，「童话之王」。"}]},{"id":"选096","cat":"外国文学","level":"易","q":"《一千零一夜》又名？","opts":["《格林童话》","《伊索寓言》","《十日谈》","《天方夜谭》"],"ans":"D","ansText":"《天方夜谭》","note":"《一千零一夜》是阿拉伯民间故事集，又名《天方夜谭》。","bg":[{"label":"《一千零一夜》","text":"阿拉伯民间故事集，又名《天方夜谭》，山鲁佐德一夜一故事。"},{"label":"格林兄弟","text":"德国语言学家兄弟，搜集整理民间童话，《白雪公主》《灰姑娘》皆出于此。"}]},{"id":"选097","cat":"外国文学","level":"中","q":"《源氏物语》的作者是？","opts":["清少纳言","紫式部","樋口一叶","夏目漱石"],"ans":"B","ansText":"紫式部","note":"《源氏物语》是日本平安时代紫式部的长篇小说。","bg":[{"label":"紫式部","text":"日本平安朝女作家；《源氏物语》被称世界上最早的长篇小说。"},{"label":"夏目漱石","text":"日本国民作家；《我是猫》以猫眼看人，《心》《哥儿》亦名。"}]},{"id":"选098","cat":"外国文学","level":"易","q":"《挪威的森林》的作者是？","opts":["夏目漱石","太宰治","川端康成","村上春树"],"ans":"D","ansText":"村上春树","note":"《挪威的森林》是村上春树的长篇小说。","bg":[{"label":"村上春树","text":"日本作家；《挪威的森林》写青春与失落，文体清冷疏离，拥趸遍布世界。"},{"label":"川端康成","text":"日本作家，1968 年诺贝尔文学奖；《雪国》「穿过县界长长的隧道，便是雪国」。"}]},{"id":"选099","cat":"外国文学","level":"易","q":"《我是猫》的作者是？","opts":["芥川龙之介","川端康成","村上春树","夏目漱石"],"ans":"D","ansText":"夏目漱石","note":"《我是猫》是夏目漱石的长篇小说，以猫的视角看人间。","bg":[{"label":"村上春树","text":"日本作家；《挪威的森林》写青春与失落，文体清冷疏离，拥趸遍布世界。"},{"label":"川端康成","text":"日本作家，1968 年诺贝尔文学奖；《雪国》「穿过县界长长的隧道，便是雪国」。"}]},{"id":"选100","cat":"外国文学","level":"易","q":"《飞鸟集》的作者是？","opts":["泰戈尔","普希金","纪伯伦","聂鲁达"],"ans":"A","ansText":"泰戈尔","note":"《飞鸟集》是印度诗人泰戈尔的诗集。","bg":[{"label":"泰戈尔","text":"印度诗人，1913 年诺贝尔文学奖（亚洲首位）；《吉檀迦利》《飞鸟集》，诗风澄澈。"},{"label":"普希金","text":"俄国文学之父；诗体小说《叶甫盖尼·奥涅金》，《假如生活欺骗了你》广为传诵。"}]},{"id":"选101","cat":"外国文学","level":"易","q":"《鲁滨逊漂流记》的作者是？","opts":["司各特","菲尔丁","笛福","斯威夫特"],"ans":"C","ansText":"笛福","note":"《鲁滨逊漂流记》是英国作家笛福的长篇小说。","bg":[{"label":"《鲁滨逊漂流记》","text":"英国笛福作，写荒岛二十八年求生，被视为现实主义小说的开端。"}]},{"id":"选102","cat":"外国文学","level":"易","q":"《简·爱》的作者是？","opts":["夏洛蒂·勃朗特","乔治·艾略特","简·奥斯汀","艾米莉·勃朗特"],"ans":"A","ansText":"夏洛蒂·勃朗特","note":"《简·爱》是夏洛蒂·勃朗特的代表作；艾米莉·勃朗特写《呼啸山庄》。","bg":[{"label":"勃朗特姐妹","text":"夏洛蒂·勃朗特《简·爱》写女性自尊自爱，艾米莉·勃朗特《呼啸山庄》写荒原之爱。"},{"label":"简·奥斯汀","text":"英国女作家；《傲慢与偏见》开篇名句「凡是有钱的单身汉，总想娶位太太」。"}]},{"id":"选103","cat":"外国文学","level":"易","q":"《傲慢与偏见》的作者是？","opts":["简·奥斯汀","艾米莉·勃朗特","伍尔夫","夏洛蒂·勃朗特"],"ans":"A","ansText":"简·奥斯汀","note":"《傲慢与偏见》是简·奥斯汀的代表作。","bg":[{"label":"简·奥斯汀","text":"英国女作家；《傲慢与偏见》开篇名句「凡是有钱的单身汉，总想娶位太太」。"},{"label":"勃朗特姐妹","text":"夏洛蒂·勃朗特《简·爱》写女性自尊自爱，艾米莉·勃朗特《呼啸山庄》写荒原之爱。"}]},{"id":"选104","cat":"外国文学","level":"易","q":"《雾都孤儿》的作者是？","opts":["萨克雷","哈代","狄更斯","毛姆"],"ans":"C","ansText":"狄更斯","note":"《雾都孤儿》是狄更斯的长篇小说。","bg":[{"label":"狄更斯","text":"英国小说家；《雾都孤儿》《双城记》《远大前程》，写维多利亚时代的贫富与人情。"},{"label":"毛姆","text":"英国作家；《月亮与六便士》以高更为原型，写天才与世俗的冲突。"}]},{"id":"选105","cat":"外国文学","level":"中","q":"《月亮与六便士》的作者是？","opts":["奥威尔","狄更斯","毛姆","哈代"],"ans":"C","ansText":"毛姆","note":"《月亮与六便士》以画家高更为原型，是毛姆的代表作。","bg":[{"label":"毛姆","text":"英国作家；《月亮与六便士》以高更为原型，写天才与世俗的冲突。"},{"label":"狄更斯","text":"英国小说家；《雾都孤儿》《双城记》《远大前程》，写维多利亚时代的贫富与人情。"}]},{"id":"选106","cat":"外国文学","level":"中","q":"《1984》的作者是？","opts":["乔治·奥威尔","扎米亚京","卡夫卡","赫胥黎"],"ans":"A","ansText":"乔治·奥威尔","note":"《1984》是奥威尔的反乌托邦小说。","bg":[{"label":"奥威尔","text":"英国作家；《1984》《动物庄园》为政治讽喻经典，「老大哥在看着你」。"},{"label":"卡夫卡","text":"奥地利小说家，现代主义先驱；《变形记》写人变成大甲虫，《城堡》《审判》写现代人的荒诞处境。"}]},{"id":"选107","cat":"外国文学","level":"易","q":"《变形记》的作者是？","opts":["伍尔夫","乔伊斯","卡夫卡","普鲁斯特"],"ans":"C","ansText":"卡夫卡","note":"《变形记》写格里高尔变成甲虫，是卡夫卡的代表作。","bg":[{"label":"卡夫卡","text":"奥地利小说家，现代主义先驱；《变形记》写人变成大甲虫，《城堡》《审判》写现代人的荒诞处境。"}]},{"id":"选108","cat":"外国文学","level":"中","q":"《追风筝的人》的作者是？","opts":["卡勒德·胡赛尼","奥威尔","村上春树","塞林格"],"ans":"A","ansText":"卡勒德·胡赛尼","note":"《追风筝的人》是阿富汗裔美国作家胡赛尼的小说。","bg":[{"label":"《追风筝的人》","text":"阿富汗裔美国作家胡赛尼作，写背叛与救赎，「为你，千千万万遍」。"},{"label":"村上春树","text":"日本作家；《挪威的森林》写青春与失落，文体清冷疏离，拥趸遍布世界。"}]},{"id":"选109","cat":"外国文学","level":"中","q":"《苏菲的世界》的作者是？","opts":["乔斯坦·贾德","拉格洛夫","易卜生","安徒生"],"ans":"A","ansText":"乔斯坦·贾德","note":"《苏菲的世界》是挪威作家乔斯坦·贾德的哲学启蒙小说。","bg":[{"label":"《苏菲的世界》","text":"挪威作家乔斯坦·贾德作，以小说形式讲西方哲学史。"},{"label":"安徒生","text":"丹麦童话作家；《海的女儿》《丑小鸭》《卖火柴的小女孩》，「童话之王」。"}]},{"id":"选110","cat":"外国文学","level":"易","q":"《格林童话》由谁搜集整理？","opts":["豪夫","佩罗","格林兄弟","安徒生"],"ans":"C","ansText":"格林兄弟","note":"《格林童话》由德国格林兄弟搜集整理。","bg":[{"label":"格林兄弟","text":"德国语言学家兄弟，搜集整理民间童话，《白雪公主》《灰姑娘》皆出于此。"},{"label":"安徒生","text":"丹麦童话作家；《海的女儿》《丑小鸭》《卖火柴的小女孩》，「童话之王」。"}]},{"id":"选111","cat":"文学常识","level":"易","q":"“四书”不包括下列哪一部？","opts":["《中庸》","《论语》","《大学》","《诗经》"],"ans":"D","ansText":"《诗经》","note":"“四书”指《大学》《中庸》《论语》《孟子》。","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"},{"label":"《论语》","text":"孔子弟子及再传弟子辑录孔子言行，语录体，儒家经典，与《大学》《中庸》《孟子》合称「四书」。"}]},{"id":"选112","cat":"文学常识","level":"易","q":"“五经”不包括下列哪一部？","opts":["《尚书》","《礼记》","《诗经》","《论语》"],"ans":"D","ansText":"《论语》","note":"“五经”指《诗》《书》《礼》《易》《春秋》。","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"},{"label":"《论语》","text":"孔子弟子及再传弟子辑录孔子言行，语录体，儒家经典，与《大学》《中庸》《孟子》合称「四书」。"}]},{"id":"选113","cat":"文学常识","level":"易","q":"我国第一部纪传体通史是？","opts":["《汉书》","《春秋》","《史记》","《资治通鉴》"],"ans":"C","ansText":"《史记》","note":"《史记》为司马迁所著，是我国第一部纪传体通史。","bg":[{"label":"司马光《资治通鉴》","text":"北宋司马光主编，编年体通史，取「鉴于往事，有资于治道」之意。"},{"label":"司马迁《史记》","text":"西汉司马迁著，中国第一部纪传体通史，记黄帝至汉武帝三千年事，鲁迅誉为「史家之绝唱，无韵之离骚」。"}]},{"id":"选114","cat":"文学常识","level":"易","q":"词又称？","opts":["长短句","近体诗","古风","骈文"],"ans":"A","ansText":"长短句","note":"词又称长短句、诗余，句子长短不齐。","bg":[{"label":"词","text":"词又称「诗余」「长短句」「曲子词」，起于隋唐，盛于宋；按词牌填词，分小令、中调、长调。"},{"label":"近体诗","text":"近体诗（格律诗）成于唐代，分绝句与律诗；律诗八句四联，讲平仄、对仗、押韵。"}]},{"id":"选115","cat":"文学常识","level":"易","q":"元曲包括散曲和？","opts":["杂剧","南戏","话本","传奇"],"ans":"A","ansText":"杂剧","note":"元曲包括散曲和杂剧，关汉卿、马致远等是代表作家。","bg":[{"label":"马致远","text":"元曲四大家之一；《天净沙·秋思》「枯藤老树昏鸦……断肠人在天涯」，被誉为「秋思之祖」。"},{"label":"关汉卿","text":"元杂剧奠基人，元曲四大家之首；《窦娥冤》为中国古典悲剧代表作。"}]},{"id":"选116","cat":"文学常识","level":"易","q":"明清科举考试中，殿试第一名称为？","opts":["榜眼","探花","状元","会元"],"ans":"C","ansText":"状元","note":"殿试前三名为状元、榜眼、探花。","bg":[{"label":"科举","text":"明清科举分乡试、会试、殿试；殿试由皇帝亲策，一甲三名依次为状元、榜眼、探花。"}]},{"id":"选117","cat":"文学常识","level":"易","q":"成语“程门立雪”讲的是谁尊师求学的故事？","opts":["杨时","孔子","孟子","朱熹"],"ans":"A","ansText":"杨时","note":"杨时冒雪立于程颐门外等候，留下“程门立雪”的典故。","bg":[{"label":"程门立雪","text":"杨时、游酢拜见程颐，立于门外候其醒，雪深一尺；喻尊师重道之诚。"}]},{"id":"选118","cat":"文学常识","level":"易","q":"“四面楚歌”与哪位历史人物有关？","opts":["张良","刘邦","韩信","项羽"],"ans":"D","ansText":"项羽","note":"楚汉相争时，项羽被围垓下，四面响起楚歌。","bg":[{"label":"四面楚歌","text":"楚汉相争，项羽被围垓下，夜闻汉军四面皆楚歌，知楚地尽失；喻孤立无援。"},{"label":"《史记》人物","text":"《史记·项羽本纪》写项羽「力拔山兮气盖世」；鸿门宴、四面楚歌、霸王别姬皆出于此。"}]},{"id":"选119","cat":"文学常识","level":"易","q":"“指鹿为马”说的是谁？","opts":["和珅","秦桧","王莽","赵高"],"ans":"D","ansText":"赵高","note":"秦二世时，赵高指着鹿说是马，试探群臣。","bg":[{"label":"指鹿为马","text":"秦二世时赵高献鹿称马，以试群臣向背；喻颠倒黑白、仗势欺人。"}]},{"id":"选120","cat":"文学常识","level":"易","q":"“卧薪尝胆”说的是谁？","opts":["刘邦","勾践","夫差","项羽"],"ans":"B","ansText":"勾践","note":"越王勾践战败后卧薪尝胆，最终复国。","bg":[{"label":"卧薪尝胆","text":"越王勾践败于吴，卧薪尝胆二十年，终灭吴；喻刻苦自励、发愤图强。"},{"label":"《史记》人物","text":"《史记·项羽本纪》写项羽「力拔山兮气盖世」；鸿门宴、四面楚歌、霸王别姬皆出于此。"}]},{"id":"选121","cat":"文学常识","level":"中","q":"成语“洛阳纸贵”形容的是？","opts":["洛阳城繁华","书法精美","纸张价格上涨","作品广为流传"],"ans":"D","ansText":"作品广为流传","note":"左思《三都赋》写成后，人们争相传抄，洛阳纸价上涨。","bg":[{"label":"洛阳纸贵","text":"西晋左思作《三都赋》，豪贵竞相传写，洛阳纸价为之上涨；喻著作风行一时。"}]},{"id":"选122","cat":"文学常识","level":"中","q":"成语“江郎才尽”中的“江郎”指？","opts":["江永","江万里","江统","江淹"],"ans":"D","ansText":"江淹","note":"南朝文学家江淹晚年才思衰退，留下“江郎才尽”之说。","bg":[{"label":"江郎才尽","text":"南朝江淹少有文名，晚年诗文不复佳，传说梦郭璞索还五色笔；喻才思衰退。"}]},{"id":"选123","cat":"文学常识","level":"中","q":"成语“胸有成竹”与哪位画家有关？","opts":["文同","苏轼","唐寅","郑板桥"],"ans":"A","ansText":"文同","note":"北宋文同画竹前心中已有竹子的完整形象。","bg":[{"label":"胸有成竹","text":"北宋文与可画竹前已得竹之神理，苏轼记其事；喻做事前已有通盘打算。"},{"label":"郑燮《竹石》","text":"清代郑板桥题画诗，「千磨万击还坚劲，任尔东西南北风」。"}]},{"id":"选124","cat":"文学常识","level":"中","q":"成语“入木三分”最初形容什么？","opts":["画技高超","文章深刻","雕刻精美","书法笔力强劲"],"ans":"D","ansText":"书法笔力强劲","note":"相传王羲之写字笔力透入木板三分，后形容书法有力。","bg":[{"label":"入木三分","text":"传说王羲之书祝版，笔力透入木三分；原形容书法笔力遒劲，后喻见解深刻。"}]},{"id":"选125","cat":"文学常识","level":"中","q":"“黄粱一梦”的典故出自？","opts":["《聊斋志异》","《西游记》","《枕中记》","《红楼梦》"],"ans":"C","ansText":"《枕中记》","note":"唐代沈既济《枕中记》写卢生在梦中历尽荣华，醒来黄粱未熟。","bg":[{"label":"蒲松龄","text":"清代文学家；《聊斋志异》以花妖狐魅写人世，鲁迅称其「用传奇法，而以志怪」。"},{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"}]},{"id":"选126","cat":"文学常识","level":"易","q":"诺贝尔文学奖的颁奖典礼在哪个国家举行？","opts":["挪威","丹麦","瑞士","瑞典"],"ans":"D","ansText":"瑞典","note":"诺贝尔文学奖由瑞典学院颁发，典礼在斯德哥尔摩举行。","bg":[{"label":"诺贝尔文学奖","text":"1901 年设立，由瑞典学院颁发；中国获此奖者为莫言（2012）。"}]},{"id":"选127","cat":"文学常识","level":"易","q":"茅盾文学奖主要奖励哪种体裁？","opts":["戏剧","长篇小说","诗歌","散文"],"ans":"B","ansText":"长篇小说","note":"茅盾文学奖是中国长篇小说最高荣誉之一。","bg":[{"label":"茅盾文学奖","text":"1981 年设立，奖励优秀长篇小说，为中国长篇小说最高奖之一。"},{"label":"茅盾","text":"原名沈雁冰，文学研究会主将；《子夜》写 1930 年代上海，《林家铺子》《春蚕》亦名；茅盾文学奖以其命名。"}]},{"id":"选128","cat":"文学常识","level":"中","q":"鲁迅文学奖不设下列哪个奖项？","opts":["中篇小说","诗歌","短篇小说","长篇小说"],"ans":"D","ansText":"长篇小说","note":"长篇小说由茅盾文学奖评选，鲁迅文学奖设中短篇小说等奖项。","bg":[{"label":"茅盾文学奖","text":"1981 年设立，奖励优秀长篇小说，为中国长篇小说最高奖之一。"},{"label":"鲁迅","text":"原名周树人，字豫才；中国现代文学奠基人。《狂人日记》是第一部现代白话小说，《阿Q正传》《孔乙己》《故乡》《呐喊》《朝花夕拾》皆为其代表作。"}]},{"id":"选129","cat":"文学常识","level":"易","q":"“小李杜”指的是？","opts":["李商隐和杜甫","李贺和杜牧","李商隐和杜牧","李白和杜甫"],"ans":"C","ansText":"李商隐和杜牧","note":"“小李杜”指晚唐诗人李商隐、杜牧；“大李杜”指李白、杜甫。","bg":[{"label":"大李杜","text":"指李白与杜甫。二人一仙一圣，是唐诗的两座高峰。"},{"label":"小李杜","text":"指晚唐李商隐与杜牧，以深情绵邈与俊爽俊逸并称。"}]},{"id":"选130","cat":"文学常识","level":"易","q":"“大李杜”指的是？","opts":["李商隐和杜牧","李贺和杜牧","李白和杜牧","李白和杜甫"],"ans":"D","ansText":"李白和杜甫","note":"“大李杜”指盛唐诗人李白、杜甫。","bg":[{"label":"大李杜","text":"指李白与杜甫。二人一仙一圣，是唐诗的两座高峰。"},{"label":"李商隐","text":"晚唐诗人，工七律，意象朦胧；「春蚕到死丝方尽，蜡炬成灰泪始干」。"}]},{"id":"选131","cat":"文学常识","level":"易","q":"“苏辛”指的是？","opts":["苏轼和辛弃疾","苏轼和秦观","苏辙和辛弃疾","苏洵和苏轼"],"ans":"A","ansText":"苏轼和辛弃疾","note":"“苏辛”是宋词豪放派的代表作家苏轼、辛弃疾。","bg":[{"label":"辛弃疾","text":"南宋词人，字幼安，号稼轩；一生主战，词风雄健，「醉里挑灯看剑，梦回吹角连营」。"},{"label":"词","text":"宋词两大风格：婉约以柳永、李清照为代表，豪放以苏轼、辛弃疾为代表。"}]},{"id":"选132","cat":"文学常识","level":"易","q":"婉约派的代表词人是？","opts":["柳永和李清照","陆游和辛弃疾","王安石和苏轼","苏轼和辛弃疾"],"ans":"A","ansText":"柳永和李清照","note":"婉约派代表有柳永、李清照；豪放派代表有苏轼、辛弃疾。","bg":[{"label":"辛弃疾","text":"南宋词人，字幼安，号稼轩；一生主战，词风雄健，「醉里挑灯看剑，梦回吹角连营」。"},{"label":"李清照","text":"号易安居士，宋代婉约词宗；南渡前后词风由清丽转沉痛，「寻寻觅觅，冷冷清清」。"}]},{"id":"选133","cat":"文学常识","level":"易","q":"“三苏”指的是？","opts":["苏武、苏洵、苏轼","苏轼、苏辙、苏小妹","苏洵、苏轼、苏辙","苏洵、苏辙、苏武"],"ans":"C","ansText":"苏洵、苏轼、苏辙","note":"“三苏”指北宋苏洵、苏轼、苏辙父子三人，均属唐宋八大家。","bg":[{"label":"唐宋八大家","text":"唐韩愈、柳宗元，宋欧阳修、苏洵、苏轼、苏辙、王安石、曾巩，以散文著称。"},{"label":"苏轼","text":"字子瞻，号东坡居士，北宋文坛领袖；诗、词、文、书、画皆入一流，开豪放词风，「大江东去」；与父苏洵、弟苏辙合称「三苏」。"}]},{"id":"选134","cat":"文学常识","level":"易","q":"我国四大名著不包括？","opts":["《西游记》","《水浒传》","《红楼梦》","《聊斋志异》"],"ans":"D","ansText":"《聊斋志异》","note":"四大名著为《红楼梦》《西游记》《水浒传》《三国演义》。","bg":[{"label":"蒲松龄","text":"清代文学家；《聊斋志异》以花妖狐魅写人世，鲁迅称其「用传奇法，而以志怪」。"},{"label":"罗贯中","text":"元末明初小说家；《三国演义》为中国第一部长篇章回体历史演义小说。"}]},{"id":"选135","cat":"文学常识","level":"易","q":"“世界三大短篇小说巨匠”不包括？","opts":["契诃夫","欧·亨利","莫泊桑","列夫·托尔斯泰"],"ans":"D","ansText":"列夫·托尔斯泰","note":"三大短篇小说巨匠为莫泊桑、契诃夫、欧·亨利。","bg":[{"label":"托尔斯泰","text":"俄国作家，被称「俄国革命的镜子」；《战争与和平》《安娜·卡列尼娜》《复活》三大长篇。"},{"label":"欧·亨利","text":"美国短篇小说家，以「欧·亨利式结尾」（意料之外、情理之中）著称，《麦琪的礼物》《最后一片叶子》。"}]},{"id":"选136","cat":"文学常识","level":"易","q":"“豆蔻年华”指女子多少岁左右？","opts":["十三四岁","二十岁","十六岁","十五岁"],"ans":"A","ansText":"十三四岁","note":"豆蔻年华指女子十三四岁。","bg":[{"label":"年龄称谓","text":"襁褓幼年、总角童年、豆蔻十三四、及笄十五、弱冠二十、而立三十、不惑四十、知天命五十、花甲六十、古稀七十、耄耋八九十。"}]},{"id":"选137","cat":"文学常识","level":"易","q":"“弱冠之年”指男子多少岁？","opts":["二十岁","三十岁","十八岁","十五岁"],"ans":"A","ansText":"二十岁","note":"古代男子二十岁行冠礼，称“弱冠”。","bg":[{"label":"年龄称谓","text":"襁褓幼年、总角童年、豆蔻十三四、及笄十五、弱冠二十、而立三十、不惑四十、知天命五十、花甲六十、古稀七十、耄耋八九十。"}]},{"id":"选138","cat":"文学常识","level":"易","q":"“而立之年”指多少岁？","opts":["二十岁","四十岁","三十岁","五十岁"],"ans":"C","ansText":"三十岁","note":"出自《论语》“三十而立”。","bg":[{"label":"《论语》","text":"孔子弟子及再传弟子辑录孔子言行，语录体，儒家经典，与《大学》《中庸》《孟子》合称「四书」。"},{"label":"年龄称谓","text":"襁褓幼年、总角童年、豆蔻十三四、及笄十五、弱冠二十、而立三十、不惑四十、知天命五十、花甲六十、古稀七十、耄耋八九十。"}]},{"id":"选139","cat":"文学常识","level":"易","q":"“知天命之年”指多少岁？","opts":["七十岁","六十岁","四十岁","五十岁"],"ans":"D","ansText":"五十岁","note":"出自《论语》“五十而知天命”。","bg":[{"label":"《论语》","text":"孔子弟子及再传弟子辑录孔子言行，语录体，儒家经典，与《大学》《中庸》《孟子》合称「四书」。"},{"label":"年龄称谓","text":"襁褓幼年、总角童年、豆蔻十三四、及笄十五、弱冠二十、而立三十、不惑四十、知天命五十、花甲六十、古稀七十、耄耋八九十。"}]},{"id":"选140","cat":"文学常识","level":"易","q":"“古稀之年”指多少岁？","opts":["六十岁","七十岁","九十岁","八十岁"],"ans":"B","ansText":"七十岁","note":"杜甫诗云“人生七十古来稀”。","bg":[{"label":"杜甫","text":"字子美，自号少陵野老，世称「诗圣」，其诗称「诗史」；沉郁顿挫，忧国忧民，「安得广厦千万间」。"},{"label":"年龄称谓","text":"襁褓幼年、总角童年、豆蔻十三四、及笄十五、弱冠二十、而立三十、不惑四十、知天命五十、花甲六十、古稀七十、耄耋八九十。"}]},{"id":"选141","cat":"神话·民间·趣味","level":"易","q":"中国神话中“开天辟地”的是谁？","opts":["女娲","夸父","盘古","后羿"],"ans":"C","ansText":"盘古","note":"盘古开天辟地，身体化为山川日月。","bg":[{"label":"中国神话","text":"盘古开天辟地、女娲炼五色石补天、后羿射日、嫦娥奔月、精卫填海、夸父逐日，皆见于《山海经》《淮南子》等。"}]},{"id":"选142","cat":"神话·民间·趣味","level":"易","q":"“女娲补天”中女娲用什么补天？","opts":["玉石","五色土","陨石","五彩石"],"ans":"D","ansText":"五彩石","note":"女娲炼五彩石补天，斩鳌足立四极。","bg":[{"label":"中国神话","text":"盘古开天辟地、女娲炼五色石补天、后羿射日、嫦娥奔月、精卫填海、夸父逐日，皆见于《山海经》《淮南子》等。"}]},{"id":"选143","cat":"神话·民间·趣味","level":"易","q":"“精卫填海”中精卫是谁的女儿？","opts":["舜","炎帝","黄帝","尧"],"ans":"B","ansText":"炎帝","note":"精卫是炎帝之女，溺于东海后化为鸟，衔石填海。","bg":[{"label":"中国神话","text":"盘古开天辟地、女娲炼五色石补天、后羿射日、嫦娥奔月、精卫填海、夸父逐日，皆见于《山海经》《淮南子》等。"}]},{"id":"选144","cat":"神话·民间·趣味","level":"易","q":"“嫦娥奔月”中嫦娥偷吃了什么？","opts":["仙露","蟠桃","灵芝","不死药"],"ans":"D","ansText":"不死药","note":"后羿求得不死药，嫦娥偷吃后飞升月宫。","bg":[{"label":"中国神话","text":"盘古开天辟地、女娲炼五色石补天、后羿射日、嫦娥奔月、精卫填海、夸父逐日，皆见于《山海经》《淮南子》等。"}]},{"id":"选145","cat":"神话·民间·趣味","level":"易","q":"《西游记》中孙悟空的兵器是？","opts":["降妖宝杖","金箍棒","九齿钉耙","芭蕉扇"],"ans":"B","ansText":"金箍棒","note":"孙悟空的金箍棒原为东海龙宫的定海神针。","bg":[{"label":"吴承恩","text":"明代小说家；《西游记》为浪漫主义神魔小说高峰，塑造孙悟空这一不朽形象。"}]},{"id":"选146","cat":"神话·民间·趣味","level":"易","q":"希腊神话中的众神之王是？","opts":["哈迪斯","宙斯","波塞冬","阿波罗"],"ans":"B","ansText":"宙斯","note":"宙斯是奥林匹斯众神之王，波塞冬管海，哈迪斯管冥界。","bg":[{"label":"希腊神话","text":"奥林匹斯十二主神以宙斯为首，雅典娜为智慧与战争女神；特洛伊战争见于荷马史诗《伊利亚特》《奥德赛》。"}]},{"id":"选147","cat":"神话·民间·趣味","level":"易","q":"希腊神话中的智慧女神是？","opts":["阿佛洛狄忒","赫拉","阿尔忒弥斯","雅典娜"],"ans":"D","ansText":"雅典娜","note":"雅典娜是智慧与战争女神，雅典城的守护神。","bg":[{"label":"希腊神话","text":"奥林匹斯十二主神以宙斯为首，雅典娜为智慧与战争女神；特洛伊战争见于荷马史诗《伊利亚特》《奥德赛》。"}]},{"id":"选148","cat":"神话·民间·趣味","level":"易","q":"《哈利·波特》系列小说的作者是？","opts":["J.K.罗琳","乔治·马丁","C.S.刘易斯","托尔金"],"ans":"A","ansText":"J.K.罗琳","note":"J.K.罗琳是英国作家，《哈利·波特》系列风靡全球。","bg":[{"label":"《哈利·波特》","text":"英国作家 J.K. 罗琳的七部奇幻小说，全球现象级畅销书。"}]},{"id":"选149","cat":"神话·民间·趣味","level":"易","q":"《指环王》的作者是？","opts":["托尔金","菲利普·普尔曼","J.K.罗琳","C.S.刘易斯"],"ans":"A","ansText":"托尔金","note":"托尔金是英国作家，被誉为“现代奇幻文学之父”。","bg":[{"label":"《哈利·波特》","text":"英国作家 J.K. 罗琳的七部奇幻小说，全球现象级畅销书。"}]},{"id":"选150","cat":"神话·民间·趣味","level":"易","q":"“特洛伊木马”的故事属于哪个古代文明的传说？","opts":["古巴比伦","古希腊","古埃及","古罗马"],"ans":"B","ansText":"古希腊","note":"特洛伊战争是古希腊传说，见于荷马史诗。","bg":[{"label":"希腊神话","text":"奥林匹斯十二主神以宙斯为首，雅典娜为智慧与战争女神；特洛伊战争见于荷马史诗《伊利亚特》《奥德赛》。"}]}],"blanks":[{"id":"填001","cat":"中国古代文学","level":"易","q":"补写名句：关关雎鸠，在河之洲。窈窕淑女，________。","ans":"君子好逑","note":"《诗经·周南·关雎》","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"}]},{"id":"填002","cat":"中国古代文学","level":"易","q":"补写名句：蒹葭苍苍，白露为霜。所谓伊人，________。","ans":"在水一方","note":"《诗经·秦风·蒹葭》","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"}]},{"id":"填003","cat":"中国古代文学","level":"易","q":"补写名句：路漫漫其修远兮，________。","ans":"吾将上下而求索","note":"屈原《离骚》","bg":[{"label":"《离骚》","text":"屈原代表作，中国古代最长的抒情诗，「路漫漫其修远兮，吾将上下而求索」出于此。"},{"label":"屈原","text":"战国楚人，中国第一位留下姓名的伟大诗人；作《离骚》《九歌》《天问》，开浪漫主义先河，五月五日投汨罗江。"}]},{"id":"填004","cat":"中国古代文学","level":"易","q":"补写名句：老骥伏枥，________。","ans":"志在千里","note":"曹操《龟虽寿》","bg":[{"label":"曹操","text":"东汉末政治家、诗人，建安文学领袖；《龟虽寿》《短歌行》气韵沉雄，「老骥伏枥，志在千里」。"}]},{"id":"填005","cat":"中国古代文学","level":"易","q":"补写名句：采菊东篱下，________。","ans":"悠然见南山","note":"陶渊明《饮酒·其五》","bg":[{"label":"陶渊明","text":"东晋诗人，田园诗开创者；不为五斗米折腰，归隐后写「采菊东篱下，悠然见南山」。"}]},{"id":"填006","cat":"中国古代文学","level":"易","q":"补写名句：海内存知己，________。","ans":"天涯若比邻","note":"王勃《送杜少府之任蜀州》","bg":[{"label":"王勃","text":"初唐四杰之首，少年成名；《滕王阁序》「落霞与孤鹜齐飞」为骈文名篇，《送杜少府之任蜀州》开唐人送别新境。"}]},{"id":"填007","cat":"中国古代文学","level":"易","q":"补写名句：会当凌绝顶，________。","ans":"一览众山小","note":"杜甫《望岳》","bg":[{"label":"杜甫","text":"字子美，自号少陵野老，世称「诗圣」，其诗称「诗史」；沉郁顿挫，忧国忧民，「安得广厦千万间」。"}]},{"id":"填008","cat":"中国古代文学","level":"易","q":"补写名句：飞流直下三千尺，________。","ans":"疑是银河落九天","note":"李白《望庐山瀑布》","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"}]},{"id":"填009","cat":"中国古代文学","level":"易","q":"补写名句：大漠孤烟直，________。","ans":"长河落日圆","note":"王维《使至塞上》","bg":[{"label":"王维","text":"盛唐诗人、画家，人称「诗佛」；诗中有画，「大漠孤烟直，长河落日圆」；苏轼评其「诗中有画，画中有诗」。"}]},{"id":"填010","cat":"中国古代文学","level":"易","q":"补写名句：欲穷千里目，________。","ans":"更上一层楼","note":"王之涣《登鹳雀楼》","bg":[{"label":"王之涣","text":"盛唐边塞诗人，存诗仅六首而名重千古：「欲穷千里目，更上一层楼」。"}]},{"id":"填011","cat":"中国古代文学","level":"易","q":"补写名句：举头望明月，________。","ans":"低头思故乡","note":"李白《静夜思》","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"}]},{"id":"填012","cat":"中国古代文学","level":"易","q":"补写名句：春眠不觉晓，________。","ans":"处处闻啼鸟","note":"孟浩然《春晓》","bg":[{"label":"孟浩然","text":"盛唐山水田园诗人，与王维并称「王孟」，一生布衣，诗风清淡自然。"}]},{"id":"填013","cat":"中国古代文学","level":"易","q":"补写名句：但愿人长久，________。","ans":"千里共婵娟","note":"苏轼《水调歌头·明月几时有》","bg":[{"label":"苏轼","text":"字子瞻，号东坡居士，北宋文坛领袖；诗、词、文、书、画皆入一流，开豪放词风，「大江东去」；与父苏洵、弟苏辙合称「三苏」。"}]},{"id":"填014","cat":"中国古代文学","level":"易","q":"补写名句：先天下之忧而忧，________。","ans":"后天下之乐而乐","note":"范仲淹《岳阳楼记》","bg":[{"label":"范仲淹","text":"北宋政治家、文学家；《岳阳楼记》「先天下之忧而忧，后天下之乐而乐」。"}]},{"id":"填015","cat":"中国古代文学","level":"易","q":"补写名句：落霞与孤鹜齐飞，________。","ans":"秋水共长天一色","note":"王勃《滕王阁序》","bg":[{"label":"王勃","text":"初唐四杰之首，少年成名；《滕王阁序》「落霞与孤鹜齐飞」为骈文名篇，《送杜少府之任蜀州》开唐人送别新境。"}]},{"id":"填016","cat":"中国古代文学","level":"易","q":"补写名句：同是天涯沦落人，________。","ans":"相逢何必曾相识","note":"白居易《琵琶行》","bg":[{"label":"白居易","text":"字乐天，号香山居士，新乐府运动倡导者；主张「文章合为时而著」，诗风平易，老妪能解。"}]},{"id":"填017","cat":"中国古代文学","level":"易","q":"补写名句：在天愿作比翼鸟，________。","ans":"在地愿为连理枝","note":"白居易《长恨歌》","bg":[{"label":"白居易","text":"字乐天，号香山居士，新乐府运动倡导者；主张「文章合为时而著」，诗风平易，老妪能解。"}]},{"id":"填018","cat":"中国古代文学","level":"易","q":"补写名句：人生自古谁无死，________。","ans":"留取丹心照汗青","note":"文天祥《过零丁洋》","bg":[{"label":"文天祥《过零丁洋》","text":"南宋文天祥被俘后作，「人生自古谁无死，留取丹心照汗青」，为绝唱。"}]},{"id":"填019","cat":"中国古代文学","level":"易","q":"补写名句：粉骨碎身浑不怕，________。","ans":"要留清白在人间","note":"于谦《石灰吟》","bg":[{"label":"于谦《石灰吟》","text":"明代于谦作，「粉骨碎身浑不怕，要留清白在人间」，以石灰自况气节；于谦亦以北京保卫战名世。"}]},{"id":"填020","cat":"中国古代文学","level":"易","q":"补写名句：醉里挑灯看剑，________。","ans":"梦回吹角连营","note":"辛弃疾《破阵子·为陈同甫赋壮词以寄之》","bg":[{"label":"辛弃疾","text":"南宋词人，字幼安，号稼轩；一生主战，词风雄健，「醉里挑灯看剑，梦回吹角连营」。"}]},{"id":"填021","cat":"中国古代文学","level":"易","q":"补写名句：生当作人杰，________。","ans":"死亦为鬼雄","note":"李清照《夏日绝句》","bg":[{"label":"李清照","text":"号易安居士，宋代婉约词宗；南渡前后词风由清丽转沉痛，「寻寻觅觅，冷冷清清」。"}]},{"id":"填022","cat":"中国古代文学","level":"易","q":"补写名句：枯藤老树昏鸦，________。","ans":"小桥流水人家","note":"马致远《天净沙·秋思》","bg":[{"label":"马致远","text":"元曲四大家之一；《天净沙·秋思》「枯藤老树昏鸦……断肠人在天涯」，被誉为「秋思之祖」。"}]},{"id":"填023","cat":"中国古代文学","level":"易","q":"补写名句：夕阳西下，________。","ans":"断肠人在天涯","note":"马致远《天净沙·秋思》","bg":[{"label":"马致远","text":"元曲四大家之一；《天净沙·秋思》「枯藤老树昏鸦……断肠人在天涯」，被誉为「秋思之祖」。"}]},{"id":"填024","cat":"中国古代文学","level":"易","q":"补写名句：知否，知否，________。","ans":"应是绿肥红瘦","note":"李清照《如梦令》","bg":[{"label":"李清照","text":"号易安居士，宋代婉约词宗；南渡前后词风由清丽转沉痛，「寻寻觅觅，冷冷清清」。"}]},{"id":"填025","cat":"中国古代文学","level":"易","q":"补写名句：寻寻觅觅，________。","ans":"冷冷清清","note":"李清照《声声慢》","bg":[{"label":"李清照","text":"号易安居士，宋代婉约词宗；南渡前后词风由清丽转沉痛，「寻寻觅觅，冷冷清清」。"}]},{"id":"填026","cat":"中国古代文学","level":"易","q":"补写名句：无边落木萧萧下，________。","ans":"不尽长江滚滚来","note":"杜甫《登高》","bg":[{"label":"杜甫","text":"字子美，自号少陵野老，世称「诗圣」，其诗称「诗史」；沉郁顿挫，忧国忧民，「安得广厦千万间」。"}]},{"id":"填027","cat":"中国古代文学","level":"易","q":"补写名句：两情若是久长时，________。","ans":"又岂在朝朝暮暮","note":"秦观《鹊桥仙》","bg":[{"label":"秦观《鹊桥仙》","text":"北宋秦观作，「两情若是久长时，又岂在朝朝暮暮」，为七夕词绝唱。"}]},{"id":"填028","cat":"中国古代文学","level":"易","q":"补写名句：春蚕到死丝方尽，________。","ans":"蜡炬成灰泪始干","note":"李商隐《无题》","bg":[{"label":"李商隐","text":"晚唐诗人，工七律，意象朦胧；「春蚕到死丝方尽，蜡炬成灰泪始干」。"}]},{"id":"填029","cat":"中国古代文学","level":"易","q":"补写名句：山重水复疑无路，________。","ans":"柳暗花明又一村","note":"陆游《游山西村》","bg":[{"label":"陆游","text":"南宋爱国诗人，存诗九千余首；临终《示儿》「王师北定中原日，家祭无忘告乃翁」。"}]},{"id":"填030","cat":"中国古代文学","level":"易","q":"补写名句：沉舟侧畔千帆过，________。","ans":"病树前头万木春","note":"刘禹锡《酬乐天扬州初逢席上见赠》","bg":[{"label":"刘禹锡","text":"中唐诗人，人称「诗豪」；《陋室铭》「斯是陋室，惟吾德馨」。"}]},{"id":"填031","cat":"中国古代文学","level":"易","q":"补写名句：千磨万击还坚劲，________。","ans":"任尔东西南北风","note":"郑燮《竹石》","bg":[{"label":"郑燮《竹石》","text":"清代郑板桥题画诗，「千磨万击还坚劲，任尔东西南北风」。"}]},{"id":"填032","cat":"中国古代文学","level":"易","q":"补写名句：不要人夸好颜色，________。","ans":"只留清气满乾坤","note":"王冕《墨梅》","bg":[{"label":"王冕《墨梅》","text":"元代王冕题画诗，「不要人夸好颜色，只留清气满乾坤」。"}]},{"id":"填033","cat":"中国古代文学","level":"易","q":"补写名句：学而不思则罔，________。","ans":"思而不学则殆","note":"《论语·为政》","bg":[{"label":"《论语》篇目","text":"《论语》按篇首语分章，如《为政》《述而》《学而》《子罕》。"}]},{"id":"填034","cat":"中国古代文学","level":"易","q":"补写名句：三人行，________。","ans":"必有我师焉","note":"《论语·述而》","bg":[{"label":"《论语》篇目","text":"《论语》按篇首语分章，如《为政》《述而》《学而》《子罕》。"}]},{"id":"填035","cat":"中国古代文学","level":"易","q":"补写名句：长风破浪会有时，________。","ans":"直挂云帆济沧海","note":"李白《行路难》","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"}]},{"id":"填036","cat":"中国现当代文学","level":"易","q":"鲁迅原名________。","ans":"周树人","note":"鲁迅，浙江绍兴人，中国现代文学奠基人。","bg":[{"label":"鲁迅","text":"原名周树人，字豫才；中国现代文学奠基人。《狂人日记》是第一部现代白话小说，《阿Q正传》《孔乙己》《故乡》《呐喊》《朝花夕拾》皆为其代表作。"}]},{"id":"填037","cat":"中国现当代文学","level":"易","q":"鲁迅的第一部小说集是《________》。","ans":"呐喊","note":"《呐喊》收录《狂人日记》《阿Q正传》等。","bg":[{"label":"《狂人日记》","text":"鲁迅 1918 年作，中国现代文学史上第一篇白话小说，借「狂人」之口揭示礼教「吃人」。"},{"label":"《阿Q正传》","text":"鲁迅中篇小说，「精神胜利法」成为国民性批判的经典概括。"}]},{"id":"填038","cat":"中国现当代文学","level":"易","q":"《阿Q正传》的主人公是________。","ans":"阿Q","note":"《阿Q正传》是鲁迅的中篇小说。","bg":[{"label":"《阿Q正传》","text":"鲁迅中篇小说，「精神胜利法」成为国民性批判的经典概括。"},{"label":"鲁迅","text":"原名周树人，字豫才；中国现代文学奠基人。《狂人日记》是第一部现代白话小说，《阿Q正传》《孔乙己》《故乡》《呐喊》《朝花夕拾》皆为其代表作。"}]},{"id":"填039","cat":"中国现当代文学","level":"易","q":"老舍原名________。","ans":"舒庆春","note":"老舍，北京人，代表作《骆驼祥子》《茶馆》。","bg":[{"label":"老舍","text":"原名舒庆春，满族，京味文学代表；《骆驼祥子》《茶馆》《四世同堂》，语言俗白而精到，被称为「人民艺术家」。"}]},{"id":"填040","cat":"中国现当代文学","level":"易","q":"巴金原名________。","ans":"李尧棠","note":"巴金，四川成都人，代表作“激流三部曲”。","bg":[{"label":"巴金","text":"原名李尧棠；「激流三部曲」《家》《春》《秋》写旧家庭青年的觉醒与出走。"}]},{"id":"填041","cat":"中国现当代文学","level":"易","q":"茅盾原名________，字雁冰。","ans":"沈德鸿","note":"答“沈雁冰”也可；茅盾是笔名。","bg":[{"label":"茅盾","text":"原名沈雁冰，文学研究会主将；《子夜》写 1930 年代上海，《林家铺子》《春蚕》亦名；茅盾文学奖以其命名。"}]},{"id":"填042","cat":"中国现当代文学","level":"易","q":"曹禺原名________。","ans":"万家宝","note":"曹禺，剧作家，代表作《雷雨》《日出》。","bg":[{"label":"曹禺","text":"原名万家宝，中国现代话剧奠基人；《雷雨》《日出》《原野》《北京人》，标志中国话剧成熟。"}]},{"id":"填043","cat":"中国现当代文学","level":"易","q":"冰心原名________。","ans":"谢婉莹","note":"冰心，福建长乐人，代表作《繁星》《春水》。","bg":[{"label":"冰心","text":"原名谢婉莹；以《繁星》《春水》小诗与《寄小读者》散文成名，提倡「爱的哲学」。"}]},{"id":"填044","cat":"中国现当代文学","level":"易","q":"《边城》的女主人公是________。","ans":"翠翠","note":"《边城》写湘西茶峒渡船少女翠翠。","bg":[{"label":"沈从文","text":"湘西作家；《边城》写翠翠与茶峒渡口，「这个人也许永远不回来了，也许明天回来」。"}]},{"id":"填045","cat":"中国现当代文学","level":"易","q":"《骆驼祥子》的男主人公是________。","ans":"祥子","note":"《骆驼祥子》写人力车夫祥子的命运。","bg":[{"label":"老舍","text":"原名舒庆春，满族，京味文学代表；《骆驼祥子》《茶馆》《四世同堂》，语言俗白而精到，被称为「人民艺术家」。"}]},{"id":"填046","cat":"中国现当代文学","level":"易","q":"补写名句：横眉冷对千夫指，________。","ans":"俯首甘为孺子牛","note":"鲁迅《自嘲》","bg":[{"label":"鲁迅","text":"原名周树人，字豫才；中国现代文学奠基人。《狂人日记》是第一部现代白话小说，《阿Q正传》《孔乙己》《故乡》《呐喊》《朝花夕拾》皆为其代表作。"}]},{"id":"填047","cat":"中国现当代文学","level":"易","q":"补写名句：其实地上本没有路，________。","ans":"走的人多了，也便成了路","note":"鲁迅《故乡》","bg":[{"label":"《故乡》","text":"鲁迅短篇，「其实地上本没有路，走的人多了，也便成了路」。"},{"label":"鲁迅","text":"原名周树人，字豫才；中国现代文学奠基人。《狂人日记》是第一部现代白话小说，《阿Q正传》《孔乙己》《故乡》《呐喊》《朝花夕拾》皆为其代表作。"}]},{"id":"填048","cat":"中国现当代文学","level":"易","q":"《乡愁》的作者是________。","ans":"余光中","note":"余光中，台湾诗人，《乡愁》广为流传。","bg":[{"label":"余光中","text":"台湾诗人、散文家；《乡愁》以邮票、船票、坟墓、海峡四意象写离愁。"}]},{"id":"填049","cat":"中国现当代文学","level":"易","q":"补写名句：黑夜给了我黑色的眼睛，我却用它________。","ans":"寻找光明","note":"顾城《一代人》","bg":[{"label":"顾城","text":"朦胧诗代表诗人；《一代人》仅两句：「黑夜给了我黑色的眼睛，我却用它寻找光明」。"}]},{"id":"填050","cat":"中国现当代文学","level":"易","q":"《活着》的主人公是________。","ans":"福贵","note":"余华《活着》写福贵一生的苦难与坚韧。","bg":[{"label":"余华","text":"当代作家；《活着》写福贵一生的苦难与承受，语言冷峻，影响深远。"}]},{"id":"填051","cat":"外国文学","level":"易","q":"《哈姆雷特》的作者是________。","ans":"莎士比亚","note":"莎士比亚，英国文艺复兴时期剧作家。","bg":[{"label":"莎士比亚","text":"英国文艺复兴剧作家；四大悲剧《哈姆雷特》《奥赛罗》《李尔王》《麦克白》，「生存还是毁灭」。"}]},{"id":"填052","cat":"外国文学","level":"易","q":"《巴黎圣母院》的作者是________。","ans":"雨果","note":"雨果，法国浪漫主义文学代表。","bg":[{"label":"雨果","text":"法国浪漫主义领袖；《巴黎圣母院》《悲惨世界》，以人道主义关怀写底层苦难。"}]},{"id":"填053","cat":"外国文学","level":"易","q":"《战争与和平》的作者是________。","ans":"列夫·托尔斯泰","note":"托尔斯泰，俄国作家，代表作还有《安娜·卡列尼娜》《复活》。","bg":[{"label":"托尔斯泰","text":"俄国作家，被称「俄国革命的镜子」；《战争与和平》《安娜·卡列尼娜》《复活》三大长篇。"}]},{"id":"填054","cat":"外国文学","level":"易","q":"《罪与罚》的作者是________。","ans":"陀思妥耶夫斯基","note":"陀思妥耶夫斯基，俄国作家。","bg":[{"label":"陀思妥耶夫斯基","text":"俄国作家；《罪与罚》写大学生拉斯柯尔尼科夫的犯罪与救赎，心理描写深透。"}]},{"id":"填055","cat":"外国文学","level":"易","q":"《变色龙》的作者是________。","ans":"契诃夫","note":"契诃夫，俄国短篇小说大师、剧作家。","bg":[{"label":"契诃夫","text":"俄国短篇小说大师、剧作家；《变色龙》《套中人》，与莫泊桑、欧·亨利并称三大短篇巨匠。"}]},{"id":"填056","cat":"外国文学","level":"易","q":"《童年》的作者是________。","ans":"高尔基","note":"高尔基自传体三部曲：《童年》《在人间》《我的大学》。","bg":[{"label":"高尔基","text":"苏联作家，社会主义现实主义奠基人；自传三部曲《童年》《在人间》《我的大学》。"}]},{"id":"填057","cat":"外国文学","level":"易","q":"《钢铁是怎样炼成的》的主人公是________。","ans":"保尔·柯察金","note":"奥斯特洛夫斯基《钢铁是怎样炼成的》。","bg":[{"label":"《钢铁是怎样炼成的》","text":"苏联奥斯特洛夫斯基作；保尔·柯察金「人最宝贵的是生命……」。"}]},{"id":"填058","cat":"外国文学","level":"易","q":"《百年孤独》的作者是________。","ans":"加西亚·马尔克斯","note":"马尔克斯，哥伦比亚作家，魔幻现实主义代表。","bg":[{"label":"马尔克斯","text":"哥伦比亚作家，1982 年诺贝尔文学奖；《百年孤独》为魔幻现实主义巅峰。"}]},{"id":"填059","cat":"外国文学","level":"易","q":"《堂吉诃德》的作者是________。","ans":"塞万提斯","note":"塞万提斯，西班牙作家。","bg":[{"label":"塞万提斯","text":"西班牙作家；《堂吉诃德》戏拟骑士小说，被称欧洲第一部现代小说。"}]},{"id":"填060","cat":"外国文学","level":"易","q":"《神曲》的作者是________。","ans":"但丁","note":"但丁，意大利诗人，文艺复兴先驱。","bg":[{"label":"但丁","text":"意大利诗人；《神曲》分《地狱》《炼狱》《天堂》三部，为文艺复兴先声。"}]},{"id":"填061","cat":"外国文学","level":"易","q":"《浮士德》的作者是________。","ans":"歌德","note":"歌德，德国作家，代表作《浮士德》《少年维特之烦恼》。","bg":[{"label":"歌德","text":"德国文学巨匠；《浮士德》写一生求索，《少年维特之烦恼》掀起「维特热」。"}]},{"id":"填062","cat":"外国文学","level":"易","q":"《假如生活欺骗了你》的作者是________。","ans":"普希金","note":"普希金，俄国诗人，被誉为“俄国文学之父”。","bg":[{"label":"普希金","text":"俄国文学之父；诗体小说《叶甫盖尼·奥涅金》，《假如生活欺骗了你》广为传诵。"}]},{"id":"填063","cat":"外国文学","level":"易","q":"《老人与海》的作者是________。","ans":"海明威","note":"海明威，美国作家，1954年获诺贝尔文学奖。","bg":[{"label":"诺贝尔文学奖","text":"1901 年设立，由瑞典学院颁发；中国获此奖者为莫言（2012）。"},{"label":"海明威","text":"美国作家，1954 年诺贝尔文学奖；《老人与海》「一个人可以被毁灭，但不能被打败」，开创「冰山原则」。"}]},{"id":"填064","cat":"外国文学","level":"易","q":"《小王子》的作者是________。","ans":"圣埃克苏佩里","note":"圣埃克苏佩里，法国作家、飞行员。","bg":[{"label":"《小王子》","text":"法国作家圣埃克苏佩里 1943 年作；「重要的东西用眼睛是看不见的」。"}]},{"id":"填065","cat":"外国文学","level":"易","q":"安徒生是________（国家）的童话作家。","ans":"丹麦","note":"安徒生，丹麦童话作家。","bg":[{"label":"安徒生","text":"丹麦童话作家；《海的女儿》《丑小鸭》《卖火柴的小女孩》，「童话之王」。"}]},{"id":"填066","cat":"外国文学","level":"易","q":"《一千零一夜》又名《________》。","ans":"天方夜谭","note":"阿拉伯民间故事集。","bg":[{"label":"《一千零一夜》","text":"阿拉伯民间故事集，又名《天方夜谭》，山鲁佐德一夜一故事。"}]},{"id":"填067","cat":"外国文学","level":"中","q":"《源氏物语》的作者是________。","ans":"紫式部","note":"紫式部，日本平安时代女作家。","bg":[{"label":"紫式部","text":"日本平安朝女作家；《源氏物语》被称世界上最早的长篇小说。"}]},{"id":"填068","cat":"外国文学","level":"易","q":"《挪威的森林》的作者是________。","ans":"村上春树","note":"村上春树，日本当代作家。","bg":[{"label":"村上春树","text":"日本作家；《挪威的森林》写青春与失落，文体清冷疏离，拥趸遍布世界。"}]},{"id":"填069","cat":"外国文学","level":"易","q":"《飞鸟集》的作者是________。","ans":"泰戈尔","note":"泰戈尔，印度诗人，1913年获诺贝尔文学奖。","bg":[{"label":"诺贝尔文学奖","text":"1901 年设立，由瑞典学院颁发；中国获此奖者为莫言（2012）。"},{"label":"泰戈尔","text":"印度诗人，1913 年诺贝尔文学奖（亚洲首位）；《吉檀迦利》《飞鸟集》，诗风澄澈。"}]},{"id":"填070","cat":"外国文学","level":"易","q":"《鲁滨逊漂流记》的作者是________。","ans":"笛福","note":"笛福，英国作家。","bg":[{"label":"《鲁滨逊漂流记》","text":"英国笛福作，写荒岛二十八年求生，被视为现实主义小说的开端。"}]},{"id":"填071","cat":"外国文学","level":"易","q":"《简·爱》的作者是________。","ans":"夏洛蒂·勃朗特","note":"夏洛蒂·勃朗特，英国作家。","bg":[{"label":"勃朗特姐妹","text":"夏洛蒂·勃朗特《简·爱》写女性自尊自爱，艾米莉·勃朗特《呼啸山庄》写荒原之爱。"}]},{"id":"填072","cat":"外国文学","level":"易","q":"《傲慢与偏见》的作者是________。","ans":"简·奥斯汀","note":"简·奥斯汀，英国作家。","bg":[{"label":"简·奥斯汀","text":"英国女作家；《傲慢与偏见》开篇名句「凡是有钱的单身汉，总想娶位太太」。"}]},{"id":"填073","cat":"外国文学","level":"易","q":"《雾都孤儿》的作者是________。","ans":"狄更斯","note":"狄更斯，英国作家，代表作还有《双城记》。","bg":[{"label":"狄更斯","text":"英国小说家；《雾都孤儿》《双城记》《远大前程》，写维多利亚时代的贫富与人情。"}]},{"id":"填074","cat":"外国文学","level":"易","q":"《变形记》的作者是________。","ans":"卡夫卡","note":"卡夫卡，奥地利作家，现代主义文学代表。","bg":[{"label":"卡夫卡","text":"奥地利小说家，现代主义先驱；《变形记》写人变成大甲虫，《城堡》《审判》写现代人的荒诞处境。"}]},{"id":"填075","cat":"外国文学","level":"易","q":"《老人与海》的主人公是________。","ans":"圣地亚哥","note":"老渔夫圣地亚哥，陪他出海的孩子叫曼诺林。","bg":[{"label":"海明威","text":"美国作家，1954 年诺贝尔文学奖；《老人与海》「一个人可以被毁灭，但不能被打败」，开创「冰山原则」。"}]},{"id":"填076","cat":"文学常识","level":"易","q":"我国第一部纪传体通史是《________》。","ans":"史记","note":"司马迁《史记》，鲁迅誉为“史家之绝唱”。","bg":[{"label":"司马迁《史记》","text":"西汉司马迁著，中国第一部纪传体通史，记黄帝至汉武帝三千年事，鲁迅誉为「史家之绝唱，无韵之离骚」。"},{"label":"鲁迅","text":"原名周树人，字豫才；中国现代文学奠基人。《狂人日记》是第一部现代白话小说，《阿Q正传》《孔乙己》《故乡》《呐喊》《朝花夕拾》皆为其代表作。"}]},{"id":"填077","cat":"文学常识","level":"易","q":"我国第一部诗歌总集是《________》。","ans":"诗经","note":"《诗经》收录西周至春秋诗歌305篇。","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"}]},{"id":"填078","cat":"文学常识","level":"中","q":"我国第一部系统分析字形、考究字源的字典是《________》。","ans":"说文解字","note":"东汉许慎所著。","bg":[{"label":"《说文解字》","text":"东汉许慎著，中国第一部系统分析字形、考究字源的字典，收字九千余，首创部首编排。"}]},{"id":"填079","cat":"文学常识","level":"易","q":"“四书”指《大学》《中庸》《论语》和《________》。","ans":"孟子","note":"“四书”为《大学》《中庸》《论语》《孟子》。","bg":[{"label":"《论语》","text":"孔子弟子及再传弟子辑录孔子言行，语录体，儒家经典，与《大学》《中庸》《孟子》合称「四书」。"},{"label":"四书五经","text":"四书：《大学》《中庸》《论语》《孟子》；五经：《诗》《书》《礼》《易》《春秋》。"}]},{"id":"填080","cat":"文学常识","level":"易","q":"“五经”指《诗》《书》《礼》《易》和《________》。","ans":"春秋","note":"“五经”为《诗》《书》《礼》《易》《春秋》。","bg":[{"label":"四书五经","text":"四书：《大学》《中庸》《论语》《孟子》；五经：《诗》《书》《礼》《易》《春秋》。"}]},{"id":"填081","cat":"文学常识","level":"中","q":"成语“程门立雪”的主人公是________。","ans":"杨时","note":"杨时尊师求学的典故。","bg":[{"label":"程门立雪","text":"杨时、游酢拜见程颐，立于门外候其醒，雪深一尺；喻尊师重道之诚。"}]},{"id":"填082","cat":"文学常识","level":"易","q":"成语“卧薪尝胆”与________有关。","ans":"勾践","note":"越王勾践。","bg":[{"label":"卧薪尝胆","text":"越王勾践败于吴，卧薪尝胆二十年，终灭吴；喻刻苦自励、发愤图强。"}]},{"id":"填083","cat":"文学常识","level":"易","q":"成语“指鹿为马”与________有关。","ans":"赵高","note":"秦朝赵高。","bg":[{"label":"指鹿为马","text":"秦二世时赵高献鹿称马，以试群臣向背；喻颠倒黑白、仗势欺人。"}]},{"id":"填084","cat":"文学常识","level":"中","q":"“初唐四杰”指王勃、杨炯、卢照邻和________。","ans":"骆宾王","note":"骆宾王，初唐诗人，代表作《咏鹅》。","bg":[{"label":"初唐四杰","text":"王勃、杨炯、卢照邻、骆宾王，扭转齐梁浮艳诗风，为唐诗开辟新路。"},{"label":"王勃","text":"初唐四杰之首，少年成名；《滕王阁序》「落霞与孤鹜齐飞」为骈文名篇，《送杜少府之任蜀州》开唐人送别新境。"}]},{"id":"填085","cat":"文学常识","level":"易","q":"“唐宋八大家”中唐代的两位是韩愈和________。","ans":"柳宗元","note":"韩愈、柳宗元是唐代古文运动代表。","bg":[{"label":"唐宋八大家","text":"唐韩愈、柳宗元，宋欧阳修、苏洵、苏轼、苏辙、王安石、曾巩，以散文著称。"}]},{"id":"填086","cat":"文学常识","level":"易","q":"“三苏”指苏洵、苏轼和________。","ans":"苏辙","note":"苏洵、苏轼、苏辙父子三人。","bg":[{"label":"苏轼","text":"字子瞻，号东坡居士，北宋文坛领袖；诗、词、文、书、画皆入一流，开豪放词风，「大江东去」；与父苏洵、弟苏辙合称「三苏」。"}]},{"id":"填087","cat":"文学常识","level":"易","q":"“小李杜”指李商隐和________。","ans":"杜牧","note":"晚唐诗人李商隐、杜牧。","bg":[{"label":"小李杜","text":"指晚唐李商隐与杜牧，以深情绵邈与俊爽俊逸并称。"},{"label":"李商隐","text":"晚唐诗人，工七律，意象朦胧；「春蚕到死丝方尽，蜡炬成灰泪始干」。"}]},{"id":"填088","cat":"文学常识","level":"易","q":"词按风格大致分为婉约派和________派。","ans":"豪放","note":"婉约派柳永、李清照；豪放派苏轼、辛弃疾。","bg":[{"label":"辛弃疾","text":"南宋词人，字幼安，号稼轩；一生主战，词风雄健，「醉里挑灯看剑，梦回吹角连营」。"},{"label":"李清照","text":"号易安居士，宋代婉约词宗；南渡前后词风由清丽转沉痛，「寻寻觅觅，冷冷清清」。"}]},{"id":"填089","cat":"文学常识","level":"易","q":"我国四大名著中，以农民起义为题材的是《________》。","ans":"水浒传","note":"《水浒传》写梁山好汉起义。","bg":[{"label":"施耐庵","text":"元末明初小说家；《水浒传》写一百零八将聚义梁山，为英雄传奇小说代表。"},{"label":"四大名著","text":"《三国演义》《水浒传》《西游记》《红楼梦》，中国古典长篇小说的四座高峰。"}]},{"id":"填090","cat":"文学常识","level":"易","q":"诺贝尔文学奖的颁奖典礼在________（国家）举行。","ans":"瑞典","note":"瑞典学院颁发，典礼在斯德哥尔摩。","bg":[{"label":"诺贝尔文学奖","text":"1901 年设立，由瑞典学院颁发；中国获此奖者为莫言（2012）。"}]},{"id":"填091","cat":"文学常识","level":"易","q":"茅盾文学奖主要奖励________（体裁）。","ans":"长篇小说","note":"茅盾文学奖是中国长篇小说重要奖项。","bg":[{"label":"茅盾文学奖","text":"1981 年设立，奖励优秀长篇小说，为中国长篇小说最高奖之一。"},{"label":"茅盾","text":"原名沈雁冰，文学研究会主将；《子夜》写 1930 年代上海，《林家铺子》《春蚕》亦名；茅盾文学奖以其命名。"}]},{"id":"填092","cat":"文学常识","level":"易","q":"“豆蔻年华”指女子________岁左右。","ans":"十三四","note":"豆蔻年华指女子十三四岁。","bg":[{"label":"年龄称谓","text":"襁褓幼年、总角童年、豆蔻十三四、及笄十五、弱冠二十、而立三十、不惑四十、知天命五十、花甲六十、古稀七十、耄耋八九十。"}]},{"id":"填093","cat":"文学常识","level":"易","q":"“弱冠之年”指男子________岁。","ans":"二十","note":"古代男子二十岁行冠礼。","bg":[{"label":"年龄称谓","text":"襁褓幼年、总角童年、豆蔻十三四、及笄十五、弱冠二十、而立三十、不惑四十、知天命五十、花甲六十、古稀七十、耄耋八九十。"}]},{"id":"填094","cat":"文学常识","level":"易","q":"“古稀之年”指________岁。","ans":"七十","note":"杜甫“人生七十古来稀”。","bg":[{"label":"杜甫","text":"字子美，自号少陵野老，世称「诗圣」，其诗称「诗史」；沉郁顿挫，忧国忧民，「安得广厦千万间」。"},{"label":"年龄称谓","text":"襁褓幼年、总角童年、豆蔻十三四、及笄十五、弱冠二十、而立三十、不惑四十、知天命五十、花甲六十、古稀七十、耄耋八九十。"}]},{"id":"填095","cat":"文学常识","level":"中","q":"成语“入木三分”最初形容________的书法。","ans":"王羲之","note":"王羲之，东晋书法家，人称“书圣”。","bg":[{"label":"入木三分","text":"传说王羲之书祝版，笔力透入木三分；原形容书法笔力遒劲，后喻见解深刻。"}]},{"id":"填096","cat":"神话·民间·趣味","level":"易","q":"《西游记》中孙悟空的兵器叫________。","ans":"金箍棒","note":"如意金箍棒，原为东海定海神针。","bg":[{"label":"吴承恩","text":"明代小说家；《西游记》为浪漫主义神魔小说高峰，塑造孙悟空这一不朽形象。"}]},{"id":"填097","cat":"神话·民间·趣味","level":"易","q":"《西游记》中猪八戒的法名是________。","ans":"猪悟能","note":"猪八戒法名悟能，别名八戒。","bg":[{"label":"吴承恩","text":"明代小说家；《西游记》为浪漫主义神魔小说高峰，塑造孙悟空这一不朽形象。"}]},{"id":"填098","cat":"神话·民间·趣味","level":"易","q":"希腊神话中的众神之王是________。","ans":"宙斯","note":"宙斯是奥林匹斯众神之王。","bg":[{"label":"希腊神话","text":"奥林匹斯十二主神以宙斯为首，雅典娜为智慧与战争女神；特洛伊战争见于荷马史诗《伊利亚特》《奥德赛》。"}]},{"id":"填099","cat":"神话·民间·趣味","level":"易","q":"《哈利·波特》系列小说的作者是________。","ans":"J.K.罗琳","note":"英国作家J.K.罗琳。","bg":[{"label":"《哈利·波特》","text":"英国作家 J.K. 罗琳的七部奇幻小说，全球现象级畅销书。"}]},{"id":"填100","cat":"神话·民间·趣味","level":"易","q":"中国神话中开天辟地的是________。","ans":"盘古","note":"盘古开天辟地的神话。","bg":[{"label":"中国神话","text":"盘古开天辟地、女娲炼五色石补天、后羿射日、嫦娥奔月、精卫填海、夸父逐日，皆见于《山海经》《淮南子》等。"}]}],"essays":[{"id":"大001","cat":"中国古代文学","level":"易","q":"如果李白、杜甫、苏轼三人一起参加文学社面试，你会选谁当社长？请结合他们的作品和性格说明理由。","points":"能说出三人各自的特点：李白浪漫豪放、杜甫沉郁忧民、苏轼旷达多才；职位与特质匹配；理由具体、有条理。","score":"选择明确1分；结合作品或性格2分；理由充分2分。","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"},{"label":"杜甫","text":"字子美，自号少陵野老，世称「诗圣」，其诗称「诗史」；沉郁顿挫，忧国忧民，「安得广厦千万间」。"}]},{"id":"大002","cat":"中国古代文学","level":"易","q":"《西游记》师徒四人如果组队参加大学生创新创业大赛，你认为谁适合当队长？谁适合当财务？请说明理由。","points":"队长需统筹目标（唐僧目标坚定，悟空能力强）；财务需细致稳重（沙僧踏实，八戒也可自圆其说）；能结合具体情节。","score":"角色安排1分；两条理由各2分。","bg":[{"label":"吴承恩","text":"明代小说家；《西游记》为浪漫主义神魔小说高峰，塑造孙悟空这一不朽形象。"}]},{"id":"大003","cat":"中国古代文学","level":"易","q":"请用一句话向外国朋友介绍《红楼梦》，并说说你为什么选这句话。","points":"点出家族兴衰、爱情悲剧、人物群像或社会百科等特点；语言通俗；有个人视角。","score":"信息准确2分；表达生动2分；个人理解1分。","bg":[{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"}]},{"id":"大004","cat":"中国古代文学","level":"易","q":"你最喜欢的一句古诗是哪一句？它会在你生活中的什么场景浮现？","points":"诗句引用准确；场景具体；情感真实；能说清诗句与场景的联系。","score":"引用准确1分；场景具体2分；诗意与情感契合2分。","bg":[]},{"id":"大005","cat":"中国古代文学","level":"易","q":"如果陶渊明开了一个“田园生活”直播间，他会直播什么？请结合《归园田居》或《饮酒》说明。","points":"结合种豆、采菊、饮酒、读书等田园生活；体现淡泊自然、返璞归真；有直播的现场感。","score":"结合作品2分；内容合理2分；创意1分。","bg":[{"label":"陶渊明","text":"东晋诗人，田园诗开创者；不为五斗米折腰，归隐后写「采菊东篱下，悠然见南山」。"}]},{"id":"大006","cat":"中国古代文学","level":"易","q":"《水浒传》中你最喜欢或最不喜欢哪位好汉？请用一件具体的事说明理由。","points":"人物与情节匹配；评价有依据；能辩证看待人物的优点与局限。","score":"人物明确1分；事件准确2分；评价合理2分。","bg":[{"label":"施耐庵","text":"元末明初小说家；《水浒传》写一百零八将聚义梁山，为英雄传奇小说代表。"}]},{"id":"大007","cat":"中国古代文学","level":"易","q":"假如诸葛亮有朋友圈，他打下汉中那天会发什么？请用30字以内拟一条，并解释。","points":"符合诸葛亮身份与情境；可文白相间；体现“鞠躬尽瘁”或《出师表》的气质；解释到位。","score":"贴合人物2分；情境合理1分；语言凝练2分。","bg":[{"label":"《出师表》","text":"三国诸葛亮作，恳切诚挚；陆游评「出师一表真名世，千载谁堪伯仲间」。"}]},{"id":"大008","cat":"中国古代文学","level":"中","q":"请为《红楼梦》中的一个人物“找工作”，你会推荐什么现代职业？为什么？","points":"人物性格、能力与职业匹配；结合具体情节；说明现代职业场景。","score":"职业明确1分；匹配理由2分；结合情节2分。","bg":[{"label":"曹雪芹","text":"清代小说家；《红楼梦》以贾府盛衰写人情世态，被誉为中国古典小说的巅峰，「字字看来皆是血」。"}]},{"id":"大009","cat":"中国古代文学","level":"易","q":"如果只能带一首诗词去荒岛，你会带哪一首？说说它能给你什么。","points":"作品准确；说明精神支撑、画面感或情感力量；理由个人化。","score":"作品1分；理由3分；表达1分。","bg":[]},{"id":"大010","cat":"中国古代文学","level":"中","q":"《三国演义》中“既生瑜，何生亮”表达了周瑜怎样的心态？你怎么看这种竞争？","points":"分析不甘、嫉妒与对对手的认可；谈竞争与合作；联系现实，观点健康。","score":"心态分析2分；观点2分；联系现实1分。","bg":[{"label":"罗贯中","text":"元末明初小说家；《三国演义》为中国第一部长篇章回体历史演义小说。"}]},{"id":"大011","cat":"中国古代文学","level":"易","q":"请把《木兰诗》改编成一条60字以内的短视频文案。","points":"保留替父从军、征战、还乡等要素；有画面感和节奏；不超过60字。","score":"要素完整2分；文案感2分；字数1分。","bg":[{"label":"《木兰诗》","text":"北朝民歌，写木兰代父从军；与《孔雀东南飞》并称「乐府双璧」。"}]},{"id":"大012","cat":"中国古代文学","level":"中","q":"你认为《聊斋志异》里的鬼狐故事今天还有吸引力吗？为什么？","points":"可答有（写人性、想象力、反转）或没有（套路、节奏慢）；需举例；自圆其说。","score":"观点1分；举例2分；论证2分。","bg":[{"label":"蒲松龄","text":"清代文学家；《聊斋志异》以花妖狐魅写人世，鲁迅称其「用传奇法，而以志怪」。"}]},{"id":"大013","cat":"中国现当代文学","level":"易","q":"如果祥子活在今天，他可能从事什么职业？他会幸福吗？请结合小说谈谈。","points":"可设想司机、快递、外卖等体力劳动；联系社会环境与个人奋斗；讨论悲剧是否会重演；结合小说情节。","score":"职业合理1分；结合小说2分；观点2分。","bg":[]},{"id":"大014","cat":"中国现当代文学","level":"中","q":"《平凡的世界》里孙少平的选择，你理解吗？如果是你，你会怎么选？","points":"理解或质疑均可；结合离开农村、下煤矿、精神追求等情节；联系自身选择。","score":"立场1分；文本依据2分；现实思考2分。","bg":[{"label":"路遥","text":"当代作家；《平凡的世界》以孙氏兄弟写改革年代，获茅盾文学奖。"}]},{"id":"大015","cat":"中国现当代文学","level":"易","q":"请用三个词概括《活着》，并各用一句话解释。","points":"如苦难、坚韧、亲情、命运等；词与解释对应；结合福贵经历。","score":"三个词各1分；解释合理2分。","bg":[{"label":"余华","text":"当代作家；《活着》写福贵一生的苦难与承受，语言冷峻，影响深远。"}]},{"id":"大016","cat":"中国现当代文学","level":"易","q":"《围城》说“城外的人想进去，城里的人想出来”，你在生活中有没有类似的体验？","points":"举出考研、社团、恋爱、专业等实例；说明“进出”心理；联系小说喻义。","score":"生活实例2分；与围城喻义契合2分；表达1分。","bg":[{"label":"钱钟书","text":"学者型作家；《围城》以妙喻写抗战时期知识分子的婚姻与人生，「城外的人想冲进去」。"}]},{"id":"大017","cat":"中国现当代文学","level":"易","q":"如果鲁迅开通微博，他最可能因为什么事情上热搜？为什么？","points":"联系鲁迅批判国民性、关注社会现实的特点；结合具体作品；有网络表达感。","score":"事件合理2分；结合作品2分；表达1分。","bg":[{"label":"鲁迅","text":"原名周树人，字豫才；中国现代文学奠基人。《狂人日记》是第一部现代白话小说，《阿Q正传》《孔乙己》《故乡》《呐喊》《朝花夕拾》皆为其代表作。"}]},{"id":"大018","cat":"中国现当代文学","level":"易","q":"请为《边城》的翠翠写一条不超过50字的“旅行明信片”。","points":"融入边城、茶峒、渡船、白塔等意象；符合翠翠口吻；不超过50字。","score":"情境2分；口吻1分；语言2分。","bg":[{"label":"沈从文","text":"湘西作家；《边城》写翠翠与茶峒渡口，「这个人也许永远不回来了，也许明天回来」。"}]},{"id":"大019","cat":"中国现当代文学","level":"中","q":"如果《雷雨》拍成现代职场剧，周朴园最适合什么职位？请说明理由。","points":"如董事长、家族企业掌舵人等；体现控制欲、伪善、家长式管理；结合剧情。","score":"职位1分；性格匹配2分；结合剧情2分。","bg":[{"label":"曹禺","text":"原名万家宝，中国现代话剧奠基人；《雷雨》《日出》《原野》《北京人》，标志中国话剧成熟。"}]},{"id":"大020","cat":"中国现当代文学","level":"中","q":"你更喜欢《再别康桥》还是《雨巷》？请从画面感角度比较。","points":"康桥的柔波、金柳、星辉；雨巷的油纸伞、丁香姑娘；比较色彩、意象、节奏。","score":"作品特征各1分；比较2分；表达1分。","bg":[{"label":"徐志摩","text":"新月派诗人；《再别康桥》「轻轻的我走了，正如我轻轻的来」，讲求音乐性与意境。"},{"label":"戴望舒","text":"现代派诗人；《雨巷》写「一个丁香一样地结着愁怨的姑娘」，被称为「雨巷诗人」。"}]},{"id":"大021","cat":"中国现当代文学","level":"中","q":"有人说“网络文学不是文学”，你同意吗？请给出两点理由。","points":"可答是（类型文学、读者需求、叙事传统）或不是（流水线、文学性不足）；需举例；辩证更好。","score":"立场1分；理由3分；举例1分。","bg":[]},{"id":"大022","cat":"中国现当代文学","level":"易","q":"如果让你给《三体》里的罗辑提一个建议，你会说什么？","points":"建议具体；结合面壁者、执剑人、黑暗森林等情节；逻辑自洽。","score":"建议具体2分；结合情节2分；逻辑1分。","bg":[{"label":"刘慈欣","text":"科幻作家；《三体》获雨果奖最佳长篇，为中国科幻走向世界之作。"}]},{"id":"大023","cat":"外国文学","level":"易","q":"如果《小王子》里的狐狸来参加社团招新，它会怎么介绍“驯养”？请写一段不超过80字的招新文案。","points":"驯养即建立联系、彼此需要、付出时间与仪式；文案有温度；不超过80字。","score":"概念准确2分；文案感2分；字数1分。","bg":[{"label":"《小王子》","text":"法国作家圣埃克苏佩里 1943 年作；「重要的东西用眼睛是看不见的」。"}]},{"id":"大024","cat":"外国文学","level":"中","q":"《老人与海》中的老人最后只拖回一副鱼骨，你认为他失败了吗？为什么？","points":"可谈物质失败与精神胜利；“人可以被毁灭，但不能被打败”；结合情节。","score":"观点1分；文本依据2分；论证2分。","bg":[{"label":"海明威","text":"美国作家，1954 年诺贝尔文学奖；《老人与海》「一个人可以被毁灭，但不能被打败」，开创「冰山原则」。"}]},{"id":"大025","cat":"外国文学","level":"中","q":"请用一道菜形容《哈姆雷特》中哈姆雷特的“延宕”，并解释。","points":"菜名与犹豫、反复、冷却等特质对应；结合剧情；解释有趣且合理。","score":"菜品贴切1分；解释3分；创意1分。","bg":[{"label":"莎士比亚","text":"英国文艺复兴剧作家；四大悲剧《哈姆雷特》《奥赛罗》《李尔王》《麦克白》，「生存还是毁灭」。"}]},{"id":"大026","cat":"外国文学","level":"易","q":"如果堂吉诃德来到今天的大学校园，他最可能加入哪个社团？为什么？","points":"体现骑士精神、理想主义；可答戏剧社、辩论社、志愿服务队等；结合情节。","score":"社团1分；理由2分；结合人物2分。","bg":[]},{"id":"大027","cat":"外国文学","level":"中","q":"《百年孤独》里那么多人重复使用相同的名字，你觉得作者想表达什么？","points":"家族循环、命运轮回、孤独的遗传、时间循环等；需举例说明。","score":"理解2分；举例2分；表达1分。","bg":[{"label":"马尔克斯","text":"哥伦比亚作家，1982 年诺贝尔文学奖；《百年孤独》为魔幻现实主义巅峰。"}]},{"id":"大028","cat":"外国文学","level":"易","q":"请选一个你读过的外国文学人物，为他写一句“颁奖词”。","points":"人物准确；概括其精神特质；颁奖词凝练、有感染力。","score":"人物1分；精神概括2分；文采2分。","bg":[]},{"id":"大029","cat":"外国文学","level":"中","q":"《变形记》中格里高尔变成甲虫后，家人的态度说明了什么？","points":"亲情功利化、家庭责任、人的异化等；结合家人前后的变化。","score":"态度概括2分；主题分析2分；文本1分。","bg":[{"label":"卡夫卡","text":"奥地利小说家，现代主义先驱；《变形记》写人变成大甲虫，《城堡》《审判》写现代人的荒诞处境。"}]},{"id":"大030","cat":"外国文学","level":"易","q":"如果《傲慢与偏见》的达西先生开社交账号，他会发什么？请拟一条。","points":"符合贵族、内敛、傲慢却真诚的人设；内容合理；语言有分寸。","score":"人设2分；内容2分；语言1分。","bg":[{"label":"简·奥斯汀","text":"英国女作家；《傲慢与偏见》开篇名句「凡是有钱的单身汉，总想娶位太太」。"}]},{"id":"大031","cat":"外国文学","level":"易","q":"你更愿意和《老人与海》的圣地亚哥，还是《小王子》的飞行员做朋友？为什么？","points":"选择明确；概括人物特质；理由个人化且有文本依据。","score":"选择1分；理由3分；表达1分。","bg":[{"label":"海明威","text":"美国作家，1954 年诺贝尔文学奖；《老人与海》「一个人可以被毁灭，但不能被打败」，开创「冰山原则」。"},{"label":"《小王子》","text":"法国作家圣埃克苏佩里 1943 年作；「重要的东西用眼睛是看不见的」。"}]},{"id":"大032","cat":"外国文学","level":"中","q":"请用一句话向没读过俄国文学的同学推荐《罪与罚》，并说明推荐理由。","points":"抓住犯罪、良心、救赎等核心；语言通俗；有推荐的说服力。","score":"核心准确2分；推荐感2分；语言1分。","bg":[{"label":"陀思妥耶夫斯基","text":"俄国作家；《罪与罚》写大学生拉斯柯尔尼科夫的犯罪与救赎，心理描写深透。"}]},{"id":"大033","cat":"文学常识","level":"易","q":"如果文学社要办一场“诗词版飞花令”纳新活动，请你设计一条规则，让新手也能玩得开心。","points":"主题字简单、允许提示、团队协作、限时等；规则完整可执行；对新手友好。","score":"规则完整2分；新手友好2分；趣味1分。","bg":[]},{"id":"大034","cat":"文学常识","level":"易","q":"请用三个成语形容你自己，并各用一句话说明。","points":"成语准确；解释与自身经历对应；三个成语不重复。","score":"三个成语各1分；解释2分。","bg":[]},{"id":"大035","cat":"文学常识","level":"易","q":"请为文学社纳新写一句化用古诗的宣传语，并注明化用了哪句诗。","points":"化用自然；有社团或文学元素；注明原句。","score":"化用2分；宣传效果2分；出处1分。","bg":[]},{"id":"大036","cat":"文学常识","level":"易","q":"如果“四大名著”要选一个当代代言人（明星、运动员、虚拟人物均可），你会选谁？为什么？","points":"代言人与作品气质匹配；理由具体；可跨领域联想。","score":"人选1分；匹配理由3分；表达1分。","bg":[{"label":"四大名著","text":"《三国演义》《水浒传》《西游记》《红楼梦》，中国古典长篇小说的四座高峰。"}]},{"id":"大037","cat":"文学常识","level":"易","q":"有人说“读诗无用”，请用一个生活场景反驳他。","points":"场景具体（表白、送别、看景、安慰等）；诗句恰当；反驳有力。","score":"场景2分；诗句2分；论证1分。","bg":[]},{"id":"大038","cat":"文学常识","level":"易","q":"请把“读书破万卷，下笔如有神”改写成一句适合发朋友圈的文案。","points":"保留原意；口语化、有网感；不超过30字。","score":"原意2分；文案感2分；字数1分。","bg":[]},{"id":"大039","cat":"文学常识","level":"易","q":"如果让你给文学社设计一道“入社测试”题，只出一道，你会出什么题？为什么？","points":"题目能考察文学兴趣、想象力或表达力；可执行；理由清楚。","score":"题目2分；考察点2分；理由1分。","bg":[]},{"id":"大040","cat":"文学常识","level":"易","q":"请用一本书的名字形容你现在的大学生活，并解释。","points":"书名准确；解释贴合生活；有共鸣或幽默感。","score":"书名1分；解释3分；表达1分。","bg":[]},{"id":"大041","cat":"文学常识","level":"易","q":"如果把《诗经》里的“蒹葭苍苍”做成一张海报，你会选什么主视觉？为什么？","points":"水边芦苇、秋霜、朦胧、留白等；色彩与意境协调；说明构图。","score":"视觉元素2分；意境2分；表达1分。","bg":[{"label":"《诗经》","text":"中国最早的诗歌总集，收西周初年至春秋中叶诗 305 篇，分风、雅、颂，是现实主义诗歌的源头。"}]},{"id":"大042","cat":"文学常识","level":"易","q":"请用“文学”和“食堂”两个词，造一个不超过30字的句子。","points":"两个词都出现；有画面或趣味；不超过30字。","score":"用词2分；句子2分；字数1分。","bg":[]},{"id":"大043","cat":"神话·民间·趣味","level":"易","q":"请以“纳新”为题，写一首四句的藏头诗或打油诗。","points":"四句完整；藏头或押韵；有文学社元素。","score":"形式2分；内容2分；创意1分。","bg":[]},{"id":"大044","cat":"神话·民间·趣味","level":"易","q":"请用“月亮、外卖、李白”三个词编一个50字以内的小故事。","points":"三个词都出现；有情节或反转；不超过50字。","score":"要素2分；故事性2分；字数1分。","bg":[{"label":"李白","text":"字太白，号青莲居士，盛唐浪漫主义代表，世称「诗仙」；想象奇崛、语言天然，杜甫称其「笔落惊风雨，诗成泣鬼神」。"}]},{"id":"大045","cat":"神话·民间·趣味","level":"易","q":"请为《西游记》设计一款联名奶茶，写出名字和一句宣传语。","points":"融入人物或情节元素；名字好记；宣传语有梗。","score":"名字2分；宣传语2分；贴合原著1分。","bg":[{"label":"吴承恩","text":"明代小说家；《西游记》为浪漫主义神魔小说高峰，塑造孙悟空这一不朽形象。"}]},{"id":"大046","cat":"神话·民间·趣味","level":"易","q":"如果杜甫有一台时光机，他会先去哪个朝代？请写一段他的“旅行计划”。","points":"朝代或地点合理；结合杜甫经历与诗风；有幽默或深情。","score":"目的地1分；结合经历3分；创意1分。","bg":[{"label":"杜甫","text":"字子美，自号少陵野老，世称「诗圣」，其诗称「诗史」；沉郁顿挫，忧国忧民，「安得广厦千万间」。"}]},{"id":"大047","cat":"神话·民间·趣味","level":"易","q":"请把“关关雎鸠”翻译成现代校园版，不超过40字。","points":"保留追求、思念之意；有校园场景；不超过40字。","score":"原意2分；校园感2分；字数1分。","bg":[]},{"id":"大048","cat":"神话·民间·趣味","level":"易","q":"请用三个画面描写“秋天”，不许出现“秋”字。","points":"三个画面具体；有感官细节；全文不出现“秋”字。","score":"画面各1分；无“秋”1分；文采1分。","bg":[]},{"id":"大049","cat":"神话·民间·趣味","level":"易","q":"请给社团公众号写一条30字以内的“文学冷知识”。","points":"知识准确；冷门有趣；不超过30字。","score":"准确2分；趣味2分；字数1分。","bg":[]},{"id":"大050","cat":"神话·民间·趣味","level":"易","q":"请用一句诗给今天的天气“配文”。","points":"诗句与天气契合；可化用；有画面感。","score":"契合2分；引用1分；表达2分。","bg":[]}],"intro":[{"B":"文学社纳新趣味题库"},{"B":"300 题 · 每轮 3 道选择 + 2 道填空 + 1 道大题 · 适合社团纳新趣味游戏"},{"B":"一、题库结构"},{"B":"题型","C":"题量","D":"每轮抽取","E":"单题分值","F":"说明"},{"B":"选择题","C":"150","D":"3","E":"2 分","F":"四选一；答案字母已随机打乱，覆盖五大类。"},{"B":"填空题","C":"100","D":"2","E":"3 分","F":"补写名句，或填写作家、作品、文学常识。"},{"B":"大题","C":"50","D":"1","E":"5 分","F":"开放式题目，不设标准答案，言之成理即可。"},{"B":"合计","C":"300","D":"6","E":"17 分","F":"每轮 6 题，约 8—10 分钟；可准备 50 轮。"},{"B":"二、分类分布"},{"B":"分类","C":"选择题","D":"填空题","E":"大题","F":"合计","G":"覆盖内容"},{"B":"中国古代文学","C":"50","D":"35","E":"12","F":"97","G":"诗经楚辞、唐诗宋词、四大名著"},{"B":"中国现当代文学","C":"25","D":"15","E":"10","F":"50","G":"鲁迅、老舍、巴金、莫言、现代诗"},{"B":"外国文学","C":"35","D":"25","E":"10","F":"70","G":"欧美俄日名著与代表作家"},{"B":"文学常识","C":"30","D":"20","E":"10","F":"60","G":"文体、成语典故、奖项、年龄称谓"},{"B":"神话·民间·趣味","C":"10","D":"5","E":"8","F":"23","G":"中外神话、童话、奇幻与创作题"},{"B":"合计","C":"150","D":"100","E":"50","F":"300","G":"每类均按 3:2:1 左右的题量配比"},{"B":"三、使用建议"},{"B":"抽题方式","D":"在“选择题 / 填空题 / 大题”三张表中，各用随机数抽取对应数量；同一轮尽量覆盖不同分类。"},{"B":"轮次安排","D":"每轮 6 题，约 8—10 分钟。按 50 轮准备，正好用完 150 道选择、100 道填空、50 道大题。"},{"B":"计分建议","D":"选择题 2 分、填空题 3 分、大题 5 分，单轮满分 17 分；大题鼓励结合具体作品、说自己的话。"},{"B":"主持提示","D":"大题没有标准答案，冷场时可给一个提示词；选手答案自圆其说即可给分，不必追求“标准”。"},{"B":"难度控制","D":"题库以“易”为主，适合非文学专业新生；想加难度时，优先抽取难度标为“中”的题目。"},{"B":"四、出题原则"},{"B":"范围广 ｜ 中国古代与近代、现当代、外国文学、文学常识、神话民俗与趣味，五类均衡覆盖。"},{"B":"门槛低 ｜ 以中学语文和常见名著为主，不考偏题怪题；会读书、爱看剧的人都能参与。"},{"B":"有发挥 ｜ 大题不设标准答案，重点看表达、联想和临场反应，给新生展示个性的空间。"},{"B":"答案与参考要点见各分表；题目可按社团需要自行增删、改写。"}]}</script>
 <script>
 /* 文学社纳新趣味题库 · 页面逻辑（无依赖） */
 (function () {
@@ -4057,20 +551,49 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
     });
   };
-  var withBlank = function (s) {
-    return esc(s).replace(/_{3,}/g, '<span class="bk"></span>');
-  };
+  var withBlank = function (s) { return esc(s).replace(/_{3,}/g, '<span class="bk"></span>'); };
   var letterOf = function (ans) { return ans ? MK[ans.charCodeAt(0) - 65] || "" : ""; };
   var idxOf = function (ans) { return ans ? ans.charCodeAt(0) - 65 : -1; };
+  var bgHtml = function (q) {
+    if (!q.bg || !q.bg.length) return "";
+    return '<div class="bgbox">' + q.bg.map(function (b) {
+      return "<p><em>" + esc(b.label) + "</em>" + esc(b.text) + "</p>";
+    }).join("") + "</div>";
+  };
 
-  /* ---------------- 栏目切换 ---------------- */
-  function go(name) {
-    $$(".panel").forEach(function (p) { p.classList.toggle("on", p.id === name); });
-    $$(".tab").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.go === name)); });
-    if (name === "bank" && !bankBuilt) { buildBank(); bankBuilt = true; }
-    if (name === "draw" && !round.qs.length) newRound();
+  /* ---------------- 路由：四个页面 + 首页 ---------------- */
+  var VIEWS = ["home", "draw", "scroll", "bank", "guide"];
+  var TITLES = { home: "首页", draw: "入座抽题", scroll: "翻阅全卷", bank: "题库", guide: "使用说明" };
+  var ready = { draw: false, scroll: false, bank: false };
+
+  function viewFromHash() {
+    var m = String(location.hash || "").match(/^#\/?([a-z]+)/);
+    var n = m ? m[1] : "home";
+    return VIEWS.indexOf(n) >= 0 ? n : "home";
+  }
+
+  function apply(name) {
+    var v = VIEWS.indexOf(name) >= 0 ? name : "home";
+    $$(".panel").forEach(function (p) { p.classList.toggle("on", p.id === v); });
+    $$(".tab").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.go === v)); });
+    document.title = (v === "home" ? "" : TITLES[v] + " · ") + "文学社纳新趣味题库 · 三百题";
+    if (v === "draw" && !ready.draw) { newRound(); ready.draw = true; }
+    if (v === "scroll" && !ready.scroll) { buildScroll(); ready.scroll = true; }
+    if (v === "bank" && !ready.bank) { buildBank(); ready.bank = true; }
     window.scrollTo(0, 0);
   }
+
+  function go(name) {
+    if (VIEWS.indexOf(name) < 0) name = "home";
+    var hash = "#/" + name;
+    if (location.hash !== hash) {
+      try { history.pushState(null, "", hash); } catch (e) { location.hash = hash; }
+    }
+    apply(name);
+  }
+
+  window.addEventListener("hashchange", function () { apply(viewFromHash()); });
+  window.addEventListener("popstate", function () { apply(viewFromHash()); });
   document.addEventListener("click", function (e) {
     var b = e.target.closest("[data-go]");
     if (b) go(b.dataset.go);
@@ -4118,9 +641,7 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     if (!round.qs.length) return;
     bar.appendChild(el("div", null, "第 <b>" + round.no + "</b> 轮"));
     bar.appendChild(el("div", null, '得分 <b style="color:var(--zhu)">' + round.score + "</b> / " + FULL));
-    if (round.cAns > 0) {
-      bar.appendChild(el("div", "rate", "选择答对 " + round.cOk + " / " + round.cAns));
-    }
+    if (round.cAns > 0) bar.appendChild(el("div", "rate", "选择答对 " + round.cOk + " / " + round.cAns));
     bar.appendChild(el("div", "grow"));
     var jump = el("button", "chip jump" + (round.autoNext ? " on" : ""), "答对连跳");
     jump.type = "button";
@@ -4139,11 +660,9 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     });
     bar.appendChild(dots);
     bar.appendChild(el("div", null, Math.min(round.idx + 1, round.qs.length) + " / " + round.qs.length));
-    /* 进度条：驾考宝典式的一道一道往前走 */
     var prog = el("div", "rprog");
     var fill = el("i");
-    var pct = Math.round((Math.min(round.idx, round.qs.length) / round.qs.length) * 100);
-    fill.style.width = pct + "%";
+    fill.style.width = Math.round((Math.min(round.idx, round.qs.length) / round.qs.length) * 100) + "%";
     prog.appendChild(fill);
     bar.appendChild(prog);
   }
@@ -4165,8 +684,7 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     head.appendChild(el("span", "pts", PTS[kind] + " 分"));
     card.appendChild(head);
 
-    var stem = el("h3", "stem", withBlank(q.q));
-    card.appendChild(stem);
+    card.appendChild(el("h3", "stem", withBlank(q.q)));
 
     var res = el("div", "res");
     fillRes(res, q, kind);
@@ -4177,9 +695,7 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
         var li = el("li", "opt");
         li.innerHTML = '<span class="mk">' + MK[i] + '</span><span class="tx">' + esc(o) + "</span>";
         li.dataset.i = String(i);
-        if (!round.revealed) {
-          li.addEventListener("click", function () { chooseOption(i); });
-        }
+        if (!round.revealed) li.addEventListener("click", function () { chooseOption(i); });
         ul.appendChild(li);
       });
       card.appendChild(ul);
@@ -4189,11 +705,8 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
         '<input id="blank-in" type="text" placeholder="写下你的答案，写不出可点「开卷」" autocomplete="off" enterkeyhint="done">' +
         '<button class="btn sm ghost" id="blank-open" type="button">开卷</button>';
       card.appendChild(row);
-    } else {
-      card.appendChild(el("p", "essay-hint", "开放式题目，不设标准答案。先让人说，说完再开卷对要点。"));
     }
 
-    /* 自评（填空 / 大题） */
     if (kind !== "choice") {
       var rate = el("div", "selfrate");
       rate.appendChild(el("span", "lab", kind === "blank" ? "自 评" : "给 分"));
@@ -4206,13 +719,18 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
         c.addEventListener("click", function () { selfRate(c, p[0]); });
         rate.appendChild(c);
       });
-      res.appendChild(rate);
+      if (kind === "blank") res.appendChild(rate);
+      card.appendChild(res);
+      if (kind === "essay") {
+        card.appendChild(el("p", "essay-hint", "本题不设标准答案，言之成理即可 —— 听人说完，直接给分。"));
+        card.appendChild(rate);
+      }
+    } else {
+      card.appendChild(res);
     }
 
-    card.appendChild(res);
-
     var acts = el("div", "qa-actions");
-    if (kind !== "choice") {
+    if (kind === "blank") {
       var bReveal = el("button", "btn primary", "开　卷");
       bReveal.dataset.role = "reveal";
       bReveal.addEventListener("click", reveal);
@@ -4247,13 +765,12 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
         '<p class="ansline">答案　<span>' + esc(q.ans) + "</span></p>" +
         (q.note ? '<p class="note"><b>出</b>　' + esc(q.note) + "</p>" : "");
     } else {
-      res.innerHTML =
-        (q.points ? '<p class="note"><b>要点</b>　' + esc(q.points) + "</p>" : "") +
-        (q.score ? '<p class="note" style="margin-top:8px"><b>评分</b>　' + esc(q.score) + "</p>" : "");
+      /* 大题：不给答案，只留一句判分口径 */
+      res.innerHTML = '<p class="note">本题不设标准答案，言之成理即可。</p>';
     }
+    res.insertAdjacentHTML("beforeend", bgHtml(q));
   }
 
-  /* 已开卷/已选择的状态回填（重绘后不丢） */
   function applyState(card, cur) {
     var reveal = $('[data-role="reveal"]', card);
     if (reveal) { reveal.disabled = round.revealed; reveal.textContent = round.revealed ? "已开卷" : "开　卷"; }
@@ -4267,8 +784,8 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
         if (cur.kind === "choice") {
           var v = el("p", "verdict " + (cur.got > 0 ? "ok" : "no"));
           v.innerHTML = cur.got > 0
-            ? '<b>答对了</b><span>+' + cur.got + ' 分</span>'
-            : '<b>答错了</b><span>本题 0 分</span>';
+            ? "<b>答对了</b><span>+" + cur.got + " 分</span>"
+            : "<b>答错了</b><span>本题 0 分</span>";
           res.insertBefore(v, res.firstChild);
         }
         if (cur.kind === "blank" && cur.wrote) {
@@ -4277,15 +794,9 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
           res.appendChild(p);
         }
       }
-      /* 开卷后：填空输入框转为只读回显，开卷按钮收起 */
       if (cur.kind === "blank") {
         var bi = $("#blank-in", card);
-        if (bi) {
-          bi.value = cur.wrote || "";
-          bi.disabled = true;
-          bi.placeholder = "已开卷";
-          bi.style.color = "var(--ink-3)";
-        }
+        if (bi) { bi.value = cur.wrote || ""; bi.disabled = true; bi.placeholder = "已开卷"; bi.style.color = "var(--ink-3)"; }
         var bo = $("#blank-open", card);
         if (bo) bo.style.display = "none";
       }
@@ -4310,9 +821,14 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
         o.forEach(function (li, j) { li.classList.toggle("sel", j === cur.pick); });
       }
     }
+
+    if (cur.kind === "essay") {
+      $$(".selfrate .chip", card).forEach(function (c) {
+        c.classList.toggle("on", cur.got != null && Number(c.dataset.v) === cur.got);
+      });
+    }
   }
 
-  /* 驾考宝典式：点选项即刻判对错，当场出解析 */
   function chooseOption(i) {
     var cur = round.qs[round.idx];
     if (!cur || round.revealed || cur.kind !== "choice") return;
@@ -4381,15 +897,14 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     var b1 = el("button", "btn primary", "再来一轮");
     b1.addEventListener("click", newRound);
     var b2 = el("button", "btn ghost", "翻阅全卷");
-    b2.addEventListener("click", function () { go("bank"); });
-    var b3 = el("button", "btn ghost", "看规则");
-    b3.addEventListener("click", function () { go("guide"); });
+    b2.addEventListener("click", function () { go("scroll"); });
+    var b3 = el("button", "btn ghost", "回首页");
+    b3.addEventListener("click", function () { go("home"); });
     acts.appendChild(b1); acts.appendChild(b2); acts.appendChild(b3);
     wrap.appendChild(acts);
     return wrap;
   }
 
-  /* ---------------- 键盘 ---------------- */
   document.addEventListener("keydown", function (e) {
     if (!$("#draw").classList.contains("on")) return;
     var tag = (e.target.tagName || "").toLowerCase();
@@ -4398,118 +913,174 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     else if (e.key === " " || e.key === "Enter") { e.preventDefault(); if (!round.revealed) reveal(); else next(); }
   });
 
-  /* ---------------- 题库 ---------------- */
-  var bankBuilt = false;
-  var state = { kind: "choice", cat: "全部", q: "", revealed: false, open: new Set() };
+  /* ---------------- 题目条目渲染（题库 / 全卷共用） ---------------- */
+  function itemNode(q, kind, st) {
+    var li = el("li", "qitem");
+    var hd = el("div", "hd");
+    hd.appendChild(el("span", "no", esc(q.id)));
+    hd.appendChild(el("span", null, esc(q.cat)));
+    if (q.level) hd.appendChild(el("span", null, "· " + esc(q.level)));
+    li.appendChild(hd);
+
+    li.appendChild(el("p", "stem-sm", withBlank(q.q)));
+
+    var shown = st.revealed || st.open.has(q.id);
+
+    if (kind === "choice" && q.opts && q.opts.length) {
+      var og = el("div", "opts-sm");
+      var right = idxOf(q.ans);
+      q.opts.forEach(function (o, i) {
+        og.appendChild(el("span", i === right && shown ? "hit" : null, "<i>" + MK[i] + "</i>" + esc(o)));
+      });
+      li.appendChild(og);
+    }
+
+    var key = el("div", "key" + (shown ? " on" : ""));
+    if (kind === "choice") {
+      key.innerHTML = "<em>正解</em>" + letterOf(q.ans) + "（" + esc(q.ans) + "）　" + esc(q.ansText || "") +
+        (q.note ? "<p>" + esc(q.note) + "</p>" : "");
+    } else if (kind === "blank") {
+      key.innerHTML = "<em>答案</em>" + esc(q.ans) + (q.note ? "<p>" + esc(q.note) + "</p>" : "");
+    } else {
+      key.innerHTML = '<em>说明</em><span>本题不设标准答案，言之成理即可。</span>';
+    }
+    key.insertAdjacentHTML("beforeend", bgHtml(q));
+    li.appendChild(key);
+
+    var t = el("button", "toggle" + (shown ? " on" : ""), shown ? "收" : "显");
+    t.type = "button";
+    t.addEventListener("click", function () {
+      if (st.open.has(q.id)) st.open.delete(q.id); else st.open.add(q.id);
+      var on = st.open.has(q.id) || st.revealed;
+      key.classList.toggle("on", on);
+      t.textContent = on ? "收" : "显";
+      t.classList.toggle("on", on);
+      if (kind === "choice") {
+        $$(".opts-sm span", li).forEach(function (sp, j) { sp.classList.toggle("hit", on && j === idxOf(q.ans)); });
+      }
+    });
+    li.appendChild(t);
+    return li;
+  }
+
+  function listNode(items, st) {
+    var ul = el("ul", "qlist");
+    items.forEach(function (it) { ul.appendChild(itemNode(it.q, it.kind, st)); });
+    return ul;
+  }
+
+  /* ---------------- 全卷：三卷通读 ---------------- */
+  var JUAN = [
+    { kind: "choice", title: "卷上 · 选择题", sub: "一百五十道" },
+    { kind: "blank", title: "卷中 · 填空题", sub: "一百道" },
+    { kind: "essay", title: "卷下 · 大题", sub: "五十道" },
+  ];
+  var scrollState = { revealed: false, open: new Set() };
+  var scrollBuilt = false;
+
+  function poolOf(kind) {
+    return kind === "choice" ? DATA.choices : kind === "blank" ? DATA.blanks : DATA.essays;
+  }
+
+  function buildScroll() {
+    var bar = $("#scrollbar");
+    bar.innerHTML = "";
+    bar.appendChild(el("span", "lab", "跳 至"));
+    JUAN.forEach(function (j, i) {
+      var b = el("button", "chip", j.title.replace("卷", ""));
+      b.type = "button";
+      b.addEventListener("click", function () {
+        var h = $("#juan-" + (i + 1));
+        if (h) window.scrollTo({ top: h.getBoundingClientRect().top + window.pageYOffset - 70, behavior: "smooth" });
+      });
+      bar.appendChild(b);
+    });
+    var all = el("button", "chip", "全显答案");
+    all.type = "button";
+    all.addEventListener("click", function () {
+      scrollState.revealed = !scrollState.revealed;
+      scrollState.open.clear();
+      all.textContent = scrollState.revealed ? "全收答案" : "全显答案";
+      all.classList.toggle("on", scrollState.revealed);
+      renderScroll();
+    });
+    bar.appendChild(all);
+    renderScroll();
+  }
+
+  function renderScroll() {
+    var wrap = $("#scroll-wrap");
+    wrap.innerHTML = "";
+    JUAN.forEach(function (j, i) {
+      var h = el("h2", "juan", esc(j.title) + "<span>" + esc(j.sub) + "</span>");
+      h.id = "juan-" + (i + 1);
+      wrap.appendChild(h);
+      var items = poolOf(j.kind).map(function (q) { return { q: q, kind: j.kind }; });
+      wrap.appendChild(listNode(items, scrollState));
+    });
+  }
+
+  /* ---------------- 题库：筛选 + 搜索 ---------------- */
+  var bankState = { kind: "choice", cat: "全部", q: "", revealed: false, open: new Set() };
 
   function buildBank() {
     var f = $("#filters");
     f.innerHTML = "";
     f.appendChild(el("span", "lab", "题　型"));
     [["choice", "选择题 · 一百五十"], ["blank", "填空题 · 一百"], ["essay", "大题 · 五十"]].forEach(function (p) {
-      var b = el("button", "chip" + (state.kind === p[0] ? " on" : ""), p[1]);
+      var b = el("button", "chip" + (bankState.kind === p[0] ? " on" : ""), p[1]);
+      b.type = "button";
       b.dataset.kind = p[0];
-      b.addEventListener("click", function () { state.kind = p[0]; state.open.clear(); syncChips(); renderList(); });
+      b.addEventListener("click", function () { bankState.kind = p[0]; bankState.open.clear(); syncChips(); renderBank(); });
       f.appendChild(b);
     });
     var f2 = el("div", "filters");
     f2.style.marginTop = "10px";
     f2.appendChild(el("span", "lab", "分　类"));
     ["全部"].concat(CATS).forEach(function (c) {
-      var b = el("button", "chip" + (state.cat === c ? " on" : ""), c);
+      var b = el("button", "chip" + (bankState.cat === c ? " on" : ""), c);
+      b.type = "button";
       b.dataset.cat = c;
-      b.addEventListener("click", function () { state.cat = c; syncChips(); renderList(); });
+      b.addEventListener("click", function () { bankState.cat = c; syncChips(); renderBank(); });
       f2.appendChild(b);
     });
     f.parentNode.insertBefore(f2, f.nextSibling);
 
-    $("#q").addEventListener("input", function (e) { state.q = e.target.value.trim(); renderList(); });
+    $("#q").addEventListener("input", function (e) { bankState.q = e.target.value.trim(); renderBank(); });
     $("#reveal-all").addEventListener("click", function () {
-      state.revealed = !state.revealed;
-      $("#reveal-all").textContent = state.revealed ? "全收答案" : "全显答案";
-      renderList();
+      bankState.revealed = !bankState.revealed;
+      bankState.open.clear();
+      $("#reveal-all").textContent = bankState.revealed ? "全收答案" : "全显答案";
+      renderBank();
     });
-    renderList();
+    renderBank();
   }
 
   function syncChips() {
     $$("#bank .chip").forEach(function (b) {
-      if (b.dataset.kind) b.classList.toggle("on", b.dataset.kind === state.kind);
-      if (b.dataset.cat) b.classList.toggle("on", b.dataset.cat === state.cat);
+      if (b.dataset.kind) b.classList.toggle("on", b.dataset.kind === bankState.kind);
+      if (b.dataset.cat) b.classList.toggle("on", b.dataset.cat === bankState.cat);
     });
   }
 
-  function poolOf(kind) { return kind === "choice" ? DATA.choices : kind === "blank" ? DATA.blanks : DATA.essays; }
-
-  function renderList() {
+  function renderBank() {
     var wrap = $("#list-wrap");
-    var src = poolOf(state.kind);
-    var kw = state.q.toLowerCase();
-    var rows = src.filter(function (q) {
-      if (state.cat !== "全部" && q.cat !== state.cat) return false;
+    var kw = bankState.q.toLowerCase();
+    var rows = poolOf(bankState.kind).filter(function (q) {
+      if (bankState.cat !== "全部" && q.cat !== bankState.cat) return false;
       if (!kw) return true;
-      var hay = (q.q + " " + (q.ansText || q.ans || "") + " " + (q.note || "") + " " + (q.points || "") + " " + (q.opts || []).join(" ")).toLowerCase();
+      var hay = (q.q + " " + (q.ansText || q.ans || "") + " " + (q.note || "") + " " + (q.points || "") + " " + (q.opts || []).join(" ") + " " +
+        (q.bg || []).map(function (b) { return b.label; }).join(" ")).toLowerCase();
       return hay.indexOf(kw) >= 0;
     });
     $("#count").textContent = "共 " + rows.length + " 题";
     wrap.innerHTML = "";
     if (!rows.length) { wrap.appendChild(el("div", "empty", "无题可对 · 换个词试试")); return; }
-
-    var ul = el("ul", "qlist");
-    rows.forEach(function (q) {
-      var li = el("li", "qitem");
-      var hd = el("div", "hd");
-      hd.appendChild(el("span", "no", esc(q.id)));
-      hd.appendChild(el("span", null, esc(q.cat)));
-      if (q.level) hd.appendChild(el("span", null, "· " + esc(q.level)));
-      li.appendChild(hd);
-
-      li.appendChild(el("p", "stem-sm", withBlank(q.q)));
-
-      var shown = state.revealed || state.open.has(q.id);
-
-      if (state.kind === "choice" && q.opts && q.opts.length) {
-        var og = el("div", "opts-sm");
-        var right = idxOf(q.ans);
-        q.opts.forEach(function (o, i) {
-          var sp = el("span", i === right && shown ? "hit" : null, "<i>" + MK[i] + "</i>" + esc(o));
-          og.appendChild(sp);
-        });
-        li.appendChild(og);
-      }
-
-      var key = el("div", "key" + (shown ? " on" : ""));
-      if (state.kind === "choice") {
-        key.innerHTML = "<em>正解</em>" + letterOf(q.ans) + "（" + esc(q.ans) + "）　" + esc(q.ansText || "") +
-          (q.note ? "<p>" + esc(q.note) + "</p>" : "");
-      } else if (state.kind === "blank") {
-        key.innerHTML = "<em>答案</em>" + esc(q.ans) + (q.note ? "<p>" + esc(q.note) + "</p>" : "");
-      } else {
-        key.innerHTML = "<em>要点</em><span>" + esc(q.points) + "</span>" + (q.score ? "<p>评分：" + esc(q.score) + "</p>" : "");
-      }
-      li.appendChild(key);
-
-      var t = el("button", "toggle" + (shown ? " on" : ""), shown ? "收" : "显");
-      t.addEventListener("click", function () {
-        if (state.open.has(q.id)) state.open.delete(q.id); else state.open.add(q.id);
-        var on = state.open.has(q.id) || state.revealed;
-        key.classList.toggle("on", on);
-        t.textContent = on ? "收" : "显";
-        t.classList.toggle("on", on);
-        if (state.kind === "choice") {
-          $$(".opts-sm span", li).forEach(function (sp, j) { sp.classList.toggle("hit", on && j === idxOf(q.ans)); });
-        }
-      });
-      li.appendChild(t);
-      ul.appendChild(li);
-    });
-    wrap.appendChild(ul);
+    wrap.appendChild(listNode(rows.map(function (q) { return { q: q, kind: bankState.kind }; }), bankState));
   }
 
   /* ---------------- 启动 ---------------- */
-  newRound();
-  if (location.hash === "#bank") go("bank");
-  if (location.hash === "#guide") go("guide");
+  apply(viewFromHash());
 })();
 
 
