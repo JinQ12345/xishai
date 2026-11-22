@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>夕晒文学社 · 吉林警察学院</title>
+<meta name="description" content="吉林警察学院夕晒文学社，创办于 2014 年，读书会、联合诗会、征文与投稿。">
+<meta name="theme-color" content="#F3EDDD">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:site_name" content="夕晒文学社">
+<meta property="og:title" content="夕晒文学社 · 吉林警察学院">
+<meta property="og:description" content="雅集贤才聚，文墨满警院。吉林警察学院夕晒文学社，创办于 2014 年，读书会、联合诗会、征文与投稿。">
+<meta property="og:image" content="images/01.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23A63D2F'/%3E%3Ctext x='32' y='46' font-size='42' text-anchor='middle' fill='%23F3EDDD' font-family='STZhongsong,SimSun,serif'%3E%E5%A4%95%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --paper:#F3EDDD; --paper-2:#FBF6E7; --ink:#2C3C36; --ink-2:#5B675E;
+    --red:#A63D2F; --gold:#C8A96B; --hair:rgba(44,60,54,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:-apple-system,"Microsoft YaHei","PingFang SC",sans-serif;
+    line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  .serif{font-family:"STZhongsong","SimSun",serif}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px}
+
+  /* 封面 */
+  header{
+    position:relative;text-align:center;padding:88px 24px 64px;
+    background:
+      radial-gradient(120% 70% at 50% 0%, #FBF6E7 0%, rgba(251,246,231,0) 60%),
+      linear-gradient(180deg,#EFE4CC 0%, var(--paper) 100%);
+    overflow:hidden;
+  }
+  header::after{
+    content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--hair);
+  }
+  .eyebrow{font-size:12px;letter-spacing:.42em;color:var(--ink-2);text-transform:uppercase}
+  h1{
+    font-family:"STZhongsong","SimSun",serif;
+    font-size:clamp(38px,9vw,64px);font-weight:600;letter-spacing:.08em;
+    margin:18px 0 10px;
+  }
+  h1 .line{display:block}
+  .slogan{
+    font-family:"KaiTi","STKaiti",serif;font-size:clamp(17px,3.6vw,22px);
+    color:var(--red);letter-spacing:.06em;
+  }
+  .meta{margin-top:22px;font-size:13px;color:var(--ink-2);letter-spacing:.1em}
+  .meta b{color:var(--ink);font-weight:600}
+
+  /* 区块 */
+  section{padding:56px 0;border-bottom:1px solid var(--hair)}
+  section:last-of-type{border-bottom:0}
+  h2{
+    font-family:"STZhongsong","SimSun",serif;font-size:22px;font-weight:600;
+    letter-spacing:.16em;margin-bottom:26px;display:flex;align-items:center;gap:14px;
+  }
+  h2::after{content:"";flex:1;height:1px;background:var(--hair)}
+  p{color:var(--ink-2);font-size:15.5px}
+  p + p{margin-top:14px}
+  .lead{color:var(--ink);font-size:16px}
+
+  /* 三条收益 */
+  .gains{display:grid;gap:18px;margin-top:8px}
+  .gain{display:grid;grid-template-columns:88px 1fr;gap:16px;align-items:start}
+  .gain dt{color:var(--red);font-size:15px;letter-spacing:.06em;font-weight:600}
+  .gain dd{color:var(--ink-2);font-size:15px;margin:0}
+  .colophon{
+    font-family:"KaiTi","STKaiti",serif;text-align:center;font-size:15px;
+    color:var(--ink-2);letter-spacing:.18em;margin-top:30px;opacity:.85;
+  }
+
+  /* 文章列表 */
+  .posts{list-style:none;display:grid;gap:2px}
+  .post{border-bottom:1px dashed var(--hair)}
+  .post summary{
+    list-style:none;cursor:pointer;padding:20px 4px;transition:.18s;
+  }
+  .post summary::-webkit-details-marker{display:none}
+  .post summary:hover{background:rgba(200,169,107,.1);padding-left:12px}
+  .post[open] summary{background:rgba(200,169,107,.08);padding-left:12px}
+  .post h3{font-size:17px;font-weight:600;letter-spacing:.02em;margin-bottom:6px}
+  .post .digest{font-size:14px;color:var(--ink-2);line-height:1.7}
+  .post .date{display:block;margin-top:8px;font-size:12px;color:var(--ink-2);letter-spacing:.12em;opacity:.8}
+  .post .arrow{color:var(--red);font-size:12px;margin-left:8px;opacity:.75}
+  .post .body{
+    padding:6px 6px 28px;font-size:15px;color:var(--ink-2);line-height:1.95;
+    letter-spacing:.01em;
+  }
+  .post .body p + p{margin-top:12px}
+  .post .body p.verse{margin-top:2px} /* 诗行：短句不拉大间距 */
+
+  /* 相册 */
+  .album{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .album figure{
+    position:relative;aspect-ratio:4/3;overflow:hidden;background:#E7DFCB;
+    border:1px solid var(--hair);
+  }
+  .album img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s}
+  .album figure:hover img{transform:scale(1.04)}
+  .album figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:18px 10px 8px;
+    font-size:12px;color:#fff;letter-spacing:.04em;
+    background:linear-gradient(to top,rgba(0,0,0,.55),transparent);
+  }
+  .album .empty{
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink-2);font-size:12px;letter-spacing:.1em;
+  }
+
+  /* 纳新 */
+  .enroll{
+    background:var(--paper-2);border:1px solid var(--hair);padding:36px 28px;
+    text-align:center;
+  }
+  .enroll .big{
+    font-family:"KaiTi","STKaiti",serif;font-size:clamp(22px,5vw,30px);
+    color:var(--ink);letter-spacing:.04em;
+  }
+  .enroll .facts{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:26px 0 0;
+    border-top:1px solid var(--hair);padding-top:24px;
+  }
+  .facts .k{font-size:11px;letter-spacing:.2em;color:var(--ink-2);display:block;margin-bottom:6px}
+  .facts .v{font-size:15px;font-weight:600;color:var(--ink)}
+
+  footer{padding:44px 0 64px;text-align:center;font-size:12.5px;color:var(--ink-2);letter-spacing:.06em}
+  footer .dot{color:var(--gold)}
+
+  @media (max-width:520px){
+    .album{grid-template-columns:repeat(2,1fr)}
+    .gain{grid-template-columns:1fr;gap:4px}
+    .enroll .facts{grid-template-columns:1fr;gap:18px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">JPC LITERATURE CLUB · SINCE 2014</div>
+  <h1><span class="line">吉林警察学院</span><span class="line">夕晒文学社</span></h1>
+  <div class="slogan">雅集贤才聚，文墨满警院。</div>
+  <div class="meta">
+    诗文 · 散文 · 小说 · 戏剧
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section id="about">
+    <h2>关于我们</h2>
+    <p class="lead">夕晒文学社 2014 年创办，社内征文与团委投稿常年开着。</p>
+    <p>每月一聚，一人带一本，茶话会上分享读到的趣味；春秋两季与兄弟社团办联合诗会；写得好的稿子，推去团委投稿。</p>
+    <p>不必先会写。带一篇来，有人陪你改到能看；不想写、只想听，坐到散场也行。</p>
+  </section>
+
+  <section id="gains">
+    <h2>来了能做什么</h2>
+    <dl class="gains">
+      <div class="gain">
+        <dt>读书会</dt>
+        <dd>每月一聚，一人带一本，茶话会分享读书的趣味内容。</dd>
+      </div>
+      <div class="gain">
+        <dt>征文与投稿</dt>
+        <dd>社内定期征文，练笔、投稿、推优，文笔会被人看见。</dd>
+      </div>
+      <div class="gain">
+        <dt>不端着的朋友</dt>
+        <dd>窗下共读，灯前各写；话少的坐得住，话多的说到晚，都不必勉强。</dd>
+      </div>
+    </dl>
+    <p class="colophon">慷慨以任气，磊落以使才。</p>
+  </section>
+
+  <section id="posts">
+    <h2>社员的文章</h2>
+    <ul class="posts" id="postList"><!-- 由下方脚本渲染 --></ul>
+    <p style="margin-top:22px;font-size:13px;opacity:.75">点标题展开全文，不必跳转。文章最初发布在社团公众号，署名与权利归作者本人。</p>
+    <p style="margin-top:8px;font-size:13px;opacity:.75">这里只是挑出来的一小部分。从 2014 年到现在，社里写下的远不止这些：有的发在公众号上，有的收进社刊，有的写完就压进了抽屉。</p>
+  </section>
+
+  <section id="album">
+    <h2>活动留影</h2>
+    <div class="album" id="albumGrid"><!-- 由下方脚本渲染 --></div>
+  </section>
+
+  <section id="join">
+    <h2>纳新</h2>
+    <div class="enroll">
+      <div class="big">写了有人看，来了有人聊</div>
+      <div class="facts">
+        <div><span class="k">时间</span><span class="v">11·26 — 11·28</span></div>
+        <div><span class="k">地点</span><span class="v">净月 · 乐山 警体馆</span></div>
+        <div><span class="k">统一纳新</span><span class="v">11·28 乐山校区</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  吉林警察学院夕晒文学社 <span class="dot">·</span> 2014 — 2026
+</footer>
+
+<script>
+/* ============================================================
+   内容都在这两个数组里，改完保存刷新即可
+   ============================================================ */
+
+// 文章：公众号原文链接 + 标题 + 一句摘要
+// 拿链接的方法：公众号后台 → 图文分析 → 点开某篇 → 复制链接；
+// 或在手机上打开文章 → 右上角「…」→ 复制链接。
+const POSTS = [
+  {
+    title: "你好吖！新成员",
+    digest: "纳新推文：读书会、看电影、逛博物馆，还能换上古装去孔庙。",
+    date: "2019 · 10",
+    body: [
+      "你还在为新环境而迷茫吗？你还在为没有朋友而孤单吗？你还在为课余生活无事可做而烦恼吗？来，加入我们！夕晒读书社欢迎你的加入！",
+      "读书社将会带给你不一样的感受，在这里，我们将会竭力帮助每一位同学，无论是学习，亦或者生活，我们都可以共同去面对，如果世人皆苦，这里将是甜味！",
+      "我们不但有幽默风趣，温文尔雅的学长，还有知书达理，善解人意的学姐，如果你愿意，我们将成为你的挚友。",
+      "想了解忒休斯之船的秘密吗？想知道心灵密码的故事吗？想加入紧张刺激的推理游戏吗？来，请加入我们，我们将一同遨游在书籍的海洋，追寻书籍背后的故事",
+      "如果说一个人看的是电影，那么志同道合的我们在一起看的将会是一个世界，本社团将会定期播放富含寓意的电影，我们将一同探讨剧情，一同感悟电影的魅力。",
+      "在繁重的学业业余，我们将带领你们出去认识一下你们脚下的这片土地，我们将去博物馆了解光怪陆离的光学，神奇的自然，还有从明至清人们的生活方式。如果你热爱生活，那么请加入我们！",
+      "听！有朋自远方来，不亦乐乎，这是孔夫子的召唤。为何不和我们一起换上古装，去孔庙了解那个先贤生活的时代，感受贤者的气息，沐浴知性与光辉 吾辈之道，未入岂能知晓，来了才知道，入社的都说好！如果你热爱书籍，热爱生活，喜欢朋友，那么加入我们，我们将亲密无间！",
+      "文字|窦子健",
+      "责编|张特"
+    ]
+  },
+  {
+    title: "走好选择的路，别选择好走的",
+    digest: "萌新首秀。写深秋的落叶，也写大学里该走哪条路。",
+    date: "2018 · 10",
+    body: [
+      "也许",
+      "都是季节惹得祸",
+      "瑟瑟的秋风",
+      "无情地",
+      "扫下这片片的落叶",
+      "你不能藐视",
+      "也不能随意践踏",
+      "这是叶子留下的足迹",
+      "将忧伤",
+      "还给即将苍茫的季节",
+      "唯有深秋",
+      "最令人伤感",
+      "最令人感到寂寞",
+      "不是在意脚步的匆匆走过",
+      "而是离去后惆怅的感觉",
+      "走过深秋",
+      "需要把心态调整好",
+      "坦然接受会好些",
+      "每个人的情感深浅不一",
+      "不能刻意别人去领略",
+      "深秋，已然没有了诱惑",
+      "你不要沉迷于色彩的虚幻",
+      "那些斑斓的叶子",
+      "不是为了嬴得别人的取悦",
+      "而是在为生命着色",
+      "正如我们的大学生活一样",
+      "一定要让自己充实起来",
+      "忙起来，总会有收获的",
+      "不去想那些事俗人来人往",
+      "就这样做一个行者",
+      "漫步于自己的路上",
+      "文|张宸箫",
+      "编|高明"
+    ]
+  },
+  {
+    title: "家父小传",
+    digest: "父亲节征文。旱年浇柳、坝上画夹，几件小事写完一个人。",
+    date: "2017 · 06",
+    body: [
+      "这是父亲节征文的第二篇文章，寥寥几笔却说了很多。愿诸君多多体会。",
+      "家父姓曹，名福铭。本大家子，惜幼年丧母，家道中落，遍嚐世事，曾乞讨于民间而不改其童乐，昨夜忆起为父夜不成寐，又到梅红柳绿，一夜春雨花满地之时，记为父小事二三则，以示怀念。则一：某年，大旱，河堤之柳垂焉，父取水于将涸之流，往返于河堤上下，浇数里之柳。一日父归，桶中有鸭卵数枚，笑云于一柳下偶遇，遂拾回以食幼子。则二，父60退养于家，遂自制画夹，常于闲时独坐坝上，描摩新修之桥，现仍遗画作数张，珍藏于爱女之室。则三，母病血栓多年，父常侍在侧，一日，外传卖米声，母闻喊父视之，父出旋归，即告母问，后大声附言：汝母乃大内总管，一切家事宜听从母命！言毕，全家欢笑！父今若在，当近九旬！忆起往年陈事，回小儿女之时。感恩为父母者予子之乐，回想犹在耳！"
+    ]
+  },
+  {
+    title: "净月潭游记",
+    digest: "端午与友同游净月潭。湖水、古寺，和走废了的一双脚。",
+    date: "2017 · 06",
+    body: [
+      "耿九",
+      "自余居于北凉，未有隙施然远游也，幸逢端午，余与甘十三游于净月潭。",
+      "步行而入，途数里，登于堤上。远观之，一汪碧水清可见底，粼粼如镜，镜中有远山重叠倒映，又有几叶扁舟行于其上。清风徐来，水波微漾，碧空如洗，有白云游过，雨燕飞回。",
+      "有数勇者，于堤上沿石梯行车而下。堤高数丈，石梯陡然，旁人皆为之瞠目。而数勇者却不觉，即能独得此中快意，其凶险只留于旁人言哉。而余等亦为旁人，故悻悻然而去也。",
+      "复行之，钟鸣于密林深处，孤烟直上，有古寺隐隐藏于万山之间，落于云天之下。寺名北普陀，香火颇盛，左右各有一殿，一名地藏，一名伽蓝。",
+      "别其寺，徒于曲径。草木深深，有虬松古柏，奇草异花，鸟鸣虫吟，幽泉轻响而过，如鸣佩环也。人多有三五成群，休于林荫之下，醉卧于怪石之间，觥筹交错，好不自在。世上琐事万千，亦有美景做伴，有何愁哉！",
+      "行数十里，只觉双足沉恋于地，身如负重物，不欲前行。可十三言：路虽漫漫，终有尽头。余等虽非圣人但亦能求索，故而复行之。幸有一长者，驾车欲出其潭，载余与十三并同游者于车内，少路十数里。",
+      "出潭已是夕日。虽甚累，却觉心中欢畅，忘乎所以，故有所记。",
+      "时丁酉年五月四日。"
+    ]
+  },
+  {
+    title: "祭孔小记",
+    digest: "丁酉年清明，大成殿前的一次祭孔，记成一篇骈文。",
+    date: "2017 · 05",
+    body: [
+      "公元2017年4月3号，岁在丁酉，月值甲辰，时令清明。",
+      "吾起吊文，欣然命笔，略逊文采，仅寄诚情。谨以此文恭祭大成至圣先师。",
+      "天行刚健，地道宽宏；人禀五常，灵秀所钟。",
+      "文圣吾祖，大德四方；万世先师，恩泽海内。",
+      "北凉苦寒，天远地偏；民不得意，教化不行。",
+      "幸赖圣儒，仁义垂仪；茫茫长夜，如明火炬。",
+      "敦敦教诲，熠熠宏论；三坟五典，经史子集。",
+      "习习儒风，煌煌论语；薪火相传，百代不息。",
+      "融融德法，滔滔河新；我道不孤，四海有邻。",
+      "今有吾辈，见贤思齐；高岸秀木，惟恐失序。",
+      "仁为己任，见利思义；中和明德，过犹不及。",
+      "刚健有为，自强不息；继往开来，同德凝聚。",
+      "鲲犁碧海，鹏登蟾宫；青龙腾起，丹凤鼓翼。",
+      "待我后生，弘扬承继；四海擎天，有吾一臂。",
+      "儒风犹在，先圣故里；伏惟尚飨，为祷为祈！",
+      "天朗气清，惠风和畅，云止鸟朝，涛敬峦恭。夕晒曹君及诸弟子等人于此肃立大成殿前，其行敬敬，其色诚诚，其心恳恳，其意忠忠，愚辈行众，叩祭圣灵。"
+    ]
+  },
+  {
+    title: "诗两首",
+    digest: "《寻爱》《若爱》。两首情诗，写相思，也写绝情。",
+    date: "2017 · 05",
+    body: [
+      "《寻爱》",
+      "梁宸烨",
+      "那曾经的课本至今还落在",
+      "我的手中被视如珍宝，人却分隔了",
+      "把满满的离愁和思念",
+      "把回忆和现实碰触的火花",
+      "留给我去苦苦的追忆",
+      "自从那年爱神的箭来了",
+      "认你为唯一，便更加痴恋",
+      "用一支中了情蛊的魔箭",
+      "把心带给你，连天地也阻挡不了",
+      "怨路迢迢，而情意绵长",
+      "在所有的梦里你都出现",
+      "却又突然隐去，但就在今天",
+      "我为你立风露终宵",
+      "众生芸芸，我一一追寻",
+      "凡夫俗子怎配得上你",
+      "风姿秀逸，七分化做了蝶舞",
+      "余下的三分凝成月光",
+      "黛眉一颦就绣比春山",
+      "从亘古到现在，从荒芜到繁华",
+      "冠盖满途的钟鸣鼎乐",
+      "不及你无意间的一句",
+      "环佩叮咚轻触我额头",
+      "轻弹一曲心中的《凤求凰》",
+      "再奏一首幽怨的情殇",
+      "也不抵心中万千缱绻",
+      "月老，情牵都寻不到你",
+      "心被你偷了，不知归处",
+      "怎描我心中那一点朱砂",
+      "月中身影，或许那才是你故乡",
+      "常得我痴痴醉醉的仰望",
+      "而无论或哭，或笑",
+      "你早已植入我的心房",
+      "这一腔的似水柔情",
+      "也不必惊动风与月",
+      "也无需羡万家鸳侣",
+      "只消将愁味酿多情",
+      "留给我相思迢递",
+      "《若爱》",
+      "梁宸烨",
+      "月盈虚 人别后",
+      "景如当年 浓情依在否",
+      "点滴往事心间漏",
+      "醒到三更 坐到三更后",
+      "梦依旧 醒未有",
+      "昨夜心空 今夜心空又",
+      "命舛多劫离别后 不念相思",
+      "也念相思豆",
+      "碾红豆 凭绝情",
+      "只要绝情",
+      "只要绝情字",
+      "数日问情得无字",
+      "情堪何如",
+      "情堪何如是",
+      "立承诺 犹在耳",
+      "也许指日",
+      "也许指日复",
+      "未必共死无幸事",
+      "若爱何妨",
+      "若爱何妨试"
+    ]
+  },
+  {
+    title: "穆斯林的葬礼",
+    digest: "读霍达。命运把干净的人一个个推下去，才见一部书的重量。",
+    date: "2017 · 05",
+    body: [
+      "在我的观点里，一直认为，那些感同身受的作品是最能打动人的，简言之就是要写得真实，当作者的灵魂渗透到一部作品中，让读者能体会到作者灵魂的波动，那这必将是一部优秀的作品。",
+      "直到今天，我刚刚拜读完霍达的这部《穆斯林的葬礼》，期间，我停下了好多次，不是我没有耐心，不想读下去，不是我朝三暮四朝秦暮楚。而是，我实在不敢读下去了，这部作品的文字很美，优美的文字塑造出一个又一个纯洁善良美丽坚强的人物，而当你看到命运把这些美好的人物一个又一个地推向深渊的时候，那种感觉是难以承受的。",
+      "高中的时候，我们语文老师一直在向我传达这样一个观点，那就是高明的写作手法是在塑造人物的时候不可以描述坏人如何坏，好人如何好，而是选择用命运作为媒介将人物串联起来，从而叙述故事，用命运的机缘巧合来创造喜剧，用命运的冰冷无情来创造悲剧。鲜活的人物生活在故事里，没有刻意的冲突，一切的描述用剧情和命运来圆滑润色。",
+      "那，《穆斯林的葬礼》就是很好地用这种记叙方法的文学作品了。",
+      "在这部作品中，令我感动的更是里面描述的纯真的爱情，作品中的爱情，在我看来才是真正的爱情，反观于这个浮躁的时代，我们的爱情却很难达到。在这部作品中，我看到，真正的爱情超越了生死离别，超越了生老病死，那是一种纯真而火热的力量，能克服所有的艰难险阻，能移走高山，能填平湖海，真正的爱情，给人难以想象的力量，给人不顾生死的勇气。",
+      "当然，如果单单是从文学角度评价这部作品是不够的。我觉得，《穆斯林的葬礼》之所以能够经久不衰，最大的原因是因为它够真实，以点带面地反映出整个时代的变迁，以及在大时代背景下中国穆斯林的生存发展状态。",
+      "霍达本身就是一名穆斯林，而且，她就出生在一个珠玉世家，那么这部作品中的很多描述她都是亲身体会过的，无论从什么角度来讲，这部作品的真实性与现实生活有很大的契合，越是真实的作品，越会打动读者。",
+      "文学，来源于生活，也要高于生活。",
+      "在这个时代，人们的精力越来越多地被手机和互联网夺走，大量的信息冲进了我们的视野，我们认为那些信息很有趣，也很有用，可是这些碎片化的东西却什么实质性的作用也没有，反而会分散我们的时间精力。到了今天，能静下心来安静地读一本书，再认真地思考书籍传达给你的一切，这样的人越来越少了。",
+      "我多么希望大家能静下心来，放下你的手机，拿起那尘封已久的书籍，慢慢地，静静地。在一个安静的午后，一本书，一盏茶，一个人，一个简单的小世界。",
+      "关于《穆斯林的葬礼》，我不想剧透，也不想再评价，一万个读者阅读同一本书，会用一万种感受和一万种想法，这才是阅读的魅力所在。"
+    ]
+  },
+  {
+    title: "即见君来，我同归矣",
+    digest: "发刊词。一把椅子一壶茶，即见君来，我同饮矣；即见君来，我同归矣。",
+    date: "2017 · 05",
+    body: [
+      "那个时候，我们可以每天看看太阳",
+      "看朝阳升起，看夕阳落下",
+      "一把椅子一壶茶，",
+      "清清淡淡，平平松松。",
+      "现在，我们相遇在一起互相问候",
+      "读读书讲讲故事",
+      "快乐自己快乐朋友",
+      "《夕晒》",
+      "文/耿九",
+      "夕有落日，晒我衣裳。",
+      "老我以衣，其暖洋洋。",
+      "夕有落日，晒我书房。",
+      "老我以书，其字苍苍。",
+      "夕有落日，晒我心肠。",
+      "老我以人，其志苍苍。",
+      "莫说老矣，我有新茶。",
+      "即见君来，我同饮矣。",
+      "时不长矣，我有新言。",
+      "即见君来，我同归矣。",
+      "依我陋屋，思我故年。",
+      "夕晒我屋兮，莫不静好？",
+      "我心长青兮，莫不静好？",
+      "即见君来，我同饮矣。即见君来，我同归矣。",
+      "相遇便是缘分，",
+      "之后便是相识相知的过程，",
+      "愿岁月静好，",
+      "你我都能收获到几份美丽 。"
+    ]
+  }
+];
+
+// 相册：把照片放进 images/ 目录，文件名对上即可
+const PHOTOS = [
+  { src: "images/01.jpg", caption: "净月潭 · 湖" },
+  { src: "images/02.jpg", caption: "净月潭 · 出游" },
+  { src: "images/03.jpg", caption: "净月潭 · 古寺" },
+  { src: "images/04.jpg", caption: "净月潭 · 林间" },
+  { src: "images/05.jpg", caption: "净月潭 · 堤上" },
+  { src: "images/06.jpg", caption: "读书" }
+];
+
+(function render() {
+  const list = document.getElementById("postList");
+  POSTS.forEach(p => {
+    const li = document.createElement("li");
+    const d = document.createElement("details");
+    d.className = "post";
+
+    const s = document.createElement("summary");
+    const h3 = document.createElement("h3");
+    h3.textContent = p.title;
+    const arrow = document.createElement("span");
+    arrow.className = "arrow";
+    arrow.textContent = "▾";
+    h3.appendChild(arrow);
+    s.appendChild(h3);
+
+    const digest = document.createElement("div");
+    digest.className = "digest";
+    digest.textContent = p.digest;
+    s.appendChild(digest);
+
+    const date = document.createElement("span");
+    date.className = "date";
+    date.textContent = p.date;
+    s.appendChild(date);
+
+    const body = document.createElement("div");
+    body.className = "body";
+    (p.body || []).forEach(t => {
+      const el = document.createElement("p");
+      el.textContent = t;
+      if (t.length <= 20) el.className = "verse";
+      body.appendChild(el);
+    });
+
+    d.appendChild(s);
+    d.appendChild(body);
+    li.appendChild(d);
+    list.appendChild(li);
+  });
+
+  const grid = document.getElementById("albumGrid");
+  PHOTOS.forEach(p => {
+    const fig = document.createElement("figure");
+    const img = new Image();
+    img.src = p.src;
+    img.alt = p.caption;
+    img.onerror = () => {
+      fig.className = "empty";
+      fig.innerHTML = "<span>" + p.caption + "（待补照片）</span>";
+    };
+    img.onload = () => {
+      fig.appendChild(img);
+      const cap = document.createElement("figcaption");
+      cap.textContent = p.caption;
+      fig.appendChild(cap);
+    };
+    grid.appendChild(fig);
+  });
+})();
+</script>
+</body>
+</html>
+
