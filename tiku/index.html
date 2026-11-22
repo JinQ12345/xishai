@@ -1,0 +1,4449 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>文学社纳新趣味题库 · 三百题</title>
+<meta name="description" content="夕晒文学社纳新趣味题库：选择一百五十、填空一百、大题五十，共三百题。六题一轮，十七分，八分钟一场。">
+<meta name="theme-color" content="#f2e7d0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='6' fill='%239b3a2b'/%3E%3Crect x='7' y='7' width='50' height='50' rx='3' fill='none' stroke='%23f2e7d0' stroke-width='2.5'/%3E%3Ctext x='32' y='45' font-size='34' text-anchor='middle' fill='%23f7efdd' font-family='KaiTi,STKaiti,serif'%3E%E9%A2%98%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="文学社纳新趣味题库 · 三百题">
+<meta property="og:description" content="选择一百五十、填空一百、大题五十。六题一轮，十七分，八分钟一场，扫码即可开卷。">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --paper:#f2e7d0;
+  --paper-hi:#fbf3e2;
+  --paper-lo:#e7d9ba;
+  --ink:#211e19;
+  --ink-2:#4a4438;
+  --ink-3:#7d7361;
+  --zhu:#9b3a2b;
+  --zhu-deep:#77241a;
+  --qing:#4d614e;
+  --gold:#a98a4e;
+  --line:#c8b493;
+  --line-soft:#ddcbac;
+  --serif:"Songti SC","STSong","SimSun","Noto Serif CJK SC","Source Han Serif SC",serif;
+  --kai:"STKaiti","KaiTi","Kaiti SC","楷体","KaiTi_GB2312",var(--serif);
+  --shadow:0 22px 44px -34px rgba(52,38,14,.55);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.78;
+  background:
+    radial-gradient(900px 520px at 8% -8%, #fdf5e5 0%, rgba(253,245,229,0) 62%),
+    radial-gradient(760px 460px at 108% 104%, #e6d6b4 0%, rgba(230,214,180,0) 58%),
+    var(--paper);
+  min-height:100vh;
+}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.055;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");}
+.page{position:relative;z-index:1;display:grid;grid-template-columns:64px minmax(0,1fr);max-width:1160px;margin:0 auto;min-height:100vh}
+
+/* ---------- 书口（竖排书名） ---------- */
+.rail{
+  position:sticky;top:0;align-self:start;height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  padding:26px 0 30px;border-right:1px solid var(--line-soft);
+}
+.rail::after{content:"";position:absolute;inset:14px 10px;border:1px solid rgba(200,180,147,.45);pointer-events:none}
+.rail-top,.rail-bottom{writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.42em;font-family:var(--kai);color:var(--ink-3);font-size:12.5px}
+.rail-top{color:var(--zhu);letter-spacing:.3em}
+.rail-mid{writing-mode:vertical-rl;text-orientation:upright;font-family:var(--kai);font-size:25px;letter-spacing:.36em;color:var(--ink);padding:18px 0}
+.seal{
+  font-family:var(--kai);color:#fdf6ea;background:var(--zhu);border-radius:2px;
+  writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.22em;
+  padding:12px 7px;font-size:15px;line-height:1.2;
+  box-shadow:inset 0 0 0 1.5px rgba(255,246,234,.42), 0 2px 6px -3px rgba(80,26,16,.6);
+}
+
+/* ---------- 正文 ---------- */
+.main{min-width:0;padding:0 clamp(18px,4.4vw,52px) 72px}
+.mobile-bar{display:none}
+
+/* 封面 */
+.cover{padding:clamp(30px,7vw,64px) 0 clamp(22px,4vw,34px);position:relative;border-bottom:1px solid var(--line-soft)}
+.cover::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:var(--line-soft);opacity:.55}
+.kicker{margin:0 0 20px;font-family:var(--kai);font-size:13.5px;letter-spacing:.24em;color:var(--zhu)}
+h1.title{margin:0;font-family:var(--kai);font-weight:400;line-height:1.34;letter-spacing:.06em;
+  font-size:clamp(34px,7.2vw,56px);color:var(--ink)}
+h1.title .l2{display:block;color:var(--zhu-deep)}
+.lead{margin:22px 0 0;font-size:15.5px;color:var(--ink-2);letter-spacing:.12em}
+.lead b{font-weight:400;color:var(--ink);border-bottom:1px solid var(--line)}
+.lead .dim{color:var(--ink-3)}
+.stats{display:flex;gap:clamp(16px,4vw,40px);margin:34px 0 0;padding:20px 0 0;border-top:1px solid var(--line-soft)}
+.stat{flex:1;min-width:0}
+.stat em{display:block;font-style:normal;font-family:var(--kai);font-size:clamp(24px,5vw,32px);color:var(--ink);letter-spacing:.04em}
+.stat span{display:block;margin-top:4px;font-size:12.5px;letter-spacing:.2em;color:var(--ink-3)}
+.cover-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+.btn{
+  font-family:var(--kai);font-size:15.5px;letter-spacing:.14em;cursor:pointer;
+  padding:11px 22px;border:1px solid var(--ink);background:transparent;color:var(--ink);
+  border-radius:2px;transition:.18s ease;
+}
+.btn:hover{background:var(--ink);color:var(--paper-hi)}
+.btn.primary{background:var(--zhu);border-color:var(--zhu);color:#fdf6ea}
+.btn.primary:hover{background:var(--zhu-deep);border-color:var(--zhu-deep);color:#fdf6ea}
+.btn.ghost{border-color:var(--line);color:var(--ink-2)}
+.btn.ghost:hover{background:rgba(200,180,147,.22);color:var(--ink)}
+.btn:disabled{opacity:.42;cursor:default}
+.btn.sm{padding:7px 14px;font-size:14px;letter-spacing:.1em}
+
+/* 导航 */
+.tabs{display:flex;gap:6px;margin:0;padding:18px 0 0;border-bottom:1px solid var(--line-soft);position:sticky;top:0;z-index:30;background:linear-gradient(180deg,var(--paper) 62%,rgba(242,231,208,.86));backdrop-filter:blur(3px)}
+.tab{font-family:var(--kai);font-size:16.5px;letter-spacing:.2em;color:var(--ink-3);background:none;border:0;border-bottom:2px solid transparent;
+  padding:8px 14px 12px;cursor:pointer;transition:.16s}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--zhu);border-bottom-color:var(--zhu)}
+.tab .n{font-size:11.5px;letter-spacing:0;color:var(--ink-3);margin-left:5px;font-family:var(--serif)}
+
+.panel{display:none;padding-top:30px}
+.panel.on{display:block}
+
+/* ---------- 抽题 ---------- */
+.rundbar{display:flex;align-items:baseline;flex-wrap:wrap;gap:12px 22px;margin-bottom:20px;font-family:var(--kai);font-size:14.5px;letter-spacing:.14em;color:var(--ink-3)}
+.rundbar b{font-weight:400;font-size:20px;color:var(--ink);letter-spacing:.02em}
+.rundbar .grow{flex:1}
+.dots{display:flex;gap:7px;align-items:center}
+.dot{width:9px;height:9px;border:1px solid var(--line);border-radius:50%;background:transparent}
+.dot.done{background:var(--ink-3);border-color:var(--ink-3)}
+.dot.now{background:var(--zhu);border-color:var(--zhu);box-shadow:0 0 0 3px rgba(155,58,43,.14)}
+.dot.ok{background:var(--qing);border-color:var(--qing)}
+
+.card{
+  position:relative;background:linear-gradient(180deg,rgba(253,247,234,.92),rgba(246,238,222,.72));
+  border:1px solid var(--line);padding:clamp(20px,3.4vw,32px);box-shadow:var(--shadow);
+}
+.card::before,.card::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--line);pointer-events:none}
+.card::before{top:-5px;left:-5px;border-right:0;border-bottom:0}
+.card::after{bottom:-5px;right:-5px;border-left:0;border-top:0}
+.qhead{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-bottom:16px;font-size:12.5px;letter-spacing:.12em;color:var(--ink-3)}
+.qid{font-family:var(--kai);color:var(--zhu);font-size:14px;letter-spacing:.16em}
+.tag{border:1px solid var(--line);padding:1px 8px;border-radius:1px;color:var(--ink-2)}
+.tag.lv{border-color:rgba(169,138,78,.5);color:var(--gold)}
+.qhead .pts{margin-left:auto;color:var(--ink-2)}
+.stem{font-size:clamp(17.5px,2.5vw,20.5px);line-height:1.92;letter-spacing:.03em;margin:0 0 20px;font-family:var(--serif)}
+.stem .bk{display:inline-block;min-width:5.4em;border-bottom:1px solid var(--ink-3);vertical-align:baseline}
+
+.opts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.opt{display:flex;gap:12px;align-items:flex-start;cursor:pointer;border:1px solid var(--line-soft);background:rgba(255,252,244,.5);
+  padding:11px 14px;border-radius:2px;transition:.14s;font-size:16px;line-height:1.7}
+.opt:hover{border-color:var(--gold);background:rgba(255,252,244,.92)}
+.opt .mk{font-family:var(--kai);color:var(--zhu);flex:0 0 1.6em;text-align:center;border-right:1px solid var(--line-soft);padding-right:8px}
+.opt.sel{border-color:var(--zhu);box-shadow:inset 0 0 0 1px rgba(155,58,43,.35)}
+.opt.right{border-color:var(--qing);background:rgba(77,97,78,.09)}
+.opt.right .mk{color:var(--qing)}
+.opt.wrong{border-color:rgba(155,58,43,.55);background:rgba(155,58,43,.06);text-decoration:line-through;text-decoration-color:rgba(155,58,43,.4)}
+.opt .flag{margin-left:auto;font-size:12.5px;color:var(--qing);letter-spacing:.1em}
+.opt.wrong .flag{color:var(--zhu)}
+.opts.locked .opt{cursor:default}
+
+.blank-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.blank-row input{
+  flex:1;min-width:180px;font-family:var(--serif);font-size:17px;padding:11px 14px;color:var(--ink);
+  background:rgba(255,252,244,.7);border:0;border-bottom:1px solid var(--ink-3);border-radius:0;
+}
+.blank-row input:focus{outline:0;border-bottom-color:var(--zhu);background:rgba(255,252,244,.95)}
+.blank-row input::placeholder{color:#b3a890;letter-spacing:.08em}
+
+.essay-hint{margin:0;font-size:14px;color:var(--ink-3);letter-spacing:.06em}
+
+.res{margin-top:22px;padding-top:18px;border-top:1px dashed var(--line);display:none}
+.res.on{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.res .ansline{font-family:var(--kai);font-size:17px;color:var(--zhu-deep);letter-spacing:.06em;margin:0 0 8px}
+.res .ansline span{color:var(--ink-2);font-family:var(--serif);letter-spacing:.02em}
+.res .note{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.85}
+.res .note b{font-weight:400;color:var(--ink);letter-spacing:.06em}
+.selfrate{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft)}
+.selfrate .lab{font-family:var(--kai);font-size:14px;color:var(--ink-3);letter-spacing:.12em;margin-right:2px}
+.chip{font-family:var(--kai);font-size:14.5px;padding:5px 13px;border:1px solid var(--line);background:transparent;color:var(--ink-2);cursor:pointer;border-radius:2px;transition:.14s}
+.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip.on{background:var(--zhu);border-color:var(--zhu);color:#fdf6ea}
+.chip.stars{min-width:44px}
+
+.qa-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;align-items:center}
+.qa-actions .grow{flex:1}
+.qa-hint{font-size:12.5px;color:var(--ink-3);letter-spacing:.1em}
+
+/* 一轮结束 */
+.summary{text-align:center;padding:clamp(26px,4vw,42px) 8px}
+.summary .big{font-family:var(--kai);font-size:clamp(46px,11vw,72px);line-height:1;color:var(--zhu);letter-spacing:.04em}
+.summary .of{font-family:var(--kai);color:var(--ink-3);font-size:16px;letter-spacing:.2em;margin-top:8px}
+.summary .judge{font-family:var(--kai);font-size:22px;color:var(--ink);letter-spacing:.18em;margin:26px 0 6px}
+.summary .verse{color:var(--ink-3);font-size:14px;letter-spacing:.1em;margin:0}
+.summary .cover-actions{justify-content:center}
+
+/* ---------- 题库 ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-bottom:8px}
+.filters .lab{font-family:var(--kai);font-size:14px;color:var(--ink-3);letter-spacing:.14em;margin-right:4px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 18px;padding-bottom:16px;border-bottom:1px solid var(--line-soft)}
+.search{flex:1;min-width:190px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.search input{flex:1;border:0;background:transparent;font-family:var(--serif);font-size:15px;color:var(--ink);padding:4px 0;min-width:0}
+.search input:focus{outline:0}
+.search span{font-family:var(--kai);color:var(--ink-3);font-size:14px}
+.count{font-size:13px;color:var(--ink-3);letter-spacing:.08em;white-space:nowrap}
+
+.qlist{list-style:none;margin:0;padding:0}
+.qitem{padding:16px 2px 15px;border-bottom:1px solid var(--line-soft)}
+.qitem:last-child{border-bottom:0}
+.qitem .hd{display:flex;gap:10px;align-items:baseline;font-size:12.5px;color:var(--ink-3);letter-spacing:.1em;margin-bottom:7px}
+.qitem .hd .no{font-family:var(--kai);color:var(--zhu);font-size:13.5px;letter-spacing:.1em}
+.qitem .stem-sm{font-size:16px;line-height:1.82;margin:0 0 9px}
+.qitem .opts-sm{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px 18px;margin:0 0 9px;font-size:14.5px;color:var(--ink-2)}
+.qitem .opts-sm i{font-style:normal;font-family:var(--kai);color:var(--ink-3);margin-right:6px}
+.qitem .opts-sm .hit{color:var(--qing)}
+.qitem .opts-sm .hit i{color:var(--qing)}
+.qitem .key{display:none;font-size:14.5px;color:var(--zhu-deep);border-left:2px solid rgba(155,58,43,.3);padding:2px 0 2px 12px;margin-top:8px}
+.qitem .key.on{display:block}
+.qitem .key em{font-style:normal;font-family:var(--kai);color:var(--zhu);letter-spacing:.06em;margin-right:8px}
+.qitem .key span{color:var(--ink-2)}
+.qitem .key p{margin:6px 0 0;color:var(--ink-3);font-size:13.5px;line-height:1.8}
+.qitem .toggle{font-family:var(--kai);font-size:13px;letter-spacing:.1em;color:var(--ink-3);background:none;border:1px solid var(--line-soft);border-radius:2px;padding:2px 10px;cursor:pointer}
+.qitem .toggle:hover{color:var(--zhu);border-color:rgba(155,58,43,.4)}
+.qitem .toggle.on{color:var(--zhu);border-color:rgba(155,58,43,.4)}
+.daybreak{display:flex;align-items:center;gap:14px;margin:26px 0 14px;font-family:var(--kai);font-size:14px;color:var(--ink-3);letter-spacing:.24em}
+.daybreak::before,.daybreak::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+.empty{padding:40px 0;text-align:center;color:var(--ink-3);font-family:var(--kai);letter-spacing:.2em}
+
+/* ---------- 说明 ---------- */
+.intro{max-width:720px}
+.intro h2{font-family:var(--kai);font-weight:400;font-size:22px;letter-spacing:.16em;margin:38px 0 16px;padding-left:12px;border-left:3px solid var(--zhu);line-height:1.3}
+.intro h2:first-child{margin-top:6px}
+.intro p{margin:0 0 12px;color:var(--ink-2);font-size:15.5px;line-height:1.95}
+.intro p.strong{color:var(--ink)}
+.tbl{width:100%;border-collapse:collapse;margin:6px 0 18px;font-size:14.5px}
+.tbl caption{caption-side:top;text-align:left;font-size:12.5px;color:var(--ink-3);letter-spacing:.16em;padding-bottom:8px}
+.tbl th,.tbl td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+.tbl th{font-family:var(--kai);font-weight:400;color:var(--ink);letter-spacing:.1em;border-bottom:1px solid var(--line);background:rgba(200,180,147,.14);white-space:nowrap}
+.tbl td{color:var(--ink-2)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .num{font-family:var(--kai);color:var(--ink);white-space:nowrap}
+.tbl tr.total td{color:var(--zhu-deep);font-family:var(--kai);letter-spacing:.06em;background:rgba(155,58,43,.05)}
+.rules{list-style:none;margin:0;padding:0}
+.rules li{padding:9px 0 9px 26px;position:relative;color:var(--ink-2);font-size:15px;line-height:1.9;border-bottom:1px dotted var(--line-soft)}
+.rules li:last-child{border-bottom:0}
+.rules li::before{content:"※";position:absolute;left:2px;top:9px;color:var(--zhu);font-size:13px}
+.rules li b{font-weight:400;color:var(--ink);font-family:var(--kai);letter-spacing:.1em;margin-right:10px}
+
+/* ---------- 页脚 ---------- */
+.foot{margin-top:60px;padding-top:24px;border-top:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between}
+.colophon{font-family:var(--kai);font-size:12.5px;line-height:2;color:var(--ink-3);letter-spacing:.08em;margin:0;max-width:44ch}
+.colophon b{font-weight:400;color:var(--ink-2)}
+.foot .seal{writing-mode:horizontal-tb;writing-mode:vertical-rl;font-size:13px;padding:10px 6px}
+
+/* ---------- 窄屏 ---------- */
+@media (max-width:820px){
+  .page{grid-template-columns:1fr}
+  .rail{display:none}
+  .mobile-bar{
+    display:flex;align-items:center;gap:12px;padding:12px clamp(16px,5vw,24px);
+    border-bottom:1px solid var(--line-soft);position:sticky;top:0;z-index:40;
+    background:linear-gradient(180deg,#f5ebd7 70%,rgba(242,231,208,.9));backdrop-filter:blur(4px)
+  }
+  .mobile-bar .mb-title{font-family:var(--kai);font-size:15.5px;letter-spacing:.26em;color:var(--ink)}
+  .mobile-bar .seal{margin-left:auto;font-size:11px;padding:8px 5px;letter-spacing:.16em}
+  .main{padding:0 clamp(16px,5vw,26px) 60px}
+  .tabs{top:53px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tab{padding:8px 10px 11px;font-size:15.5px;letter-spacing:.14em;white-space:nowrap}
+  .tab .n{display:none}
+  .rundbar{font-size:13px;gap:8px 14px}
+  .rundbar b{font-size:17px}
+  .stats{gap:14px}
+  .stat em{font-size:22px}
+  .stat span{font-size:11.5px;letter-spacing:.12em}
+  .opt{padding:10px 12px;font-size:15.5px}
+  .qitem .opts-sm{grid-template-columns:1fr}
+  .foot{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:560px){
+  .stats{gap:10px}
+  .stat em{font-size:17px;letter-spacing:0}
+  .stat span{font-size:10.5px;letter-spacing:.06em;margin-top:2px}
+  .cover-actions .btn{flex:1 1 auto;text-align:center}
+  .stem{font-size:17px}
+  .lead{font-size:14px;letter-spacing:.06em}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .res.on{animation:none}
+  *{transition:none!important}
+}
+@media print{
+  .rail,.mobile-bar,.tabs,.cover-actions,.qa-actions,.selfrate,.toolbar,.qitem .toggle,.filters{display:none!important}
+  .panel{display:block!important}
+  .card,.qitem{box-shadow:none;border-color:#bbb;break-inside:avoid}
+  .res,.qitem .key{display:block!important}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="page">
+  <aside class="rail" aria-hidden="true">
+    <span class="rail-top">夕晒文学社</span>
+    <span class="rail-mid">纳新趣味题库</span>
+    <span class="seal">三百题</span>
+  </aside>
+
+  <div class="mobile-bar">
+    <span class="mb-title">纳新趣味题库</span>
+    <span class="seal">三百题</span>
+  </div>
+
+  <main class="main">
+    <header class="cover" id="top">
+      <p class="kicker">夕晒文学社 · 二〇二六年纳新</p>
+      <h1 class="title">文学社纳新<span class="l2">趣味题库</span></h1>
+      <p class="lead"><b>三百题</b>　六题一轮　十七分　八分钟一场</p>
+      <p class="lead"><span class="dim">会读书的人，都玩得起来；读得杂的人，更容易赢。</span></p>
+      <div class="stats">
+        <div class="stat"><em>一百五十</em><span>选 择 题</span></div>
+        <div class="stat"><em>一百</em><span>填 空 题</span></div>
+        <div class="stat"><em>五十</em><span>大 题</span></div>
+      </div>
+      <div class="cover-actions">
+        <button class="btn primary" data-go="draw">入座抽题</button>
+        <button class="btn ghost" data-go="bank">翻阅全卷</button>
+        <button class="btn ghost" data-go="guide">看使用说明</button>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="栏目">
+      <button class="tab" role="tab" id="tab-draw" aria-controls="draw" aria-selected="true" data-go="draw">抽题<span class="n">3+2+1</span></button>
+      <button class="tab" role="tab" id="tab-bank" aria-controls="bank" aria-selected="false" data-go="bank">题库<span class="n">三百</span></button>
+      <button class="tab" role="tab" id="tab-guide" aria-controls="guide" aria-selected="false" data-go="guide">说明<span class="n">规则</span></button>
+    </nav>
+
+    <!-- 抽题 -->
+    <section class="panel on" id="draw" role="tabpanel" aria-labelledby="tab-draw">
+      <div class="rundbar" id="rundbar"></div>
+      <div id="qa"></div>
+    </section>
+
+    <!-- 题库 -->
+    <section class="panel" id="bank" role="tabpanel" aria-labelledby="tab-bank">
+      <div class="filters" id="filters"></div>
+      <div class="toolbar">
+        <label class="search"><span>寻</span><input id="q" type="search" placeholder="搜题干、作家、作品，如「苏轼」「诗经」" autocomplete="off"></label>
+        <span class="count" id="count"></span>
+        <button class="btn sm ghost" id="reveal-all">全显答案</button>
+      </div>
+      <div id="list-wrap"></div>
+    </section>
+
+    <!-- 说明 -->
+    <section class="panel" id="guide" role="tabpanel" aria-labelledby="tab-guide">
+      <div class="intro">
+        <h2>一 · 题库结构</h2>
+        <table class="tbl">
+          <caption>共三百题，每轮抽六道，可组五十轮</caption>
+          <thead><tr><th>题型</th><th>题量</th><th>每轮抽取</th><th>单题分值</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr><td>选择题</td><td class="num">150</td><td class="num">3</td><td class="num">2 分</td><td>四选一；答案字母已随机打乱，覆盖五大类。</td></tr>
+            <tr><td>填空题</td><td class="num">100</td><td class="num">2</td><td class="num">3 分</td><td>补写名句，或填写作家、作品、文学常识。</td></tr>
+            <tr><td>大题</td><td class="num">50</td><td class="num">1</td><td class="num">5 分</td><td>开放式题目，不设标准答案，言之成理即可。</td></tr>
+            <tr class="total"><td>合计</td><td class="num">300</td><td class="num">6</td><td class="num">17 分</td><td>每轮约八至十分钟。</td></tr>
+          </tbody>
+        </table>
+
+        <h2>二 · 分类分布</h2>
+        <table class="tbl">
+          <thead><tr><th>分类</th><th>选择</th><th>填空</th><th>大题</th><th>合计</th><th>覆盖内容</th></tr></thead>
+          <tbody>
+            <tr><td>中国古代文学</td><td class="num">50</td><td class="num">35</td><td class="num">12</td><td class="num">97</td><td>诗经楚辞、唐诗宋词、四大名著</td></tr>
+            <tr><td>中国现当代文学</td><td class="num">25</td><td class="num">15</td><td class="num">10</td><td class="num">50</td><td>鲁迅、老舍、巴金、莫言、现代诗</td></tr>
+            <tr><td>外国文学</td><td class="num">35</td><td class="num">25</td><td class="num">10</td><td class="num">70</td><td>欧美俄日名著与代表作家</td></tr>
+            <tr><td>文学常识</td><td class="num">30</td><td class="num">20</td><td class="num">10</td><td class="num">60</td><td>文体、成语典故、奖项、年龄称谓</td></tr>
+            <tr><td>神话·民间·趣味</td><td class="num">10</td><td class="num">5</td><td class="num">8</td><td class="num">23</td><td>中外神话、童话、奇幻与创作题</td></tr>
+            <tr class="total"><td>合计</td><td class="num">150</td><td class="num">100</td><td class="num">50</td><td class="num">300</td><td>每类均按 3:2:1 左右的题量配比</td></tr>
+          </tbody>
+        </table>
+
+        <h2>三 · 使用建议</h2>
+        <ul class="rules">
+          <li><b>抽题</b>在「选择题 / 填空题 / 大题」三张表中，各用随机数抽取对应数量；同一轮尽量覆盖不同分类。</li>
+          <li><b>轮次</b>每轮六题，约八至十分钟。按五十轮准备，正好用完一百五十道选择、一百道填空、五十道大题。</li>
+          <li><b>计分</b>选择题 2 分、填空题 3 分、大题 5 分，单轮满分 17 分；大题鼓励结合具体作品、说自己的话。</li>
+          <li><b>主持</b>大题没有标准答案，冷场时可给一个提示词；选手答案自圆其说即可给分，不必追求「标准」。</li>
+          <li><b>难度</b>题库以「易」为主，适合非文学专业新生；想加难度时，优先抽取难度标为「中」的题目。</li>
+        </ul>
+
+        <h2>四 · 出题原则</h2>
+        <ul class="rules">
+          <li><b>范围广</b>中国古代与近代、现当代、外国文学、文学常识、神话民俗与趣味，五类均衡覆盖。</li>
+          <li><b>门槛低</b>以中学语文和常见名著为主，不考偏题怪题；会读书、爱看剧的人都能参与。</li>
+          <li><b>有发挥</b>大题不设标准答案，重点看表达、联想和临场反应，给新生展示个性的空间。</li>
+        </ul>
+
+        <h2>五 · 这个页面怎么用</h2>
+        <ul class="rules">
+          <li><b>抽题</b>点「入座抽题」，自动抽出三选择、两填空、一大题；点开答案后可以自评，得分记在右上。</li>
+          <li><b>题库</b>「题库」里可按分类、题型查找，也可以搜关键词；「全显答案」供主持人一次性核对。</li>
+          <li><b>记号</b>选项以「甲乙丙丁」标示，对应答案册里的 A、B、C、D。</li>
+          <li><b>打印</b>浏览器打印时，答案与解析会自动展开，可直接印成主持稿。</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p class="colophon">
+        <b>夕晒文学社</b>　纳新趣味题库 · 三百题<br>
+        封面字体取楷，正文用宋；纸色仿旧，印色朱砂。<br>
+        题目可按社团需要自行增删、改写。
+      </p>
+      <span class="seal">纳新</span>
+    </footer>
+  </main>
+</div>
+
+<script type="application/json" id="bank-data">{
+ "meta": {
+  "title": "文学社纳新趣味题库",
+  "count": 300,
+  "built": "2026-11-22T02:56:48.784Z"
+ },
+ "choices": [
+  {
+   "id": "选001",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《诗经》共收录诗歌多少篇？",
+   "opts": [
+    "305篇",
+    "500篇",
+    "360篇",
+    "250篇"
+   ],
+   "ans": "A",
+   "ansText": "305篇",
+   "note": "《诗经》共305篇，又称“诗三百”，收录西周初年至春秋中叶的诗歌。"
+  },
+  {
+   "id": "选002",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“关关雎鸠，在河之洲”出自《诗经》的哪一篇？",
+   "opts": [
+    "《氓》",
+    "《蒹葭》",
+    "《硕鼠》",
+    "《关雎》"
+   ],
+   "ans": "D",
+   "ansText": "《关雎》",
+   "note": "《关雎》是《诗经·周南》的首篇，常被视为爱情诗。"
+  },
+  {
+   "id": "选003",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "我国古代最长的抒情诗是屈原的哪部作品？",
+   "opts": [
+    "《天问》",
+    "《九歌》",
+    "《九章》",
+    "《离骚》"
+   ],
+   "ans": "D",
+   "ansText": "《离骚》",
+   "note": "《离骚》是屈原的代表作，也是中国古代最长的抒情诗。"
+  },
+  {
+   "id": "选004",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“路漫漫其修远兮，吾将上下而求索”出自？",
+   "opts": [
+    "《离骚》",
+    "《诗经》",
+    "《庄子》",
+    "《九歌》"
+   ],
+   "ans": "A",
+   "ansText": "《离骚》",
+   "note": "出自屈原《离骚》，表达对理想的执着追求。"
+  },
+  {
+   "id": "选005",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "被鲁迅誉为“史家之绝唱，无韵之离骚”的作品是？",
+   "opts": [
+    "《史记》",
+    "《左传》",
+    "《资治通鉴》",
+    "《汉书》"
+   ],
+   "ans": "A",
+   "ansText": "《史记》",
+   "note": "鲁迅在《汉文学史纲要》中这样评价《史记》。"
+  },
+  {
+   "id": "选006",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《史记》的作者是？",
+   "opts": [
+    "司马迁",
+    "左丘明",
+    "班固",
+    "司马光"
+   ],
+   "ans": "A",
+   "ansText": "司马迁",
+   "note": "司马迁，西汉史学家，著纪传体通史《史记》。"
+  },
+  {
+   "id": "选007",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“老骥伏枥，志在千里”的作者是？",
+   "opts": [
+    "曹操",
+    "曹丕",
+    "曹植",
+    "诸葛亮"
+   ],
+   "ans": "A",
+   "ansText": "曹操",
+   "note": "出自曹操《龟虽寿》，写老当益壮的豪情。"
+  },
+  {
+   "id": "选008",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“采菊东篱下，悠然见南山”的作者是？",
+   "opts": [
+    "陶渊明",
+    "孟浩然",
+    "谢灵运",
+    "王维"
+   ],
+   "ans": "A",
+   "ansText": "陶渊明",
+   "note": "出自陶渊明《饮酒·其五》，东晋田园诗的代表作。"
+  },
+  {
+   "id": "选009",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“枯藤老树昏鸦，小桥流水人家”出自马致远的？",
+   "opts": [
+    "《山坡羊·潼关怀古》",
+    "《天净沙·秋思》",
+    "《窦娥冤》",
+    "《西厢记》"
+   ],
+   "ans": "B",
+   "ansText": "《天净沙·秋思》",
+   "note": "《天净沙·秋思》是元曲小令名篇，被誉为“秋思之祖”。"
+  },
+  {
+   "id": "选010",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“海内存知己，天涯若比邻”的作者是？",
+   "opts": [
+    "李白",
+    "王勃",
+    "王维",
+    "杜甫"
+   ],
+   "ans": "B",
+   "ansText": "王勃",
+   "note": "出自王勃《送杜少府之任蜀州》，王勃是“初唐四杰”之一。"
+  },
+  {
+   "id": "选011",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“会当凌绝顶，一览众山小”出自杜甫的哪首诗？",
+   "opts": [
+    "《登高》",
+    "《春望》",
+    "《望岳》",
+    "《石壕吏》"
+   ],
+   "ans": "C",
+   "ansText": "《望岳》",
+   "note": "《望岳》写泰山，是杜甫青年时期的作品。"
+  },
+  {
+   "id": "选012",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "李白被后人称为？",
+   "opts": [
+    "诗圣",
+    "诗仙",
+    "诗佛",
+    "诗鬼"
+   ],
+   "ans": "B",
+   "ansText": "诗仙",
+   "note": "李白是唐代浪漫主义诗人，人称“诗仙”。"
+  },
+  {
+   "id": "选013",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "杜甫被后人称为？",
+   "opts": [
+    "诗豪",
+    "诗魔",
+    "诗仙",
+    "诗圣"
+   ],
+   "ans": "D",
+   "ansText": "诗圣",
+   "note": "杜甫是唐代现实主义诗人，人称“诗圣”，其诗被称为“诗史”。"
+  },
+  {
+   "id": "选014",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“飞流直下三千尺，疑是银河落九天”描写的是哪座山？",
+   "opts": [
+    "泰山",
+    "黄山",
+    "庐山",
+    "华山"
+   ],
+   "ans": "C",
+   "ansText": "庐山",
+   "note": "出自李白《望庐山瀑布》。"
+  },
+  {
+   "id": "选015",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“大漠孤烟直，长河落日圆”的作者是？",
+   "opts": [
+    "王维",
+    "岑参",
+    "王之涣",
+    "高适"
+   ],
+   "ans": "A",
+   "ansText": "王维",
+   "note": "出自王维《使至塞上》，体现“诗中有画”的特点。"
+  },
+  {
+   "id": "选016",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“欲穷千里目，更上一层楼”出自？",
+   "opts": [
+    "《凉州词》",
+    "《望庐山瀑布》",
+    "《登鹳雀楼》",
+    "《出塞》"
+   ],
+   "ans": "C",
+   "ansText": "《登鹳雀楼》",
+   "note": "《登鹳雀楼》为王之涣所作。"
+  },
+  {
+   "id": "选017",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“举头望明月”的下一句是？",
+   "opts": [
+    "天涯共此时",
+    "低头思故乡",
+    "月是故乡明",
+    "疑是地上霜"
+   ],
+   "ans": "B",
+   "ansText": "低头思故乡",
+   "note": "出自李白《静夜思》。"
+  },
+  {
+   "id": "选018",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“春眠不觉晓，处处闻啼鸟”的作者是？",
+   "opts": [
+    "李白",
+    "王维",
+    "孟浩然",
+    "杜牧"
+   ],
+   "ans": "C",
+   "ansText": "孟浩然",
+   "note": "出自孟浩然《春晓》，孟浩然是唐代山水田园诗人。"
+  },
+  {
+   "id": "选019",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "唐代被称为“诗鬼”的诗人是？",
+   "opts": [
+    "刘禹锡",
+    "李贺",
+    "李商隐",
+    "杜牧"
+   ],
+   "ans": "B",
+   "ansText": "李贺",
+   "note": "李贺想象奇崛、语言瑰丽，人称“诗鬼”。"
+  },
+  {
+   "id": "选020",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“先天下之忧而忧，后天下之乐而乐”出自？",
+   "opts": [
+    "《岳阳楼记》",
+    "《醉翁亭记》",
+    "《滕王阁序》",
+    "《陋室铭》"
+   ],
+   "ans": "A",
+   "ansText": "《岳阳楼记》",
+   "note": "出自范仲淹《岳阳楼记》。"
+  },
+  {
+   "id": "选021",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《岳阳楼记》的作者是？",
+   "opts": [
+    "王安石",
+    "范仲淹",
+    "欧阳修",
+    "苏轼"
+   ],
+   "ans": "B",
+   "ansText": "范仲淹",
+   "note": "范仲淹，北宋政治家、文学家。"
+  },
+  {
+   "id": "选022",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“但愿人长久，千里共婵娟”的作者是？",
+   "opts": [
+    "辛弃疾",
+    "李清照",
+    "苏轼",
+    "柳永"
+   ],
+   "ans": "C",
+   "ansText": "苏轼",
+   "note": "出自苏轼《水调歌头·明月几时有》。"
+  },
+  {
+   "id": "选023",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《三国演义》的作者是？",
+   "opts": [
+    "吴承恩",
+    "曹雪芹",
+    "罗贯中",
+    "施耐庵"
+   ],
+   "ans": "C",
+   "ansText": "罗贯中",
+   "note": "《三国演义》是罗贯中创作的长篇章回体历史演义小说。"
+  },
+  {
+   "id": "选024",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“生当作人杰，死亦为鬼雄”的作者是？",
+   "opts": [
+    "蔡文姬",
+    "秋瑾",
+    "李清照",
+    "班昭"
+   ],
+   "ans": "C",
+   "ansText": "李清照",
+   "note": "出自李清照《夏日绝句》，她是婉约派代表词人。"
+  },
+  {
+   "id": "选025",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“醉里挑灯看剑，梦回吹角连营”的作者是？",
+   "opts": [
+    "岳飞",
+    "苏轼",
+    "陆游",
+    "辛弃疾"
+   ],
+   "ans": "D",
+   "ansText": "辛弃疾",
+   "note": "出自辛弃疾《破阵子·为陈同甫赋壮词以寄之》。"
+  },
+  {
+   "id": "选026",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "李白号什么？",
+   "opts": [
+    "易安居士",
+    "青莲居士",
+    "东坡居士",
+    "六一居士"
+   ],
+   "ans": "B",
+   "ansText": "青莲居士",
+   "note": "李白号青莲居士；东坡居士是苏轼，易安居士是李清照，六一居士是欧阳修。"
+  },
+  {
+   "id": "选027",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "下列不属于“唐宋八大家”的是？",
+   "opts": [
+    "韩愈",
+    "李白",
+    "柳宗元",
+    "王安石"
+   ],
+   "ans": "B",
+   "ansText": "李白",
+   "note": "唐宋八大家为韩愈、柳宗元、欧阳修、苏洵、苏轼、苏辙、王安石、曾巩。"
+  },
+  {
+   "id": "选028",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《西游记》的作者是？",
+   "opts": [
+    "吴承恩",
+    "曹雪芹",
+    "施耐庵",
+    "罗贯中"
+   ],
+   "ans": "A",
+   "ansText": "吴承恩",
+   "note": "《西游记》为明代吴承恩所著。"
+  },
+  {
+   "id": "选029",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《水浒传》中绰号“及时雨”的是？",
+   "opts": [
+    "李逵",
+    "武松",
+    "宋江",
+    "林冲"
+   ],
+   "ans": "C",
+   "ansText": "宋江",
+   "note": "宋江绰号及时雨；林冲是豹子头，武松是行者，李逵是黑旋风。"
+  },
+  {
+   "id": "选030",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“三顾茅庐”请出的是谁？",
+   "opts": [
+    "诸葛亮",
+    "庞统",
+    "徐庶",
+    "司马懿"
+   ],
+   "ans": "A",
+   "ansText": "诸葛亮",
+   "note": "刘备三顾茅庐，请诸葛亮出山。"
+  },
+  {
+   "id": "选031",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《红楼梦》的作者是？",
+   "opts": [
+    "吴敬梓",
+    "高鹗",
+    "蒲松龄",
+    "曹雪芹"
+   ],
+   "ans": "D",
+   "ansText": "曹雪芹",
+   "note": "《红楼梦》前八十回为曹雪芹所著，后四十回一般认为由高鹗续成。"
+  },
+  {
+   "id": "选032",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《红楼梦》中“潇湘妃子”指的是？",
+   "opts": [
+    "薛宝钗",
+    "王熙凤",
+    "林黛玉",
+    "史湘云"
+   ],
+   "ans": "C",
+   "ansText": "林黛玉",
+   "note": "林黛玉住潇湘馆，诗社别号“潇湘妃子”。"
+  },
+  {
+   "id": "选033",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《聊斋志异》的作者是？",
+   "opts": [
+    "纪晓岚",
+    "冯梦龙",
+    "蒲松龄",
+    "曹雪芹"
+   ],
+   "ans": "C",
+   "ansText": "蒲松龄",
+   "note": "《聊斋志异》是清代蒲松龄所作的文言短篇小说集。"
+  },
+  {
+   "id": "选034",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“三打白骨精”出自哪部小说？",
+   "opts": [
+    "《封神演义》",
+    "《聊斋志异》",
+    "《西游记》",
+    "《水浒传》"
+   ],
+   "ans": "C",
+   "ansText": "《西游记》",
+   "note": "“三打白骨精”是《西游记》中的经典情节。"
+  },
+  {
+   "id": "选035",
+   "cat": "中国古代文学",
+   "level": "中",
+   "q": "我国第一部文人独立创作的长篇世情小说是？",
+   "opts": [
+    "《儒林外史》",
+    "《红楼梦》",
+    "《金瓶梅》",
+    "《西游记》"
+   ],
+   "ans": "C",
+   "ansText": "《金瓶梅》",
+   "note": "《金瓶梅》为明代兰陵笑笑生所作，被认为是第一部文人独立创作的长篇世情小说。"
+  },
+  {
+   "id": "选036",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《木兰诗》属于？",
+   "opts": [
+    "北朝民歌",
+    "宋词",
+    "唐诗",
+    "汉乐府"
+   ],
+   "ans": "A",
+   "ansText": "北朝民歌",
+   "note": "《木兰诗》是北朝民歌，与《孔雀东南飞》并称“乐府双璧”。"
+  },
+  {
+   "id": "选037",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“唧唧复唧唧，木兰当户织”出自？",
+   "opts": [
+    "《陌上桑》",
+    "《孔雀东南飞》",
+    "《长恨歌》",
+    "《木兰诗》"
+   ],
+   "ans": "D",
+   "ansText": "《木兰诗》",
+   "note": "出自北朝民歌《木兰诗》。"
+  },
+  {
+   "id": "选038",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "我国古代最长的叙事诗是？",
+   "opts": [
+    "《木兰诗》",
+    "《孔雀东南飞》",
+    "《琵琶行》",
+    "《长恨歌》"
+   ],
+   "ans": "B",
+   "ansText": "《孔雀东南飞》",
+   "note": "《孔雀东南飞》是汉乐府长篇叙事诗，与《木兰诗》并称“乐府双璧”。"
+  },
+  {
+   "id": "选039",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“落霞与孤鹜齐飞”的下一句是？",
+   "opts": [
+    "秋水共长天一色",
+    "长天共秋水一色",
+    "孤鹜与落霞齐飞",
+    "烟光凝而暮山紫"
+   ],
+   "ans": "A",
+   "ansText": "秋水共长天一色",
+   "note": "出自王勃《滕王阁序》。"
+  },
+  {
+   "id": "选040",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“同是天涯沦落人，相逢何必曾相识”出自白居易的？",
+   "opts": [
+    "《忆江南》",
+    "《长恨歌》",
+    "《琵琶行》",
+    "《卖炭翁》"
+   ],
+   "ans": "C",
+   "ansText": "《琵琶行》",
+   "note": "出自白居易长篇叙事诗《琵琶行》。"
+  },
+  {
+   "id": "选041",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“在天愿作比翼鸟，在地愿为连理枝”出自？",
+   "opts": [
+    "《西厢记》",
+    "《长恨歌》",
+    "《牡丹亭》",
+    "《琵琶行》"
+   ],
+   "ans": "B",
+   "ansText": "《长恨歌》",
+   "note": "出自白居易《长恨歌》，写唐玄宗与杨贵妃的故事。"
+  },
+  {
+   "id": "选042",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《西厢记》的作者是？",
+   "opts": [
+    "关汉卿",
+    "汤显祖",
+    "王实甫",
+    "马致远"
+   ],
+   "ans": "C",
+   "ansText": "王实甫",
+   "note": "《西厢记》是元代王实甫的杂剧代表作。"
+  },
+  {
+   "id": "选043",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "元曲《窦娥冤》的作者是？",
+   "opts": [
+    "白朴",
+    "马致远",
+    "关汉卿",
+    "郑光祖"
+   ],
+   "ans": "C",
+   "ansText": "关汉卿",
+   "note": "关汉卿是“元曲四大家”之首，《窦娥冤》是其代表作。"
+  },
+  {
+   "id": "选044",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《牡丹亭》的作者是？",
+   "opts": [
+    "孔尚任",
+    "洪昇",
+    "王实甫",
+    "汤显祖"
+   ],
+   "ans": "D",
+   "ansText": "汤显祖",
+   "note": "《牡丹亭》是明代汤显祖“临川四梦”之一。"
+  },
+  {
+   "id": "选045",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“人生自古谁无死，留取丹心照汗青”的作者是？",
+   "opts": [
+    "陆游",
+    "岳飞",
+    "辛弃疾",
+    "文天祥"
+   ],
+   "ans": "D",
+   "ansText": "文天祥",
+   "note": "出自文天祥《过零丁洋》。"
+  },
+  {
+   "id": "选046",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“粉骨碎身浑不怕，要留清白在人间”咏的是？",
+   "opts": [
+    "梅花",
+    "竹子",
+    "菊花",
+    "石灰"
+   ],
+   "ans": "D",
+   "ansText": "石灰",
+   "note": "出自于谦《石灰吟》，借石灰言志。"
+  },
+  {
+   "id": "选047",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《儒林外史》的作者是？",
+   "opts": [
+    "蒲松龄",
+    "曹雪芹",
+    "李汝珍",
+    "吴敬梓"
+   ],
+   "ans": "D",
+   "ansText": "吴敬梓",
+   "note": "《儒林外史》是清代吴敬梓所作的讽刺小说。"
+  },
+  {
+   "id": "选048",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《水浒传》的作者是？",
+   "opts": [
+    "曹雪芹",
+    "罗贯中",
+    "施耐庵",
+    "吴承恩"
+   ],
+   "ans": "C",
+   "ansText": "施耐庵",
+   "note": "《水浒传》一般认为是施耐庵所著的长篇章回体小说。"
+  },
+  {
+   "id": "选049",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《诗经》的三种表现手法是？",
+   "opts": [
+    "赋、比、兴",
+    "礼、乐、射",
+    "风、雅、颂",
+    "诗、书、礼"
+   ],
+   "ans": "A",
+   "ansText": "赋、比、兴",
+   "note": "赋、比、兴是《诗经》的表现手法；风、雅、颂是内容分类。"
+  },
+  {
+   "id": "选050",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "“风、雅、颂”是《诗经》的？",
+   "opts": [
+    "创作年代",
+    "作者",
+    "内容分类",
+    "表现手法"
+   ],
+   "ans": "C",
+   "ansText": "内容分类",
+   "note": "《诗经》按内容分为风、雅、颂三部分。"
+  },
+  {
+   "id": "选051",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《狂人日记》的作者是？",
+   "opts": [
+    "鲁迅",
+    "巴金",
+    "老舍",
+    "茅盾"
+   ],
+   "ans": "A",
+   "ansText": "鲁迅",
+   "note": "《狂人日记》发表于1918年，是中国第一篇现代白话短篇小说。"
+  },
+  {
+   "id": "选052",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "我国第一篇现代白话短篇小说是？",
+   "opts": [
+    "《孔乙己》",
+    "《故乡》",
+    "《阿Q正传》",
+    "《狂人日记》"
+   ],
+   "ans": "D",
+   "ansText": "《狂人日记》",
+   "note": "鲁迅的《狂人日记》被视为中国现代白话小说的开端。"
+  },
+  {
+   "id": "选053",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《骆驼祥子》的作者是？",
+   "opts": [
+    "巴金",
+    "老舍",
+    "沈从文",
+    "曹禺"
+   ],
+   "ans": "B",
+   "ansText": "老舍",
+   "note": "《骆驼祥子》是老舍的长篇小说代表作。"
+  },
+  {
+   "id": "选054",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《茶馆》的作者是？",
+   "opts": [
+    "老舍",
+    "郭沫若",
+    "曹禺",
+    "田汉"
+   ],
+   "ans": "A",
+   "ansText": "老舍",
+   "note": "《茶馆》是老舍的话剧代表作。"
+  },
+  {
+   "id": "选055",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《雷雨》的作者是？",
+   "opts": [
+    "老舍",
+    "巴金",
+    "曹禺",
+    "夏衍"
+   ],
+   "ans": "C",
+   "ansText": "曹禺",
+   "note": "《雷雨》是曹禺的话剧成名作。"
+  },
+  {
+   "id": "选056",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "“激流三部曲”《家》《春》《秋》的作者是？",
+   "opts": [
+    "茅盾",
+    "老舍",
+    "巴金",
+    "沈从文"
+   ],
+   "ans": "C",
+   "ansText": "巴金",
+   "note": "“激流三部曲”是巴金的代表作。"
+  },
+  {
+   "id": "选057",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《边城》的作者是？",
+   "opts": [
+    "张爱玲",
+    "沈从文",
+    "萧红",
+    "汪曾祺"
+   ],
+   "ans": "B",
+   "ansText": "沈从文",
+   "note": "《边城》写湘西茶峒的翠翠，是沈从文的代表作。"
+  },
+  {
+   "id": "选058",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《呼兰河传》的作者是？",
+   "opts": [
+    "冰心",
+    "萧红",
+    "丁玲",
+    "张爱玲"
+   ],
+   "ans": "B",
+   "ansText": "萧红",
+   "note": "《呼兰河传》是萧红的回忆体长篇小说。"
+  },
+  {
+   "id": "选059",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《倾城之恋》的作者是？",
+   "opts": [
+    "萧红",
+    "丁玲",
+    "林徽因",
+    "张爱玲"
+   ],
+   "ans": "D",
+   "ansText": "张爱玲",
+   "note": "《倾城之恋》是张爱玲的短篇小说代表作。"
+  },
+  {
+   "id": "选060",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《围城》的作者是？",
+   "opts": [
+    "朱自清",
+    "沈从文",
+    "杨绛",
+    "钱锺书"
+   ],
+   "ans": "D",
+   "ansText": "钱锺书",
+   "note": "《围城》是钱锺书唯一的长篇小说。"
+  },
+  {
+   "id": "选061",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《背影》的作者是？",
+   "opts": [
+    "朱自清",
+    "郁达夫",
+    "冰心",
+    "鲁迅"
+   ],
+   "ans": "A",
+   "ansText": "朱自清",
+   "note": "《背影》是朱自清的散文名篇，写父亲的背影。"
+  },
+  {
+   "id": "选062",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《荷塘月色》的作者是？",
+   "opts": [
+    "朱自清",
+    "冰心",
+    "闻一多",
+    "徐志摩"
+   ],
+   "ans": "A",
+   "ansText": "朱自清",
+   "note": "《荷塘月色》是朱自清的写景散文名篇。"
+  },
+  {
+   "id": "选063",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "“轻轻的我走了，正如我轻轻的来”出自？",
+   "opts": [
+    "《再别康桥》",
+    "《乡愁》",
+    "《雨巷》",
+    "《致橡树》"
+   ],
+   "ans": "A",
+   "ansText": "《再别康桥》",
+   "note": "出自徐志摩《再别康桥》。"
+  },
+  {
+   "id": "选064",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《再别康桥》的作者是？",
+   "opts": [
+    "戴望舒",
+    "闻一多",
+    "徐志摩",
+    "艾青"
+   ],
+   "ans": "C",
+   "ansText": "徐志摩",
+   "note": "徐志摩是新月派代表诗人。"
+  },
+  {
+   "id": "选065",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《雨巷》的作者是？",
+   "opts": [
+    "艾青",
+    "徐志摩",
+    "卞之琳",
+    "戴望舒"
+   ],
+   "ans": "D",
+   "ansText": "戴望舒",
+   "note": "戴望舒因《雨巷》被称为“雨巷诗人”。"
+  },
+  {
+   "id": "选066",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "“为什么我的眼里常含泪水？因为我对这土地爱得深沉”的作者是？",
+   "opts": [
+    "闻一多",
+    "艾青",
+    "臧克家",
+    "舒婷"
+   ],
+   "ans": "B",
+   "ansText": "艾青",
+   "note": "出自艾青《我爱这土地》。"
+  },
+  {
+   "id": "选067",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "“乡愁是一枚小小的邮票”出自？",
+   "opts": [
+    "郑愁予",
+    "余光中",
+    "洛夫",
+    "席慕蓉"
+   ],
+   "ans": "B",
+   "ansText": "余光中",
+   "note": "出自余光中《乡愁》。"
+  },
+  {
+   "id": "选068",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《致橡树》的作者是？",
+   "opts": [
+    "顾城",
+    "海子",
+    "北岛",
+    "舒婷"
+   ],
+   "ans": "D",
+   "ansText": "舒婷",
+   "note": "《致橡树》是舒婷的朦胧诗代表作。"
+  },
+  {
+   "id": "选069",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "“面朝大海，春暖花开”的作者是？",
+   "opts": [
+    "顾城",
+    "北岛",
+    "海子",
+    "舒婷"
+   ],
+   "ans": "C",
+   "ansText": "海子",
+   "note": "出自海子《面朝大海，春暖花开》。"
+  },
+  {
+   "id": "选070",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《平凡的世界》的作者是？",
+   "opts": [
+    "路遥",
+    "陈忠实",
+    "贾平凹",
+    "莫言"
+   ],
+   "ans": "A",
+   "ansText": "路遥",
+   "note": "《平凡的世界》是路遥的长篇小说，写孙少安、孙少平兄弟。"
+  },
+  {
+   "id": "选071",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《白鹿原》的作者是？",
+   "opts": [
+    "路遥",
+    "余华",
+    "贾平凹",
+    "陈忠实"
+   ],
+   "ans": "D",
+   "ansText": "陈忠实",
+   "note": "《白鹿原》是陈忠实的长篇小说代表作。"
+  },
+  {
+   "id": "选072",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《活着》的作者是？",
+   "opts": [
+    "莫言",
+    "余华",
+    "苏童",
+    "王小波"
+   ],
+   "ans": "B",
+   "ansText": "余华",
+   "note": "《活着》写福贵的一生，是余华的代表作。"
+  },
+  {
+   "id": "选073",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "2012年获得诺贝尔文学奖的中国作家是？",
+   "opts": [
+    "余华",
+    "贾平凹",
+    "刘慈欣",
+    "莫言"
+   ],
+   "ans": "D",
+   "ansText": "莫言",
+   "note": "莫言于2012年获得诺贝尔文学奖。"
+  },
+  {
+   "id": "选074",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《红高粱家族》的作者是？",
+   "opts": [
+    "陈忠实",
+    "余华",
+    "刘震云",
+    "莫言"
+   ],
+   "ans": "D",
+   "ansText": "莫言",
+   "note": "《红高粱家族》是莫言的代表作之一。"
+  },
+  {
+   "id": "选075",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《三体》的作者是？",
+   "opts": [
+    "韩松",
+    "王晋康",
+    "郝景芳",
+    "刘慈欣"
+   ],
+   "ans": "D",
+   "ansText": "刘慈欣",
+   "note": "《三体》是刘慈欣的长篇科幻小说，获雨果奖最佳长篇小说奖。"
+  },
+  {
+   "id": "选076",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《哈姆雷特》的作者是？",
+   "opts": [
+    "莎士比亚",
+    "雨果",
+    "塞万提斯",
+    "歌德"
+   ],
+   "ans": "A",
+   "ansText": "莎士比亚",
+   "note": "莎士比亚四大悲剧为《哈姆雷特》《奥赛罗》《李尔王》《麦克白》。"
+  },
+  {
+   "id": "选077",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "“生存还是毁灭，这是一个问题”出自？",
+   "opts": [
+    "《奥赛罗》",
+    "《哈姆雷特》",
+    "《麦克白》",
+    "《李尔王》"
+   ],
+   "ans": "B",
+   "ansText": "《哈姆雷特》",
+   "note": "这是《哈姆雷特》中著名的独白。"
+  },
+  {
+   "id": "选078",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《巴黎圣母院》的作者是？",
+   "opts": [
+    "大仲马",
+    "巴尔扎克",
+    "雨果",
+    "司汤达"
+   ],
+   "ans": "C",
+   "ansText": "雨果",
+   "note": "《巴黎圣母院》是法国作家雨果的长篇小说。"
+  },
+  {
+   "id": "选079",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "冉·阿让是哪部小说的人物？",
+   "opts": [
+    "《九三年》",
+    "《基督山伯爵》",
+    "《巴黎圣母院》",
+    "《悲惨世界》"
+   ],
+   "ans": "D",
+   "ansText": "《悲惨世界》",
+   "note": "冉·阿让是雨果《悲惨世界》的主人公。"
+  },
+  {
+   "id": "选080",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《战争与和平》的作者是？",
+   "opts": [
+    "屠格涅夫",
+    "列夫·托尔斯泰",
+    "陀思妥耶夫斯基",
+    "高尔基"
+   ],
+   "ans": "B",
+   "ansText": "列夫·托尔斯泰",
+   "note": "《战争与和平》是托尔斯泰的长篇史诗小说。"
+  },
+  {
+   "id": "选081",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《安娜·卡列尼娜》的作者是？",
+   "opts": [
+    "契诃夫",
+    "果戈理",
+    "列夫·托尔斯泰",
+    "普希金"
+   ],
+   "ans": "C",
+   "ansText": "列夫·托尔斯泰",
+   "note": "小说开篇“幸福的家庭都是相似的，不幸的家庭各有各的不幸”广为流传。"
+  },
+  {
+   "id": "选082",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《罪与罚》的作者是？",
+   "opts": [
+    "屠格涅夫",
+    "契诃夫",
+    "陀思妥耶夫斯基",
+    "托尔斯泰"
+   ],
+   "ans": "C",
+   "ansText": "陀思妥耶夫斯基",
+   "note": "《罪与罚》是陀思妥耶夫斯基的长篇小说。"
+  },
+  {
+   "id": "选083",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《变色龙》的作者是？",
+   "opts": [
+    "契诃夫",
+    "高尔基",
+    "莫泊桑",
+    "欧·亨利"
+   ],
+   "ans": "A",
+   "ansText": "契诃夫",
+   "note": "《变色龙》是契诃夫的短篇小说名篇。"
+  },
+  {
+   "id": "选084",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《钢铁是怎样炼成的》的主人公是？",
+   "opts": [
+    "冬妮娅",
+    "阿尔焦姆",
+    "朱赫来",
+    "保尔·柯察金"
+   ],
+   "ans": "D",
+   "ansText": "保尔·柯察金",
+   "note": "保尔·柯察金是奥斯特洛夫斯基小说《钢铁是怎样炼成的》的主人公。"
+  },
+  {
+   "id": "选085",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《童年》的作者是？",
+   "opts": [
+    "肖洛霍夫",
+    "契诃夫",
+    "高尔基",
+    "托尔斯泰"
+   ],
+   "ans": "C",
+   "ansText": "高尔基",
+   "note": "《童年》是高尔基自传体三部曲的第一部。"
+  },
+  {
+   "id": "选086",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《百年孤独》的作者是？",
+   "opts": [
+    "加西亚·马尔克斯",
+    "略萨",
+    "博尔赫斯",
+    "聂鲁达"
+   ],
+   "ans": "A",
+   "ansText": "加西亚·马尔克斯",
+   "note": "马尔克斯是哥伦比亚作家，魔幻现实主义代表，1982年获诺贝尔文学奖。"
+  },
+  {
+   "id": "选087",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《堂吉诃德》的作者是？",
+   "opts": [
+    "但丁",
+    "塞万提斯",
+    "莎士比亚",
+    "薄伽丘"
+   ],
+   "ans": "B",
+   "ansText": "塞万提斯",
+   "note": "《堂吉诃德》是西班牙作家塞万提斯的长篇小说。"
+  },
+  {
+   "id": "选088",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《神曲》的作者是？",
+   "opts": [
+    "但丁",
+    "薄伽丘",
+    "塞万提斯",
+    "彼特拉克"
+   ],
+   "ans": "A",
+   "ansText": "但丁",
+   "note": "《神曲》是意大利诗人但丁的长诗，分《地狱》《炼狱》《天堂》三部分。"
+  },
+  {
+   "id": "选089",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《十日谈》的作者是？",
+   "opts": [
+    "彼特拉克",
+    "拉伯雷",
+    "薄伽丘",
+    "但丁"
+   ],
+   "ans": "C",
+   "ansText": "薄伽丘",
+   "note": "《十日谈》是意大利作家薄伽丘的短篇小说集。"
+  },
+  {
+   "id": "选090",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《浮士德》的作者是？",
+   "opts": [
+    "托马斯·曼",
+    "海涅",
+    "席勒",
+    "歌德"
+   ],
+   "ans": "D",
+   "ansText": "歌德",
+   "note": "《浮士德》是德国作家歌德的诗剧代表作。"
+  },
+  {
+   "id": "选091",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《假如生活欺骗了你》的作者是？",
+   "opts": [
+    "屠格涅夫",
+    "普希金",
+    "莱蒙托夫",
+    "果戈理"
+   ],
+   "ans": "B",
+   "ansText": "普希金",
+   "note": "普希金是俄国浪漫主义文学的代表。"
+  },
+  {
+   "id": "选092",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《老人与海》的作者是？",
+   "opts": [
+    "马克·吐温",
+    "菲茨杰拉德",
+    "海明威",
+    "福克纳"
+   ],
+   "ans": "C",
+   "ansText": "海明威",
+   "note": "海明威1954年获诺贝尔文学奖，《老人与海》是其代表作。"
+  },
+  {
+   "id": "选093",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《老人与海》的主人公是？",
+   "opts": [
+    "盖茨比",
+    "圣地亚哥",
+    "汤姆·索亚",
+    "曼诺林"
+   ],
+   "ans": "B",
+   "ansText": "圣地亚哥",
+   "note": "圣地亚哥是老渔夫，曼诺林是陪他出海的孩子。"
+  },
+  {
+   "id": "选094",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《小王子》的作者是？",
+   "opts": [
+    "圣埃克苏佩里",
+    "大仲马",
+    "凡尔纳",
+    "雨果"
+   ],
+   "ans": "A",
+   "ansText": "圣埃克苏佩里",
+   "note": "《小王子》是法国作家圣埃克苏佩里的童话小说。"
+  },
+  {
+   "id": "选095",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "安徒生是哪个国家的童话作家？",
+   "opts": [
+    "丹麦",
+    "德国",
+    "瑞典",
+    "挪威"
+   ],
+   "ans": "A",
+   "ansText": "丹麦",
+   "note": "安徒生是丹麦童话作家，代表作有《海的女儿》《丑小鸭》等。"
+  },
+  {
+   "id": "选096",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《一千零一夜》又名？",
+   "opts": [
+    "《格林童话》",
+    "《伊索寓言》",
+    "《十日谈》",
+    "《天方夜谭》"
+   ],
+   "ans": "D",
+   "ansText": "《天方夜谭》",
+   "note": "《一千零一夜》是阿拉伯民间故事集，又名《天方夜谭》。"
+  },
+  {
+   "id": "选097",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "《源氏物语》的作者是？",
+   "opts": [
+    "清少纳言",
+    "紫式部",
+    "樋口一叶",
+    "夏目漱石"
+   ],
+   "ans": "B",
+   "ansText": "紫式部",
+   "note": "《源氏物语》是日本平安时代紫式部的长篇小说。"
+  },
+  {
+   "id": "选098",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《挪威的森林》的作者是？",
+   "opts": [
+    "夏目漱石",
+    "太宰治",
+    "川端康成",
+    "村上春树"
+   ],
+   "ans": "D",
+   "ansText": "村上春树",
+   "note": "《挪威的森林》是村上春树的长篇小说。"
+  },
+  {
+   "id": "选099",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《我是猫》的作者是？",
+   "opts": [
+    "芥川龙之介",
+    "川端康成",
+    "村上春树",
+    "夏目漱石"
+   ],
+   "ans": "D",
+   "ansText": "夏目漱石",
+   "note": "《我是猫》是夏目漱石的长篇小说，以猫的视角看人间。"
+  },
+  {
+   "id": "选100",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《飞鸟集》的作者是？",
+   "opts": [
+    "泰戈尔",
+    "普希金",
+    "纪伯伦",
+    "聂鲁达"
+   ],
+   "ans": "A",
+   "ansText": "泰戈尔",
+   "note": "《飞鸟集》是印度诗人泰戈尔的诗集。"
+  },
+  {
+   "id": "选101",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《鲁滨逊漂流记》的作者是？",
+   "opts": [
+    "司各特",
+    "菲尔丁",
+    "笛福",
+    "斯威夫特"
+   ],
+   "ans": "C",
+   "ansText": "笛福",
+   "note": "《鲁滨逊漂流记》是英国作家笛福的长篇小说。"
+  },
+  {
+   "id": "选102",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《简·爱》的作者是？",
+   "opts": [
+    "夏洛蒂·勃朗特",
+    "乔治·艾略特",
+    "简·奥斯汀",
+    "艾米莉·勃朗特"
+   ],
+   "ans": "A",
+   "ansText": "夏洛蒂·勃朗特",
+   "note": "《简·爱》是夏洛蒂·勃朗特的代表作；艾米莉·勃朗特写《呼啸山庄》。"
+  },
+  {
+   "id": "选103",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《傲慢与偏见》的作者是？",
+   "opts": [
+    "简·奥斯汀",
+    "艾米莉·勃朗特",
+    "伍尔夫",
+    "夏洛蒂·勃朗特"
+   ],
+   "ans": "A",
+   "ansText": "简·奥斯汀",
+   "note": "《傲慢与偏见》是简·奥斯汀的代表作。"
+  },
+  {
+   "id": "选104",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《雾都孤儿》的作者是？",
+   "opts": [
+    "萨克雷",
+    "哈代",
+    "狄更斯",
+    "毛姆"
+   ],
+   "ans": "C",
+   "ansText": "狄更斯",
+   "note": "《雾都孤儿》是狄更斯的长篇小说。"
+  },
+  {
+   "id": "选105",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "《月亮与六便士》的作者是？",
+   "opts": [
+    "奥威尔",
+    "狄更斯",
+    "毛姆",
+    "哈代"
+   ],
+   "ans": "C",
+   "ansText": "毛姆",
+   "note": "《月亮与六便士》以画家高更为原型，是毛姆的代表作。"
+  },
+  {
+   "id": "选106",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "《1984》的作者是？",
+   "opts": [
+    "乔治·奥威尔",
+    "扎米亚京",
+    "卡夫卡",
+    "赫胥黎"
+   ],
+   "ans": "A",
+   "ansText": "乔治·奥威尔",
+   "note": "《1984》是奥威尔的反乌托邦小说。"
+  },
+  {
+   "id": "选107",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《变形记》的作者是？",
+   "opts": [
+    "伍尔夫",
+    "乔伊斯",
+    "卡夫卡",
+    "普鲁斯特"
+   ],
+   "ans": "C",
+   "ansText": "卡夫卡",
+   "note": "《变形记》写格里高尔变成甲虫，是卡夫卡的代表作。"
+  },
+  {
+   "id": "选108",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "《追风筝的人》的作者是？",
+   "opts": [
+    "卡勒德·胡赛尼",
+    "奥威尔",
+    "村上春树",
+    "塞林格"
+   ],
+   "ans": "A",
+   "ansText": "卡勒德·胡赛尼",
+   "note": "《追风筝的人》是阿富汗裔美国作家胡赛尼的小说。"
+  },
+  {
+   "id": "选109",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "《苏菲的世界》的作者是？",
+   "opts": [
+    "乔斯坦·贾德",
+    "拉格洛夫",
+    "易卜生",
+    "安徒生"
+   ],
+   "ans": "A",
+   "ansText": "乔斯坦·贾德",
+   "note": "《苏菲的世界》是挪威作家乔斯坦·贾德的哲学启蒙小说。"
+  },
+  {
+   "id": "选110",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《格林童话》由谁搜集整理？",
+   "opts": [
+    "豪夫",
+    "佩罗",
+    "格林兄弟",
+    "安徒生"
+   ],
+   "ans": "C",
+   "ansText": "格林兄弟",
+   "note": "《格林童话》由德国格林兄弟搜集整理。"
+  },
+  {
+   "id": "选111",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“四书”不包括下列哪一部？",
+   "opts": [
+    "《中庸》",
+    "《论语》",
+    "《大学》",
+    "《诗经》"
+   ],
+   "ans": "D",
+   "ansText": "《诗经》",
+   "note": "“四书”指《大学》《中庸》《论语》《孟子》。"
+  },
+  {
+   "id": "选112",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“五经”不包括下列哪一部？",
+   "opts": [
+    "《尚书》",
+    "《礼记》",
+    "《诗经》",
+    "《论语》"
+   ],
+   "ans": "D",
+   "ansText": "《论语》",
+   "note": "“五经”指《诗》《书》《礼》《易》《春秋》。"
+  },
+  {
+   "id": "选113",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "我国第一部纪传体通史是？",
+   "opts": [
+    "《汉书》",
+    "《春秋》",
+    "《史记》",
+    "《资治通鉴》"
+   ],
+   "ans": "C",
+   "ansText": "《史记》",
+   "note": "《史记》为司马迁所著，是我国第一部纪传体通史。"
+  },
+  {
+   "id": "选114",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "词又称？",
+   "opts": [
+    "长短句",
+    "近体诗",
+    "古风",
+    "骈文"
+   ],
+   "ans": "A",
+   "ansText": "长短句",
+   "note": "词又称长短句、诗余，句子长短不齐。"
+  },
+  {
+   "id": "选115",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "元曲包括散曲和？",
+   "opts": [
+    "杂剧",
+    "南戏",
+    "话本",
+    "传奇"
+   ],
+   "ans": "A",
+   "ansText": "杂剧",
+   "note": "元曲包括散曲和杂剧，关汉卿、马致远等是代表作家。"
+  },
+  {
+   "id": "选116",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "明清科举考试中，殿试第一名称为？",
+   "opts": [
+    "榜眼",
+    "探花",
+    "状元",
+    "会元"
+   ],
+   "ans": "C",
+   "ansText": "状元",
+   "note": "殿试前三名为状元、榜眼、探花。"
+  },
+  {
+   "id": "选117",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "成语“程门立雪”讲的是谁尊师求学的故事？",
+   "opts": [
+    "杨时",
+    "孔子",
+    "孟子",
+    "朱熹"
+   ],
+   "ans": "A",
+   "ansText": "杨时",
+   "note": "杨时冒雪立于程颐门外等候，留下“程门立雪”的典故。"
+  },
+  {
+   "id": "选118",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“四面楚歌”与哪位历史人物有关？",
+   "opts": [
+    "张良",
+    "刘邦",
+    "韩信",
+    "项羽"
+   ],
+   "ans": "D",
+   "ansText": "项羽",
+   "note": "楚汉相争时，项羽被围垓下，四面响起楚歌。"
+  },
+  {
+   "id": "选119",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“指鹿为马”说的是谁？",
+   "opts": [
+    "和珅",
+    "秦桧",
+    "王莽",
+    "赵高"
+   ],
+   "ans": "D",
+   "ansText": "赵高",
+   "note": "秦二世时，赵高指着鹿说是马，试探群臣。"
+  },
+  {
+   "id": "选120",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“卧薪尝胆”说的是谁？",
+   "opts": [
+    "刘邦",
+    "勾践",
+    "夫差",
+    "项羽"
+   ],
+   "ans": "B",
+   "ansText": "勾践",
+   "note": "越王勾践战败后卧薪尝胆，最终复国。"
+  },
+  {
+   "id": "选121",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "成语“洛阳纸贵”形容的是？",
+   "opts": [
+    "洛阳城繁华",
+    "书法精美",
+    "纸张价格上涨",
+    "作品广为流传"
+   ],
+   "ans": "D",
+   "ansText": "作品广为流传",
+   "note": "左思《三都赋》写成后，人们争相传抄，洛阳纸价上涨。"
+  },
+  {
+   "id": "选122",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "成语“江郎才尽”中的“江郎”指？",
+   "opts": [
+    "江永",
+    "江万里",
+    "江统",
+    "江淹"
+   ],
+   "ans": "D",
+   "ansText": "江淹",
+   "note": "南朝文学家江淹晚年才思衰退，留下“江郎才尽”之说。"
+  },
+  {
+   "id": "选123",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "成语“胸有成竹”与哪位画家有关？",
+   "opts": [
+    "文同",
+    "苏轼",
+    "唐寅",
+    "郑板桥"
+   ],
+   "ans": "A",
+   "ansText": "文同",
+   "note": "北宋文同画竹前心中已有竹子的完整形象。"
+  },
+  {
+   "id": "选124",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "成语“入木三分”最初形容什么？",
+   "opts": [
+    "画技高超",
+    "文章深刻",
+    "雕刻精美",
+    "书法笔力强劲"
+   ],
+   "ans": "D",
+   "ansText": "书法笔力强劲",
+   "note": "相传王羲之写字笔力透入木板三分，后形容书法有力。"
+  },
+  {
+   "id": "选125",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "“黄粱一梦”的典故出自？",
+   "opts": [
+    "《聊斋志异》",
+    "《西游记》",
+    "《枕中记》",
+    "《红楼梦》"
+   ],
+   "ans": "C",
+   "ansText": "《枕中记》",
+   "note": "唐代沈既济《枕中记》写卢生在梦中历尽荣华，醒来黄粱未熟。"
+  },
+  {
+   "id": "选126",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "诺贝尔文学奖的颁奖典礼在哪个国家举行？",
+   "opts": [
+    "挪威",
+    "丹麦",
+    "瑞士",
+    "瑞典"
+   ],
+   "ans": "D",
+   "ansText": "瑞典",
+   "note": "诺贝尔文学奖由瑞典学院颁发，典礼在斯德哥尔摩举行。"
+  },
+  {
+   "id": "选127",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "茅盾文学奖主要奖励哪种体裁？",
+   "opts": [
+    "戏剧",
+    "长篇小说",
+    "诗歌",
+    "散文"
+   ],
+   "ans": "B",
+   "ansText": "长篇小说",
+   "note": "茅盾文学奖是中国长篇小说最高荣誉之一。"
+  },
+  {
+   "id": "选128",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "鲁迅文学奖不设下列哪个奖项？",
+   "opts": [
+    "中篇小说",
+    "诗歌",
+    "短篇小说",
+    "长篇小说"
+   ],
+   "ans": "D",
+   "ansText": "长篇小说",
+   "note": "长篇小说由茅盾文学奖评选，鲁迅文学奖设中短篇小说等奖项。"
+  },
+  {
+   "id": "选129",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“小李杜”指的是？",
+   "opts": [
+    "李商隐和杜甫",
+    "李贺和杜牧",
+    "李商隐和杜牧",
+    "李白和杜甫"
+   ],
+   "ans": "C",
+   "ansText": "李商隐和杜牧",
+   "note": "“小李杜”指晚唐诗人李商隐、杜牧；“大李杜”指李白、杜甫。"
+  },
+  {
+   "id": "选130",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“大李杜”指的是？",
+   "opts": [
+    "李商隐和杜牧",
+    "李贺和杜牧",
+    "李白和杜牧",
+    "李白和杜甫"
+   ],
+   "ans": "D",
+   "ansText": "李白和杜甫",
+   "note": "“大李杜”指盛唐诗人李白、杜甫。"
+  },
+  {
+   "id": "选131",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“苏辛”指的是？",
+   "opts": [
+    "苏轼和辛弃疾",
+    "苏轼和秦观",
+    "苏辙和辛弃疾",
+    "苏洵和苏轼"
+   ],
+   "ans": "A",
+   "ansText": "苏轼和辛弃疾",
+   "note": "“苏辛”是宋词豪放派的代表作家苏轼、辛弃疾。"
+  },
+  {
+   "id": "选132",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "婉约派的代表词人是？",
+   "opts": [
+    "柳永和李清照",
+    "陆游和辛弃疾",
+    "王安石和苏轼",
+    "苏轼和辛弃疾"
+   ],
+   "ans": "A",
+   "ansText": "柳永和李清照",
+   "note": "婉约派代表有柳永、李清照；豪放派代表有苏轼、辛弃疾。"
+  },
+  {
+   "id": "选133",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“三苏”指的是？",
+   "opts": [
+    "苏武、苏洵、苏轼",
+    "苏轼、苏辙、苏小妹",
+    "苏洵、苏轼、苏辙",
+    "苏洵、苏辙、苏武"
+   ],
+   "ans": "C",
+   "ansText": "苏洵、苏轼、苏辙",
+   "note": "“三苏”指北宋苏洵、苏轼、苏辙父子三人，均属唐宋八大家。"
+  },
+  {
+   "id": "选134",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "我国四大名著不包括？",
+   "opts": [
+    "《西游记》",
+    "《水浒传》",
+    "《红楼梦》",
+    "《聊斋志异》"
+   ],
+   "ans": "D",
+   "ansText": "《聊斋志异》",
+   "note": "四大名著为《红楼梦》《西游记》《水浒传》《三国演义》。"
+  },
+  {
+   "id": "选135",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“世界三大短篇小说巨匠”不包括？",
+   "opts": [
+    "契诃夫",
+    "欧·亨利",
+    "莫泊桑",
+    "列夫·托尔斯泰"
+   ],
+   "ans": "D",
+   "ansText": "列夫·托尔斯泰",
+   "note": "三大短篇小说巨匠为莫泊桑、契诃夫、欧·亨利。"
+  },
+  {
+   "id": "选136",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“豆蔻年华”指女子多少岁左右？",
+   "opts": [
+    "十三四岁",
+    "二十岁",
+    "十六岁",
+    "十五岁"
+   ],
+   "ans": "A",
+   "ansText": "十三四岁",
+   "note": "豆蔻年华指女子十三四岁。"
+  },
+  {
+   "id": "选137",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“弱冠之年”指男子多少岁？",
+   "opts": [
+    "二十岁",
+    "三十岁",
+    "十八岁",
+    "十五岁"
+   ],
+   "ans": "A",
+   "ansText": "二十岁",
+   "note": "古代男子二十岁行冠礼，称“弱冠”。"
+  },
+  {
+   "id": "选138",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“而立之年”指多少岁？",
+   "opts": [
+    "二十岁",
+    "四十岁",
+    "三十岁",
+    "五十岁"
+   ],
+   "ans": "C",
+   "ansText": "三十岁",
+   "note": "出自《论语》“三十而立”。"
+  },
+  {
+   "id": "选139",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“知天命之年”指多少岁？",
+   "opts": [
+    "七十岁",
+    "六十岁",
+    "四十岁",
+    "五十岁"
+   ],
+   "ans": "D",
+   "ansText": "五十岁",
+   "note": "出自《论语》“五十而知天命”。"
+  },
+  {
+   "id": "选140",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“古稀之年”指多少岁？",
+   "opts": [
+    "六十岁",
+    "七十岁",
+    "九十岁",
+    "八十岁"
+   ],
+   "ans": "B",
+   "ansText": "七十岁",
+   "note": "杜甫诗云“人生七十古来稀”。"
+  },
+  {
+   "id": "选141",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "中国神话中“开天辟地”的是谁？",
+   "opts": [
+    "女娲",
+    "夸父",
+    "盘古",
+    "后羿"
+   ],
+   "ans": "C",
+   "ansText": "盘古",
+   "note": "盘古开天辟地，身体化为山川日月。"
+  },
+  {
+   "id": "选142",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "“女娲补天”中女娲用什么补天？",
+   "opts": [
+    "玉石",
+    "五色土",
+    "陨石",
+    "五彩石"
+   ],
+   "ans": "D",
+   "ansText": "五彩石",
+   "note": "女娲炼五彩石补天，斩鳌足立四极。"
+  },
+  {
+   "id": "选143",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "“精卫填海”中精卫是谁的女儿？",
+   "opts": [
+    "舜",
+    "炎帝",
+    "黄帝",
+    "尧"
+   ],
+   "ans": "B",
+   "ansText": "炎帝",
+   "note": "精卫是炎帝之女，溺于东海后化为鸟，衔石填海。"
+  },
+  {
+   "id": "选144",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "“嫦娥奔月”中嫦娥偷吃了什么？",
+   "opts": [
+    "仙露",
+    "蟠桃",
+    "灵芝",
+    "不死药"
+   ],
+   "ans": "D",
+   "ansText": "不死药",
+   "note": "后羿求得不死药，嫦娥偷吃后飞升月宫。"
+  },
+  {
+   "id": "选145",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "《西游记》中孙悟空的兵器是？",
+   "opts": [
+    "降妖宝杖",
+    "金箍棒",
+    "九齿钉耙",
+    "芭蕉扇"
+   ],
+   "ans": "B",
+   "ansText": "金箍棒",
+   "note": "孙悟空的金箍棒原为东海龙宫的定海神针。"
+  },
+  {
+   "id": "选146",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "希腊神话中的众神之王是？",
+   "opts": [
+    "哈迪斯",
+    "宙斯",
+    "波塞冬",
+    "阿波罗"
+   ],
+   "ans": "B",
+   "ansText": "宙斯",
+   "note": "宙斯是奥林匹斯众神之王，波塞冬管海，哈迪斯管冥界。"
+  },
+  {
+   "id": "选147",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "希腊神话中的智慧女神是？",
+   "opts": [
+    "阿佛洛狄忒",
+    "赫拉",
+    "阿尔忒弥斯",
+    "雅典娜"
+   ],
+   "ans": "D",
+   "ansText": "雅典娜",
+   "note": "雅典娜是智慧与战争女神，雅典城的守护神。"
+  },
+  {
+   "id": "选148",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "《哈利·波特》系列小说的作者是？",
+   "opts": [
+    "J.K.罗琳",
+    "乔治·马丁",
+    "C.S.刘易斯",
+    "托尔金"
+   ],
+   "ans": "A",
+   "ansText": "J.K.罗琳",
+   "note": "J.K.罗琳是英国作家，《哈利·波特》系列风靡全球。"
+  },
+  {
+   "id": "选149",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "《指环王》的作者是？",
+   "opts": [
+    "托尔金",
+    "菲利普·普尔曼",
+    "J.K.罗琳",
+    "C.S.刘易斯"
+   ],
+   "ans": "A",
+   "ansText": "托尔金",
+   "note": "托尔金是英国作家，被誉为“现代奇幻文学之父”。"
+  },
+  {
+   "id": "选150",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "“特洛伊木马”的故事属于哪个古代文明的传说？",
+   "opts": [
+    "古巴比伦",
+    "古希腊",
+    "古埃及",
+    "古罗马"
+   ],
+   "ans": "B",
+   "ansText": "古希腊",
+   "note": "特洛伊战争是古希腊传说，见于荷马史诗。"
+  }
+ ],
+ "blanks": [
+  {
+   "id": "填001",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：关关雎鸠，在河之洲。窈窕淑女，________。",
+   "ans": "君子好逑",
+   "note": "《诗经·周南·关雎》"
+  },
+  {
+   "id": "填002",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：蒹葭苍苍，白露为霜。所谓伊人，________。",
+   "ans": "在水一方",
+   "note": "《诗经·秦风·蒹葭》"
+  },
+  {
+   "id": "填003",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：路漫漫其修远兮，________。",
+   "ans": "吾将上下而求索",
+   "note": "屈原《离骚》"
+  },
+  {
+   "id": "填004",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：老骥伏枥，________。",
+   "ans": "志在千里",
+   "note": "曹操《龟虽寿》"
+  },
+  {
+   "id": "填005",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：采菊东篱下，________。",
+   "ans": "悠然见南山",
+   "note": "陶渊明《饮酒·其五》"
+  },
+  {
+   "id": "填006",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：海内存知己，________。",
+   "ans": "天涯若比邻",
+   "note": "王勃《送杜少府之任蜀州》"
+  },
+  {
+   "id": "填007",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：会当凌绝顶，________。",
+   "ans": "一览众山小",
+   "note": "杜甫《望岳》"
+  },
+  {
+   "id": "填008",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：飞流直下三千尺，________。",
+   "ans": "疑是银河落九天",
+   "note": "李白《望庐山瀑布》"
+  },
+  {
+   "id": "填009",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：大漠孤烟直，________。",
+   "ans": "长河落日圆",
+   "note": "王维《使至塞上》"
+  },
+  {
+   "id": "填010",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：欲穷千里目，________。",
+   "ans": "更上一层楼",
+   "note": "王之涣《登鹳雀楼》"
+  },
+  {
+   "id": "填011",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：举头望明月，________。",
+   "ans": "低头思故乡",
+   "note": "李白《静夜思》"
+  },
+  {
+   "id": "填012",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：春眠不觉晓，________。",
+   "ans": "处处闻啼鸟",
+   "note": "孟浩然《春晓》"
+  },
+  {
+   "id": "填013",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：但愿人长久，________。",
+   "ans": "千里共婵娟",
+   "note": "苏轼《水调歌头·明月几时有》"
+  },
+  {
+   "id": "填014",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：先天下之忧而忧，________。",
+   "ans": "后天下之乐而乐",
+   "note": "范仲淹《岳阳楼记》"
+  },
+  {
+   "id": "填015",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：落霞与孤鹜齐飞，________。",
+   "ans": "秋水共长天一色",
+   "note": "王勃《滕王阁序》"
+  },
+  {
+   "id": "填016",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：同是天涯沦落人，________。",
+   "ans": "相逢何必曾相识",
+   "note": "白居易《琵琶行》"
+  },
+  {
+   "id": "填017",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：在天愿作比翼鸟，________。",
+   "ans": "在地愿为连理枝",
+   "note": "白居易《长恨歌》"
+  },
+  {
+   "id": "填018",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：人生自古谁无死，________。",
+   "ans": "留取丹心照汗青",
+   "note": "文天祥《过零丁洋》"
+  },
+  {
+   "id": "填019",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：粉骨碎身浑不怕，________。",
+   "ans": "要留清白在人间",
+   "note": "于谦《石灰吟》"
+  },
+  {
+   "id": "填020",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：醉里挑灯看剑，________。",
+   "ans": "梦回吹角连营",
+   "note": "辛弃疾《破阵子·为陈同甫赋壮词以寄之》"
+  },
+  {
+   "id": "填021",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：生当作人杰，________。",
+   "ans": "死亦为鬼雄",
+   "note": "李清照《夏日绝句》"
+  },
+  {
+   "id": "填022",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：枯藤老树昏鸦，________。",
+   "ans": "小桥流水人家",
+   "note": "马致远《天净沙·秋思》"
+  },
+  {
+   "id": "填023",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：夕阳西下，________。",
+   "ans": "断肠人在天涯",
+   "note": "马致远《天净沙·秋思》"
+  },
+  {
+   "id": "填024",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：知否，知否，________。",
+   "ans": "应是绿肥红瘦",
+   "note": "李清照《如梦令》"
+  },
+  {
+   "id": "填025",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：寻寻觅觅，________。",
+   "ans": "冷冷清清",
+   "note": "李清照《声声慢》"
+  },
+  {
+   "id": "填026",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：无边落木萧萧下，________。",
+   "ans": "不尽长江滚滚来",
+   "note": "杜甫《登高》"
+  },
+  {
+   "id": "填027",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：两情若是久长时，________。",
+   "ans": "又岂在朝朝暮暮",
+   "note": "秦观《鹊桥仙》"
+  },
+  {
+   "id": "填028",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：春蚕到死丝方尽，________。",
+   "ans": "蜡炬成灰泪始干",
+   "note": "李商隐《无题》"
+  },
+  {
+   "id": "填029",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：山重水复疑无路，________。",
+   "ans": "柳暗花明又一村",
+   "note": "陆游《游山西村》"
+  },
+  {
+   "id": "填030",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：沉舟侧畔千帆过，________。",
+   "ans": "病树前头万木春",
+   "note": "刘禹锡《酬乐天扬州初逢席上见赠》"
+  },
+  {
+   "id": "填031",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：千磨万击还坚劲，________。",
+   "ans": "任尔东西南北风",
+   "note": "郑燮《竹石》"
+  },
+  {
+   "id": "填032",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：不要人夸好颜色，________。",
+   "ans": "只留清气满乾坤",
+   "note": "王冕《墨梅》"
+  },
+  {
+   "id": "填033",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：学而不思则罔，________。",
+   "ans": "思而不学则殆",
+   "note": "《论语·为政》"
+  },
+  {
+   "id": "填034",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：三人行，________。",
+   "ans": "必有我师焉",
+   "note": "《论语·述而》"
+  },
+  {
+   "id": "填035",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "补写名句：长风破浪会有时，________。",
+   "ans": "直挂云帆济沧海",
+   "note": "李白《行路难》"
+  },
+  {
+   "id": "填036",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "鲁迅原名________。",
+   "ans": "周树人",
+   "note": "鲁迅，浙江绍兴人，中国现代文学奠基人。"
+  },
+  {
+   "id": "填037",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "鲁迅的第一部小说集是《________》。",
+   "ans": "呐喊",
+   "note": "《呐喊》收录《狂人日记》《阿Q正传》等。"
+  },
+  {
+   "id": "填038",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《阿Q正传》的主人公是________。",
+   "ans": "阿Q",
+   "note": "《阿Q正传》是鲁迅的中篇小说。"
+  },
+  {
+   "id": "填039",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "老舍原名________。",
+   "ans": "舒庆春",
+   "note": "老舍，北京人，代表作《骆驼祥子》《茶馆》。"
+  },
+  {
+   "id": "填040",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "巴金原名________。",
+   "ans": "李尧棠",
+   "note": "巴金，四川成都人，代表作“激流三部曲”。"
+  },
+  {
+   "id": "填041",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "茅盾原名________，字雁冰。",
+   "ans": "沈德鸿",
+   "note": "答“沈雁冰”也可；茅盾是笔名。"
+  },
+  {
+   "id": "填042",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "曹禺原名________。",
+   "ans": "万家宝",
+   "note": "曹禺，剧作家，代表作《雷雨》《日出》。"
+  },
+  {
+   "id": "填043",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "冰心原名________。",
+   "ans": "谢婉莹",
+   "note": "冰心，福建长乐人，代表作《繁星》《春水》。"
+  },
+  {
+   "id": "填044",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《边城》的女主人公是________。",
+   "ans": "翠翠",
+   "note": "《边城》写湘西茶峒渡船少女翠翠。"
+  },
+  {
+   "id": "填045",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《骆驼祥子》的男主人公是________。",
+   "ans": "祥子",
+   "note": "《骆驼祥子》写人力车夫祥子的命运。"
+  },
+  {
+   "id": "填046",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "补写名句：横眉冷对千夫指，________。",
+   "ans": "俯首甘为孺子牛",
+   "note": "鲁迅《自嘲》"
+  },
+  {
+   "id": "填047",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "补写名句：其实地上本没有路，________。",
+   "ans": "走的人多了，也便成了路",
+   "note": "鲁迅《故乡》"
+  },
+  {
+   "id": "填048",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《乡愁》的作者是________。",
+   "ans": "余光中",
+   "note": "余光中，台湾诗人，《乡愁》广为流传。"
+  },
+  {
+   "id": "填049",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "补写名句：黑夜给了我黑色的眼睛，我却用它________。",
+   "ans": "寻找光明",
+   "note": "顾城《一代人》"
+  },
+  {
+   "id": "填050",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《活着》的主人公是________。",
+   "ans": "福贵",
+   "note": "余华《活着》写福贵一生的苦难与坚韧。"
+  },
+  {
+   "id": "填051",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《哈姆雷特》的作者是________。",
+   "ans": "莎士比亚",
+   "note": "莎士比亚，英国文艺复兴时期剧作家。"
+  },
+  {
+   "id": "填052",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《巴黎圣母院》的作者是________。",
+   "ans": "雨果",
+   "note": "雨果，法国浪漫主义文学代表。"
+  },
+  {
+   "id": "填053",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《战争与和平》的作者是________。",
+   "ans": "列夫·托尔斯泰",
+   "note": "托尔斯泰，俄国作家，代表作还有《安娜·卡列尼娜》《复活》。"
+  },
+  {
+   "id": "填054",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《罪与罚》的作者是________。",
+   "ans": "陀思妥耶夫斯基",
+   "note": "陀思妥耶夫斯基，俄国作家。"
+  },
+  {
+   "id": "填055",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《变色龙》的作者是________。",
+   "ans": "契诃夫",
+   "note": "契诃夫，俄国短篇小说大师、剧作家。"
+  },
+  {
+   "id": "填056",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《童年》的作者是________。",
+   "ans": "高尔基",
+   "note": "高尔基自传体三部曲：《童年》《在人间》《我的大学》。"
+  },
+  {
+   "id": "填057",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《钢铁是怎样炼成的》的主人公是________。",
+   "ans": "保尔·柯察金",
+   "note": "奥斯特洛夫斯基《钢铁是怎样炼成的》。"
+  },
+  {
+   "id": "填058",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《百年孤独》的作者是________。",
+   "ans": "加西亚·马尔克斯",
+   "note": "马尔克斯，哥伦比亚作家，魔幻现实主义代表。"
+  },
+  {
+   "id": "填059",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《堂吉诃德》的作者是________。",
+   "ans": "塞万提斯",
+   "note": "塞万提斯，西班牙作家。"
+  },
+  {
+   "id": "填060",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《神曲》的作者是________。",
+   "ans": "但丁",
+   "note": "但丁，意大利诗人，文艺复兴先驱。"
+  },
+  {
+   "id": "填061",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《浮士德》的作者是________。",
+   "ans": "歌德",
+   "note": "歌德，德国作家，代表作《浮士德》《少年维特之烦恼》。"
+  },
+  {
+   "id": "填062",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《假如生活欺骗了你》的作者是________。",
+   "ans": "普希金",
+   "note": "普希金，俄国诗人，被誉为“俄国文学之父”。"
+  },
+  {
+   "id": "填063",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《老人与海》的作者是________。",
+   "ans": "海明威",
+   "note": "海明威，美国作家，1954年获诺贝尔文学奖。"
+  },
+  {
+   "id": "填064",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《小王子》的作者是________。",
+   "ans": "圣埃克苏佩里",
+   "note": "圣埃克苏佩里，法国作家、飞行员。"
+  },
+  {
+   "id": "填065",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "安徒生是________（国家）的童话作家。",
+   "ans": "丹麦",
+   "note": "安徒生，丹麦童话作家。"
+  },
+  {
+   "id": "填066",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《一千零一夜》又名《________》。",
+   "ans": "天方夜谭",
+   "note": "阿拉伯民间故事集。"
+  },
+  {
+   "id": "填067",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "《源氏物语》的作者是________。",
+   "ans": "紫式部",
+   "note": "紫式部，日本平安时代女作家。"
+  },
+  {
+   "id": "填068",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《挪威的森林》的作者是________。",
+   "ans": "村上春树",
+   "note": "村上春树，日本当代作家。"
+  },
+  {
+   "id": "填069",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《飞鸟集》的作者是________。",
+   "ans": "泰戈尔",
+   "note": "泰戈尔，印度诗人，1913年获诺贝尔文学奖。"
+  },
+  {
+   "id": "填070",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《鲁滨逊漂流记》的作者是________。",
+   "ans": "笛福",
+   "note": "笛福，英国作家。"
+  },
+  {
+   "id": "填071",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《简·爱》的作者是________。",
+   "ans": "夏洛蒂·勃朗特",
+   "note": "夏洛蒂·勃朗特，英国作家。"
+  },
+  {
+   "id": "填072",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《傲慢与偏见》的作者是________。",
+   "ans": "简·奥斯汀",
+   "note": "简·奥斯汀，英国作家。"
+  },
+  {
+   "id": "填073",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《雾都孤儿》的作者是________。",
+   "ans": "狄更斯",
+   "note": "狄更斯，英国作家，代表作还有《双城记》。"
+  },
+  {
+   "id": "填074",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《变形记》的作者是________。",
+   "ans": "卡夫卡",
+   "note": "卡夫卡，奥地利作家，现代主义文学代表。"
+  },
+  {
+   "id": "填075",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "《老人与海》的主人公是________。",
+   "ans": "圣地亚哥",
+   "note": "老渔夫圣地亚哥，陪他出海的孩子叫曼诺林。"
+  },
+  {
+   "id": "填076",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "我国第一部纪传体通史是《________》。",
+   "ans": "史记",
+   "note": "司马迁《史记》，鲁迅誉为“史家之绝唱”。"
+  },
+  {
+   "id": "填077",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "我国第一部诗歌总集是《________》。",
+   "ans": "诗经",
+   "note": "《诗经》收录西周至春秋诗歌305篇。"
+  },
+  {
+   "id": "填078",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "我国第一部系统分析字形、考究字源的字典是《________》。",
+   "ans": "说文解字",
+   "note": "东汉许慎所著。"
+  },
+  {
+   "id": "填079",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“四书”指《大学》《中庸》《论语》和《________》。",
+   "ans": "孟子",
+   "note": "“四书”为《大学》《中庸》《论语》《孟子》。"
+  },
+  {
+   "id": "填080",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“五经”指《诗》《书》《礼》《易》和《________》。",
+   "ans": "春秋",
+   "note": "“五经”为《诗》《书》《礼》《易》《春秋》。"
+  },
+  {
+   "id": "填081",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "成语“程门立雪”的主人公是________。",
+   "ans": "杨时",
+   "note": "杨时尊师求学的典故。"
+  },
+  {
+   "id": "填082",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "成语“卧薪尝胆”与________有关。",
+   "ans": "勾践",
+   "note": "越王勾践。"
+  },
+  {
+   "id": "填083",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "成语“指鹿为马”与________有关。",
+   "ans": "赵高",
+   "note": "秦朝赵高。"
+  },
+  {
+   "id": "填084",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "“初唐四杰”指王勃、杨炯、卢照邻和________。",
+   "ans": "骆宾王",
+   "note": "骆宾王，初唐诗人，代表作《咏鹅》。"
+  },
+  {
+   "id": "填085",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“唐宋八大家”中唐代的两位是韩愈和________。",
+   "ans": "柳宗元",
+   "note": "韩愈、柳宗元是唐代古文运动代表。"
+  },
+  {
+   "id": "填086",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“三苏”指苏洵、苏轼和________。",
+   "ans": "苏辙",
+   "note": "苏洵、苏轼、苏辙父子三人。"
+  },
+  {
+   "id": "填087",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“小李杜”指李商隐和________。",
+   "ans": "杜牧",
+   "note": "晚唐诗人李商隐、杜牧。"
+  },
+  {
+   "id": "填088",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "词按风格大致分为婉约派和________派。",
+   "ans": "豪放",
+   "note": "婉约派柳永、李清照；豪放派苏轼、辛弃疾。"
+  },
+  {
+   "id": "填089",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "我国四大名著中，以农民起义为题材的是《________》。",
+   "ans": "水浒传",
+   "note": "《水浒传》写梁山好汉起义。"
+  },
+  {
+   "id": "填090",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "诺贝尔文学奖的颁奖典礼在________（国家）举行。",
+   "ans": "瑞典",
+   "note": "瑞典学院颁发，典礼在斯德哥尔摩。"
+  },
+  {
+   "id": "填091",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "茅盾文学奖主要奖励________（体裁）。",
+   "ans": "长篇小说",
+   "note": "茅盾文学奖是中国长篇小说重要奖项。"
+  },
+  {
+   "id": "填092",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“豆蔻年华”指女子________岁左右。",
+   "ans": "十三四",
+   "note": "豆蔻年华指女子十三四岁。"
+  },
+  {
+   "id": "填093",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“弱冠之年”指男子________岁。",
+   "ans": "二十",
+   "note": "古代男子二十岁行冠礼。"
+  },
+  {
+   "id": "填094",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "“古稀之年”指________岁。",
+   "ans": "七十",
+   "note": "杜甫“人生七十古来稀”。"
+  },
+  {
+   "id": "填095",
+   "cat": "文学常识",
+   "level": "中",
+   "q": "成语“入木三分”最初形容________的书法。",
+   "ans": "王羲之",
+   "note": "王羲之，东晋书法家，人称“书圣”。"
+  },
+  {
+   "id": "填096",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "《西游记》中孙悟空的兵器叫________。",
+   "ans": "金箍棒",
+   "note": "如意金箍棒，原为东海定海神针。"
+  },
+  {
+   "id": "填097",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "《西游记》中猪八戒的法名是________。",
+   "ans": "猪悟能",
+   "note": "猪八戒法名悟能，别名八戒。"
+  },
+  {
+   "id": "填098",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "希腊神话中的众神之王是________。",
+   "ans": "宙斯",
+   "note": "宙斯是奥林匹斯众神之王。"
+  },
+  {
+   "id": "填099",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "《哈利·波特》系列小说的作者是________。",
+   "ans": "J.K.罗琳",
+   "note": "英国作家J.K.罗琳。"
+  },
+  {
+   "id": "填100",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "中国神话中开天辟地的是________。",
+   "ans": "盘古",
+   "note": "盘古开天辟地的神话。"
+  }
+ ],
+ "essays": [
+  {
+   "id": "大001",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "如果李白、杜甫、苏轼三人一起参加文学社面试，你会选谁当社长？请结合他们的作品和性格说明理由。",
+   "points": "能说出三人各自的特点：李白浪漫豪放、杜甫沉郁忧民、苏轼旷达多才；职位与特质匹配；理由具体、有条理。",
+   "score": "选择明确1分；结合作品或性格2分；理由充分2分。"
+  },
+  {
+   "id": "大002",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《西游记》师徒四人如果组队参加大学生创新创业大赛，你认为谁适合当队长？谁适合当财务？请说明理由。",
+   "points": "队长需统筹目标（唐僧目标坚定，悟空能力强）；财务需细致稳重（沙僧踏实，八戒也可自圆其说）；能结合具体情节。",
+   "score": "角色安排1分；两条理由各2分。"
+  },
+  {
+   "id": "大003",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "请用一句话向外国朋友介绍《红楼梦》，并说说你为什么选这句话。",
+   "points": "点出家族兴衰、爱情悲剧、人物群像或社会百科等特点；语言通俗；有个人视角。",
+   "score": "信息准确2分；表达生动2分；个人理解1分。"
+  },
+  {
+   "id": "大004",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "你最喜欢的一句古诗是哪一句？它会在你生活中的什么场景浮现？",
+   "points": "诗句引用准确；场景具体；情感真实；能说清诗句与场景的联系。",
+   "score": "引用准确1分；场景具体2分；诗意与情感契合2分。"
+  },
+  {
+   "id": "大005",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "如果陶渊明开了一个“田园生活”直播间，他会直播什么？请结合《归园田居》或《饮酒》说明。",
+   "points": "结合种豆、采菊、饮酒、读书等田园生活；体现淡泊自然、返璞归真；有直播的现场感。",
+   "score": "结合作品2分；内容合理2分；创意1分。"
+  },
+  {
+   "id": "大006",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "《水浒传》中你最喜欢或最不喜欢哪位好汉？请用一件具体的事说明理由。",
+   "points": "人物与情节匹配；评价有依据；能辩证看待人物的优点与局限。",
+   "score": "人物明确1分；事件准确2分；评价合理2分。"
+  },
+  {
+   "id": "大007",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "假如诸葛亮有朋友圈，他打下汉中那天会发什么？请用30字以内拟一条，并解释。",
+   "points": "符合诸葛亮身份与情境；可文白相间；体现“鞠躬尽瘁”或《出师表》的气质；解释到位。",
+   "score": "贴合人物2分；情境合理1分；语言凝练2分。"
+  },
+  {
+   "id": "大008",
+   "cat": "中国古代文学",
+   "level": "中",
+   "q": "请为《红楼梦》中的一个人物“找工作”，你会推荐什么现代职业？为什么？",
+   "points": "人物性格、能力与职业匹配；结合具体情节；说明现代职业场景。",
+   "score": "职业明确1分；匹配理由2分；结合情节2分。"
+  },
+  {
+   "id": "大009",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "如果只能带一首诗词去荒岛，你会带哪一首？说说它能给你什么。",
+   "points": "作品准确；说明精神支撑、画面感或情感力量；理由个人化。",
+   "score": "作品1分；理由3分；表达1分。"
+  },
+  {
+   "id": "大010",
+   "cat": "中国古代文学",
+   "level": "中",
+   "q": "《三国演义》中“既生瑜，何生亮”表达了周瑜怎样的心态？你怎么看这种竞争？",
+   "points": "分析不甘、嫉妒与对对手的认可；谈竞争与合作；联系现实，观点健康。",
+   "score": "心态分析2分；观点2分；联系现实1分。"
+  },
+  {
+   "id": "大011",
+   "cat": "中国古代文学",
+   "level": "易",
+   "q": "请把《木兰诗》改编成一条60字以内的短视频文案。",
+   "points": "保留替父从军、征战、还乡等要素；有画面感和节奏；不超过60字。",
+   "score": "要素完整2分；文案感2分；字数1分。"
+  },
+  {
+   "id": "大012",
+   "cat": "中国古代文学",
+   "level": "中",
+   "q": "你认为《聊斋志异》里的鬼狐故事今天还有吸引力吗？为什么？",
+   "points": "可答有（写人性、想象力、反转）或没有（套路、节奏慢）；需举例；自圆其说。",
+   "score": "观点1分；举例2分；论证2分。"
+  },
+  {
+   "id": "大013",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "如果祥子活在今天，他可能从事什么职业？他会幸福吗？请结合小说谈谈。",
+   "points": "可设想司机、快递、外卖等体力劳动；联系社会环境与个人奋斗；讨论悲剧是否会重演；结合小说情节。",
+   "score": "职业合理1分；结合小说2分；观点2分。"
+  },
+  {
+   "id": "大014",
+   "cat": "中国现当代文学",
+   "level": "中",
+   "q": "《平凡的世界》里孙少平的选择，你理解吗？如果是你，你会怎么选？",
+   "points": "理解或质疑均可；结合离开农村、下煤矿、精神追求等情节；联系自身选择。",
+   "score": "立场1分；文本依据2分；现实思考2分。"
+  },
+  {
+   "id": "大015",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "请用三个词概括《活着》，并各用一句话解释。",
+   "points": "如苦难、坚韧、亲情、命运等；词与解释对应；结合福贵经历。",
+   "score": "三个词各1分；解释合理2分。"
+  },
+  {
+   "id": "大016",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "《围城》说“城外的人想进去，城里的人想出来”，你在生活中有没有类似的体验？",
+   "points": "举出考研、社团、恋爱、专业等实例；说明“进出”心理；联系小说喻义。",
+   "score": "生活实例2分；与围城喻义契合2分；表达1分。"
+  },
+  {
+   "id": "大017",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "如果鲁迅开通微博，他最可能因为什么事情上热搜？为什么？",
+   "points": "联系鲁迅批判国民性、关注社会现实的特点；结合具体作品；有网络表达感。",
+   "score": "事件合理2分；结合作品2分；表达1分。"
+  },
+  {
+   "id": "大018",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "请为《边城》的翠翠写一条不超过50字的“旅行明信片”。",
+   "points": "融入边城、茶峒、渡船、白塔等意象；符合翠翠口吻；不超过50字。",
+   "score": "情境2分；口吻1分；语言2分。"
+  },
+  {
+   "id": "大019",
+   "cat": "中国现当代文学",
+   "level": "中",
+   "q": "如果《雷雨》拍成现代职场剧，周朴园最适合什么职位？请说明理由。",
+   "points": "如董事长、家族企业掌舵人等；体现控制欲、伪善、家长式管理；结合剧情。",
+   "score": "职位1分；性格匹配2分；结合剧情2分。"
+  },
+  {
+   "id": "大020",
+   "cat": "中国现当代文学",
+   "level": "中",
+   "q": "你更喜欢《再别康桥》还是《雨巷》？请从画面感角度比较。",
+   "points": "康桥的柔波、金柳、星辉；雨巷的油纸伞、丁香姑娘；比较色彩、意象、节奏。",
+   "score": "作品特征各1分；比较2分；表达1分。"
+  },
+  {
+   "id": "大021",
+   "cat": "中国现当代文学",
+   "level": "中",
+   "q": "有人说“网络文学不是文学”，你同意吗？请给出两点理由。",
+   "points": "可答是（类型文学、读者需求、叙事传统）或不是（流水线、文学性不足）；需举例；辩证更好。",
+   "score": "立场1分；理由3分；举例1分。"
+  },
+  {
+   "id": "大022",
+   "cat": "中国现当代文学",
+   "level": "易",
+   "q": "如果让你给《三体》里的罗辑提一个建议，你会说什么？",
+   "points": "建议具体；结合面壁者、执剑人、黑暗森林等情节；逻辑自洽。",
+   "score": "建议具体2分；结合情节2分；逻辑1分。"
+  },
+  {
+   "id": "大023",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "如果《小王子》里的狐狸来参加社团招新，它会怎么介绍“驯养”？请写一段不超过80字的招新文案。",
+   "points": "驯养即建立联系、彼此需要、付出时间与仪式；文案有温度；不超过80字。",
+   "score": "概念准确2分；文案感2分；字数1分。"
+  },
+  {
+   "id": "大024",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "《老人与海》中的老人最后只拖回一副鱼骨，你认为他失败了吗？为什么？",
+   "points": "可谈物质失败与精神胜利；“人可以被毁灭，但不能被打败”；结合情节。",
+   "score": "观点1分；文本依据2分；论证2分。"
+  },
+  {
+   "id": "大025",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "请用一道菜形容《哈姆雷特》中哈姆雷特的“延宕”，并解释。",
+   "points": "菜名与犹豫、反复、冷却等特质对应；结合剧情；解释有趣且合理。",
+   "score": "菜品贴切1分；解释3分；创意1分。"
+  },
+  {
+   "id": "大026",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "如果堂吉诃德来到今天的大学校园，他最可能加入哪个社团？为什么？",
+   "points": "体现骑士精神、理想主义；可答戏剧社、辩论社、志愿服务队等；结合情节。",
+   "score": "社团1分；理由2分；结合人物2分。"
+  },
+  {
+   "id": "大027",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "《百年孤独》里那么多人重复使用相同的名字，你觉得作者想表达什么？",
+   "points": "家族循环、命运轮回、孤独的遗传、时间循环等；需举例说明。",
+   "score": "理解2分；举例2分；表达1分。"
+  },
+  {
+   "id": "大028",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "请选一个你读过的外国文学人物，为他写一句“颁奖词”。",
+   "points": "人物准确；概括其精神特质；颁奖词凝练、有感染力。",
+   "score": "人物1分；精神概括2分；文采2分。"
+  },
+  {
+   "id": "大029",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "《变形记》中格里高尔变成甲虫后，家人的态度说明了什么？",
+   "points": "亲情功利化、家庭责任、人的异化等；结合家人前后的变化。",
+   "score": "态度概括2分；主题分析2分；文本1分。"
+  },
+  {
+   "id": "大030",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "如果《傲慢与偏见》的达西先生开社交账号，他会发什么？请拟一条。",
+   "points": "符合贵族、内敛、傲慢却真诚的人设；内容合理；语言有分寸。",
+   "score": "人设2分；内容2分；语言1分。"
+  },
+  {
+   "id": "大031",
+   "cat": "外国文学",
+   "level": "易",
+   "q": "你更愿意和《老人与海》的圣地亚哥，还是《小王子》的飞行员做朋友？为什么？",
+   "points": "选择明确；概括人物特质；理由个人化且有文本依据。",
+   "score": "选择1分；理由3分；表达1分。"
+  },
+  {
+   "id": "大032",
+   "cat": "外国文学",
+   "level": "中",
+   "q": "请用一句话向没读过俄国文学的同学推荐《罪与罚》，并说明推荐理由。",
+   "points": "抓住犯罪、良心、救赎等核心；语言通俗；有推荐的说服力。",
+   "score": "核心准确2分；推荐感2分；语言1分。"
+  },
+  {
+   "id": "大033",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "如果文学社要办一场“诗词版飞花令”纳新活动，请你设计一条规则，让新手也能玩得开心。",
+   "points": "主题字简单、允许提示、团队协作、限时等；规则完整可执行；对新手友好。",
+   "score": "规则完整2分；新手友好2分；趣味1分。"
+  },
+  {
+   "id": "大034",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "请用三个成语形容你自己，并各用一句话说明。",
+   "points": "成语准确；解释与自身经历对应；三个成语不重复。",
+   "score": "三个成语各1分；解释2分。"
+  },
+  {
+   "id": "大035",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "请为文学社纳新写一句化用古诗的宣传语，并注明化用了哪句诗。",
+   "points": "化用自然；有社团或文学元素；注明原句。",
+   "score": "化用2分；宣传效果2分；出处1分。"
+  },
+  {
+   "id": "大036",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "如果“四大名著”要选一个当代代言人（明星、运动员、虚拟人物均可），你会选谁？为什么？",
+   "points": "代言人与作品气质匹配；理由具体；可跨领域联想。",
+   "score": "人选1分；匹配理由3分；表达1分。"
+  },
+  {
+   "id": "大037",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "有人说“读诗无用”，请用一个生活场景反驳他。",
+   "points": "场景具体（表白、送别、看景、安慰等）；诗句恰当；反驳有力。",
+   "score": "场景2分；诗句2分；论证1分。"
+  },
+  {
+   "id": "大038",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "请把“读书破万卷，下笔如有神”改写成一句适合发朋友圈的文案。",
+   "points": "保留原意；口语化、有网感；不超过30字。",
+   "score": "原意2分；文案感2分；字数1分。"
+  },
+  {
+   "id": "大039",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "如果让你给文学社设计一道“入社测试”题，只出一道，你会出什么题？为什么？",
+   "points": "题目能考察文学兴趣、想象力或表达力；可执行；理由清楚。",
+   "score": "题目2分；考察点2分；理由1分。"
+  },
+  {
+   "id": "大040",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "请用一本书的名字形容你现在的大学生活，并解释。",
+   "points": "书名准确；解释贴合生活；有共鸣或幽默感。",
+   "score": "书名1分；解释3分；表达1分。"
+  },
+  {
+   "id": "大041",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "如果把《诗经》里的“蒹葭苍苍”做成一张海报，你会选什么主视觉？为什么？",
+   "points": "水边芦苇、秋霜、朦胧、留白等；色彩与意境协调；说明构图。",
+   "score": "视觉元素2分；意境2分；表达1分。"
+  },
+  {
+   "id": "大042",
+   "cat": "文学常识",
+   "level": "易",
+   "q": "请用“文学”和“食堂”两个词，造一个不超过30字的句子。",
+   "points": "两个词都出现；有画面或趣味；不超过30字。",
+   "score": "用词2分；句子2分；字数1分。"
+  },
+  {
+   "id": "大043",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "请以“纳新”为题，写一首四句的藏头诗或打油诗。",
+   "points": "四句完整；藏头或押韵；有文学社元素。",
+   "score": "形式2分；内容2分；创意1分。"
+  },
+  {
+   "id": "大044",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "请用“月亮、外卖、李白”三个词编一个50字以内的小故事。",
+   "points": "三个词都出现；有情节或反转；不超过50字。",
+   "score": "要素2分；故事性2分；字数1分。"
+  },
+  {
+   "id": "大045",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "请为《西游记》设计一款联名奶茶，写出名字和一句宣传语。",
+   "points": "融入人物或情节元素；名字好记；宣传语有梗。",
+   "score": "名字2分；宣传语2分；贴合原著1分。"
+  },
+  {
+   "id": "大046",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "如果杜甫有一台时光机，他会先去哪个朝代？请写一段他的“旅行计划”。",
+   "points": "朝代或地点合理；结合杜甫经历与诗风；有幽默或深情。",
+   "score": "目的地1分；结合经历3分；创意1分。"
+  },
+  {
+   "id": "大047",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "请把“关关雎鸠”翻译成现代校园版，不超过40字。",
+   "points": "保留追求、思念之意；有校园场景；不超过40字。",
+   "score": "原意2分；校园感2分；字数1分。"
+  },
+  {
+   "id": "大048",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "请用三个画面描写“秋天”，不许出现“秋”字。",
+   "points": "三个画面具体；有感官细节；全文不出现“秋”字。",
+   "score": "画面各1分；无“秋”1分；文采1分。"
+  },
+  {
+   "id": "大049",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "请给社团公众号写一条30字以内的“文学冷知识”。",
+   "points": "知识准确；冷门有趣；不超过30字。",
+   "score": "准确2分；趣味2分；字数1分。"
+  },
+  {
+   "id": "大050",
+   "cat": "神话·民间·趣味",
+   "level": "易",
+   "q": "请用一句诗给今天的天气“配文”。",
+   "points": "诗句与天气契合；可化用；有画面感。",
+   "score": "契合2分；引用1分；表达2分。"
+  }
+ ],
+ "intro": [
+  {
+   "B": "文学社纳新趣味题库"
+  },
+  {
+   "B": "300 题 · 每轮 3 道选择 + 2 道填空 + 1 道大题 · 适合社团纳新趣味游戏"
+  },
+  {
+   "B": "一、题库结构"
+  },
+  {
+   "B": "题型",
+   "C": "题量",
+   "D": "每轮抽取",
+   "E": "单题分值",
+   "F": "说明"
+  },
+  {
+   "B": "选择题",
+   "C": "150",
+   "D": "3",
+   "E": "2 分",
+   "F": "四选一；答案字母已随机打乱，覆盖五大类。"
+  },
+  {
+   "B": "填空题",
+   "C": "100",
+   "D": "2",
+   "E": "3 分",
+   "F": "补写名句，或填写作家、作品、文学常识。"
+  },
+  {
+   "B": "大题",
+   "C": "50",
+   "D": "1",
+   "E": "5 分",
+   "F": "开放式题目，不设标准答案，言之成理即可。"
+  },
+  {
+   "B": "合计",
+   "C": "300",
+   "D": "6",
+   "E": "17 分",
+   "F": "每轮 6 题，约 8—10 分钟；可准备 50 轮。"
+  },
+  {
+   "B": "二、分类分布"
+  },
+  {
+   "B": "分类",
+   "C": "选择题",
+   "D": "填空题",
+   "E": "大题",
+   "F": "合计",
+   "G": "覆盖内容"
+  },
+  {
+   "B": "中国古代文学",
+   "C": "50",
+   "D": "35",
+   "E": "12",
+   "F": "97",
+   "G": "诗经楚辞、唐诗宋词、四大名著"
+  },
+  {
+   "B": "中国现当代文学",
+   "C": "25",
+   "D": "15",
+   "E": "10",
+   "F": "50",
+   "G": "鲁迅、老舍、巴金、莫言、现代诗"
+  },
+  {
+   "B": "外国文学",
+   "C": "35",
+   "D": "25",
+   "E": "10",
+   "F": "70",
+   "G": "欧美俄日名著与代表作家"
+  },
+  {
+   "B": "文学常识",
+   "C": "30",
+   "D": "20",
+   "E": "10",
+   "F": "60",
+   "G": "文体、成语典故、奖项、年龄称谓"
+  },
+  {
+   "B": "神话·民间·趣味",
+   "C": "10",
+   "D": "5",
+   "E": "8",
+   "F": "23",
+   "G": "中外神话、童话、奇幻与创作题"
+  },
+  {
+   "B": "合计",
+   "C": "150",
+   "D": "100",
+   "E": "50",
+   "F": "300",
+   "G": "每类均按 3:2:1 左右的题量配比"
+  },
+  {
+   "B": "三、使用建议"
+  },
+  {
+   "B": "抽题方式",
+   "D": "在“选择题 / 填空题 / 大题”三张表中，各用随机数抽取对应数量；同一轮尽量覆盖不同分类。"
+  },
+  {
+   "B": "轮次安排",
+   "D": "每轮 6 题，约 8—10 分钟。按 50 轮准备，正好用完 150 道选择、100 道填空、50 道大题。"
+  },
+  {
+   "B": "计分建议",
+   "D": "选择题 2 分、填空题 3 分、大题 5 分，单轮满分 17 分；大题鼓励结合具体作品、说自己的话。"
+  },
+  {
+   "B": "主持提示",
+   "D": "大题没有标准答案，冷场时可给一个提示词；选手答案自圆其说即可给分，不必追求“标准”。"
+  },
+  {
+   "B": "难度控制",
+   "D": "题库以“易”为主，适合非文学专业新生；想加难度时，优先抽取难度标为“中”的题目。"
+  },
+  {
+   "B": "四、出题原则"
+  },
+  {
+   "B": "范围广 ｜ 中国古代与近代、现当代、外国文学、文学常识、神话民俗与趣味，五类均衡覆盖。"
+  },
+  {
+   "B": "门槛低 ｜ 以中学语文和常见名著为主，不考偏题怪题；会读书、爱看剧的人都能参与。"
+  },
+  {
+   "B": "有发挥 ｜ 大题不设标准答案，重点看表达、联想和临场反应，给新生展示个性的空间。"
+  },
+  {
+   "B": "答案与参考要点见各分表；题目可按社团需要自行增删、改写。"
+  }
+ ]
+}</script>
+<script>
+/* 文学社纳新趣味题库 · 页面逻辑（无依赖） */
+(function () {
+  "use strict";
+
+  var DATA = JSON.parse(document.getElementById("bank-data").textContent);
+  var MK = ["甲", "乙", "丙", "丁"];
+  var CATS = ["中国古代文学", "中国现当代文学", "外国文学", "文学常识", "神话·民间·趣味"];
+  var PTS = { choice: 2, blank: 3, essay: 5 };
+  var FULL = 17;
+
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var el = function (tag, cls, html) {
+    var d = document.createElement(tag);
+    if (cls) d.className = cls;
+    if (html != null) d.innerHTML = html;
+    return d;
+  };
+  var esc = function (s) {
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  };
+  var withBlank = function (s) {
+    return esc(s).replace(/_{3,}/g, '<span class="bk"></span>');
+  };
+  var letterOf = function (ans) { return ans ? MK[ans.charCodeAt(0) - 65] || "" : ""; };
+  var idxOf = function (ans) { return ans ? ans.charCodeAt(0) - 65 : -1; };
+
+  /* ---------------- 栏目切换 ---------------- */
+  function go(name) {
+    $$(".panel").forEach(function (p) { p.classList.toggle("on", p.id === name); });
+    $$(".tab").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.go === name)); });
+    if (name === "bank" && !bankBuilt) { buildBank(); bankBuilt = true; }
+    if (name === "draw" && !round.qs.length) newRound();
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-go]");
+    if (b) go(b.dataset.go);
+  });
+
+  /* ---------------- 抽题 ---------------- */
+  var round = { no: 0, qs: [], idx: 0, score: 0, revealed: false };
+  var used = { choice: new Set(), blank: new Set(), essay: new Set() };
+
+  function pick(pool, n, kind) {
+    var avail = pool.filter(function (q) { return !used[kind].has(q.id); });
+    if (avail.length < n) { used[kind].clear(); avail = pool.slice(); }
+    var out = [];
+    while (out.length < n && avail.length) {
+      out.push(avail.splice(Math.floor(Math.random() * avail.length), 1)[0]);
+    }
+    out.forEach(function (q) { used[kind].add(q.id); });
+    return out;
+  }
+
+  function newRound() {
+    round.no += 1;
+    round.idx = 0;
+    round.score = 0;
+    round.revealed = false;
+    round.qs = []
+      .concat(pick(DATA.choices, 3, "choice").map(function (q) {
+        return { kind: "choice", q: q, pick: null, got: null, wrote: "" };
+      }))
+      .concat(pick(DATA.blanks, 2, "blank").map(function (q) {
+        return { kind: "blank", q: q, pick: null, got: null, wrote: "" };
+      }))
+      .concat(pick(DATA.essays, 1, "essay").map(function (q) {
+        return { kind: "essay", q: q, pick: null, got: null, wrote: "" };
+      }));
+    renderQ();
+    refreshBar();
+  }
+
+  function refreshBar() {
+    var bar = $("#rundbar");
+    bar.innerHTML = "";
+    if (!round.qs.length) return;
+    bar.appendChild(el("div", null, "第 <b>" + round.no + "</b> 轮"));
+    bar.appendChild(el("div", null, '得分 <b style="color:var(--zhu)">' + round.score + "</b> / " + FULL));
+    bar.appendChild(el("div", "grow"));
+    var dots = el("div", "dots");
+    round.qs.forEach(function (x, i) {
+      var c = "dot";
+      if (x.got != null) c += x.got > 0 ? " done ok" : " done";
+      if (i === round.idx && round.idx < round.qs.length) c += " now";
+      dots.appendChild(el("span", c));
+    });
+    bar.appendChild(dots);
+    bar.appendChild(el("div", null, Math.min(round.idx + 1, round.qs.length) + " / " + round.qs.length));
+  }
+
+  function renderQ() {
+    var host = $("#qa");
+    host.innerHTML = "";
+    if (round.idx >= round.qs.length) { host.appendChild(summaryCard()); return; }
+
+    var cur = round.qs[round.idx];
+    var q = cur.q;
+    var kind = cur.kind;
+    var card = el("article", "card");
+
+    var head = el("div", "qhead");
+    head.appendChild(el("span", "qid", esc(q.id)));
+    head.appendChild(el("span", "tag", esc(q.cat)));
+    head.appendChild(el("span", "tag lv", esc(q.level || "—")));
+    head.appendChild(el("span", "pts", PTS[kind] + " 分"));
+    card.appendChild(head);
+
+    var stem = el("h3", "stem", withBlank(q.q));
+    card.appendChild(stem);
+
+    var res = el("div", "res");
+    fillRes(res, q, kind);
+
+    if (kind === "choice") {
+      var ul = el("ul", "opts");
+      q.opts.forEach(function (o, i) {
+        var li = el("li", "opt");
+        li.innerHTML = '<span class="mk">' + MK[i] + '</span><span class="tx">' + esc(o) + "</span>";
+        li.dataset.i = String(i);
+        if (!round.revealed) {
+          li.addEventListener("click", function () { chooseOption(i); });
+        }
+        ul.appendChild(li);
+      });
+      card.appendChild(ul);
+    } else if (kind === "blank") {
+      var row = el("div", "blank-row");
+      row.innerHTML =
+        '<input id="blank-in" type="text" placeholder="写下你的答案，写不出可点「开卷」" autocomplete="off" enterkeyhint="done">' +
+        '<button class="btn sm ghost" id="blank-open" type="button">开卷</button>';
+      card.appendChild(row);
+    } else {
+      card.appendChild(el("p", "essay-hint", "开放式题目，不设标准答案。先让人说，说完再开卷对要点。"));
+    }
+
+    /* 自评（填空 / 大题） */
+    if (kind !== "choice") {
+      var rate = el("div", "selfrate");
+      rate.appendChild(el("span", "lab", kind === "blank" ? "自 评" : "给 分"));
+      var opts = kind === "blank"
+        ? [[3, "答上了　+3"], [0, "没答上　0"]]
+        : [[0, "0"], [1, "1"], [2, "2"], [3, "3"], [4, "4"], [5, "5"]];
+      opts.forEach(function (p) {
+        var c = el("button", "chip" + (kind === "essay" ? " stars" : ""), p[1]);
+        c.dataset.v = String(p[0]);
+        c.addEventListener("click", function () { selfRate(c, p[0]); });
+        rate.appendChild(c);
+      });
+      res.appendChild(rate);
+    }
+
+    card.appendChild(res);
+
+    var acts = el("div", "qa-actions");
+    var bReveal = el("button", "btn primary", "开　卷");
+    bReveal.addEventListener("click", reveal);
+    var bNext = el("button", "btn", round.idx === round.qs.length - 1 ? "看结果　→" : "下一题　→");
+    bNext.addEventListener("click", next);
+    acts.appendChild(bReveal);
+    acts.appendChild(bNext);
+    acts.appendChild(el("div", "grow"));
+    acts.appendChild(el("div", "qa-hint", kind === "choice" ? "可按键 1—4 选择，空格开卷" : "回车开卷"));
+    card.appendChild(acts);
+
+    host.appendChild(card);
+    applyState(card, cur);
+
+    if (kind === "blank" && !round.revealed) {
+      var inp = $("#blank-in");
+      if (inp) inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); reveal(); } });
+      var open = $("#blank-open");
+      if (open) open.addEventListener("click", reveal);
+    }
+  }
+
+  function fillRes(res, q, kind) {
+    if (kind === "choice") {
+      res.innerHTML =
+        '<p class="ansline">正解　' + letterOf(q.ans) + "<span>　" + esc(q.ansText || "") + "</span></p>" +
+        (q.note ? '<p class="note"><b>解</b>　' + esc(q.note) + "</p>" : "");
+    } else if (kind === "blank") {
+      res.innerHTML =
+        '<p class="ansline">答案　<span>' + esc(q.ans) + "</span></p>" +
+        (q.note ? '<p class="note"><b>出</b>　' + esc(q.note) + "</p>" : "");
+    } else {
+      res.innerHTML =
+        (q.points ? '<p class="note"><b>要点</b>　' + esc(q.points) + "</p>" : "") +
+        (q.score ? '<p class="note" style="margin-top:8px"><b>评分</b>　' + esc(q.score) + "</p>" : "");
+    }
+  }
+
+  /* 已开卷/已选择的状态回填（重绘后不丢） */
+  function applyState(card, cur) {
+    var reveal = $(".qa-actions .btn.primary", card);
+    if (reveal) { reveal.disabled = round.revealed; reveal.textContent = round.revealed ? "已开卷" : "开　卷"; }
+
+    if (round.revealed) {
+      var res = $(".res", card);
+      if (res) {
+        res.classList.add("on");
+        if (cur.kind === "blank" && cur.wrote) {
+          var p = el("p", "note", "<b>你写</b>　" + esc(cur.wrote));
+          p.style.color = "var(--ink-3)";
+          res.appendChild(p);
+        }
+      }
+      /* 开卷后：填空输入框转为只读回显，开卷按钮收起 */
+      if (cur.kind === "blank") {
+        var bi = $("#blank-in", card);
+        if (bi) {
+          bi.value = cur.wrote || "";
+          bi.disabled = true;
+          bi.placeholder = "已开卷";
+          bi.style.color = "var(--ink-3)";
+        }
+        var bo = $("#blank-open", card);
+        if (bo) bo.style.display = "none";
+      }
+      if (cur.kind !== "choice") {
+        $$(".selfrate .chip", card).forEach(function (c) {
+          c.classList.toggle("on", cur.got != null && Number(c.dataset.v) === cur.got);
+        });
+      }
+    }
+
+    if (cur.kind === "choice") {
+      var right = idxOf(cur.q.ans);
+      var o = $$(".opt", card);
+      if (round.revealed) {
+        $(".opts", card).classList.add("locked");
+        o.forEach(function (li, j) {
+          li.classList.remove("sel");
+          if (j === right) { li.classList.add("right"); li.appendChild(el("span", "flag", "正解")); }
+          else if (String(j) === String(cur.pick)) { li.classList.add("wrong"); li.appendChild(el("span", "flag", "错选")); }
+        });
+      } else if (cur.pick != null) {
+        o.forEach(function (li, j) { li.classList.toggle("sel", j === cur.pick); });
+      }
+    }
+  }
+
+  function chooseOption(i) {
+    if (round.revealed) return;
+    var cur = round.qs[round.idx];
+    cur.pick = i;
+    $$(".opt").forEach(function (li, j) { li.classList.toggle("sel", j === i); });
+  }
+
+  function reveal() {
+    var cur = round.qs[round.idx];
+    if (!cur || round.revealed) return;
+    round.revealed = true;
+    if (cur.kind === "blank") {
+      var inp = $("#blank-in");
+      cur.wrote = inp ? inp.value.trim() : "";
+    }
+    if (cur.kind === "choice" && cur.got == null) {
+      cur.got = String(cur.pick) === String(idxOf(cur.q.ans)) ? PTS.choice : 0;
+      round.score += cur.got;
+    }
+    renderQ();
+    refreshBar();
+  }
+
+  function selfRate(chip, v) {
+    var cur = round.qs[round.idx];
+    if (!cur || cur.got != null) return;
+    cur.got = v;
+    round.score += v;
+    $$(".selfrate .chip").forEach(function (c) { c.classList.remove("on"); });
+    chip.classList.add("on");
+    refreshBar();
+  }
+
+  function next() {
+    round.idx += 1;
+    round.revealed = false;
+    renderQ();
+    refreshBar();
+    var card = $(".card");
+    if (card) {
+      var top = card.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }
+  }
+
+  function summaryCard() {
+    var wrap = el("article", "card summary");
+    var s = round.score;
+    var level = s >= 15 ? "文曲星下凡" : s >= 12 ? "腹有诗书" : s >= 9 ? "确有慧根" : s >= 6 ? "尚可一战" : "再来一回";
+    var verse = s >= 15 ? "这一轮，够格坐首席。" : s >= 12 ? "读书不少，且读得活。" : s >= 9 ? "底子有了，再翻两页。" : "趣在书中，慢慢来。";
+    wrap.innerHTML =
+      '<div class="big">' + s + "</div>" +
+      '<div class="of">满　分　十　七</div>' +
+      '<div class="judge">' + level + "</div>" +
+      '<p class="verse">' + verse + "</p>";
+    var acts = el("div", "cover-actions");
+    var b1 = el("button", "btn primary", "再来一轮");
+    b1.addEventListener("click", newRound);
+    var b2 = el("button", "btn ghost", "翻阅全卷");
+    b2.addEventListener("click", function () { go("bank"); });
+    var b3 = el("button", "btn ghost", "看规则");
+    b3.addEventListener("click", function () { go("guide"); });
+    acts.appendChild(b1); acts.appendChild(b2); acts.appendChild(b3);
+    wrap.appendChild(acts);
+    return wrap;
+  }
+
+  /* ---------------- 键盘 ---------------- */
+  document.addEventListener("keydown", function (e) {
+    if (!$("#draw").classList.contains("on")) return;
+    var tag = (e.target.tagName || "").toLowerCase();
+    if (tag === "input" || tag === "textarea") return;
+    if (/^[1-4]$/.test(e.key)) chooseOption(parseInt(e.key, 10) - 1);
+    else if (e.key === " " || e.key === "Enter") { e.preventDefault(); if (!round.revealed) reveal(); else next(); }
+  });
+
+  /* ---------------- 题库 ---------------- */
+  var bankBuilt = false;
+  var state = { kind: "choice", cat: "全部", q: "", revealed: false, open: new Set() };
+
+  function buildBank() {
+    var f = $("#filters");
+    f.innerHTML = "";
+    f.appendChild(el("span", "lab", "题　型"));
+    [["choice", "选择题 · 一百五十"], ["blank", "填空题 · 一百"], ["essay", "大题 · 五十"]].forEach(function (p) {
+      var b = el("button", "chip" + (state.kind === p[0] ? " on" : ""), p[1]);
+      b.dataset.kind = p[0];
+      b.addEventListener("click", function () { state.kind = p[0]; state.open.clear(); syncChips(); renderList(); });
+      f.appendChild(b);
+    });
+    var f2 = el("div", "filters");
+    f2.style.marginTop = "10px";
+    f2.appendChild(el("span", "lab", "分　类"));
+    ["全部"].concat(CATS).forEach(function (c) {
+      var b = el("button", "chip" + (state.cat === c ? " on" : ""), c);
+      b.dataset.cat = c;
+      b.addEventListener("click", function () { state.cat = c; syncChips(); renderList(); });
+      f2.appendChild(b);
+    });
+    f.parentNode.insertBefore(f2, f.nextSibling);
+
+    $("#q").addEventListener("input", function (e) { state.q = e.target.value.trim(); renderList(); });
+    $("#reveal-all").addEventListener("click", function () {
+      state.revealed = !state.revealed;
+      $("#reveal-all").textContent = state.revealed ? "全收答案" : "全显答案";
+      renderList();
+    });
+    renderList();
+  }
+
+  function syncChips() {
+    $$("#bank .chip").forEach(function (b) {
+      if (b.dataset.kind) b.classList.toggle("on", b.dataset.kind === state.kind);
+      if (b.dataset.cat) b.classList.toggle("on", b.dataset.cat === state.cat);
+    });
+  }
+
+  function poolOf(kind) { return kind === "choice" ? DATA.choices : kind === "blank" ? DATA.blanks : DATA.essays; }
+
+  function renderList() {
+    var wrap = $("#list-wrap");
+    var src = poolOf(state.kind);
+    var kw = state.q.toLowerCase();
+    var rows = src.filter(function (q) {
+      if (state.cat !== "全部" && q.cat !== state.cat) return false;
+      if (!kw) return true;
+      var hay = (q.q + " " + (q.ansText || q.ans || "") + " " + (q.note || "") + " " + (q.points || "") + " " + (q.opts || []).join(" ")).toLowerCase();
+      return hay.indexOf(kw) >= 0;
+    });
+    $("#count").textContent = "共 " + rows.length + " 题";
+    wrap.innerHTML = "";
+    if (!rows.length) { wrap.appendChild(el("div", "empty", "无题可对 · 换个词试试")); return; }
+
+    var ul = el("ul", "qlist");
+    rows.forEach(function (q) {
+      var li = el("li", "qitem");
+      var hd = el("div", "hd");
+      hd.appendChild(el("span", "no", esc(q.id)));
+      hd.appendChild(el("span", null, esc(q.cat)));
+      if (q.level) hd.appendChild(el("span", null, "· " + esc(q.level)));
+      li.appendChild(hd);
+
+      li.appendChild(el("p", "stem-sm", withBlank(q.q)));
+
+      var shown = state.revealed || state.open.has(q.id);
+
+      if (state.kind === "choice" && q.opts && q.opts.length) {
+        var og = el("div", "opts-sm");
+        var right = idxOf(q.ans);
+        q.opts.forEach(function (o, i) {
+          var sp = el("span", i === right && shown ? "hit" : null, "<i>" + MK[i] + "</i>" + esc(o));
+          og.appendChild(sp);
+        });
+        li.appendChild(og);
+      }
+
+      var key = el("div", "key" + (shown ? " on" : ""));
+      if (state.kind === "choice") {
+        key.innerHTML = "<em>正解</em>" + letterOf(q.ans) + "（" + esc(q.ans) + "）　" + esc(q.ansText || "") +
+          (q.note ? "<p>" + esc(q.note) + "</p>" : "");
+      } else if (state.kind === "blank") {
+        key.innerHTML = "<em>答案</em>" + esc(q.ans) + (q.note ? "<p>" + esc(q.note) + "</p>" : "");
+      } else {
+        key.innerHTML = "<em>要点</em><span>" + esc(q.points) + "</span>" + (q.score ? "<p>评分：" + esc(q.score) + "</p>" : "");
+      }
+      li.appendChild(key);
+
+      var t = el("button", "toggle" + (shown ? " on" : ""), shown ? "收" : "显");
+      t.addEventListener("click", function () {
+        if (state.open.has(q.id)) state.open.delete(q.id); else state.open.add(q.id);
+        var on = state.open.has(q.id) || state.revealed;
+        key.classList.toggle("on", on);
+        t.textContent = on ? "收" : "显";
+        t.classList.toggle("on", on);
+        if (state.kind === "choice") {
+          $$(".opts-sm span", li).forEach(function (sp, j) { sp.classList.toggle("hit", on && j === idxOf(q.ans)); });
+        }
+      });
+      li.appendChild(t);
+      ul.appendChild(li);
+    });
+    wrap.appendChild(ul);
+  }
+
+  /* ---------------- 启动 ---------------- */
+  newRound();
+  if (location.hash === "#bank") go("bank");
+  if (location.hash === "#guide") go("guide");
+})();
+
+
+</script>
+</body>
+</html>
