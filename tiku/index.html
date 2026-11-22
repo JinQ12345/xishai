@@ -129,17 +129,30 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
 .stem .bk{display:inline-block;min-width:5.4em;border-bottom:1px solid var(--ink-3);vertical-align:baseline}
 
 .opts{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-.opt{display:flex;gap:12px;align-items:flex-start;cursor:pointer;border:1px solid var(--line-soft);background:rgba(255,252,244,.5);
-  padding:11px 14px;border-radius:2px;transition:.14s;font-size:16px;line-height:1.7}
+.opt{display:flex;gap:13px;align-items:flex-start;cursor:pointer;border:1px solid var(--line-soft);background:rgba(255,252,244,.5);
+  padding:12px 15px;border-radius:2px;transition:.14s;font-size:16.5px;line-height:1.7}
 .opt:hover{border-color:var(--gold);background:rgba(255,252,244,.92)}
-.opt .mk{font-family:var(--kai);color:var(--zhu);flex:0 0 1.6em;text-align:center;border-right:1px solid var(--line-soft);padding-right:8px}
+/* 圆形题号：驾考宝典式的甲/乙/丙/丁 */
+.opt .mk{
+  flex:0 0 28px;height:28px;margin-top:1px;border-radius:50%;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--kai);font-size:14px;color:var(--zhu);background:rgba(255,255,255,.4);
+  transition:.16s;
+}
+.opt:active{transform:scale(.995)}
 .opt.sel{border-color:var(--zhu);box-shadow:inset 0 0 0 1px rgba(155,58,43,.35)}
-.opt.right{border-color:var(--qing);background:rgba(77,97,78,.09)}
-.opt.right .mk{color:var(--qing)}
-.opt.wrong{border-color:rgba(155,58,43,.55);background:rgba(155,58,43,.06);text-decoration:line-through;text-decoration-color:rgba(155,58,43,.4)}
-.opt .flag{margin-left:auto;font-size:12.5px;color:var(--qing);letter-spacing:.1em}
+.opt.right{border-color:var(--qing);background:rgba(77,97,78,.1);box-shadow:inset 0 0 0 1px rgba(77,97,78,.22)}
+.opt.right .mk{background:var(--qing);border-color:var(--qing);color:#f7f2e4}
+.opt.wrong{border-color:rgba(155,58,43,.6);background:rgba(155,58,43,.07)}
+.opt.wrong .mk{background:var(--zhu);border-color:var(--zhu);color:#fdf6ea}
+.opt.wrong .tx{text-decoration:line-through;text-decoration-color:rgba(155,58,43,.35);color:var(--ink-3)}
+.opt.right .flag{color:var(--qing)}
+.opt .flag{margin-left:auto;font-size:12.5px;color:var(--qing);letter-spacing:.06em;font-family:var(--kai);white-space:nowrap}
 .opt.wrong .flag{color:var(--zhu)}
 .opts.locked .opt{cursor:default}
+.opts.locked .opt:hover{border-color:var(--line-soft);background:rgba(255,252,244,.5)}
+.opts.locked .opt.right:hover{border-color:var(--qing);background:rgba(77,97,78,.1)}
+.opts.locked .opt.wrong:hover{border-color:rgba(155,58,43,.6);background:rgba(155,58,43,.07)}
 
 .blank-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .blank-row input{
@@ -168,6 +181,17 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
 .qa-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;align-items:center}
 .qa-actions .grow{flex:1}
 .qa-hint{font-size:12.5px;color:var(--ink-3);letter-spacing:.1em}
+
+/* 判题反馈（驾考宝典式） */
+.verdict{display:flex;align-items:baseline;gap:10px;margin:0 0 12px;font-family:var(--kai)}
+.verdict b{font-weight:400;font-size:18.5px;letter-spacing:.16em}
+.verdict span{font-size:13px;color:var(--ink-3);letter-spacing:.06em}
+.verdict.ok b{color:var(--qing)}
+.verdict.no b{color:var(--zhu)}
+.rate{color:var(--qing);font-size:13px;letter-spacing:.08em}
+.chip.jump{font-size:12.5px;padding:3px 10px;letter-spacing:.06em}
+.rprog{flex:1 0 100%;height:3px;margin:5px 0 0;background:rgba(200,180,147,.5);position:relative;overflow:hidden;border-radius:2px}
+.rprog i{display:block;height:100%;background:linear-gradient(90deg,var(--zhu),var(--zhu-deep));transition:width .35s ease}
 
 /* 一轮结束 */
 .summary{text-align:center;padding:clamp(26px,4vw,42px) 8px}
@@ -382,7 +406,9 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
 
         <h2>五 · 这个页面怎么用</h2>
         <ul class="rules">
-          <li><b>抽题</b>点「入座抽题」，自动抽出三选择、两填空、一大题；点开答案后可以自评，得分记在右上。</li>
+          <li><b>抽题</b>点「入座抽题」，自动抽出三选择、两填空、一大题；选择题点选项即判对错、当场出解析，答错标红、正解标青。</li>
+          <li><b>连跳</b>想一个人一直刷下去，就打开右上「答对连跳」，答对自动进入下一题。</li>
+          <li><b>记分</b>得分在右上，选择题答对得 2 分；填空、大题开卷后自评。六题走完出成绩。</li>
           <li><b>题库</b>「题库」里可按分类、题型查找，也可以搜关键词；「全显答案」供主持人一次性核对。</li>
           <li><b>记号</b>选项以「甲乙丙丁」标示，对应答案册里的 A、B、C、D。</li>
           <li><b>打印</b>浏览器打印时，答案与解析会自动展开，可直接印成主持稿。</li>
@@ -4051,7 +4077,7 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
   });
 
   /* ---------------- 抽题 ---------------- */
-  var round = { no: 0, qs: [], idx: 0, score: 0, revealed: false };
+  var round = { no: 0, qs: [], idx: 0, score: 0, revealed: false, cAns: 0, cOk: 0, autoNext: false };
   var used = { choice: new Set(), blank: new Set(), essay: new Set() };
 
   function pick(pool, n, kind) {
@@ -4070,6 +4096,8 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     round.idx = 0;
     round.score = 0;
     round.revealed = false;
+    round.cAns = 0;
+    round.cOk = 0;
     round.qs = []
       .concat(pick(DATA.choices, 3, "choice").map(function (q) {
         return { kind: "choice", q: q, pick: null, got: null, wrote: "" };
@@ -4090,7 +4118,18 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     if (!round.qs.length) return;
     bar.appendChild(el("div", null, "第 <b>" + round.no + "</b> 轮"));
     bar.appendChild(el("div", null, '得分 <b style="color:var(--zhu)">' + round.score + "</b> / " + FULL));
+    if (round.cAns > 0) {
+      bar.appendChild(el("div", "rate", "选择答对 " + round.cOk + " / " + round.cAns));
+    }
     bar.appendChild(el("div", "grow"));
+    var jump = el("button", "chip jump" + (round.autoNext ? " on" : ""), "答对连跳");
+    jump.type = "button";
+    jump.title = "答对后自动进入下一题";
+    jump.addEventListener("click", function () {
+      round.autoNext = !round.autoNext;
+      jump.classList.toggle("on", round.autoNext);
+    });
+    bar.appendChild(jump);
     var dots = el("div", "dots");
     round.qs.forEach(function (x, i) {
       var c = "dot";
@@ -4100,6 +4139,13 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     });
     bar.appendChild(dots);
     bar.appendChild(el("div", null, Math.min(round.idx + 1, round.qs.length) + " / " + round.qs.length));
+    /* 进度条：驾考宝典式的一道一道往前走 */
+    var prog = el("div", "rprog");
+    var fill = el("i");
+    var pct = Math.round((Math.min(round.idx, round.qs.length) / round.qs.length) * 100);
+    fill.style.width = pct + "%";
+    prog.appendChild(fill);
+    bar.appendChild(prog);
   }
 
   function renderQ() {
@@ -4166,14 +4212,18 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     card.appendChild(res);
 
     var acts = el("div", "qa-actions");
-    var bReveal = el("button", "btn primary", "开　卷");
-    bReveal.addEventListener("click", reveal);
-    var bNext = el("button", "btn", round.idx === round.qs.length - 1 ? "看结果　→" : "下一题　→");
+    if (kind !== "choice") {
+      var bReveal = el("button", "btn primary", "开　卷");
+      bReveal.dataset.role = "reveal";
+      bReveal.addEventListener("click", reveal);
+      acts.appendChild(bReveal);
+    }
+    var bNext = el("button", "btn" + (kind === "choice" ? " primary" : ""), round.idx === round.qs.length - 1 ? "看结果　→" : "下一题　→");
+    bNext.dataset.role = "next";
     bNext.addEventListener("click", next);
-    acts.appendChild(bReveal);
     acts.appendChild(bNext);
     acts.appendChild(el("div", "grow"));
-    acts.appendChild(el("div", "qa-hint", kind === "choice" ? "可按键 1—4 选择，空格开卷" : "回车开卷"));
+    acts.appendChild(el("div", "qa-hint", kind === "choice" ? "点选项即判，键 1—4 也行" : "回车开卷"));
     card.appendChild(acts);
 
     host.appendChild(card);
@@ -4205,13 +4255,22 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
 
   /* 已开卷/已选择的状态回填（重绘后不丢） */
   function applyState(card, cur) {
-    var reveal = $(".qa-actions .btn.primary", card);
+    var reveal = $('[data-role="reveal"]', card);
     if (reveal) { reveal.disabled = round.revealed; reveal.textContent = round.revealed ? "已开卷" : "开　卷"; }
+    var nextBtn = $('[data-role="next"]', card);
+    if (nextBtn && round.revealed) nextBtn.classList.add("primary");
 
     if (round.revealed) {
       var res = $(".res", card);
       if (res) {
         res.classList.add("on");
+        if (cur.kind === "choice") {
+          var v = el("p", "verdict " + (cur.got > 0 ? "ok" : "no"));
+          v.innerHTML = cur.got > 0
+            ? '<b>答对了</b><span>+' + cur.got + ' 分</span>'
+            : '<b>答错了</b><span>本题 0 分</span>';
+          res.insertBefore(v, res.firstChild);
+        }
         if (cur.kind === "blank" && cur.wrote) {
           var p = el("p", "note", "<b>你写</b>　" + esc(cur.wrote));
           p.style.color = "var(--ink-3)";
@@ -4244,8 +4303,8 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
         $(".opts", card).classList.add("locked");
         o.forEach(function (li, j) {
           li.classList.remove("sel");
-          if (j === right) { li.classList.add("right"); li.appendChild(el("span", "flag", "正解")); }
-          else if (String(j) === String(cur.pick)) { li.classList.add("wrong"); li.appendChild(el("span", "flag", "错选")); }
+          if (j === right) { li.classList.add("right"); li.appendChild(el("span", "flag", "✓ 正解")); }
+          else if (String(j) === String(cur.pick)) { li.classList.add("wrong"); li.appendChild(el("span", "flag", "✗ 错选")); }
         });
       } else if (cur.pick != null) {
         o.forEach(function (li, j) { li.classList.toggle("sel", j === cur.pick); });
@@ -4253,24 +4312,33 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
     }
   }
 
+  /* 驾考宝典式：点选项即刻判对错，当场出解析 */
   function chooseOption(i) {
-    if (round.revealed) return;
     var cur = round.qs[round.idx];
+    if (!cur || round.revealed || cur.kind !== "choice") return;
     cur.pick = i;
-    $$(".opt").forEach(function (li, j) { li.classList.toggle("sel", j === i); });
+    cur.got = i === idxOf(cur.q.ans) ? PTS.choice : 0;
+    round.score += cur.got;
+    round.revealed = true;
+    round.cAns += 1;
+    if (cur.got > 0) round.cOk += 1;
+    renderQ();
+    refreshBar();
+    if (cur.got > 0 && round.autoNext) {
+      var at = round.idx;
+      setTimeout(function () {
+        if (round.autoNext && round.idx === at && round.revealed) next();
+      }, 800);
+    }
   }
 
   function reveal() {
     var cur = round.qs[round.idx];
-    if (!cur || round.revealed) return;
+    if (!cur || round.revealed || cur.kind === "choice") return;
     round.revealed = true;
     if (cur.kind === "blank") {
       var inp = $("#blank-in");
       cur.wrote = inp ? inp.value.trim() : "";
-    }
-    if (cur.kind === "choice" && cur.got == null) {
-      cur.got = String(cur.pick) === String(idxOf(cur.q.ans)) ? PTS.choice : 0;
-      round.score += cur.got;
     }
     renderQ();
     refreshBar();
@@ -4307,7 +4375,8 @@ h1.title .l2{display:block;color:var(--zhu-deep)}
       '<div class="big">' + s + "</div>" +
       '<div class="of">满　分　十　七</div>' +
       '<div class="judge">' + level + "</div>" +
-      '<p class="verse">' + verse + "</p>";
+      '<p class="verse">' + verse + "</p>" +
+      (round.cAns ? '<p class="verse">选择答对　' + round.cOk + " / " + round.cAns + "</p>" : "");
     var acts = el("div", "cover-actions");
     var b1 = el("button", "btn primary", "再来一轮");
     b1.addEventListener("click", newRound);
